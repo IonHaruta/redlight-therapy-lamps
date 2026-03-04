@@ -5,6 +5,7 @@ import DifferentiatorSection from "@/components/DifferentiatorSection";
 import BenefitsSection from "@/components/BenefitsSection";
 import CertificationsSection from "@/components/CertificationsSection";
 import SpecsTableSection from "@/components/SpecsTableSection";
+import AboutSection from "@/components/AboutSection";
 import FAQSection from "@/components/FAQSection";
 import FooterSection from "@/components/FooterSection";
 
@@ -18,6 +19,7 @@ const Index = () => {
       <CertificationsSection />
       <SpecsTableSection />
       <BenefitsSection />
+      <AboutSection />
       <FAQSection />
       <FooterSection />
     </div>
