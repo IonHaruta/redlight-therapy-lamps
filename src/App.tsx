@@ -14,7 +14,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename="/redlight-therapy-lamps">
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/produs/:slug" element={<ProductPage />} />
