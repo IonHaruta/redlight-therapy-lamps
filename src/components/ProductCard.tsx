@@ -39,7 +39,7 @@ const ProductCard = ({ slug, name, description, price, image, features }: Produc
         <div className="flex items-center justify-between">
           <span className="font-display text-2xl font-bold text-primary">{price}</span>
           <Button
-            className="gradient-red text-primary-foreground font-display uppercase tracking-widest text-xs hover:opacity-90"
+            className="font-display uppercase tracking-widest text-xs"
             tabIndex={-1}
           >
             Vezi Detalii
