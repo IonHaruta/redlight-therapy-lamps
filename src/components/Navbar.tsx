@@ -1,26 +1,23 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Menu, X, ShoppingCart, Search, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { homeProductBanners } from "@/data/home-banners";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const links = [
-    { label: "Shop Lights", href: "#produse" },
-    { label: "Learn", href: "#beneficii" },
-    { label: "Reviews", href: "#reviews" },
-    { label: "Community", href: "#community" },
+    ...homeProductBanners.map((b) => ({ label: b.label, to: b.to })),
+    { label: "Star", to: { pathname: "/", hash: "contact" } as const },
   ];
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200">
       <div className="container mx-auto px-4 flex items-center justify-between h-16 gap-4">
         {/* Logo */}
-        <a
-          href="#"
-          className="flex items-center gap-2 shrink-0"
-        >
+        <Link to="/" className="flex items-center gap-2 shrink-0">
           <div className="grid grid-cols-2 gap-0.5 w-5 h-5">
             {[...Array(4)].map((_, i) => (
               <div key={i} className="w-1.5 h-1.5 rounded-sm bg-primary" />
@@ -29,18 +26,18 @@ const Navbar = () => {
           <span className="font-display text-lg font-semibold text-primary tracking-tight">
             Red Light Therapy
           </span>
-        </a>
+        </Link>
 
         {/* Desktop Nav Links */}
         <div className="hidden lg:flex items-center gap-6">
           {links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
+            <Link
+              key={link.label}
+              to={link.to}
               className="text-sm text-gray-700 hover:text-primary transition-colors"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </div>
 
@@ -85,14 +82,14 @@ const Navbar = () => {
             <Input placeholder="Search the store" className="rounded-full" />
           </div>
           {links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
+            <Link
+              key={link.label}
+              to={link.to}
               className="block py-3 text-sm text-gray-700 hover:text-primary"
               onClick={() => setIsOpen(false)}
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </div>
       )}
