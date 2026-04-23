@@ -139,23 +139,9 @@ const HeroSection = () => {
           <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-primary text-glow mb-4">
             Red Light Therapy
           </h1>
-          <p className="text-lg md:text-xl text-white/90 mb-8">
+          <p className="text-lg md:text-xl text-white/90">
             Descoperă puterea luminii roșii pentru sănătate și recuperare
           </p>
-          <div className="flex flex-wrap gap-3">
-            <a
-              href="#produse"
-              className="inline-flex items-center justify-center h-12 px-8 rounded-full bg-white text-black font-medium hover:bg-gray-100 transition-colors"
-            >
-              Shop Now
-            </a>
-            <a
-              href="#quiz"
-              className="inline-flex items-center justify-center h-12 px-8 rounded-full bg-black text-white font-medium hover:bg-black/90 transition-colors"
-            >
-              Take The Quiz
-            </a>
-          </div>
         </div>
       </div>
     </section>

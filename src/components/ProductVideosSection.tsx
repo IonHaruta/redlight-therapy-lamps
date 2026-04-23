@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight, Play } from "lucide-react";
 import { homeProductBanners } from "@/data/home-banners";
@@ -7,63 +8,83 @@ const youtubeEmbedSrc = (videoId: string) =>
 
 const ProductVideosSection = () => {
   return (
-    <section id="produse" className="py-16 md:py-24 bg-gradient-to-b from-secondary/40 via-background to-background scroll-mt-20">
-      <div className="container mx-auto px-4">
-        <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-10 md:mb-12 text-foreground">
-          Descoperă produsele
-        </h2>
+    <section
+      id="produse"
+      className="scroll-mt-20 w-full overflow-x-hidden bg-gradient-to-b from-secondary/30 via-background to-background py-6 md:py-24"
+    >
+      <div className="md:container md:mx-auto md:px-4">
+        <div className="flex flex-col md:grid md:grid-cols-3 md:gap-8">
+          {homeProductBanners.map((item, idx) => (
+            <Fragment key={item.id}>
+              <Link
+                to={item.to}
+                className={[
+                  "group relative block w-full max-w-none overflow-hidden bg-neutral-950",
+                  /* Pe mobil: puțin mai înalt, mai aproape de feed vertical; video mărit ca să „umple” cadrul */
+                  "aspect-[4/5] md:aspect-video",
+                  "rounded-none md:rounded-2xl",
+                  "max-md:shadow-none md:shadow-lg md:shadow-black/5 md:ring-1 md:ring-black/[0.06]",
+                  "transition-all duration-300 ease-out",
+                  "md:hover:shadow-2xl md:hover:shadow-primary/10 md:hover:-translate-y-1.5 md:hover:ring-primary/25",
+                  "active:scale-[0.99] max-md:active:scale-[0.995] transition-transform",
+                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary",
+                  "focus-visible:ring-offset-2 md:focus-visible:ring-offset-background max-md:focus-visible:ring-offset-0",
+                ].join(" ")}
+              >
+                <div className="absolute inset-0 overflow-hidden">
+                  <iframe
+                    title={item.subtitle}
+                    src={youtubeEmbedSrc(item.youtubeId)}
+                    className={[
+                      "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border-0 pointer-events-none",
+                      "transition-transform duration-500 ease-out md:group-hover:scale-[1.03]",
+                      /* Crop mai agresiv pe mobil = mai puține „bare” laterale din player */
+                      "h-[145%] w-[145%] max-md:h-[165%] max-md:w-[165%]",
+                    ].join(" ")}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  />
+                </div>
 
-        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
-          {homeProductBanners.map((item) => (
-            <Link
-              key={item.id}
-              to={item.to}
-              className="group relative aspect-[16/10] md:aspect-video rounded-2xl overflow-hidden bg-muted block shadow-lg shadow-black/5 ring-1 ring-black/[0.06] transition-all duration-300 ease-out hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1.5 hover:ring-primary/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-            >
-              <div className="absolute inset-0 overflow-hidden">
-                <iframe
-                  title={item.label}
-                  src={youtubeEmbedSrc(item.youtubeId)}
-                  className="absolute top-1/2 left-1/2 h-[125%] w-[125%] -translate-x-1/2 -translate-y-1/2 border-0 pointer-events-none transition-transform duration-500 ease-out group-hover:scale-[1.03]"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                />
-              </div>
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-black/55 to-black/25 md:via-black/45 md:to-black/15" />
+                <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/[0.07] md:rounded-2xl" />
 
-              {/* Vignette + gradient */}
-              <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black via-black/45 to-black/15 md:to-transparent" />
-              <div className="absolute inset-0 pointer-events-none ring-1 ring-inset ring-white/10 rounded-2xl" />
+                <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 max-md:opacity-0 md:group-hover:opacity-100">
+                  <span className="flex h-14 w-14 scale-90 items-center justify-center rounded-full bg-white/20 text-white shadow-lg ring-2 ring-white/35 backdrop-blur-md transition-transform duration-300 md:group-hover:scale-100">
+                    <Play className="ml-0.5 h-6 w-6 text-white" strokeWidth={2} />
+                  </span>
+                </div>
 
-              {/* Center play hint */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur-md ring-2 ring-white/40 shadow-lg scale-90 group-hover:scale-100 transition-transform duration-300">
-                  <Play className="h-6 w-6 text-white ml-0.5" strokeWidth={2} />
-                </span>
-              </div>
+                <div className="pointer-events-none absolute right-4 top-4 opacity-0 transition-all duration-300 translate-y-1 md:group-hover:translate-y-0 md:group-hover:opacity-100">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-black/40 text-white/95 ring-1 ring-white/25 backdrop-blur-sm">
+                    <ArrowUpRight className="h-4 w-4" />
+                  </span>
+                </div>
 
-              {/* Top label chip */}
-              <div className="absolute top-4 left-4 right-4 flex items-start justify-between gap-2 pointer-events-none">
-                <span className="inline-flex items-center rounded-full bg-primary px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-primary-foreground shadow-md">
-                  {item.label}
-                </span>
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-black/35 text-white/95 backdrop-blur-sm ring-1 ring-white/20 opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
-                  <ArrowUpRight className="h-4 w-4" />
-                </span>
-              </div>
-
-              {/* Bottom copy */}
-              <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6 pointer-events-none">
-                <h3 className="font-display text-xl md:text-2xl font-bold text-white tracking-tight drop-shadow-md">
-                  {item.label}
-                </h3>
-                <p className="mt-1 text-sm text-white/80 leading-snug max-w-[95%]">
-                  {item.subtitle}
-                </p>
-                <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-white group-hover:gap-2.5 transition-all">
-                  Vezi produsul
-                  <ArrowUpRight className="h-4 w-4 opacity-90" />
-                </span>
-              </div>
-            </Link>
+                <div className="pointer-events-none absolute bottom-0 left-0 right-0 p-5 md:p-6">
+                  <p className="font-display text-xl font-bold leading-tight tracking-tight text-white text-balance drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] md:text-2xl">
+                    {item.subtitle}
+                  </p>
+                  <span className="mt-4 inline-flex items-center gap-2 rounded-full bg-white/12 px-4 py-2 text-sm font-semibold text-white shadow-[0_4px_24px_rgba(0,0,0,0.35)] ring-1 ring-white/20 backdrop-blur-md transition-all duration-300 md:group-hover:bg-white/18 md:group-hover:ring-white/30">
+                    Vezi produsul
+                    <ArrowUpRight className="h-4 w-4 opacity-95" />
+                  </span>
+                </div>
+              </Link>
+              {idx < homeProductBanners.length - 1 ? (
+                <div
+                  className="flex w-full shrink-0 flex-col bg-background md:hidden"
+                  aria-hidden
+                >
+                  <div className="h-7 w-full" />
+                  <div className="flex justify-center px-6">
+                    <div
+                      className="h-[3px] w-full max-w-[min(100%,20rem)] rounded-full bg-gradient-to-r from-transparent via-primary to-transparent shadow-[0_0_16px_hsl(var(--primary)/0.4)]"
+                    />
+                  </div>
+                  <div className="h-7 w-full" />
+                </div>
+              ) : null}
+            </Fragment>
           ))}
         </div>
       </div>
