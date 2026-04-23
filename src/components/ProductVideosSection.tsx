@@ -12,17 +12,17 @@ const ProductVideosSection = () => {
       id="produse"
       className="scroll-mt-20 w-full overflow-x-hidden bg-gradient-to-b from-secondary/30 via-background to-background py-6 md:py-24"
     >
-      <div className="md:container md:mx-auto md:px-4">
-        <div className="flex flex-col md:grid md:grid-cols-3 md:gap-8">
+      <div className="mx-auto w-full min-w-0 px-0 md:px-5 lg:px-6 xl:px-8">
+        <div className="flex flex-col md:grid md:grid-cols-3 md:gap-4 lg:gap-5 xl:gap-6">
           {homeProductBanners.map((item, idx) => (
             <Fragment key={item.id}>
               <Link
                 to={item.to}
                 className={[
                   "group relative block w-full max-w-none overflow-hidden bg-neutral-950",
-                  /* Pe mobil: puțin mai înalt, mai aproape de feed vertical; video mărit ca să „umple” cadrul */
-                  "aspect-[4/5] md:aspect-video",
-                  "rounded-none md:rounded-2xl",
+                  /* Mobil: feed vertical. Desktop: bandă aproape full-bleed; la xl pătrat = maxim înălțime pe coloană */
+                  "aspect-[4/5] md:aspect-[4/3] lg:aspect-[5/4] xl:aspect-square",
+                  "rounded-none md:rounded-2xl lg:rounded-3xl",
                   "max-md:shadow-none md:shadow-lg md:shadow-black/5 md:ring-1 md:ring-black/[0.06]",
                   "transition-all duration-300 ease-out",
                   "md:hover:shadow-2xl md:hover:shadow-primary/10 md:hover:-translate-y-1.5 md:hover:ring-primary/25",
@@ -38,8 +38,8 @@ const ProductVideosSection = () => {
                     className={[
                       "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border-0 pointer-events-none",
                       "transition-transform duration-500 ease-out md:group-hover:scale-[1.03]",
-                      /* Crop mai agresiv pe mobil = mai puține „bare” laterale din player */
-                      "h-[145%] w-[145%] max-md:h-[165%] max-md:w-[165%]",
+                      "max-md:h-[165%] max-md:w-[165%]",
+                      "md:h-[158%] md:w-[158%] lg:h-[162%] lg:w-[162%] xl:h-[168%] xl:w-[168%]",
                     ].join(" ")}
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   />
@@ -60,11 +60,11 @@ const ProductVideosSection = () => {
                   </span>
                 </div>
 
-                <div className="pointer-events-none absolute bottom-0 left-0 right-0 p-5 md:p-6">
-                  <p className="font-display text-xl font-bold leading-tight tracking-tight text-white text-balance drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] md:text-2xl">
+                <div className="pointer-events-none absolute bottom-0 left-0 right-0 p-5 md:p-7 lg:p-8">
+                  <p className="font-display text-xl font-bold leading-tight tracking-tight text-white text-balance drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] md:text-2xl lg:text-[1.75rem] xl:text-3xl">
                     {item.subtitle}
                   </p>
-                  <span className="mt-4 inline-flex items-center gap-2 rounded-full bg-white/12 px-4 py-2 text-sm font-semibold text-white shadow-[0_4px_24px_rgba(0,0,0,0.35)] ring-1 ring-white/20 backdrop-blur-md transition-all duration-300 md:group-hover:bg-white/18 md:group-hover:ring-white/30">
+                  <span className="mt-4 inline-flex items-center gap-2 rounded-full bg-white/12 px-4 py-2 text-sm font-semibold text-white shadow-[0_4px_24px_rgba(0,0,0,0.35)] ring-1 ring-white/20 backdrop-blur-md transition-all duration-300 md:mt-5 md:px-5 md:py-2.5 md:text-base md:group-hover:bg-white/18 md:group-hover:ring-white/30">
                     Vezi produsul
                     <ArrowUpRight className="h-4 w-4 opacity-95" />
                   </span>
@@ -76,9 +76,9 @@ const ProductVideosSection = () => {
                   aria-hidden
                 >
                   <div className="h-7 w-full" />
-                  <div className="flex justify-center px-6">
+                  <div className="w-full px-0">
                     <div
-                      className="h-[3px] w-full max-w-[min(100%,20rem)] rounded-full bg-gradient-to-r from-transparent via-primary to-transparent shadow-[0_0_16px_hsl(var(--primary)/0.4)]"
+                      className="h-[3px] w-full bg-gradient-to-r from-primary/20 via-primary to-primary/20 shadow-[0_0_16px_hsl(var(--primary)/0.35)]"
                     />
                   </div>
                   <div className="h-7 w-full" />
