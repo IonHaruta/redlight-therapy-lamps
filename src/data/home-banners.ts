@@ -11,11 +11,11 @@ export interface HomeProductBanner {
 /** Etichete demo în UI; linkurile duc la produsele reale din magazin. */
 export const homeProductBanners: HomeProductBanner[] = [
   {
-    id: "produs-1",
-    label: "Produs 1",
-    subtitle: "BIOMAX 900 · panou full-body",
+    id: "therapy-masks",
+    label: "Therapy Masks",
+    subtitle: "Advanced LED Light Therapy Masks",
     youtubeId: "U2JulLyhQ6U",
-    to: "/produs/biomax-900",
+    to: "/masti",
   },
   {
     id: "produs-2",

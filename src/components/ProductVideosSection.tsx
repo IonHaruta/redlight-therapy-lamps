@@ -2,11 +2,18 @@ import { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight, Play } from "lucide-react";
 import { homeProductBanners } from "@/data/home-banners";
+import { useLocale } from "@/context/LocaleContext";
+import { getSiteCopy } from "@/i18n/site";
+
+type BannerId = "therapy-masks" | "produs-2" | "produs-3";
 
 const youtubeEmbedSrc = (videoId: string) =>
   `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=0&playsinline=1&modestbranding=1&rel=0`;
 
 const ProductVideosSection = () => {
+  const { locale } = useLocale();
+  const t = getSiteCopy(locale);
+
   return (
     <section
       id="produse"
@@ -33,7 +40,7 @@ const ProductVideosSection = () => {
               >
                 <div className="absolute inset-0 overflow-hidden">
                   <iframe
-                    title={item.subtitle}
+                    title={t.homeBanners[item.id as BannerId].subtitle}
                     src={youtubeEmbedSrc(item.youtubeId)}
                     className={[
                       "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border-0 pointer-events-none",
@@ -62,10 +69,10 @@ const ProductVideosSection = () => {
 
                 <div className="pointer-events-none absolute bottom-0 left-0 right-0 p-5 md:p-7 lg:p-8">
                   <p className="font-display text-xl font-bold leading-tight tracking-tight text-white text-balance drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] md:text-2xl lg:text-[1.75rem] xl:text-3xl">
-                    {item.subtitle}
+                    {t.homeBanners[item.id as BannerId].subtitle}
                   </p>
                   <span className="mt-4 inline-flex items-center gap-2 rounded-full bg-white/12 px-4 py-2 text-sm font-semibold text-white shadow-[0_4px_24px_rgba(0,0,0,0.35)] ring-1 ring-white/20 backdrop-blur-md transition-all duration-300 md:mt-5 md:px-5 md:py-2.5 md:text-base md:group-hover:bg-white/18 md:group-hover:ring-white/30">
-                    Vezi produsul
+                    {t.seeProduct}
                     <ArrowUpRight className="h-4 w-4 opacity-95" />
                   </span>
                 </div>

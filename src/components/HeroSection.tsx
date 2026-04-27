@@ -1,5 +1,7 @@
 import { useRef, useState, useEffect, useCallback } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useLocale } from "@/context/LocaleContext";
+import { getSiteCopy } from "@/i18n/site";
 
 const HERO_VIDEOS = ["U2JulLyhQ6U", "YG-svcr1u8c"];
 
@@ -11,6 +13,8 @@ declare global {
 }
 
 const HeroSection = () => {
+  const { locale } = useLocale();
+  const t = getSiteCopy(locale);
   const containerRef = useRef<HTMLDivElement>(null);
   const playerRef = useRef<YT.Player | null>(null);
   const currentIndexRef = useRef(0);
@@ -107,14 +111,14 @@ const HeroSection = () => {
       <button
         onClick={goToPrev}
         className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition-colors"
-        aria-label="Video anterior"
+        aria-label={t.hero.prevVideo}
       >
         <ChevronLeft className="h-6 w-6" />
       </button>
       <button
         onClick={goToNext}
         className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition-colors"
-        aria-label="Video următor"
+        aria-label={t.hero.nextVideo}
       >
         <ChevronRight className="h-6 w-6" />
       </button>
@@ -128,7 +132,7 @@ const HeroSection = () => {
             className={`w-2.5 h-2.5 rounded-full transition-colors ${
               index === currentIndex ? "bg-white" : "bg-white/50 hover:bg-white/70"
             }`}
-            aria-label={`Video ${index + 1}`}
+            aria-label={`${t.hero.videoDot} ${index + 1}`}
           />
         ))}
       </div>
@@ -137,11 +141,9 @@ const HeroSection = () => {
       <div className="relative z-10 container mx-auto px-4 h-full flex items-end pb-20 md:pb-24">
         <div className="max-w-2xl">
           <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-primary text-glow mb-4">
-            Red Light Therapy
+            {t.hero.title}
           </h1>
-          <p className="text-lg md:text-xl text-white/90">
-            Descoperă puterea luminii roșii pentru sănătate și recuperare
-          </p>
+          <p className="text-lg md:text-xl text-white/90">{t.hero.subtitle}</p>
         </div>
       </div>
     </section>

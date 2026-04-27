@@ -2,8 +2,13 @@ import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
+import { useLocale } from "@/context/LocaleContext";
+import { getSiteCopy } from "@/i18n/site";
 
 const PrivacyPage = () => {
+  const { locale } = useLocale();
+  const t = getSiteCopy(locale);
+
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <Navbar />
@@ -14,24 +19,20 @@ const PrivacyPage = () => {
             className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary text-sm mb-8"
           >
             <ArrowLeft className="w-4 h-4" />
-            Înapoi la pagina principală
+            {t.legal.backHome}
           </Link>
           <h1 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">
-            Politică de confidențialitate
+            {t.legal.privacyTitle}
           </h1>
           <div className="max-w-none text-muted-foreground space-y-4 text-sm leading-relaxed">
-            <p>
-              Respectăm confidențialitatea datelor dumneavoastră personale. Această politică descrie
-              în linii mari ce tipuri de informații pot fi colectate prin site și în ce scopuri pot
-              fi folosite, în conformitate cu practicile uzuale pentru magazine online.
-            </p>
-            <h2 id="module-cookies" className="text-foreground text-base font-semibold scroll-mt-28 pt-2">
-              Module cookie
+            <p>{t.legal.privacyP1}</p>
+            <h2
+              id="module-cookies"
+              className="text-foreground text-base font-semibold scroll-mt-28 pt-2"
+            >
+              {t.legal.cookiesTitle}
             </h2>
-            <p>
-              Site-ul poate folosi cookie-uri esențiale pentru funcționare și, după caz, cookie-uri
-              analitice. Puteți gestiona preferințele din setările browserului dumneavoastră.
-            </p>
+            <p>{t.legal.cookiesP}</p>
           </div>
         </div>
       </main>

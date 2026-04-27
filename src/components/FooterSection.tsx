@@ -1,9 +1,14 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Facebook, Instagram } from "lucide-react";
+import { useLocale } from "@/context/LocaleContext";
+import { getSiteCopy } from "@/i18n/site";
 
 const base = import.meta.env.BASE_URL;
 
 const FooterSection = () => {
+  const { locale } = useLocale();
+  const t = getSiteCopy(locale);
+
   return (
     <footer
       id="contact"
@@ -11,7 +16,6 @@ const FooterSection = () => {
     >
       <div className="container mx-auto px-4 py-14 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-10 lg:gap-12 xl:gap-16">
-          {/* Brand */}
           <div className="max-w-md md:col-span-2 lg:col-span-1">
             <Link
               to="/"
@@ -23,10 +27,7 @@ const FooterSection = () => {
                 .md
               </span>
             </Link>
-            <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-              Distribuitor de dispozitive pentru terapia cu lumină roșie în Republica Moldova.
-              Produse pentru sănătate și recuperare, cu suport local.
-            </p>
+            <p className="text-muted-foreground text-sm leading-relaxed mb-6">{t.footer.tagline}</p>
             <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
               <a
                 href="https://facebook.com"
@@ -70,10 +71,9 @@ const FooterSection = () => {
             </div>
           </div>
 
-          {/* Navigare */}
           <div>
             <h4 className="font-display text-sm font-bold uppercase tracking-widest text-foreground mb-4">
-              Navigare
+              {t.footer.navTitle}
             </h4>
             <ul className="space-y-2.5 text-sm text-muted-foreground">
               <li>
@@ -81,7 +81,7 @@ const FooterSection = () => {
                   to={{ pathname: "/", hash: "produse" }}
                   className="hover:text-primary transition-colors"
                 >
-                  Produse
+                  {t.footer.products}
                 </Link>
               </li>
               <li>
@@ -89,7 +89,7 @@ const FooterSection = () => {
                   to={{ pathname: "/", hash: "beneficii" }}
                   className="hover:text-primary transition-colors"
                 >
-                  Beneficii
+                  {t.footer.benefits}
                 </Link>
               </li>
               <li>
@@ -97,7 +97,7 @@ const FooterSection = () => {
                   to={{ pathname: "/", hash: "despre" }}
                   className="hover:text-primary transition-colors"
                 >
-                  Despre noi
+                  {t.footer.about}
                 </Link>
               </li>
               <li>
@@ -105,21 +105,20 @@ const FooterSection = () => {
                   to={{ pathname: "/", hash: "contact" }}
                   className="hover:text-primary transition-colors"
                 >
-                  Contact
+                  {t.footer.contact}
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Legal */}
           <div>
             <h4 className="font-display text-sm font-bold uppercase tracking-widest text-foreground mb-4">
-              Legal
+              {t.footer.legalTitle}
             </h4>
             <ul className="space-y-2.5 text-sm text-muted-foreground">
               <li>
                 <Link to="/termeni-si-conditii" className="hover:text-primary transition-colors">
-                  Termeni și condiții
+                  {t.footer.terms}
                 </Link>
               </li>
               <li>
@@ -127,7 +126,7 @@ const FooterSection = () => {
                   to="/politica-de-confidentialitate"
                   className="hover:text-primary transition-colors"
                 >
-                  Politică de confidențialitate
+                  {t.footer.privacy}
                 </Link>
               </li>
               <li>
@@ -135,16 +134,15 @@ const FooterSection = () => {
                   to="/politica-de-confidentialitate#module-cookies"
                   className="hover:text-primary transition-colors"
                 >
-                  Cookies
+                  {t.footer.cookies}
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Contact */}
           <div className="md:col-span-2 lg:col-span-1">
             <h4 className="font-display text-sm font-bold uppercase tracking-widest text-foreground mb-4">
-              Contact
+              {t.footer.contactTitle}
             </h4>
             <div className="space-y-3 text-sm text-muted-foreground">
               <div className="flex items-center gap-3">
@@ -164,14 +162,14 @@ const FooterSection = () => {
               </div>
               <div className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                <span>Chișinău, Republica Moldova</span>
+                <span>{t.footer.location}</span>
               </div>
             </div>
           </div>
         </div>
 
         <p className="text-center text-muted-foreground text-xs mt-12 pt-8 border-t border-border">
-          © 2026. Toate drepturile rezervate.
+          {t.footer.copyright}
         </p>
       </div>
     </footer>
