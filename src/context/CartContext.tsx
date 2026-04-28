@@ -12,13 +12,13 @@ const STORAGE_KEY = "rlt-cart-v1";
 
 export type CartLine = {
   id: string;
-  kind: "mask" | "lamp";
+  kind: "mask" | "lamp" | "accessory";
   slug: string;
   name: string;
   price: string;
   priceValue: number;
   qty: number;
-  /** Mască: path în `public`; lampă: URL-ul imaginii (import Vite) */
+  /** Mască / accesoriu: path în `public`; lampă BIOMAX: URL Vite; lampă FS7: path `public` */
   thumb?: string;
 };
 

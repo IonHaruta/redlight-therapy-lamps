@@ -11,6 +11,10 @@ import TermsPage from "./pages/TermsPage";
 import PrivacyPage from "./pages/PrivacyPage";
 import NotFound from "./pages/NotFound";
 import CartPage from "./pages/CartPage";
+import LampsPage from "./pages/LampsPage";
+import LampProductPage from "./pages/LampProductPage";
+import AccessoriesPage from "./pages/AccessoriesPage";
+import AccessoryProductPage from "./pages/AccessoryProductPage";
 import ScrollToTop from "@/components/ScrollToTop";
 import { LocaleProvider } from "@/context/LocaleContext";
 import { CartProvider } from "@/context/CartContext";
@@ -33,6 +37,10 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/masti" element={<MasksPage />} />
           <Route path="/masti/:slug" element={<MaskProductPage />} />
+          <Route path="/lampi" element={<LampsPage />} />
+          <Route path="/lampi/:slug" element={<LampProductPage />} />
+          <Route path="/accesorii" element={<AccessoriesPage />} />
+          <Route path="/accesorii/:slug" element={<AccessoryProductPage />} />
           <Route path="/produs/:slug" element={<ProductPage />} />
           <Route path="/cos" element={<CartPage />} />
           <Route path="/termeni-si-conditii" element={<TermsPage />} />

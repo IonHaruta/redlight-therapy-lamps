@@ -3,7 +3,7 @@ import type { Locale } from "@/data/masks";
 export type SiteCopy = {
   nav: {
     therapyMasks: string;
-    product2: string;
+    lampsAndAccessories: string;
     product3: string;
     star: string;
   };
@@ -22,12 +22,26 @@ export type SiteCopy = {
     checkoutHint: string;
     contactInstead: string;
   };
-  homeBanners: Record<"therapy-masks" | "produs-2" | "produs-3", { subtitle: string }>;
+  homeBanners: Record<"therapy-masks" | "lamps-accessories" | "produs-3", { subtitle: string }>;
   seeProduct: string;
   masksPage: {
     eyebrow: string;
     title: string;
     seeMask: string;
+  };
+  lampsPage: {
+    eyebrow: string;
+    title: string;
+    lead: string;
+    seeLamp: string;
+    toAccessories: string;
+  };
+  accessoriesPage: {
+    eyebrow: string;
+    title: string;
+    lead: string;
+    seeProduct: string;
+    toLamps: string;
   };
   hero: {
     title: string;
@@ -91,7 +105,7 @@ export const siteCopy: Record<Locale, SiteCopy> = {
   ro: {
     nav: {
       therapyMasks: "Măști terapeutice",
-      product2: "Produs 2",
+      lampsAndAccessories: "Lampi & Accesorii",
       product3: "Produs 3",
       star: "Star",
     },
@@ -115,8 +129,8 @@ export const siteCopy: Record<Locale, SiteCopy> = {
       "therapy-masks": {
         subtitle: "Măști LED avansate pentru terapie cu lumină",
       },
-      "produs-2": {
-        subtitle: "BIO 300 · tratament țintit",
+      "lamps-accessories": {
+        subtitle: "Lampi LED FS7 · panouri profesionale",
       },
       "produs-3": {
         subtitle: "Toată gama de produse",
@@ -127,6 +141,21 @@ export const siteCopy: Record<Locale, SiteCopy> = {
       eyebrow: "Măști terapeutice",
       title: "Măști LED avansate pentru terapie cu lumină",
       seeMask: "Vezi masca",
+    },
+    lampsPage: {
+      eyebrow: "Lampi & accesorii",
+      title: "Lampi LED FS7 și accesorii",
+      lead:
+        "Patru puteri de panou FS7 și accesoriile asociate — același standard de calitate. Videoclip de prezentare pe modelul RD Pro 3000.",
+      seeLamp: "Vezi lampa",
+      toAccessories: "Accesorii",
+    },
+    accessoriesPage: {
+      eyebrow: "Accesorii",
+      title: "Accesorii pentru lampi",
+      lead: "Complemente pentru instalare și utilizare. Descrieri detaliate vor fi adăugate în curând.",
+      seeProduct: "Vezi produsul",
+      toLamps: "Lampi LED",
     },
     hero: {
       title: "Red Light Therapy",
@@ -193,7 +222,7 @@ export const siteCopy: Record<Locale, SiteCopy> = {
   ru: {
     nav: {
       therapyMasks: "Терапевтические маски",
-      product2: "Товар 2",
+      lampsAndAccessories: "Лампы и аксессуары",
       product3: "Товар 3",
       star: "Star",
     },
@@ -217,8 +246,8 @@ export const siteCopy: Record<Locale, SiteCopy> = {
       "therapy-masks": {
         subtitle: "Продвинутые LED-маски для светотерапии",
       },
-      "produs-2": {
-        subtitle: "BIO 300 · точечный уход",
+      "lamps-accessories": {
+        subtitle: "LED-панели FS7 · профессиональные лампы",
       },
       "produs-3": {
         subtitle: "Вся линейка продуктов",
@@ -229,6 +258,21 @@ export const siteCopy: Record<Locale, SiteCopy> = {
       eyebrow: "Терапевтические маски",
       title: "Продвинутые LED-маски для светотерапии",
       seeMask: "Смотреть маску",
+    },
+    lampsPage: {
+      eyebrow: "Лампы и аксессуары",
+      title: "LED-панели FS7 и аксессуары",
+      lead:
+        "Четыре модели панелей FS7 и аксессуары к ним — единый стандарт качества. Видео-презентация на модели RD Pro 3000.",
+      seeLamp: "Смотреть панель",
+      toAccessories: "Аксессуары",
+    },
+    accessoriesPage: {
+      eyebrow: "Аксессуары",
+      title: "Аксессуары для панелей",
+      lead: "Дополнения для монтажа и эксплуатации. Подробные описания будут добавлены позже.",
+      seeProduct: "Смотреть товар",
+      toLamps: "LED-панели",
     },
     hero: {
       title: "Red Light Therapy",

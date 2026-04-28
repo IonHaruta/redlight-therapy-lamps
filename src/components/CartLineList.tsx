@@ -5,14 +5,16 @@ import { useCart } from "@/context/CartContext";
 import { getSiteCopy } from "@/i18n/site";
 import { useLocale } from "@/context/LocaleContext";
 import { publicAssetUrl } from "@/lib/public-asset-url";
+import { cartLineHref } from "@/lib/cart-href";
 
-function lineThumbSrc(kind: "mask" | "lamp", thumb?: string) {
+function lineThumbSrc(
+  line: { kind: string; thumb?: string },
+  thumb?: string,
+) {
   if (!thumb) return undefined;
-  return kind === "mask" ? publicAssetUrl(thumb) : thumb;
-}
-
-function lineHref(kind: "mask" | "lamp", slug: string) {
-  return kind === "mask" ? `/masti/${slug}` : `/produs/${slug}`;
+  if (line.kind === "mask" || line.kind === "accessory") return publicAssetUrl(thumb);
+  if (thumb.startsWith("http") || thumb.includes("/assets/")) return thumb;
+  return publicAssetUrl(thumb);
 }
 
 type CartLineListProps = {
@@ -31,14 +33,15 @@ export function CartLineList({ size = "sm", onProductNavigate }: CartLineListPro
   return (
     <ul className="flex flex-col gap-4 py-4">
       {lines.map((line) => {
-        const src = lineThumbSrc(line.kind, line.thumb);
+        const src = lineThumbSrc(line, line.thumb);
+        const href = cartLineHref(line);
         return (
           <li
             key={line.id}
             className="flex gap-3 rounded-lg border border-border bg-card p-3"
           >
             <Link
-              to={lineHref(line.kind, line.slug)}
+              to={href}
               onClick={onProductNavigate}
               className={`relative shrink-0 overflow-hidden rounded-md bg-secondary ${thumbBox}`}
             >
@@ -52,7 +55,7 @@ export function CartLineList({ size = "sm", onProductNavigate }: CartLineListPro
             </Link>
             <div className="min-w-0 flex-1">
               <Link
-                to={lineHref(line.kind, line.slug)}
+                to={href}
                 onClick={onProductNavigate}
                 className="font-display text-sm font-semibold leading-snug text-foreground hover:text-primary"
               >

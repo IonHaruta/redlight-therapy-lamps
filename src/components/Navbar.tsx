@@ -11,9 +11,9 @@ import { searchCatalog } from "@/data/search-catalog";
 import { useCart } from "@/context/CartContext";
 import { CartDrawer } from "@/components/CartDrawer";
 
-const navKeyByBannerId: Record<string, "therapyMasks" | "product2" | "product3"> = {
+const navKeyByBannerId: Record<string, "therapyMasks" | "lampsAndAccessories" | "product3"> = {
   "therapy-masks": "therapyMasks",
-  "produs-2": "product2",
+  "lamps-accessories": "lampsAndAccessories",
   "produs-3": "product3",
 };
 

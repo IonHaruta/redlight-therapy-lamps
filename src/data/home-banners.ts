@@ -18,11 +18,11 @@ export const homeProductBanners: HomeProductBanner[] = [
     to: "/masti",
   },
   {
-    id: "produs-2",
-    label: "Produs 2",
-    subtitle: "BIO 300 · tratament țintit",
+    id: "lamps-accessories",
+    label: "Lamps & Accessories",
+    subtitle: "Lampi LED FS7 · RD Pro 3000",
     youtubeId: "YG-svcr1u8c",
-    to: "/produs/bio-300",
+    to: "/lampi",
   },
   {
     id: "produs-3",

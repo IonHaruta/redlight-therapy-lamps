@@ -1,9 +1,11 @@
 import type { Locale } from "@/data/masks";
 import { maskProducts } from "@/data/masks";
 import { products } from "@/data/products";
+import { lampProducts } from "@/data/lamps";
+import { accessoryProducts } from "@/data/accessories";
 
 export type CatalogSearchItem = {
-  kind: "mask" | "lamp";
+  kind: "mask" | "lamp" | "lampPanel" | "accessory";
   slug: string;
   /** Rută relativă pentru Link */
   to: string;
@@ -47,12 +49,12 @@ export function getCatalogSearchItems(locale: Locale): CatalogSearchItem[] {
     };
   });
 
-  const lamps: CatalogSearchItem[] = products.map((p) => {
+  const lampPanels: CatalogSearchItem[] = products.map((p) => {
     const haystack = [p.name, p.subtitle, p.description, p.slug, "lampa", "панель", "bio"]
       .map(norm)
       .join(" ");
     return {
-      kind: "lamp",
+      kind: "lampPanel",
       slug: p.slug,
       to: `/produs/${p.slug}`,
       title: p.name,
@@ -62,7 +64,51 @@ export function getCatalogSearchItems(locale: Locale): CatalogSearchItem[] {
     };
   });
 
-  return [...masks, ...lamps];
+  const lampsFs7: CatalogSearchItem[] = lampProducts.map((l) => {
+    const tr = l.translations[locale];
+    const haystack = [
+      l.name,
+      tr.title,
+      tr.modelShort,
+      tr.subtitle,
+      l.slug,
+      "lampa",
+      "lampi",
+      "fs7",
+      "rd pro",
+      "панель",
+      "ламп",
+    ]
+      .map(norm)
+      .join(" ");
+    return {
+      kind: "lamp",
+      slug: l.slug,
+      to: `/lampi/${l.slug}`,
+      title: tr.title,
+      subtitle: tr.modelShort,
+      price: l.price,
+      haystack,
+    };
+  });
+
+  const accessories: CatalogSearchItem[] = accessoryProducts.map((a) => {
+    const tr = a.translations[locale];
+    const haystack = [a.name, tr.title, tr.modelShort, tr.subtitle, a.slug, "accesoriu", "аксессуар"]
+      .map(norm)
+      .join(" ");
+    return {
+      kind: "accessory",
+      slug: a.slug,
+      to: `/accesorii/${a.slug}`,
+      title: tr.title,
+      subtitle: tr.modelShort,
+      price: a.price,
+      haystack,
+    };
+  });
+
+  return [...masks, ...lampPanels, ...lampsFs7, ...accessories];
 }
 
 export function searchCatalog(locale: Locale, query: string, limit = 8): CatalogSearchItem[] {

@@ -18,12 +18,26 @@ export interface MaskTranslation {
   highlights: string[];
   benefitsTitle: string;
   benefits: string[];
+  /** Paragraf sub titlul beneficiilor (înainte de listă), ex. pagină spectru. */
+  benefitsIntro?: string;
+  /** Subtitlu înainte de lista de beneficii, ex. „Разбор длин волн”. */
+  benefitsListHeading?: string;
   usageTitle: string;
   usage: string[];
+  /** Bloc tehnic „10 ani / LED / sursă / ventilatoare / certificări” (opțional). */
+  engineeringTitle?: string;
+  engineering?: string[];
+  /** Indicatori cheie (jos-4), opțional. */
+  metricsTitle?: string;
+  metrics?: string[];
   includedTitle?: string;
   included?: string[];
   applicationsTitle?: string;
   applications?: string[];
+  /** Sub-titlu accent (roșu) sub titlul de secțiune centrat — pagini „clean”. */
+  applicationsLead?: string;
+  /** Propoziție introductivă bold / lead înainte de listă — pagini „clean”. */
+  applicationsIntro?: string;
   /** Recenzii / citate utilizatori (opțional). */
   testimonialsTitle?: string;
   testimonials?: string[];
