@@ -94,7 +94,28 @@ export function getCatalogSearchItems(locale: Locale): CatalogSearchItem[] {
 
   const accessories: CatalogSearchItem[] = accessoryProducts.map((a) => {
     const tr = a.translations[locale];
-    const haystack = [a.name, tr.title, tr.modelShort, tr.subtitle, a.slug, "accesoriu", "аксессуар"]
+    const featureText = tr.features?.map((f) => `${f.title} ${f.body}`).join(" ") ?? "";
+    const specsText =
+      tr.specsRows?.map((r) => `${r.label} ${r.value}`).join(" ") ?? "";
+    const detailText =
+      tr.detailBands
+        ?.map((band) => `${band.title} ${band.bullets.map((b) => `${b.title} ${b.body}`).join(" ")}`)
+        .join(" ") ?? "";
+    const haystack = [
+      a.name,
+      tr.title,
+      tr.modelShort,
+      tr.subtitle,
+      tr.description,
+      tr.featuresTitle ?? "",
+      featureText,
+      tr.specsTableTitle ?? "",
+      specsText,
+      detailText,
+      a.slug,
+      "accesoriu",
+      "аксессуар",
+    ]
       .map(norm)
       .join(" ");
     return {
