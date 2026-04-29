@@ -53,6 +53,8 @@ export interface AccessoryProduct {
   priceValue: number;
   media: MaskMedia[];
   translations: Record<Locale, AccessoryTranslation>;
+  /** Grid lampi & accesorii: „cover” umple cadrul fără bare laterale; implicit „contain”. */
+  listingCardImageFit?: "contain" | "cover";
 }
 
 export const accessoryProducts: AccessoryProduct[] = [
@@ -302,6 +304,7 @@ export const accessoryProducts: AccessoryProduct[] = [
     name: "RD30",
     price: "€100",
     priceValue: 100,
+    listingCardImageFit: "cover",
     media: [
       { type: "image", path: "accesorii/RD/rd30-1.png", alt: "RD30" },
       { type: "image", path: "accesorii/RD/rd30-2.png", alt: "RD30" },
