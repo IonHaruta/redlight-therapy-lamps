@@ -99,7 +99,15 @@ export function getCatalogSearchItems(locale: Locale): CatalogSearchItem[] {
       tr.specsRows?.map((r) => `${r.label} ${r.value}`).join(" ") ?? "";
     const detailText =
       tr.detailBands
-        ?.map((band) => `${band.title} ${band.bullets.map((b) => `${b.title} ${b.body}`).join(" ")}`)
+        ?.map((band) =>
+          [
+            band.eyebrow ?? "",
+            band.title,
+            band.titleSupplement ?? "",
+            band.bullets?.map((b) => `${b.title} ${b.body}`).join(" ") ?? "",
+            band.paragraphs?.join(" ") ?? "",
+          ].join(" "),
+        )
         .join(" ") ?? "";
     const haystack = [
       a.name,
@@ -109,6 +117,7 @@ export function getCatalogSearchItems(locale: Locale): CatalogSearchItem[] {
       tr.description,
       tr.featuresTitle ?? "",
       featureText,
+      tr.specsTableLead ?? "",
       tr.specsTableTitle ?? "",
       specsText,
       detailText,

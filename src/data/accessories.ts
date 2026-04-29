@@ -1,11 +1,29 @@
 import type { Locale, MaskMedia } from "./masks";
 
 export interface AccessoryDetailBand {
-  imagePath: string;
+  imagePath?: string;
+  /** A doua imagine, lipită de prima (fără gap), aceeași înălțime. */
+  splitImagePath?: string;
   /** `true` = text stânga, imagine dreapta (desktop). */
   mediaOnRight?: boolean;
+  /** Linie deasupra titlului (ex. slogan produs). */
+  eyebrow?: string;
+  /** Eyebrow ca titlu centrat + linie roșie; apoi grilă cu text (titlu roșu + listă). */
+  centeredHeadlineRule?: boolean;
   title: string;
-  bullets: { title: string; body: string }[];
+  /** Titlu centrat deasupra grilei; coloana text afișează doar lista. */
+  titleCentered?: boolean;
+  /** Subtitlu roșu sub titlul centrat (ex. „Cum oferă RD30…”). */
+  titleSupplement?: string;
+  /** `disc` = listă cu puncte; implicit bifă. */
+  bulletStyle?: "check" | "disc";
+  /** Dacă true, banda se afișează după tabelul de specificații. */
+  afterSpecs?: boolean;
+  /** Secțiune numai text (fără imagine); folosește `paragraphs`. */
+  textOnly?: boolean;
+  /** Paragrafe afișate sub titlu (fără bifă). */
+  paragraphs?: string[];
+  bullets?: { title: string; body: string }[];
 }
 
 export interface AccessoryTranslation {
@@ -17,6 +35,8 @@ export interface AccessoryTranslation {
   featuresTitle?: string;
   /** Blocuri titlu + descriere afișate sub descrierea principală. */
   features?: { title: string; body: string }[];
+  /** Paragraf opțional deasupra titlului tabelului (ex. linie „premium”). */
+  specsTableLead?: string;
   /** Tabel specificații (rânduri duplicate etichetă permise). */
   specsTableTitle?: string;
   specsColumnFeature?: string;
@@ -292,18 +312,315 @@ export const accessoryProducts: AccessoryProduct[] = [
     ],
     translations: {
       ro: {
-        title: "RD30",
+        title:
+          "RD30 este o lampă facială fotonică LED miniaturală de 36W pentru terapia cu lumină roșie.",
         modelShort: "RD30",
-        subtitle: "Detalii în curând",
+        subtitle: "",
         description:
-          "Descrierea completă în română va fi adăugată. Poți selecta alte accesorii din gamă sau ne poți scrie pentru detalii.",
+          "Lumină roșie puternică de 660 nm și lumină în infraroșu apropiat de 850 nm. RD30 oferă energie concentrată, promovând reînnoirea vizibilă a pielii și ameliorând eficient durerea, țintind cu precizie zonele în care este cea mai mare nevoie.",
+        featuresTitle: "Caracteristici / Beneficii cheie",
+        features: [
+          {
+            title: "Sinergia a două lungimi de undă",
+            body: "660 nm pentru piele + 850 nm pentru țesut.",
+          },
+          {
+            title: "Putere mare",
+            body: "12 LED-uri de 3W pentru o terapie eficientă și țintită.",
+          },
+          {
+            title: "Utilizare preconizată",
+            body: "Design compact pentru tratament de înaltă precizie.",
+          },
+          {
+            title: "Garanție de 3 ani",
+            body: "Durabilitate garantată la nivel profesional.",
+          },
+        ],
+        specsTableLead:
+          "Calitate premium, posibilitate de personalizare pentru marca dvs.",
+        specsTableTitle: "Specificații",
+        specsColumnFeature: "Caracteristică",
+        specsColumnValue: "Specificație",
+        specsRows: [
+          { label: "Număr model", value: "RD30" },
+          {
+            label: "Lungimi de undă",
+            value: "660 nm (roșu), 850 nm (infraroșu apropiat)",
+          },
+          { label: "Număr LED", value: "12x3W" },
+          {
+            label: "Cip produs",
+            value:
+              "Chip unic (cu posibilitatea de a personaliza arhitectura multi-cip)",
+          },
+          { label: "Dimensiunea panoului LED", value: "14x12 cm" },
+          { label: "Culoare", value: "Alb" },
+          { label: "Putere", value: "36W" },
+          {
+            label: "Funcție principală",
+            value:
+              "Pierdere în greutate / Ameliorarea durerii / Reducerea inflamației",
+          },
+          { label: "Suport baterie externă", value: "Nu" },
+          { label: "Greutate netă", value: "Aproximativ 360 g" },
+          { label: "Durata de viață a LED-ului", value: "Până la 50.000 de ore" },
+          { label: "Garanție", value: "1 an" },
+          { label: "Certificări", value: "CE, ROHS, FDA" },
+          { label: "Mediu de funcționare", value: "-10°~45°C" },
+          {
+            label: "Accesorii",
+            value:
+              "Dispozitiv RD30 / cablu de alimentare / ochelari de protecție / manual de instrucțiuni",
+          },
+        ],
+        detailBands: [
+          {
+            imagePath: "accesorii/RD/rd30-jos-1.jpg",
+            mediaOnRight: false,
+            centeredHeadlineRule: true,
+            bulletStyle: "disc",
+            eyebrow: "Lampă facială mini RD30 LED de 36W cu foton și lumină roșie.",
+            title: "Nu mai face compromisuri cu soluții ineficiente.",
+            bullets: [
+              {
+                title: "Ești frustrat de liniile fine, petele și un ten tern?",
+                body: "",
+              },
+              {
+                title:
+                  "Te-ai săturat de durerile musculare constante, rigiditatea articulațiilor și recuperarea lentă?",
+                body: "",
+              },
+            ],
+          },
+          {
+            imagePath: "accesorii/RD/rd30-jos-2.jpg",
+            mediaOnRight: true,
+            titleCentered: true,
+            title: "Aplicare țintită – Aliatul corpului tău",
+            titleSupplement: "Cum oferă RD30 rezultate profesionale",
+            bullets: [
+              {
+                title: "Reîntinerire a suprafeței pielii (660 nm)",
+                body: "Lumina roșie cu o lungime de undă de 660 nm este absorbită de piele, promovând producția de colagen, reducând ridurile și îmbunătățind sănătatea generală a pielii.",
+              },
+              {
+                title: "Reparare profundă (850 nm)",
+                body: "Lumina infraroșie invizibilă cu o lungime de undă de 850 nm pătrunde mai adânc, ajutând la reducerea inflamației, accelerarea recuperării musculare și ameliorarea durerilor articulare.",
+              },
+            ],
+          },
+          {
+            imagePath: "accesorii/RD/rd30-jos-3.jpg",
+            mediaOnRight: false,
+            title: "Parte din avantaj",
+            bullets: [
+              {
+                title: "Eficiență țintită",
+                body: "Capul compact de 14x12 cm concentrează toți cei 36 W de putere pe o anumită zonă, prevenind pierderile de energie și asigurând rezultate maxime.",
+              },
+              {
+                title: "Construit pentru performanță de lungă durată",
+                body: "Fabricat din aluminiu durabil și ușor și cu o garanție de 3 ani, RD30 este conceput pentru utilizare zilnică în orice mediu - acasă sau în clinică.",
+              },
+            ],
+          },
+          {
+            imagePath: "accesorii/RD/rd30-jos-4.jpg",
+            mediaOnRight: true,
+            title: "De la îngrijire personală la protocoale profesionale",
+            bullets: [
+              {
+                title: "Pentru wellness acasă",
+                body: "Integrați cu ușurință RD30 în rutina zilnică. Ideal ca dispozitiv portabil pentru tratamente faciale și corporale sau poate fi montat pe masă pentru tratamente hands-free.",
+              },
+              {
+                title: "Pentru uz profesional",
+                body: "Un instrument puternic și fiabil pentru clinici, spa-uri și antrenori. Oferă terapie cu lumină țintită pentru a îmbunătăți rezultatele tratamentului facial, a promova recuperarea post-antrenament și a ameliora durerea.",
+              },
+            ],
+          },
+          {
+            imagePath: "accesorii/RD/rd30-jos-5.jpg",
+            mediaOnRight: false,
+            afterSpecs: true,
+            title: "Tot ce ai nevoie pentru a începe.",
+            bullets: [
+              { title: "Unitate RD30", body: "" },
+              { title: "Cablu de alimentare", body: "" },
+              { title: "Ochelari de protecție", body: "" },
+            ],
+          },
+          {
+            textOnly: true,
+            afterSpecs: true,
+            title: "Asigurarea performanței optime și a longevității.",
+            paragraphs: [
+              "Numai pentru utilizare în interior. Dispozitivul nu este impermeabil; evitați utilizarea în zone umede sau expunerea LED-urilor la uleiuri esențiale.",
+              "Pentru siguranță, dacă dispozitivul nu funcționează cu baterii, opriți întrerupătorul principal de alimentare înainte de a efectua orice reglaje.",
+              "Activare: Apăsați butonul ON/OFF timp de 1 secundă pentru a porni dispozitivul.",
+              "Pentru service post-vânzare sau reparații, vă rugăm să contactați direct Red Light Therapy.",
+            ],
+          },
+        ],
       },
       ru: {
-        title: "RD30",
+        title:
+          "Миниатюрная светодиодная лампа для лица RD30 мощностью 36 Вт, фотонная, для терапии красным светом.",
         modelShort: "RD30",
-        subtitle: "Описание скоро",
+        subtitle: "",
         description:
-          "Полное описание на русском будет добавлено позже. Выберите другую модель из линейки или напишите нам.",
+          "Мощное воздействие красного света с длиной волны 660 нанометров и ближнего инфракрасного света с длиной волны 850 нанометров. Аппарат RD30 обеспечивает концентрированную энергию, способствуя обновлению видимых участков кожи и эффективно снимая боль, точно воздействуя на те области, где это наиболее необходимо.",
+        featuresTitle: "Основные характеристики и преимущества",
+        features: [
+          {
+            title: "Синергия двух длин волн",
+            body: "660 нм для кожи + 850 нм для тканей.",
+          },
+          {
+            title: "Высокая мощность",
+            body: "12 светодиодов по 3 Вт для эффективной, целенаправленной терапии.",
+          },
+          {
+            title: "Целевое применение",
+            body: "Компактная конструкция для высокоточной обработки.",
+          },
+          {
+            title: "3-летняя гарантия",
+            body: "Гарантирована долговечность профессионального уровня.",
+          },
+        ],
+        specsTableLead:
+          "Премиум Качество, Возможность Персонализации Под Ваш Бренд.",
+        specsTableTitle: "Технические Характеристики",
+        specsColumnFeature: "Особенность",
+        specsColumnValue: "Спецификация",
+        specsRows: [
+          { label: "Номер модели", value: "RD30" },
+          {
+            label: "Длины волн",
+            value: "660 нм (красный), 850 нм (ближний инфракрасный)",
+          },
+          { label: "Номер светодиода", value: "12x3W" },
+          {
+            label: "Чип продукта",
+            value:
+              "Однокристальная (с возможностью настройки многокристальной архитектуры)",
+          },
+          { label: "Размер светодиодной панели", value: "14х12 см" },
+          { label: "Цвет", value: "белый" },
+          { label: "Мощность", value: "36W" },
+          {
+            label: "Основная функция",
+            value:
+              "Похудение / Облегчение боли / Снижение воспаления",
+          },
+          { label: "Поддержка портативных зарядных устройств", value: "Нет" },
+          { label: "Вес нетто", value: "Примерно 360 г" },
+          { label: "Срок службы светодиодов", value: "До 50 000 часов" },
+          { label: "Гарантия", value: "1 год" },
+          { label: "Сертификаты", value: "CE, ROHS, FDA" },
+          { label: "Рабочая среда", value: "-10°~45°C" },
+          {
+            label: "Аксессуары",
+            value:
+              "Устройство RD30 / шнур питания / очки / инструкция по эксплуатации",
+          },
+        ],
+        detailBands: [
+          {
+            imagePath: "accesorii/RD/rd30-jos-1.jpg",
+            mediaOnRight: false,
+            centeredHeadlineRule: true,
+            bulletStyle: "disc",
+            eyebrow:
+              "Миниатюрная Светодиодная Лампа Для Лица RD30 Мощностью 36 Вт, Фотонная, С Красным Светом.",
+            title: "Прекратите идти на компромиссы, используя неэффективные решения.",
+            bullets: [
+              {
+                title:
+                  "Вас раздражают мелкие морщинки, пятна и тусклый цвет лица?",
+                body: "",
+              },
+              {
+                title:
+                  "Устали от постоянной мышечной боли, скованности суставов и медленного восстановления?",
+                body: "",
+              },
+            ],
+          },
+          {
+            imagePath: "accesorii/RD/rd30-jos-2.jpg",
+            mediaOnRight: true,
+            titleCentered: true,
+            title: "Целенаправленное Применение – Союзник Вашего Организма",
+            titleSupplement: "Как RD30 обеспечивает профессиональные результаты",
+            bullets: [
+              {
+                title: "Омоложение поверхности кожи (660 нм)",
+                body: "Красный свет с длиной волны 660 нм поглощается кожей, способствуя выработке коллагена, уменьшению морщин и улучшению общего состояния кожи.",
+              },
+              {
+                title: "Глубокое восстановление (850 нм)",
+                body: "Невидимый инфракрасный свет с длиной волны 850 нм проникает глубже, помогая уменьшить воспаление, ускорить восстановление мышц и облегчить боль в суставах.",
+              },
+            ],
+          },
+          {
+            imagePath: "accesorii/RD/rd30-jos-3.jpg",
+            mediaOnRight: false,
+            title: "Часть преимущества",
+            bullets: [
+              {
+                title: "Целенаправленная эффективность",
+                body: "Компактная головка размером 14x12 см концентрирует всю мощность 36 Вт на определенной области, предотвращая потери энергии и обеспечивая максимальный результат.",
+              },
+              {
+                title: "Создан для долговечной работы",
+                body: "Изготовленный из прочного, легкого алюминия и имеющий 3-летнюю гарантию, RD30 разработан для ежедневного использования в любых условиях — дома или в клинике.",
+              },
+            ],
+          },
+          {
+            imagePath: "accesorii/RD/rd30-jos-4.jpg",
+            mediaOnRight: true,
+            title:
+              "От процедур по уходу за собой до профессиональных протоколов",
+            bullets: [
+              {
+                title: "Для домашнего оздоровления",
+                body: "Легко интегрируйте RD30 в свой ежедневный распорядок. Идеально подходит в качестве портативного устройства для лица и тела, или же его можно установить на столе для проведения процедур без использования рук.",
+              },
+              {
+                title: "Для профессионального использования",
+                body: "Мощный и надежный инструмент для клиник, спа-салонов и тренеров. Предлагает целенаправленную светотерапию для улучшения результатов процедур по уходу за лицом, восстановления после тренировок и снятия боли.",
+              },
+            ],
+          },
+          {
+            imagePath: "accesorii/RD/rd30-jos-5.jpg",
+            mediaOnRight: false,
+            afterSpecs: true,
+            title: "Всё необходимое для начала работы.",
+            bullets: [
+              { title: "Устройство RD30", body: "" },
+              { title: "Кабель питания", body: "" },
+              { title: "Защитные очки", body: "" },
+            ],
+          },
+          {
+            textOnly: true,
+            afterSpecs: true,
+            title: "Обеспечение оптимальной производительности и долговечности.",
+            paragraphs: [
+              "Только для использования в помещении. Устройство не является водонепроницаемым; избегайте использования во влажных помещениях или попадания эфирных масел непосредственно на светодиоды.",
+              "В целях безопасности, если устройство не питается от батареи, перед выполнением каких-либо регулировок выключите главный выключатель питания.",
+              "Активация: Нажмите кнопку ВКЛ/ВЫКЛ и удерживайте ее в течение 1 секунды, чтобы включить устройство.",
+              "По вопросам послепродажного обслуживания или ремонта обращайтесь напрямую в Red Light Therapy.",
+            ],
+          },
+        ],
       },
     },
   },

@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { useCart } from "@/context/CartContext";
 import { useLocale } from "@/context/LocaleContext";
 import { getSiteCopy } from "@/i18n/site";
-import { accessoryProducts, getAccessoryBySlug } from "@/data/accessories";
+import { accessoryProducts, getAccessoryBySlug, type AccessoryDetailBand } from "@/data/accessories";
 import type { MaskMedia } from "@/data/masks";
 
 const base = import.meta.env.BASE_URL;
@@ -42,6 +42,177 @@ const MediaPreview = ({ media, name }: { media: MaskMedia; name: string }) => (
     className="h-full w-full object-contain"
   />
 );
+
+function renderAccessoryDetailBand(
+  band: AccessoryDetailBand,
+  bandIndex: number,
+  productTitle: string,
+) {
+  const textOnly = band.textOnly ?? false;
+
+  if (textOnly) {
+    return (
+      <section
+        key={`detail-text-${bandIndex}`}
+        className={`py-12 md:py-16 ${
+          bandIndex % 2 === 1 ? "bg-secondary/15" : "bg-background"
+        }`}
+      >
+        <div className="container mx-auto max-w-3xl px-4">
+          <h2 className="font-display text-xl font-bold text-primary md:text-2xl">{band.title}</h2>
+          <div className="mt-6 space-y-4 text-sm leading-relaxed text-muted-foreground md:text-base">
+            {band.paragraphs?.map((p, i) => (
+              <p key={i} className="text-pretty">
+                {p}
+              </p>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  const bandMedia: MaskMedia = {
+    type: "image",
+    path: band.imagePath ?? "",
+    alt: productTitle,
+  };
+  const bandMediaSecondary: MaskMedia | null = band.splitImagePath
+    ? { type: "image", path: band.splitImagePath, alt: productTitle }
+    : null;
+  const bandMediaOnRight = band.mediaOnRight ?? false;
+  const titleCentered = band.titleCentered ?? false;
+  const headlineRule = Boolean(band.centeredHeadlineRule && band.eyebrow);
+  const useDisc = band.bulletStyle === "disc";
+
+  const imageColumn = (
+    <div className={bandMediaOnRight ? "lg:order-2" : ""}>
+      {bandMediaSecondary ? (
+        <div className="flex aspect-[4/3] w-full gap-0 overflow-hidden">
+          <div className="relative min-h-0 min-w-0 flex-1">
+            <img
+              src={assetUrl(bandMedia.path)}
+              alt={bandMedia.alt || productTitle}
+              className="h-full w-full object-cover"
+            />
+          </div>
+          <div className="relative min-h-0 min-w-0 flex-1">
+            <img
+              src={assetUrl(bandMediaSecondary.path)}
+              alt={bandMediaSecondary.alt || productTitle}
+              className="h-full w-full object-cover"
+            />
+          </div>
+        </div>
+      ) : (
+        <div className="aspect-[4/3] overflow-hidden">
+          <MediaPreview media={bandMedia} name={productTitle} />
+        </div>
+      )}
+    </div>
+  );
+
+  const listUlClass = [
+    titleCentered ? "mt-0 lg:mt-0" : "mt-5",
+    useDisc
+      ? "list-disc space-y-3 pl-5 text-foreground marker:text-foreground"
+      : "list-none space-y-5 p-0",
+  ].join(" ");
+
+  const bulletList = (
+    <ul className={listUlClass}>
+      {(band.bullets ?? []).map((b, bulletIndex) =>
+        useDisc ? (
+          <li
+            key={`${bandIndex}-${bulletIndex}-${b.title.slice(0, 48)}`}
+            className="pl-1 leading-relaxed text-foreground"
+          >
+            <span className="font-normal">{b.title}</span>
+            {b.body.trim() ? (
+              <p className="mt-1.5 text-muted-foreground">{b.body}</p>
+            ) : null}
+          </li>
+        ) : (
+          <li
+            key={`${bandIndex}-${bulletIndex}-${b.title.slice(0, 48)}`}
+            className="flex gap-3 leading-relaxed"
+          >
+            <Check className="mt-1 h-4 w-4 shrink-0 text-primary" aria-hidden />
+            <div>
+              <p className="font-semibold text-foreground">{b.title}</p>
+              {b.body.trim() ? (
+                <p className="mt-1.5 text-muted-foreground">{b.body}</p>
+              ) : null}
+            </div>
+          </li>
+        ),
+      )}
+    </ul>
+  );
+
+  return (
+    <section
+      key={`${band.imagePath ?? "band"}-${bandIndex}`}
+      className={`py-12 md:py-16 ${
+        bandIndex % 2 === 1 ? "bg-secondary/15" : "bg-background"
+      }`}
+    >
+      <div className="container mx-auto max-w-6xl px-4">
+        {headlineRule ? (
+          <div className="mx-auto mb-10 max-w-4xl text-center md:mb-12">
+            <p className="text-balance font-display text-lg font-bold leading-snug tracking-tight text-foreground md:text-xl">
+              {band.eyebrow}
+            </p>
+            <div
+              className="mx-auto mt-4 h-1 w-14 rounded-sm bg-primary md:w-16"
+              aria-hidden
+            />
+          </div>
+        ) : null}
+
+        {titleCentered ? (
+          <div className="mx-auto mb-10 max-w-4xl text-center md:mb-14">
+            <h2 className="font-display text-2xl font-bold tracking-tight text-foreground md:text-3xl">
+              {band.title}
+            </h2>
+          </div>
+        ) : null}
+
+        <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
+          {imageColumn}
+          <div className={bandMediaOnRight ? "lg:order-1" : ""}>
+            {!titleCentered && !headlineRule ? (
+              <>
+                {band.eyebrow ? (
+                  <p className="mb-3 text-sm font-medium leading-relaxed text-muted-foreground md:text-base">
+                    {band.eyebrow}
+                  </p>
+                ) : null}
+                <h2 className="font-display text-xl font-bold text-primary md:text-2xl">
+                  {band.title}
+                </h2>
+              </>
+            ) : null}
+
+            {headlineRule ? (
+              <h2 className="font-display text-xl font-bold text-primary md:text-2xl">
+                {band.title}
+              </h2>
+            ) : null}
+
+            {titleCentered && band.titleSupplement ? (
+              <p className="mb-5 text-balance font-display text-lg font-bold leading-snug text-primary md:mb-6 md:text-xl">
+                {band.titleSupplement}
+              </p>
+            ) : null}
+
+            {bulletList}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 const AccessoryProductPage = () => {
   const { slug } = useParams();
@@ -77,6 +248,9 @@ const AccessoryProductPage = () => {
   const t = product.translations[locale];
   const thumbPath = product.media[0]?.path;
   const currentMedia = product.media[selectedMediaIndex] || product.media[0];
+  const allDetailBands = t.detailBands ?? [];
+  const bandsBeforeSpecs = allDetailBands.filter((b) => !b.afterSpecs);
+  const bandsAfterSpecs = allDetailBands.filter((b) => b.afterSpecs);
 
   return (
     <div className="min-h-screen bg-background">
@@ -224,9 +398,18 @@ const AccessoryProductPage = () => {
           </div>
         </section>
 
+        {bandsBeforeSpecs.length
+          ? bandsBeforeSpecs.map((band, i) => renderAccessoryDetailBand(band, i, t.title))
+          : null}
+
         {t.specsTableTitle && t.specsRows?.length ? (
           <section className="bg-secondary/20 py-12 md:py-16">
             <div className="container mx-auto max-w-4xl px-4">
+              {t.specsTableLead?.trim() ? (
+                <p className="mx-auto mb-6 max-w-3xl text-center text-base font-semibold leading-relaxed text-foreground md:mb-8 md:text-lg">
+                  {t.specsTableLead}
+                </p>
+              ) : null}
               <h2 className="mb-6 text-center font-display text-xl font-bold text-foreground md:text-2xl">
                 {t.specsTableTitle}
               </h2>
@@ -251,52 +434,10 @@ const AccessoryProductPage = () => {
           </section>
         ) : null}
 
-        {t.detailBands?.length
-          ? t.detailBands.map((band, bandIndex) => {
-              const bandMedia: MaskMedia = {
-                type: "image",
-                path: band.imagePath,
-                alt: t.title,
-              };
-              const bandMediaOnRight = band.mediaOnRight ?? false;
-              return (
-                <section
-                  key={`${band.imagePath}-${bandIndex}`}
-                  className={`py-12 md:py-16 ${
-                    bandIndex % 2 === 1 ? "bg-secondary/15" : "bg-background"
-                  }`}
-                >
-                  <div className="container mx-auto max-w-6xl px-4">
-                    <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
-                      <div className={bandMediaOnRight ? "lg:order-2" : ""}>
-                        <div className="aspect-[4/3] overflow-hidden rounded-sm bg-white shadow-sm ring-1 ring-border">
-                          <MediaPreview media={bandMedia} name={t.title} />
-                        </div>
-                      </div>
-                      <div className={bandMediaOnRight ? "lg:order-1" : ""}>
-                        <h2 className="font-display text-xl font-bold text-primary md:text-2xl">
-                          {band.title}
-                        </h2>
-                        <ul className="mt-5 list-none space-y-5 p-0">
-                          {band.bullets.map((b) => (
-                            <li
-                              key={`${b.title}-${b.body.slice(0, 24)}`}
-                              className="flex gap-3 leading-relaxed"
-                            >
-                              <Check className="mt-1 h-4 w-4 shrink-0 text-primary" aria-hidden />
-                              <div>
-                                <p className="font-semibold text-foreground">{b.title}</p>
-                                <p className="mt-1.5 text-muted-foreground">{b.body}</p>
-                              </div>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-              );
-            })
+        {bandsAfterSpecs.length
+          ? bandsAfterSpecs.map((band, i) =>
+              renderAccessoryDetailBand(band, bandsBeforeSpecs.length + i, t.title),
+            )
           : null}
       </main>
 
