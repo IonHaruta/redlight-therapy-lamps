@@ -639,18 +639,282 @@ export const accessoryProducts: AccessoryProduct[] = [
     ],
     translations: {
       ro: {
-        title: "XL",
+        title:
+          "Suport de podea - O bază stabilă, portabilă și reglabilă pentru panoul de tratament pentru jumătate de corp, ușor de mutat",
         modelShort: "XL",
-        subtitle: "Detalii în curând",
+        subtitle: "",
         description:
-          "Descrierea completă în română va fi adăugată. Poți selecta alte accesorii din gamă sau ne poți scrie pentru detalii.",
+          "Suportul nostru de podea personalizat, conceput pentru stabilitate maximă și mobilitate perfectă, asigură funcționarea în siguranță a panoului dumneavoastră de terapie cu lumină de înaltă calitate și îmbunătățește estetica unității dumneavoastră.",
+        featuresTitle: "Caracteristici / Beneficii cheie",
+        features: [
+          {
+            title: "Capacitate mare de încărcare",
+            body: "Susține în mod fiabil greutatea întregului panou de corp și încărcăturile dinamice.",
+          },
+          {
+            title: "Roți universale la 360°",
+            body: "Se poziționează ușor în orice configurație a sălii de tratament.",
+          },
+          {
+            title: "Oțel SPCC durabil",
+            body: "Durată de viață garantată de 3 ani, conceput pentru utilizare profesională continuă.",
+          },
+          {
+            title: "Finisaj elegant, alb mat",
+            body: "Se potrivește perfect cu echipamentele de wellness de înaltă calitate.",
+          },
+        ],
+        specsTableTitle: "Specificații și parametri",
+        specsColumnFeature: "Specificație",
+        specsColumnValue: "Detalii",
+        specsRows: [
+          { label: "Nume model", value: "Suport de bază" },
+          {
+            label: "Interval de înălțime",
+            value: "708,91 x 510 x 333,5 mm",
+          },
+          { label: "Greutate netă", value: "8,77 kg" },
+          { label: "Material", value: "SPCC" },
+          {
+            label: "Suport de podea XL",
+            value:
+              "RDPRO750, RDPRO750-FS, RDPro1500, RDPro1500-FS, RDPro3000, RDPro3000-FS",
+          },
+          {
+            label: "Suport de podea XXL",
+            value: "RDPRO 6000, RDPRO 6000-FS",
+          },
+          { label: "Certificare", value: "FDA, FCC, CE, ROHS" },
+          { label: "Capacitate de încărcare", value: "50 kg" },
+          { label: "Mediu de funcționare", value: "-10°~40°C" },
+          {
+            label: "Accesorii incluse",
+            value: "1) Suport, 2) Manual, 3) Accesorii de montare",
+          },
+        ],
+        detailBands: [
+          {
+            imagePath: "accesorii/XL/XL-jos-1.jpg",
+            mediaOnRight: false,
+            afterSpecs: true,
+            title: "De ce să alegeți o structură de susținere de bază?",
+            bullets: [
+              {
+                title: "Stabilitate sporită",
+                body: "Suportul orizontal asigură o poziționare sigură a panoului de terapie în timpul utilizării, reducând la minimum mișcarea pentru un tratament stabil și eficient.",
+              },
+              {
+                title: "Poziționare reglabilă",
+                body: "Cu înălțime reglabilă și orientare orizontală, suportul oferă flexibilitate pentru a satisface o varietate de nevoi de tratament, de la zone specifice până la terapia completă a corpului.",
+              },
+              {
+                title: "Calitate profesională",
+                body: "Proiectat folosind materiale de înaltă calitate, îndeplinește cele mai înalte standarde de siguranță și fiabilitate.",
+              },
+              {
+                title: "Design portabil",
+                body: "Ușor și ușor de asamblat, suportul este ideal pentru utilizatorii care necesită o configurație portabilă pentru panourile de terapie cu lumină roșie.",
+              },
+            ],
+          },
+          {
+            imagePath: "accesorii/XL/XL-jos-2.jpg",
+            mediaOnRight: true,
+            afterSpecs: true,
+            title: "Ce este inclus",
+            bullets: [
+              {
+                title: "Suport orizontal",
+                body: "Un accesoriu durabil și reglabil pentru poziționarea orizontală a panourilor.",
+              },
+              {
+                title: "Accesorii de montare",
+                body: "Toate uneltele și componentele necesare pentru o asamblare ușoară.",
+              },
+              {
+                title: "Manual de utilizare",
+                body: "Un ghid detaliat pentru configurare și utilizare.",
+              },
+            ],
+          },
+          {
+            imagePath: "accesorii/XL/XL-jos-3.jpg",
+            mediaOnRight: false,
+            afterSpecs: true,
+            title: "Aplicații",
+            bullets: [
+              {
+                title: "Utilizare acasă",
+                body: "Ideal pentru proceduri de wellness, oferind o montare orizontală stabilă și reglabilă.",
+              },
+              {
+                title: "Clinici și săli de fitness",
+                body: "Potrivit pentru medii profesionale care cer flexibilitate și stabilitate pe durata procedurilor.",
+              },
+              {
+                title: "Terapie țintită și pentru întregul corp",
+                body: "Compatibil cu panouri de diferite dimensiuni, pentru parametri de tratament personalizați.",
+              },
+            ],
+          },
+          {
+            imagePath: "accesorii/XL/XL-jos-4.png",
+            mediaOnRight: true,
+            afterSpecs: true,
+            title: "Asistență și garanție",
+            bullets: [
+              {
+                title: "Garanție",
+                body: "3 ani de asigurare completă pentru liniștea dumneavoastră.",
+              },
+              {
+                title: "Asistență",
+                body: "Echipa noastră dedicată de asistență clienți este gata să vă asiste cu asamblarea și depanarea.",
+              },
+            ],
+          },
+        ],
       },
       ru: {
-        title: "XL",
+        title:
+          "Напольная опора - устойчивая и переносная регулируемая основа для панели для лечения половины тела, удобная для перемещения",
         modelShort: "XL",
-        subtitle: "Описание скоро",
+        subtitle: "",
         description:
-          "Полное описание на русском будет добавлено позже. Выберите другую модель из линейки или напишите нам.",
+          "Наша специальная напольная стойка, разработанная для максимальной устойчивости и бесперебойной мобильности, гарантирует безопасную работу вашей высококачественной панели светотерапии и улучшает эстетический вид вашего учреждения.",
+        featuresTitle: "Основные характеристики и преимущества",
+        features: [
+          {
+            title: "Высокая грузоподъемность",
+            body: "Надежно выдерживает вес всей кузовной панели и динамические нагрузки.",
+          },
+          {
+            title: "Универсальные колеса на 360°",
+            body: "Легкое позиционирование в любой планировке процедурного кабинета.",
+          },
+          {
+            title: "Прочная сталь SPCC",
+            body: "Гарантированный срок службы 3 года, предназначена для постоянного профессионального использования.",
+          },
+          {
+            title: "Гладкая матово-белая отделка",
+            body: "Прекрасно сочетается с высококлассным велнес-оборудованием.",
+          },
+        ],
+        specsTableTitle: "Технические характеристики и параметры",
+        specsColumnFeature: "Спецификация",
+        specsColumnValue: "Подробности",
+        specsRows: [
+          {
+            label: "Название модели",
+            value: "Опорный кронштейн основания",
+          },
+          {
+            label: "Диапазон высоты",
+            value: "708,91 × 510 × 333,5 мм",
+          },
+          { label: "Вес (нетто)", value: "8,77 кг" },
+          { label: "Материал", value: "SPCC" },
+          {
+            label: "Напольная подставка XL",
+            value:
+              "RDPRO750, RDPRO750-FS, RDPro1500, RDPro1500-FS, RDPro3000, RDPro3000-FS",
+          },
+          {
+            label: "Напольная подставка XXL",
+            value: "RDPRO 6000, RDPRO 6000-FS",
+          },
+          { label: "Сертификация", value: "FDA, FCC, CE, ROHS" },
+          { label: "Грузоподъемность", value: "50 кг" },
+          { label: "Рабочая среда", value: "-10°~40°C" },
+          {
+            label: "В комплект входят аксессуары",
+            value:
+              "1) Подставка, 2) Инструкция, 3) Монтажные принадлежности",
+          },
+        ],
+        detailBands: [
+          {
+            imagePath: "accesorii/XL/XL-jos-1.jpg",
+            mediaOnRight: false,
+            afterSpecs: true,
+            title: "Почему стоит выбрать опорную конструкцию основания?",
+            bullets: [
+              {
+                title: "Повышенная стабильность",
+                body: "Горизонтальная подставка обеспечивает надежную фиксацию терапевтической панели во время использования, сводя к минимуму ее перемещение для стабильного и эффективного лечения.",
+              },
+              {
+                title: "Настраиваемое позиционирование",
+                body: "Благодаря регулируемой высоте и горизонтальной ориентации, подставка обеспечивает гибкость, позволяя удовлетворить различные потребности в лечении, от проработки отдельных зон до терапии всего тела.",
+              },
+              {
+                title: "Профессиональное качество",
+                body: "Разработанный с использованием высококачественных материалов, он отвечает самым высоким стандартам безопасности и надежности.",
+              },
+              {
+                title: "Портативный дизайн",
+                body: "Легкая и простая в сборке подставка идеально подходит для пользователей, которым необходима портативная установка для панелей, используемых для терапии красным светом.",
+              },
+            ],
+          },
+          {
+            imagePath: "accesorii/XL/XL-jos-2.jpg",
+            mediaOnRight: true,
+            afterSpecs: true,
+            title: "Что входит в комплект",
+            bullets: [
+              {
+                title: "Горизонтальная подставка",
+                body: "Прочный и регулируемый аксессуар для горизонтального размещения панелей.",
+              },
+              {
+                title: "Монтажные принадлежности",
+                body: "Все необходимые инструменты и компоненты для легкой сборки.",
+              },
+              {
+                title: "Руководство пользователя",
+                body: "Подробное руководство по настройке и использованию.",
+              },
+            ],
+          },
+          {
+            imagePath: "accesorii/XL/XL-jos-3.jpg",
+            mediaOnRight: false,
+            afterSpecs: true,
+            title: "Приложения",
+            bullets: [
+              {
+                title: "Домашнее использование",
+                body: "Идеально подходит для проведения оздоровительных процедур, обеспечивая стабильную и регулируемую горизонтальную установку.",
+              },
+              {
+                title: "Клиники и тренажерные залы",
+                body: "Идеально подходит для профессиональных условий, требующих гибкости и стабильности во время процедур.",
+              },
+              {
+                title: "Целенаправленная и комплексная терапия всего тела",
+                body: "Поддерживает панели различных размеров для индивидуальной настройки параметров обработки.",
+              },
+            ],
+          },
+          {
+            imagePath: "accesorii/XL/XL-jos-4.png",
+            mediaOnRight: true,
+            afterSpecs: true,
+            title: "Поддержка и гарантия",
+            bullets: [
+              {
+                title: "Гарантия",
+                body: "3 года комплексного страхового покрытия для вашего спокойствия.",
+              },
+              {
+                title: "Поддержка",
+                body: "Специализированная служба поддержки клиентов готова оказать помощь в сборке и устранении неполадок.",
+              },
+            ],
+          },
+        ],
       },
     },
   },
