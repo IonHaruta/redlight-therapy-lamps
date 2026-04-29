@@ -308,7 +308,9 @@ const AccessoryProductPage = () => {
                   <p className="mt-3 font-display text-xl text-primary">{t.subtitle}</p>
                 ) : null}
 
-                <p className="mt-6 leading-relaxed text-muted-foreground">{t.description}</p>
+                <p className="mt-6 whitespace-pre-line leading-relaxed text-muted-foreground">
+                  {t.description}
+                </p>
 
                 {t.featuresTitle && t.features?.length ? (
                   <div className="mt-8">

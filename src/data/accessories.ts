@@ -934,18 +934,280 @@ export const accessoryProducts: AccessoryProduct[] = [
     ],
     translations: {
       ro: {
-        title: "GP",
+        title:
+          "Suport orizontal Red Light Therapy – Poziționare flexibilă a panourilor de terapie cu lumină",
         modelShort: "GP",
-        subtitle: "Detalii în curând",
+        subtitle: "",
         description:
-          "Descrierea completă în română va fi adăugată. Poți selecta alte accesorii din gamă sau ne poți scrie pentru detalii.",
+          "Suportul orizontal este un accesoriu durabil și versatil, conceput special pentru panourile de terapie cu lumină roșie Red Light Therapy. Acesta oferă o soluție stabilă și reglabilă de plasare orizontală, fiind ideal pentru tratamente specifice sau pentru întregul corp. Cu designul său robust și reglarea ușoară, suportul orizontal oferă confort și flexibilitate maximă pentru utilizatorii din clinici, săli de sport sau acasă.\n\nAcelași tip de suport (faceți clic pentru a accesa pagina noului produs): suport pneumatic Red Light Therapy.",
+        featuresTitle: "Caracteristici cheie",
+        features: [
+          {
+            title: "Construcție durabilă",
+            body: "Suportul orizontal, fabricat din fier și aluminiu, este conceput pentru a susține în siguranță panourile și a rezista la ajustări frecvente.",
+          },
+          {
+            title: "Înălțime reglabilă",
+            body: "Înălțime ușor reglabilă de la 105 cm la 135 cm, permițând utilizatorilor să personalizeze plasarea pentru rezultate optime ale tratamentului.",
+          },
+          {
+            title: "Compatibilitate largă",
+            body: "Compatibil cu panourile de terapie cu lumină roșie Red Light Therapy, inclusiv: RD1000 / RD1500 / RDMAX / RDPro1500 / RDPro3000 / RDPro1500-FS / RDPro3000-FS.",
+          },
+          {
+            title: "Amplasare orizontală",
+            body: "Susține perfect amplasarea orizontală a panourilor de terapie cu lumină roșie, oferind o distribuție uniformă a luminii pentru tratament țintit sau generalizat al întregului corp.",
+          },
+          {
+            title: "Portabil și ușor",
+            body: "Suportul cântărește doar 7 kg și este ușor de mutat și reglat, fiind potrivit atât pentru uz profesional, cât și personal.",
+          },
+        ],
+        specsTableTitle: "Specificații și parametri",
+        specsColumnFeature: "Specificație",
+        specsColumnValue: "Detalii",
+        specsRows: [
+          { label: "Nume model", value: "Suport orizontal (HS)" },
+          {
+            label: "Interval de înălțime",
+            value: "Reglabil de la 105 cm la 135 cm",
+          },
+          { label: "Greutate netă", value: "7 kg" },
+          { label: "Material", value: "Fier" },
+          {
+            label: "Panouri compatibile",
+            value:
+              "RD1000, RD1500, RDMAX, RDPro1500, RDPro3000, RDPro1500-FS, RDPro3000-FS",
+          },
+          { label: "Capacitate de încărcare", value: "50 kg" },
+          { label: "Mediu de funcționare", value: "-15°~40°C" },
+          {
+            label: "Accesorii incluse",
+            value: "1) Suport, 2) Instrucțiuni, 3) Accesorii de montare",
+          },
+        ],
+        detailBands: [
+          {
+            imagePath: "accesorii/GP/gp-jos-1.png",
+            mediaOnRight: false,
+            afterSpecs: true,
+            title: "De ce să alegeți un suport orizontal?",
+            bullets: [
+              {
+                title: "Stabilitate îmbunătățită",
+                body: "Suportul orizontal asigură o fixare sigură a panoului de terapie în timpul utilizării, reducând la minimum mișcarea pentru un tratament stabil și eficient.",
+              },
+              {
+                title: "Poziționare reglabilă",
+                body: "Cu înălțime reglabilă și orientare orizontală, suportul oferă flexibilitate pentru a satisface o varietate de nevoi de tratament, de la zone specifice până la terapia completă a corpului.",
+              },
+              {
+                title: "Calitate profesională",
+                body: "Proiectat folosind materiale de înaltă calitate, îndeplinește cele mai înalte standarde de siguranță și fiabilitate.",
+              },
+              {
+                title: "Design portabil",
+                body: "Ușor și ușor de asamblat, suportul este ideal pentru utilizatorii care necesită o configurație portabilă pentru panourile de terapie cu lumină roșie.",
+              },
+            ],
+          },
+          {
+            imagePath: "accesorii/GP/gp-jos-2.png",
+            mediaOnRight: true,
+            afterSpecs: true,
+            title: "Ce este inclus",
+            bullets: [
+              {
+                title: "Suport orizontal",
+                body: "Un accesoriu durabil și reglabil pentru poziționarea orizontală a panourilor.",
+              },
+              {
+                title: "Accesorii de montare",
+                body: "Toate uneltele și componentele necesare pentru o asamblare ușoară.",
+              },
+              {
+                title: "Manual de utilizare",
+                body: "Un ghid detaliat pentru configurare și utilizare.",
+              },
+            ],
+          },
+          {
+            imagePath: "accesorii/GP/gp-jos-3.png",
+            mediaOnRight: false,
+            afterSpecs: true,
+            title: "Aplicații",
+            bullets: [
+              {
+                title: "Utilizare acasă",
+                body: "Ideal pentru tratamente wellness, oferind o poziție orizontală stabilă și reglabilă.",
+              },
+              {
+                title: "Clinici și săli de sport",
+                body: "Ideal pentru medii profesionale care necesită flexibilitate și stabilitate în timpul tratamentelor.",
+              },
+              {
+                title: "Terapie completă a corpului, specifică și completă",
+                body: "Suportă panouri de diferite dimensiuni pentru ajustarea individuală a parametrilor de tratament.",
+              },
+            ],
+          },
+          {
+            imagePath: "accesorii/GP/gp-jos-4.png",
+            mediaOnRight: true,
+            afterSpecs: true,
+            title: "Asistență și garanție",
+            bullets: [
+              {
+                title: "Garanție",
+                body: "3 ani de asigurare completă pentru liniștea dumneavoastră.",
+              },
+              {
+                title: "Asistență",
+                body: "Echipa noastră dedicată de asistență clienți este gata să vă asiste cu asamblarea și depanarea.",
+              },
+            ],
+          },
+        ],
       },
       ru: {
-        title: "GP",
+        title:
+          "Горизонтальная подставка Red Light Therapy — гибкое позиционирование панелей светотерапии",
         modelShort: "GP",
-        subtitle: "Описание скоро",
+        subtitle: "",
         description:
-          "Полное описание на русском будет добавлено позже. Выберите другую модель из линейки или напишите нам.",
+          "Горизонтальная подставка — это прочный и универсальный аксессуар, специально разработанный для панелей красной светотерапии Red Light Therapy. Он обеспечивает стабильное и регулируемое решение для горизонтального размещения, что делает его идеальным для целенаправленного лечения или лечения всего тела. Благодаря прочной конструкции и легкой регулировке горизонтальная подставка обеспечивает максимальное удобство и гибкость для пользователей в клиниках, спортивных залах или дома.\n\nТот же тип кронштейнов (щёлкните, чтобы перейти на страницу нового продукта): пневматическая стойка Red Light Therapy.",
+        featuresTitle: "Ключевые особенности",
+        features: [
+          {
+            title: "Прочная конструкция",
+            body: "Горизонтальная стойка, изготовленная из железа и алюминия, предназначена для надёжной поддержки панелей и выдерживает частые регулировки.",
+          },
+          {
+            title: "Регулируемая высота",
+            body: "Легко регулируемая высота от 105 см до 135 см, что позволяет пользователям настраивать размещение для достижения оптимальных результатов лечения.",
+          },
+          {
+            title: "Широкая совместимость",
+            body: "Совместимо с панелями светотерапии красным светом Red Light Therapy, включая: RD1000 / RD1500 / RDMAX / RDPro1500 / RDPro3000 / RDPro1500-FS / RDPro3000-FS.",
+          },
+          {
+            title: "Горизонтальное размещение",
+            body: "Идеально поддерживает горизонтальное расположение панелей светотерапии красным светом, обеспечивая равномерное распределение света для точечного или общего воздействия на всё тело.",
+          },
+          {
+            title: "Портативный и лёгкий",
+            body: "Подставка весит всего 7 кг, её легко перемещать и регулировать, что делает её подходящей как для профессионального, так и для личного использования.",
+          },
+        ],
+        specsTableTitle: "Технические характеристики и параметры",
+        specsColumnFeature: "Спецификация",
+        specsColumnValue: "Подробности",
+        specsRows: [
+          {
+            label: "Название модели",
+            value: "Горизонтальная подставка (HS)",
+          },
+          {
+            label: "Диапазон высоты",
+            value: "Регулируется от 105 см до 135 см.",
+          },
+          { label: "Вес (нетто)", value: "7 кг" },
+          { label: "Материал", value: "Железо" },
+          {
+            label: "Совместимые панели",
+            value:
+              "RD1000, RD1500, RDMAX, RDPro1500, RDPro3000, RDPro1500-FS, RDPro3000-FS",
+          },
+          { label: "Грузоподъемность", value: "50 кг" },
+          { label: "Рабочая среда", value: "-15°~40°C" },
+          {
+            label: "В комплект входят аксессуары",
+            value:
+              "1) Подставка, 2) Инструкция, 3) Монтажные принадлежности",
+          },
+        ],
+        detailBands: [
+          {
+            imagePath: "accesorii/GP/gp-jos-1.png",
+            mediaOnRight: false,
+            afterSpecs: true,
+            title: "Почему стоит выбрать горизонтальную подставку?",
+            bullets: [
+              {
+                title: "Повышенная стабильность",
+                body: "Горизонтальная подставка обеспечивает надежную фиксацию терапевтической панели во время использования, сводя к минимуму ее перемещение для стабильного и эффективного лечения.",
+              },
+              {
+                title: "Настраиваемое позиционирование",
+                body: "Благодаря регулируемой высоте и горизонтальной ориентации, подставка обеспечивает гибкость, позволяя удовлетворить различные потребности в лечении, от проработки отдельных зон до терапии всего тела.",
+              },
+              {
+                title: "Профессиональное качество",
+                body: "Разработанный с использованием высококачественных материалов, он отвечает самым высоким стандартам безопасности и надежности.",
+              },
+              {
+                title: "Портативный дизайн",
+                body: "Легкая и простая в сборке подставка идеально подходит для пользователей, которым необходима портативная установка для панелей, используемых для терапии красным светом.",
+              },
+            ],
+          },
+          {
+            imagePath: "accesorii/GP/gp-jos-2.png",
+            mediaOnRight: true,
+            afterSpecs: true,
+            title: "Что входит в комплект",
+            bullets: [
+              {
+                title: "Горизонтальная подставка",
+                body: "Прочный и регулируемый аксессуар для горизонтального размещения панелей.",
+              },
+              {
+                title: "Монтажные принадлежности",
+                body: "Все необходимые инструменты и компоненты для легкой сборки.",
+              },
+              {
+                title: "Руководство пользователя",
+                body: "Подробное руководство по настройке и использованию.",
+              },
+            ],
+          },
+          {
+            imagePath: "accesorii/GP/gp-jos-3.png",
+            mediaOnRight: false,
+            afterSpecs: true,
+            title: "Приложения",
+            bullets: [
+              {
+                title: "Домашнее использование",
+                body: "Идеально подходит для проведения оздоровительных процедур, обеспечивая стабильную и регулируемую горизонтальную установку.",
+              },
+              {
+                title: "Клиники и тренажерные залы",
+                body: "Идеально подходит для профессиональных условий, требующих гибкости и стабильности во время процедур.",
+              },
+              {
+                title: "Целенаправленная и комплексная терапия всего тела",
+                body: "Поддерживает панели различных размеров для индивидуальной настройки параметров обработки.",
+              },
+            ],
+          },
+          {
+            imagePath: "accesorii/GP/gp-jos-4.png",
+            mediaOnRight: true,
+            afterSpecs: true,
+            title: "Поддержка и гарантия",
+            bullets: [
+              {
+                title: "Гарантия",
+                body: "3 года комплексного страхового покрытия для вашего спокойствия.",
+              },
+              {
+                title: "Поддерживать",
+                body: "Специализированная служба поддержки клиентов готова оказать помощь в сборке и устранении неполадок.",
+              },
+            ],
+          },
+        ],
       },
     },
   },
