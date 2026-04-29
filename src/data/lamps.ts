@@ -16,6 +16,8 @@ export interface LampProduct {
   cleanProductPage?: boolean;
   /** Bandă 4 coloane sub hero (fără consum de imagini „jos”) */
   strategicBand?: Record<Locale, { headline: string; cards: StrategicCard[] }>;
+  /** Bandă 3 carduri după prima secțiune cu imagine „jos” (ex. beneficii + jos-1). */
+  therapyRulesBand?: Record<Locale, { headline: string; cards: StrategicCard[] }>;
 }
 
 const tCommon = (
@@ -91,6 +93,183 @@ const tCommon = (
     },
   },
 });
+
+const rdpro300Fs7T = tCommon("RD Pro 300 FS7", "RD 300", "RD Pro 300 FS7", "RD 300");
+
+const rdpro300Fs7Copy: Record<Locale, MaskTranslation> = {
+  ro: {
+    ...rdpro300Fs7T.ro,
+    subtitle:
+      "RDPro300-FS7: 7 lungimi de undă, precizie clinică — control de pe telefon.",
+    description:
+      "Experimentați o precizie fără precedent cu RDPro300-FS7. Utilizați șapte lungimi de undă terapeutice, o sursă de alimentare cu două cipuri și setări complet reglabile ale pulsului și intensității - toate direct de pe smartphone.",
+    highlights: [
+      "7 lungimi de undă spectrale: de la lumină albastră de 480 nm la infraroșu de 1060 nm.",
+      "Aplicație și telecomandă complete: reglați modul puls, reglarea intensității luminoase și cronometrele (aplicația este în curs de actualizare).",
+      "Certificări FDA, CE și RoHS: confirmă siguranța și calitatea de grad medical.",
+    ],
+    featuresTitle: "Caracteristici/Beneficii cheie",
+    benefitsTitle:
+      "De la suprafața pielii până în straturile cele mai profunde: lungimea de undă potrivită pentru fiecare nevoie.",
+    benefitsIntro:
+      "RDPRO300-FS7 oferă practicienilor și utilizatorilor un control fără precedent. Fiecare dintre cele 7 lungimi de undă terapeutice poate fi ajustată individual de la 0 la 100% luminozitate, permițând crearea unor protocoale de tratament extrem de precise și personalizabile.",
+    benefitsListHeading: "Defalcarea lungimii de undă:",
+    benefits: [
+      "480 nm (Albastru): Purifică și calmează pielea cu lumină albastră direcționată.",
+      "630–660 nm (Roșu): Lumina roșie stimulează producția de colagen și restabilește tinerețea și vitalitatea.",
+      "810–850 nm (Infraroșu apropiat): Calmează mușchii și articulațiile cu lumină infraroșie apropiată.",
+      "1060 nm (Infraroșu apropiat): Atingeți țesuturile adânci pentru un efect terapeutic maxim cu cea mai avansată lumină infraroșie a noastră.",
+    ],
+    usageTitle: "De ce sunt importante LED-urile cu două cipuri?",
+    usage: [
+      "Fiecare LED individual conține mai multe lungimi de undă.",
+      "Acest lucru asigură o distribuție perfect uniformă a luminii terapeutice pentru rezultate superioare.",
+    ],
+    metricsTitle: "Conceput pentru profesioniști",
+    metrics: [
+      "Intensitate radiantă maximă: >118 mW/cm² la 6 inci",
+      "Certificări: FDA, FCC, CE, RoHS",
+      "Garanție: 3 ani",
+      "Durata de viață a LED-ului: 50.000 de ore",
+      "Emisii EMF: neglijabile.",
+    ],
+    testimonialsAfterMetrics: true,
+    testimonialsQuote: true,
+    testimonialsTitle: "Încredere acordată practicienilor.",
+    testimonials: [
+      "„Capacitatea de a controla frecvența pulsului și de a comuta între lungimi de undă pentru diferiți pacienți mi-a revoluționat practica. RDPro300-FS7 este un adevărat instrument de bază în practica clinică.”",
+      "- Dr. Allen Cheng, Clinica FG",
+    ],
+    applicationsTitle: "Sisteme de control inteligente și versatile",
+    applicationsLead: "Control nestânjenit la îndemână",
+    applicationsIntro: "Gestionați cu ușurință toate aspectele terapiei dvs.:",
+    applications: [
+      "Ecran tactil încorporat: Interfață intuitivă pentru setări simple.",
+      "Telecomandă wireless: Telecomandă convenabilă.",
+      "Aplicație mobilă dedicată: Oferă acces la opțiuni avansate de programare, vă permite să salvați protocoale personalizate și să gestionați mai multe dispozitive (ideal pentru clinici).",
+    ],
+    specsIntroTitle:
+      "Conceput pentru profesioniști, construit pentru performanță ridicată și parteneriate eficiente.",
+    specsTitle: "Specificații tehnice",
+    specsColumnFeature: "Caracteristică",
+    specsColumnValue: "Specificație",
+    specs: {
+      "Număr model": "RDPro300-FS7",
+      "LED-uri (buc.)": "60",
+      "Lungimi de undă": "480:630:660:810:830:850:1060 nm (setări personalizate acceptate)",
+      LED: "Cu un singur cip / cu două cipuri",
+      "Mod inteligent": "Da",
+      "Tensiune / alimentare de intrare": "AC 100-240V",
+      "Consum de energie": "99W±5%W",
+      "Unghi fascicul": "30°",
+      Dimensiuni: "270×230×65 mm",
+      "Greutate netă (kg)": "3,24",
+      "Intensitate radiantă (mW/cm²)": ">118, la 6 inci",
+      "Ventilatoare de răcire": "1",
+      "Durata de viață a LED-ului (ore)": "50.000",
+      "Radiații EMF": "- Neglijabile",
+      "Garanție (ani)": "3",
+      Temporizator: "1-30 min",
+      "Impuls (doar infraroșu apropiat)": "0-9999 Hz",
+      "Regulator de intensitate luminoasă": "0%-100%",
+      Comenzi: "Ecran tactil + Telecomandă + Aplicație",
+      "Mediu de lucru": "-10°~45°",
+      PowerShell: "SPCC",
+      Certificare: "FDA/FCC/CE/ROHS",
+      "Dimensiuni ambalaj (cm)": "—",
+      "Greutate brută (kg)": "6,00",
+      Accesorii:
+        "1. Lampă de terapie LED, 2. Protecție pentru ochi, 3. Mâner, 4. Telecomandă, 5. Cablu de alimentare, 6. Cablu de conectare.",
+    },
+  },
+  ru: {
+    ...rdpro300Fs7T.ru,
+    subtitle:
+      "RDPro300-FS7: 7 длин волн, клиническая точность — управление со смартфона.",
+    description:
+      "Оцените беспрецедентную точность с RDPro300-FS7. Используйте семь терапевтических длин волн, двухчиповый источник питания и полностью регулируемые параметры импульса и интенсивности — и все это со своего смартфона.",
+    highlights: [
+      "7 спектральных длин волн : от 480 нм синего света до 1060 нм инфракрасного излучения.",
+      "Полноценное приложение и пульт дистанционного управления: настройка импульсного режима, затемнения и таймеров (приложение находится в процессе обновления).",
+      "Сертификаты FDA, CE, RoHS: подтверждение безопасности и высокого качества на медицинском уровне.",
+    ],
+    featuresTitle: "Основные характеристики/преимущества",
+    benefitsTitle:
+      "От поверхности кожи до глубоких слоев: правильная длина волны для любых потребностей.",
+    benefitsIntro:
+      "Аппарат RDPRO300-FS7 предоставляет практикующим врачам и пользователям беспрецедентный контроль. Каждая из 7 терапевтических длин волн может быть индивидуально настроена в диапазоне яркости от 0 до 100%, что позволяет создавать высокоточные и настраиваемые протоколы лечения.",
+    benefitsListHeading: "Разбор длин волн:",
+    benefits: [
+      "480 нм (синий): Очищает и успокаивает кожу с помощью направленного синего света.",
+      "630–660 нм (красный): Красный свет стимулирует выработку коллагена и восстанавливает молодость и жизненную силу.",
+      "810–850 нм (ближний инфракрасный диапазон): успокаивает мышцы и суставы с помощью ближнего инфракрасного света.",
+      "1060 нм (ближний инфракрасный диапазон): Достигайте глубоких тканей для максимального терапевтического эффекта с помощью нашего самого современного инфракрасного излучения.",
+    ],
+    usageTitle: "Почему важны двухчиповые светодиоды?",
+    usage: [
+      "В каждом отдельном светодиоде содержится несколько длин волн.",
+      "Обеспечивает идеально однородное распределение терапевтического света для достижения превосходных результатов.",
+    ],
+    metricsTitle: "Разработано для профессионалов",
+    metrics: [
+      "Максимальная интенсивность излучения: >118 мВт/см² на расстоянии 6 дюймов",
+      "Сертификаты: FDA, FCC, CE, RoHS",
+      "Гарантия: 3 года",
+      "Срок службы светодиодов: 50 000 часов.",
+      "Излучение ЭМП: пренебрежимо малое.",
+    ],
+    testimonialsAfterMetrics: true,
+    testimonialsQuote: true,
+    testimonialsTitle: "Пользуется доверием практикующих специалистов.",
+    testimonials: [
+      "«Возможность контролировать частоту импульсов и переключаться между длинами волн для разных пациентов произвела революцию в моей практике. RDPro300-FS7 — это настоящая рабочая лошадка в клинической практике».",
+      "- Доктор Аллен Ченг, клиника FG",
+    ],
+    applicationsTitle: "Интеллектуальные И Универсальные Системы Управления",
+    applicationsLead: "Беспрепятственный контроль у вас под рукой",
+    applicationsIntro: "Управляйте всеми аспектами терапии с легкостью:",
+    applications: [
+      "Встроенный сенсорный экран: интуитивно понятный интерфейс для непосредственной настройки.",
+      "Беспроводной пульт дистанционного управления: удобное управление на расстоянии.",
+      "Специальное мобильное приложение: открывает доступ к расширенным возможностям программирования, позволяет сохранять пользовательские протоколы и управлять несколькими устройствами (идеально подходит для клиник).",
+    ],
+    specsIntroTitle:
+      "Разработано Для Профессионалов, Создано Для Высокой Производительности И Эффективного Партнерства.",
+    specsTitle: "Технические Характеристики",
+    specsColumnFeature: "Особенность",
+    specsColumnValue: "Спецификация",
+    specs: {
+      "Номер модели": "RDPro300-FS7",
+      "Светодиоды (шт.)": "60",
+      "Длины волн":
+        "480:630:660:810:830:850:1060 нм (поддержка пользовательских настроек)",
+      LED: "Однокристальный / Двухкристальный",
+      "Интеллектуальный режим": "Да",
+      "Напряжение/Входная мощность": "AC 100-240V",
+      "Потребление электроэнергии": "99W±5%W",
+      BeamAngle: "30°",
+      Размеры: "270×230×65 мм",
+      "N.W (кг)": "3.24",
+      "Интенсивность излучения (мВт/см²)": ">118, на 6 дюймах",
+      "Вентиляторы охлаждения": "1",
+      "Срок службы светодиодов (часы)": "50 000",
+      "Излучение ЭМП": "-Незначительный",
+      "Гарантия (лет)": "3",
+      Таймер: "1-30 мин",
+      "Импульсный (только ближний инфракрасный)": "0-9999 Гц",
+      Диммер: "0%-100%",
+      "Элементы управления":
+        "Сенсорный экран + Пульт дистанционного управления + Приложение",
+      "Рабочая среда": "-10°~45°",
+      PowerShell: "SPCC",
+      Сертификация: "FDA/FCC/CE/ROHS",
+      "Размер упаковки (см)": "—",
+      "G.W (кг)": "6.00",
+      Аксессуары:
+        "1. Светодиодный терапевтический светильник, 2. Защита глаз, 3. Ручка, 4. Пульт дистанционного управления, 5. Кабель питания, 6. Соединительный кабель.",
+    },
+  },
+};
 
 /** Conținut complet pagină produs — RD Pro 3000 FS7 (6 imagini „jos” = 6 secțiuni + tabel specificații). */
 const rdpro3000Fs7Copy: Record<Locale, MaskTranslation> = {
@@ -288,7 +467,7 @@ export const lampProducts: LampProduct[] = [
     cleanProductPage: true,
     strategicBand: {
       ro: {
-        headline: "Mai mult decât confort. Un atuu strategic.",
+        headline: "Mai mult decât confort. Un activ strategic.",
         cards: [
           {
             title: "Consolidați-vă oferta de wellness",
@@ -335,9 +514,46 @@ export const lampProducts: LampProduct[] = [
   {
     slug: "rdpro300-fs7",
     name: "RD Pro 300 FS7",
-    price: "€—",
-    priceValue: 0,
+    price: "€100",
+    priceValue: 100,
     topGalleryCount: 8,
+    applicationsMediaPath: "lampi/RDPro300-FS7/RDPro300-FS7-jos-5.png",
+    therapyRulesBand: {
+      ro: {
+        headline: "Terapia ta, regulile tale",
+        cards: [
+          {
+            title: "Control inteligent prin aplicație",
+            body: "Aplicația intuitivă îți oferă control complet. Alege lungimi de undă, setează cronometre și salvează protocoale personalizate.",
+          },
+          {
+            title: "Mod pulsat avansat (0-9999 Hz)",
+            body: "Utilizează lumină pulsată în infraroșu apropiat pentru a îmbunătăți stimularea celulară și rezultatele terapeutice - o caracteristică întâlnită de obicei doar în laboratoarele de cercetare.",
+          },
+          {
+            title: "Reglare completă a intensității luminii (0-100%)",
+            body: "Reglează intensitatea luminii pentru a se potrivi nivelului tău de confort sau nevoilor specifice de tratament, de la blând la intens.",
+          },
+        ],
+      },
+      ru: {
+        headline: "Ваша Терапия, Ваши Правила",
+        cards: [
+          {
+            title: "Управление Интеллектуальным Приложением",
+            body: "Интуитивно понятное приложение предоставляет вам полный контроль. Выбирайте длины волн, устанавливайте таймеры и сохраняйте пользовательские протоколы.",
+          },
+          {
+            title: "Расширенный Импульсный Режим (0-9999 Гц)",
+            body: "Использование импульсного ближнего инфракрасного света для усиления клеточной стимуляции и терапевтических результатов — функция, обычно встречающаяся только в исследовательских лабораториях.",
+          },
+          {
+            title: "Полнодиапазонное Затемнение (0-100%)",
+            body: "Отрегулируйте интенсивность света в соответствии с вашим уровнем комфорта или конкретными потребностями в лечении, от мягкой до интенсивной.",
+          },
+        ],
+      },
+    },
     media: [
       { type: "image", path: "lampi/RDPro300-FS7/RDPro300-FS7-1.png", alt: "RD Pro 300 FS7" },
       { type: "image", path: "lampi/RDPro300-FS7/RDPro300-FS7-2.png", alt: "RD Pro 300 FS7" },
@@ -353,12 +569,7 @@ export const lampProducts: LampProduct[] = [
       { type: "image", path: "lampi/RDPro300-FS7/RDPro300-FS7-jos-4.jpg", alt: "RD Pro 300 FS7" },
       { type: "image", path: "lampi/RDPro300-FS7/RDPro300-FS7-jos-5.png", alt: "RD Pro 300 FS7" },
     ],
-    translations: tCommon(
-      "RD Pro 300 FS7",
-      "RD 300",
-      "RD Pro 300 FS7",
-      "RD 300",
-    ),
+    translations: rdpro300Fs7Copy,
   },
   {
     slug: "rdpro1500-fs7",

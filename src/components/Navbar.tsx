@@ -129,11 +129,11 @@ const Navbar = () => {
               placeholder={t.searchPlaceholder}
               aria-label={t.searchAriaLabel}
               autoComplete="off"
-              className="flex-1 px-4 py-2.5 bg-transparent border-0 outline-none text-sm text-foreground placeholder:text-muted-foreground h-10"
+              className="flex-1 px-4 py-2 bg-transparent border-0 outline-none text-sm text-foreground placeholder:text-muted-foreground h-12 min-h-12"
             />
             <button
               type="submit"
-              className="h-10 px-4 bg-primary hover:bg-primary/90 text-white flex items-center justify-center shrink-0"
+              className="h-12 min-h-12 px-5 bg-primary hover:bg-primary/90 text-white flex items-center justify-center shrink-0"
               aria-label={t.searchAriaLabel}
             >
               <Search className="h-4 w-4" />
@@ -209,9 +209,9 @@ const Navbar = () => {
               placeholder={t.searchPlaceholder}
               aria-label={t.searchAriaLabel}
               autoComplete="off"
-              className="rounded-full flex-1"
+              className="h-12 min-h-12 rounded-full flex-1"
             />
-            <Button type="submit" size="icon" className="shrink-0 rounded-full" aria-label={t.searchAriaLabel}>
+            <Button type="submit" size="icon" className="h-12 w-12 shrink-0 rounded-full" aria-label={t.searchAriaLabel}>
               <Search className="h-4 w-4" />
             </Button>
           </form>

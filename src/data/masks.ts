@@ -16,6 +16,8 @@ export interface MaskTranslation {
   subtitle: string;
   description: string;
   highlights: string[];
+  /** Titlu listă scurtă lângă hero (pagină lampă); altfel „Puncte forte” / „Ключевые особенности”. */
+  featuresTitle?: string;
   benefitsTitle: string;
   benefits: string[];
   /** Paragraf sub titlul beneficiilor (înainte de listă), ex. pagină spectru. */
@@ -41,6 +43,10 @@ export interface MaskTranslation {
   /** Recenzii / citate utilizatori (opțional). */
   testimonialsTitle?: string;
   testimonials?: string[];
+  /** Dacă e true, testimonialele sunt plasate după metrics (și după usage), nu înainte de usage — fără engineering. */
+  testimonialsAfterMetrics?: boolean;
+  /** Listă tip citat: fără iconițe bifă. */
+  testimonialsQuote?: boolean;
   /** Utilizare sigură, întreținere, service (opțional). */
   safetyTitle?: string;
   safety?: string[];
@@ -50,6 +56,9 @@ export interface MaskTranslation {
   specsIntroTitle?: string;
   specsTitle: string;
   specs: Record<string, string>;
+  /** Antete coloane tabel specificații (înlocuiesc site.maskProduct când sunt setate). */
+  specsColumnFeature?: string;
+  specsColumnValue?: string;
 }
 
 export interface MaskProduct {

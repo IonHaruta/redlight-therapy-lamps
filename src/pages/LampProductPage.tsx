@@ -111,6 +111,10 @@ type ContentSection = {
   bullets: string[];
   media: MaskMedia;
   intro?: string;
+  /** Subtitlu accent (roșu) imediat sub titlul secțiunii (ex. control / aplicații). */
+  sectionLead?: string;
+  /** Listă ca citat (fără bifă). */
+  quoteBlock?: boolean;
   listHeading?: string;
   /** Listă „Etichetă: text” cu bullet disc, fără subtitlu (ex. inginerie). */
   colonBullets?: boolean;
@@ -230,11 +234,12 @@ const LampProductPage = () => {
       colonBullets: true,
     });
   } else {
-    if (t.testimonials?.length && t.testimonialsTitle) {
+    if (t.testimonials?.length && t.testimonialsTitle && !t.testimonialsAfterMetrics) {
       defaultBeforeSpecs.push({
         title: t.testimonialsTitle,
         bullets: t.testimonials,
         media: nextDefault(),
+        ...(t.testimonialsQuote ? { quoteBlock: true } : {}),
       });
     }
     defaultBeforeSpecs.push({ title: t.usageTitle, bullets: t.usage, media: nextDefault() });
@@ -259,6 +264,18 @@ const LampProductPage = () => {
       title: t.testimonialsTitle,
       bullets: t.testimonials,
       media: nextDefault(),
+      ...(t.testimonialsQuote ? { quoteBlock: true } : {}),
+    });
+  } else if (
+    t.testimonialsAfterMetrics &&
+    t.testimonials?.length &&
+    t.testimonialsTitle
+  ) {
+    defaultBeforeSpecs.push({
+      title: t.testimonialsTitle,
+      bullets: t.testimonials,
+      media: nextDefault(),
+      ...(t.testimonialsQuote ? { quoteBlock: true } : {}),
     });
   }
 
@@ -285,6 +302,9 @@ const LampProductPage = () => {
       title: t.applicationsTitle,
       bullets: t.applications,
       media: applicationsMedia,
+      ...(t.applicationsLead ? { sectionLead: t.applicationsLead } : {}),
+      ...(t.applicationsIntro ? { intro: t.applicationsIntro } : {}),
+      colonBullets: true,
     });
   }
   if (t.safety?.length && t.safetyTitle) {
@@ -306,11 +326,12 @@ const LampProductPage = () => {
       colonBullets: true,
     });
   } else {
-    if (t.testimonials?.length && t.testimonialsTitle) {
+    if (t.testimonials?.length && t.testimonialsTitle && !t.testimonialsAfterMetrics) {
       cleanNarrativeBeforeSpecs.push({
         title: t.testimonialsTitle,
         bullets: t.testimonials,
         media: nextClean(),
+        ...(t.testimonialsQuote ? { quoteBlock: true } : {}),
       });
     }
     cleanNarrativeBeforeSpecs.push({
@@ -339,6 +360,18 @@ const LampProductPage = () => {
       title: t.testimonialsTitle,
       bullets: t.testimonials,
       media: nextClean(),
+      ...(t.testimonialsQuote ? { quoteBlock: true } : {}),
+    });
+  } else if (
+    t.testimonialsAfterMetrics &&
+    t.testimonials?.length &&
+    t.testimonialsTitle
+  ) {
+    cleanNarrativeBeforeSpecs.push({
+      title: t.testimonialsTitle,
+      bullets: t.testimonials,
+      media: nextClean(),
+      ...(t.testimonialsQuote ? { quoteBlock: true } : {}),
     });
   }
   if (t.included?.length && t.includedTitle) {
@@ -368,6 +401,10 @@ const LampProductPage = () => {
       : null;
 
   const contentSections = [...defaultBeforeSpecs, ...defaultAfterSpecs];
+
+  const therapyBandLocale = product.therapyRulesBand?.[locale];
+  const defaultBeforeLead = therapyBandLocale ? defaultBeforeSpecs.slice(0, 1) : defaultBeforeSpecs;
+  const defaultBeforeTail = therapyBandLocale ? defaultBeforeSpecs.slice(1) : [];
 
   const renderSpecsTable = () => (
     <section className={clean ? "py-14 md:py-20 bg-white" : "py-12 md:py-16"}>
@@ -404,8 +441,8 @@ const LampProductPage = () => {
                 : "grid grid-cols-[0.9fr_1.1fr] bg-secondary px-5 py-3 font-display text-sm font-bold uppercase tracking-wider text-foreground"
             }
           >
-            <span>{site.maskProduct.specsColSpec}</span>
-            <span>{site.maskProduct.specsColDetails}</span>
+            <span>{t.specsColumnFeature ?? site.maskProduct.specsColSpec}</span>
+            <span>{t.specsColumnValue ?? site.maskProduct.specsColDetails}</span>
           </div>
           {Object.entries(t.specs).map(([key, value], index) => (
             <div
@@ -455,9 +492,14 @@ const LampProductPage = () => {
                 <h3 className="font-display text-xl font-bold text-primary md:text-2xl">
                   {section.title}
                 </h3>
+                {section.sectionLead ? (
+                  <p className="mt-3 font-display text-lg font-semibold text-primary md:text-xl">
+                    {section.sectionLead}
+                  </p>
+                ) : null}
                 {section.intro ? (
                   <p
-                    className={`mt-4 text-sm leading-relaxed md:text-base ${
+                    className={`${section.sectionLead ? "mt-3" : "mt-4"} text-sm leading-relaxed md:text-base ${
                       clean ? "text-neutral-800" : "text-muted-foreground"
                     }`}
                   >
@@ -473,7 +515,27 @@ const LampProductPage = () => {
                     {section.listHeading}
                   </p>
                 ) : null}
-                {(() => {
+                {section.quoteBlock ? (
+                  <div
+                    className={`mt-5 space-y-4 ${
+                      clean ? "text-neutral-800" : "text-muted-foreground"
+                    }`}
+                  >
+                    {section.bullets.map((item, i) => (
+                      <p
+                        key={`quote-${i}-${item.slice(0, 24)}`}
+                        className={
+                          i === 0
+                            ? "text-sm leading-relaxed md:text-base"
+                            : `text-sm font-medium ${clean ? "text-neutral-900" : "text-foreground"}`
+                        }
+                      >
+                        {item}
+                      </p>
+                    ))}
+                  </div>
+                ) : (
+                (() => {
                   const useColonDiscList = Boolean(section.listHeading || section.colonBullets);
                   return (
                     <ul
@@ -481,10 +543,10 @@ const LampProductPage = () => {
                         useColonDiscList
                           ? clean
                             ? `list-disc space-y-3 pl-5 text-sm marker:text-neutral-900 md:text-base ${
-                                section.listHeading ? "mt-3" : "mt-5"
+                                section.listHeading ? "mt-3" : section.intro ? "mt-4" : "mt-5"
                               }`
                             : `list-disc space-y-3 pl-5 text-sm marker:text-foreground ${
-                                section.listHeading ? "mt-3" : "mt-5"
+                                section.listHeading ? "mt-3" : section.intro ? "mt-4" : "mt-5"
                               }`
                           : "mt-5 space-y-3"
                       }
@@ -508,7 +570,8 @@ const LampProductPage = () => {
                       )}
                     </ul>
                   );
-                })()}
+                })()
+                )}
               </div>
             </div>
           ))}
@@ -516,6 +579,61 @@ const LampProductPage = () => {
       </div>
     </section>
   );
+
+  const renderTherapyRulesBand = () => {
+    const band = product.therapyRulesBand?.[locale];
+    if (!band?.cards?.length) return null;
+    return (
+      <section
+        className={
+          clean
+            ? "border-t border-neutral-100 bg-white py-14 md:py-20"
+            : "border-t border-border/80 bg-background py-12 md:py-16"
+        }
+      >
+        <div className="container mx-auto max-w-6xl px-4">
+          <h2
+            className={`text-center font-display text-2xl font-bold leading-tight md:text-3xl lg:text-4xl ${
+              clean ? "text-neutral-900" : "text-foreground"
+            }`}
+          >
+            {band.headline}
+          </h2>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:mt-12 lg:grid-cols-3 lg:gap-5">
+            {band.cards.map((card) => (
+              <div
+                key={card.title}
+                className={
+                  clean
+                    ? "flex min-h-[12rem] flex-col items-center justify-center border border-neutral-200 bg-[#f5f5f5] px-5 py-8 text-center md:min-h-[14rem] md:py-10"
+                    : "flex min-h-[12rem] flex-col items-center justify-center border border-border bg-[#f5f5f5] px-5 py-8 text-center md:min-h-[14rem] md:py-10"
+                }
+              >
+                <h3
+                  className={`font-display text-base font-bold leading-snug md:text-[1.0625rem] ${
+                    clean ? "text-neutral-900" : "text-foreground"
+                  }`}
+                >
+                  {card.title}
+                </h3>
+                <div
+                  className={`my-4 h-px w-10 shrink-0 ${clean ? "bg-neutral-900/20" : "bg-foreground/20"}`}
+                  aria-hidden
+                />
+                <p
+                  className={`text-sm leading-relaxed md:text-[0.9375rem] ${
+                    clean ? "text-neutral-800" : "text-muted-foreground"
+                  }`}
+                >
+                  {card.body}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  };
 
   const renderApplicationsBandClean = (media: MaskMedia) => (
     <section className="border-t border-neutral-100 bg-white py-16 md:py-24">
@@ -733,15 +851,17 @@ const LampProductPage = () => {
                 >
                   {t.title}
                 </h1>
-                <p
-                  className={
-                    clean
-                      ? "mt-3 font-display text-lg font-semibold text-primary md:text-xl"
-                      : "mt-3 font-display text-xl text-primary"
-                  }
-                >
-                  {t.subtitle}
-                </p>
+                {(t.subtitle ?? "").trim() ? (
+                  <p
+                    className={
+                      clean
+                        ? "mt-3 font-display text-lg font-semibold text-primary md:text-xl"
+                        : "mt-3 font-display text-xl text-primary"
+                    }
+                  >
+                    {t.subtitle}
+                  </p>
+                ) : null}
 
                 <p
                   className={
@@ -761,7 +881,7 @@ const LampProductPage = () => {
                         : "font-display text-base font-bold text-foreground"
                     }
                   >
-                    {ui[locale].features}
+                    {t.featuresTitle ?? ui[locale].features}
                   </h2>
                   <ul className="mt-3 space-y-2">
                     {t.highlights.map((item) => (
@@ -787,7 +907,7 @@ const LampProductPage = () => {
                       <Link
                         key={lamp.slug}
                         to={`/lampi/${lamp.slug}`}
-                        className={`flex min-h-16 items-center justify-center rounded-full border px-4 py-3 text-center font-display text-xs uppercase tracking-wide transition-colors ${
+                        className={`flex h-12 items-center justify-center rounded-full border px-4 text-center font-display text-xs uppercase tracking-wide transition-colors ${
                           lamp.slug === product.slug
                             ? "gradient-red border-transparent text-primary-foreground"
                             : "border-primary/50 text-primary hover:bg-primary/10"
@@ -800,30 +920,31 @@ const LampProductPage = () => {
                 </div>
 
                 <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
-                  <div className="flex w-full items-center justify-between rounded-full border border-border sm:w-40">
+                  <div className="flex h-12 w-full rounded-full border border-border sm:w-40">
                     <button
                       type="button"
                       onClick={() => setQty(Math.max(1, qty - 1))}
-                      className="px-5 py-4 text-muted-foreground transition-colors hover:text-foreground"
+                      className="flex flex-1 items-center justify-center text-muted-foreground transition-colors hover:text-foreground"
                     >
                       −
                     </button>
-                    <span className="font-display text-xl text-foreground">{qty}</span>
+                    <span className="flex shrink-0 items-center justify-center px-2 font-display text-lg text-foreground tabular-nums">
+                      {qty}
+                    </span>
                     <button
                       type="button"
                       onClick={() => setQty(qty + 1)}
-                      className="px-5 py-4 text-muted-foreground transition-colors hover:text-foreground"
+                      className="flex flex-1 items-center justify-center text-muted-foreground transition-colors hover:text-foreground"
                     >
                       +
                     </button>
                   </div>
                   <Button
                     type="button"
-                    size={clean ? "default" : "lg"}
                     className={
                       clean
-                        ? "gradient-red h-11 flex-1 rounded-full px-8 font-display text-xs uppercase tracking-widest text-primary-foreground hover:opacity-90 sm:flex-none"
-                        : "gradient-red flex-1 rounded-full py-7 font-display text-sm uppercase tracking-widest text-primary-foreground hover:opacity-90"
+                        ? "gradient-red h-14 min-h-14 flex-1 rounded-full px-8 font-display text-sm uppercase tracking-widest text-primary-foreground hover:opacity-90"
+                        : "gradient-red h-14 min-h-14 flex-1 rounded-full px-8 font-display text-sm uppercase tracking-widest text-primary-foreground hover:opacity-90"
                     }
                     onClick={() => {
                       addItem({
@@ -934,7 +1055,11 @@ const LampProductPage = () => {
               </>
             ) : (
               <>
-                {renderContentSections(defaultBeforeSpecs, "pt-0")}
+                {renderContentSections(defaultBeforeLead, "pt-0")}
+                {therapyBandLocale ? renderTherapyRulesBand() : null}
+                {defaultBeforeTail.length
+                  ? renderContentSections(defaultBeforeTail, "pt-8 md:pt-12")
+                  : null}
                 {renderSpecsTable()}
                 {defaultAfterSpecs.length ? renderContentSections(defaultAfterSpecs, "pt-8") : null}
               </>

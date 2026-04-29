@@ -52,13 +52,13 @@ export function CartDrawer({ open, onOpenChange }: CartDrawerProps) {
             <div className="flex flex-col gap-2">
               <Button
                 asChild
-                className="w-full rounded-full gradient-red font-display uppercase tracking-wider text-primary-foreground hover:opacity-90"
+                className="h-12 w-full rounded-full gradient-red font-display uppercase tracking-wider text-primary-foreground hover:opacity-90"
               >
                 <Link to="/cos" onClick={() => onOpenChange(false)}>
                   {t.cart.viewCart}
                 </Link>
               </Button>
-              <Button asChild variant="outline" className="w-full rounded-full">
+              <Button asChild variant="outline" className="h-12 w-full rounded-full">
                 <Link to="/" onClick={() => onOpenChange(false)}>
                   {t.cart.continueShopping}
                 </Link>

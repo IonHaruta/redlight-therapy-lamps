@@ -33,7 +33,7 @@ const CartPage = () => {
         {lines.length === 0 ? (
           <div className="mt-10 text-center">
             <p className="text-muted-foreground">{t.cart.empty}</p>
-            <Button asChild className="mt-6 rounded-full">
+            <Button asChild className="mt-6 h-12 rounded-full px-6">
               <Link to="/">{t.cart.continueShopping}</Link>
             </Button>
           </div>
@@ -52,17 +52,16 @@ const CartPage = () => {
               <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <Button
                   asChild
-                  size="lg"
-                  className="flex-1 rounded-full gradient-red font-display uppercase tracking-wider text-primary-foreground hover:opacity-90 sm:flex-none sm:px-10"
+                  className="h-12 flex-1 rounded-full gradient-red font-display uppercase tracking-wider text-primary-foreground hover:opacity-90 sm:flex-none sm:px-10"
                 >
                   <a href={mailHref}>{t.cart.checkout}</a>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="rounded-full sm:flex-none">
+                <Button asChild variant="outline" className="h-12 rounded-full px-6 sm:flex-none">
                   <Link to={{ pathname: "/", hash: "contact" }}>{t.cart.contactInstead}</Link>
                 </Button>
               </div>
 
-              <Button asChild variant="ghost" className="mt-4 w-full rounded-full text-muted-foreground">
+              <Button asChild variant="ghost" className="mt-4 h-12 w-full rounded-full text-muted-foreground">
                 <Link to="/">{t.cart.continueShopping}</Link>
               </Button>
             </div>

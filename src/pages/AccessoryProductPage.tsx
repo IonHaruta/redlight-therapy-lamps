@@ -143,7 +143,7 @@ const AccessoryProductPage = () => {
                       <Link
                         key={a.slug}
                         to={`/accesorii/${a.slug}`}
-                        className={`flex min-h-16 items-center justify-center rounded-full border px-4 py-3 text-center font-display text-xs uppercase tracking-wide transition-colors ${
+                        className={`flex h-12 items-center justify-center rounded-full border px-4 text-center font-display text-xs uppercase tracking-wide transition-colors ${
                           a.slug === product.slug
                             ? "gradient-red border-transparent text-primary-foreground"
                             : "border-primary/50 text-primary hover:bg-primary/10"
@@ -156,27 +156,28 @@ const AccessoryProductPage = () => {
                 </div>
 
                 <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
-                  <div className="flex w-full items-center justify-between rounded-full border border-border sm:w-40">
+                  <div className="flex h-12 w-full rounded-full border border-border sm:w-40">
                     <button
                       type="button"
                       onClick={() => setQty(Math.max(1, qty - 1))}
-                      className="px-5 py-4 text-muted-foreground transition-colors hover:text-foreground"
+                      className="flex flex-1 items-center justify-center text-muted-foreground transition-colors hover:text-foreground"
                     >
                       −
                     </button>
-                    <span className="font-display text-xl text-foreground">{qty}</span>
+                    <span className="flex shrink-0 items-center justify-center px-2 font-display text-lg text-foreground tabular-nums">
+                      {qty}
+                    </span>
                     <button
                       type="button"
                       onClick={() => setQty(qty + 1)}
-                      className="px-5 py-4 text-muted-foreground transition-colors hover:text-foreground"
+                      className="flex flex-1 items-center justify-center text-muted-foreground transition-colors hover:text-foreground"
                     >
                       +
                     </button>
                   </div>
                   <Button
                     type="button"
-                    size="lg"
-                    className="gradient-red flex-1 rounded-full py-7 font-display text-sm uppercase tracking-widest text-primary-foreground hover:opacity-90"
+                    className="gradient-red h-14 min-h-14 flex-1 rounded-full px-8 font-display text-sm uppercase tracking-widest text-primary-foreground hover:opacity-90"
                     onClick={() => {
                       addItem({
                         kind: "accessory",
