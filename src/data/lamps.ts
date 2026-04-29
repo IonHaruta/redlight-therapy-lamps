@@ -11,6 +11,29 @@ export interface LampProduct {
   topGalleryCount: number;
   /** Imagine din `media` pentru banda „aplicații” (pagină clean / default); ex. fișierul jos-6. */
   applicationsMediaPath?: string;
+  /** Imagine din `media` pentru secțiunea beneficii (primul bloc narativ). */
+  benefitsMediaPath?: string;
+  /** Pe desktop: text stânga, imagine dreapta în secțiunea beneficii. */
+  benefitsMediaOnRight?: boolean;
+  /** Imagine din `media` pentru secțiunea testimoniale (înainte de utilizare, fără engineering). */
+  testimonialsMediaPath?: string;
+  /** Pe desktop: override ordine coloane pentru testimoniale; `false` = imagine stânga, text dreapta. */
+  testimonialsMediaOnRight?: boolean;
+  /** Imagine din `media` pentru secțiunea „Utilizare”. */
+  usageMediaPath?: string;
+  /** Pe desktop: text stânga, imagine dreapta pentru „Utilizare” când e `true`. */
+  usageMediaOnRight?: boolean;
+  /** După tabel (clean): imagine spectru / jos-4. */
+  afterSpecsSpectrumMediaPath?: string;
+  /** `false` = imagine stânga, text dreapta. */
+  afterSpecsSpectrumMediaOnRight?: boolean;
+  /** După tabel (clean): imagine control / jos-5. */
+  afterSpecsControlMediaPath?: string;
+  afterSpecsControlMediaOnRight?: boolean;
+  /** Imagine din `media` pentru secțiunea „engineering”. */
+  engineeringMediaPath?: string;
+  /** Pe desktop: text stânga, imagine dreapta în secțiunea engineering. */
+  engineeringMediaOnRight?: boolean;
   translations: Record<Locale, MaskTranslation>;
   /** Layout produs apropiat de stil clinic / REDDOT: alb, gri deschis, secțiuni aerisite */
   cleanProductPage?: boolean;
@@ -630,6 +653,198 @@ const rdpro1500Fs7Copy: Record<Locale, MaskTranslation> = {
   },
 };
 
+const rdpro6000Fs7Seed = tCommon(
+  "RD Pro 6000 FS7",
+  "RD 6000",
+  "RD Pro 6000 FS7",
+  "RD 6000",
+);
+
+const rdpro6000Fs7Copy: Record<Locale, MaskTranslation> = {
+  ro: {
+    ...rdpro6000Fs7Seed.ro,
+    title: "Panoul RDPro6000-FS7: Redefinirea potențialului uman.",
+    subtitle:
+      "RDPro6000-FS7: panou profesional full-body, 7 lungimi de undă, 1864 W.",
+    description:
+      "RDPro6000-FS7 este mai mult decât un simplu dispozitiv; este o platformă pentru obținerea unor rezultate de neegalat. Conceput pentru cele mai solicitante medii de operare și cercetare din lume, acesta reprezintă apogeul absolut al tehnologiei luminii terapeutice.",
+    featuresTitle: "Caracteristici/Beneficii cheie",
+    highlights: [
+      "Sistem complet imersiv: panou de 180 cm x 60 cm cu 1.200 de LED-uri cu cip dual.",
+      "Putere de neegalat: cel mai bun sistem din clasa sa, de 1.864 wați, pentru dozaj maxim.",
+      "Inginerie de nivel instituțional: conceput pentru funcționare 24/7.",
+    ],
+    benefitsTitle: "Proiectat pentru putere și fiabilitate fără compromisuri.",
+    benefitsQuote: true,
+    benefits: [
+      "RDPro6000-FS7 dispune de o sursă de alimentare de 1864 W care alimentează 1200 de LED-uri cu două cipuri. Managementul termic este asigurat de un sistem de 14 ventilatoare ultra-silențioase, asigurând o funcționare stabilă și o durată lungă de viață în timpul funcționării continue pe tot parcursul zilei. Fiecare componentă este selectată având în vedere durabilitatea și puterea maximă.",
+    ],
+    testimonialsTitle: "Pentru comitetul dumneavoastră de planificare",
+    testimonialsColonBullets: true,
+    testimonials: [
+      "Model: RDPro6000-FS7",
+      "Dimensiuni: 180 cm x 60 cm x 6,5 cm",
+      "Greutate: 40,6 kg (doar panoul)",
+      "Consum de energie: 1864 W",
+      "Intrări necesare: AC 100-240 V",
+      "Iradiere: 124 mW/cm² la 15 cm",
+      "Certificări: FDA, FCC, CE, RoHS",
+    ],
+    usageTitle: "Montare precisă pentru un sistem puternic",
+    usageQuote: true,
+    usage: [
+      "Datorită dimensiunilor și greutății sale semnificative, RDPro6000-FS7 este utilizat exclusiv împreună cu sistemele noastre profesionale de stative pneumatice sau electrice. Ambele sisteme sunt concepute pentru a oferi o poziționare ușoară și sigură atât în poziție verticală, cât și orizontală, asigurând siguranță completă și eficiență operațională.",
+    ],
+    specsIntroTitle:
+      "Conceput pentru profesioniști, construit pentru performanță ridicată și parteneriate eficiente.",
+    specsTitle: "Specificații tehnice",
+    specsColumnFeature: "Caracteristică",
+    specsColumnValue: "Specificație",
+    specs: {
+      "Număr model": "RDPro6000-FS7",
+      "LED-uri (buc.)": "1200",
+      "Lungimi de undă":
+        "480:630:660:810:830:850:1060 nm (setări personalizate acceptate)",
+      LED: "Cu un singur cip / cu două cipuri",
+      "Mod inteligent": "Da",
+      "Tensiune / Alimentare de intrare": "AC 100-240 V",
+      "Consum de energie": "1864 W",
+      "Unghi fascicul": "30°",
+      "Dimensiuni (cm)": "180×60×6,5",
+      "Greutate netă (kg)": "40,6",
+      "Intensitate radiantă (mW/cm²)": "124, la 15 cm",
+      "Ventilatoare de răcire": "14",
+      "Durata de viață a LED-ului (ore)": "50.000",
+      "Emisii EMF": "Neglijabile",
+      "Garanție (ani)": "3",
+      Temporizator: "1-30 min",
+      "Impuls (doar în infraroșu apropiat)": "0-9999 Hz",
+      "Regulator intensitate": "0%-100%",
+      Comenzi:
+        "Ecran tactil + Telecomandă + Aplicație (aplicația este în curs de actualizare)",
+      "Mediu de funcționare": "-10°~45°",
+      "Material carcasă": "SPCC",
+      Certificare: "FDA/FCC/CE/ROHS",
+      "Dimensiuni pachet (cm)": "—",
+      "Greutate brută (kg)": "59,00",
+      Accesorii:
+        "1. Panou de terapie LED, 2. Telecomandă, 3. Suport de perete, 4. Cablu de alimentare, 5. Protecție pentru ochi.",
+    },
+    afterSpecsSpectrumTitle:
+      "Stăpânește spectrul complet: o abordare personalizată a tratamentului",
+    afterSpecsSpectrumLead:
+      "De la suprafața pielii până la straturile cele mai profunde: lungimea de undă potrivită pentru fiecare nevoie.",
+    afterSpecsSpectrumIntro:
+      "RDPro6000-FS7 oferă practicienilor și utilizatorilor un control fără precedent. Fiecare dintre cele 7 lungimi de undă terapeutice poate fi ajustată individual de la 0 la 100% luminozitate, permițând crearea unor protocoale de tratament extrem de precise și personalizate.",
+    afterSpecsSpectrumListHeading: "Defalcarea lungimii de undă:",
+    afterSpecsSpectrumBullets: [
+      "480 nm (Albastru): Curăță și calmează pielea cu lumină albastră țintită.",
+      "630–660 nm (Roșu): Stimulează producția de colagen și restabilește tinerețea și vitalitatea cu lumină roșie.",
+      "810–850 nm (Infraroșu apropiat): Calmează mușchii și articulațiile cu lumină infraroșie apropiată.",
+      "1060 nm (Infraroșu apropiat): Atinge țesuturile adânci pentru un efect terapeutic maxim cu cea mai avansată lumină infraroșie a noastră.",
+    ],
+    afterSpecsControlTitle: "Sisteme de control inteligente și versatile",
+    afterSpecsControlLead: "Control nestânjenit la îndemână",
+    afterSpecsControlIntro: "Gestionați cu ușurință toate aspectele terapiei dvs.:",
+    afterSpecsControlBullets: [
+      "Ecran tactil încorporat: Interfață intuitivă pentru setări simple.",
+      "Telecomandă wireless: Telecomandă convenabilă.",
+      "Aplicație mobilă dedicată: Oferă acces la opțiuni avansate de programare, vă permite să salvați protocoale personalizate și să gestionați mai multe dispozitive (ideal pentru clinici).",
+    ],
+  },
+  ru: {
+    ...rdpro6000Fs7Seed.ru,
+    title: "Панель RDPro6000-FS7: где переосмысливается человеческий потенциал.",
+    subtitle:
+      "RDPro6000-FS7: профессиональная панель full-body, 7 длин волн, 1864 Вт.",
+    description:
+      "RDPro6000-FS7 — это больше, чем просто устройство; это платформа для достижения непревзойденных результатов. Разработанный для самых требовательных условий эксплуатации и исследований в мире, он представляет собой абсолютную вершину технологий терапевтического света.",
+    featuresTitle: "Основные характеристики/преимущества",
+    highlights: [
+      "Система полного погружения: панель размером 180 см x 60 см с 1200 двухчиповыми светодиодами.",
+      "Непревзойденная мощность: лучшая в своем классе система мощностью 1864 Вт для максимальной дозировки.",
+      "Инженерные решения институционального уровня: разработаны для бесперебойной работы в режиме 24/7.",
+    ],
+    benefitsTitle: "Разработан для бескомпромиссной мощности и надежности.",
+    benefitsQuote: true,
+    benefits: [
+      "В основе RDPro6000-FS7 лежит система питания мощностью 1864 Вт, управляющая 1200 двухчиповыми светодиодами. Регулирование температуры осуществляется системой из 14 сверхтихих вентиляторов, обеспечивающих стабильную работу и длительный срок службы при непрерывной работе в течение всего дня. Каждый компонент выбран с учетом долговечности и максимальной мощности.",
+    ],
+    testimonialsTitle: "Для вашего Планировочного комитета",
+    testimonialsColonBullets: true,
+    testimonials: [
+      "Модель: RDPro6000-FS7",
+      "Размеры: 180 см x 60 см x 6,5 см",
+      "Вес: 40,6 кг (только панель)",
+      "Потребление электроэнергии: 1864 W",
+      "Необходимые входные данные: AC 100-240 V",
+      "Интенсивность излучения: 124 мВт/см² на расстоянии 15 см",
+      "Сертификаты: FDA, FCC, CE, RoHS",
+    ],
+    usageTitle: "Точный монтаж для мощной системы",
+    usageQuote: true,
+    usage: [
+      "Из-за своих значительных размеров и веса, RDPro6000-FS7 используется исключительно в паре с нашими профессиональными пневматическими или электрическими системами подставок. Обе системы разработаны для обеспечения легкого и надежного позиционирования как в вертикальном, так и в горизонтальном положении, гарантируя полную безопасность и эффективность работы.",
+    ],
+    specsIntroTitle:
+      "Разработано Для Профессионалов, Создано Для Высокой Производительности И Эффективного Партнерства.",
+    specsTitle: "Технические Характеристики",
+    specsColumnFeature: "Особенность",
+    specsColumnValue: "Спецификация",
+    specs: {
+      "Номер модели": "RDPro6000-FS7",
+      "Светодиоды (шт.)": "1200",
+      "Длины волн":
+        "480:630:660:810:830:850:1060 нм (поддержка пользовательских настроек)",
+      LED: "Однокристальный / Двухкристальный",
+      "Интеллектуальный режим": "Да",
+      "Напряжение/Входная мощность": "AC 100-240V",
+      "Потребление электроэнергии": "1864W",
+      BeamAngle: "30°",
+      "Размеры (см)": "180×60×6,5",
+      "N.W (KG)": "40,6",
+      "Интенсивность излучения (мВт/см²)": "124, на 15 см",
+      "Вентиляторы охлаждения": "14",
+      "Срок службы светодиодов (часы)": "50 000",
+      "Излучение ЭМП": "Незначительный",
+      "Гарантия (лет)": "3",
+      Таймер: "1-30 мин",
+      "Импульсный (только ближний инфракрасный)": "0-9999 Гц",
+      Диммер: "0%-100%",
+      "Элементы управления":
+        "Сенсорный экран + Пульт дистанционного управления + Приложение (приложение находится в процессе обновления)",
+      "Рабочая среда": "-10°~45°",
+      "Материал корпуса": "SPCC",
+      Сертификация: "FDA/FCC/CE/ROHS",
+      "Размер упаковки (см)": "—",
+      "G.W (KG)": "59,00",
+      Аксессуары:
+        "1. Светодиодная терапевтическая панель, 2. Пульт дистанционного управления, 3. Настенная подставка, 4. Кабель питания, 5. Защита глаз.",
+    },
+    afterSpecsSpectrumTitle:
+      "Освойте Все Грани Спектра: Индивидуальный Подход К Лечению",
+    afterSpecsSpectrumLead:
+      "От поверхности кожи до глубоких слоев: правильная длина волны для любых потребностей.",
+    afterSpecsSpectrumIntro:
+      "RDPro6000-FS7 предоставляет практикующим врачам и пользователям беспрецедентный контроль. Каждая из 7 терапевтических длин волн может быть индивидуально отрегулирована от 0 до 100% яркости, что позволяет создавать высокоточные и настраиваемые протоколы лечения.",
+    afterSpecsSpectrumListHeading: "Разбор длин волн:",
+    afterSpecsSpectrumBullets: [
+      "480 нм (синий): Очищает и успокаивает кожу с помощью направленного синего света.",
+      "630–660 нм (красный): Стимулирует выработку коллагена и восстанавливает молодость и жизненную силу с помощью красного света.",
+      "810–850 нм (ближний инфракрасный диапазон): Успокаивает мышцы и суставы с помощью ближнего инфракрасного света.",
+      "1060 нм (ближний инфракрасный диапазон): Достигайте глубоких тканей для максимального терапевтического эффекта с помощью нашего самого современного инфракрасного излучения.",
+    ],
+    afterSpecsControlTitle: "Интеллектуальные И Универсальные Системы Управления",
+    afterSpecsControlLead: "Беспрепятственный контроль у вас под рукой",
+    afterSpecsControlIntro: "Управляйте всеми аспектами терапии с легкостью:",
+    afterSpecsControlBullets: [
+      "Встроенный сенсорный экран: интуитивно понятный интерфейс для непосредственной настройки.",
+      "Беспроводной пульт дистанционного управления: удобное управление на расстоянии.",
+      "Специальное мобильное приложение: открывает доступ к расширенным возможностям программирования, позволяет сохранять пользовательские протоколы и управлять несколькими устройствами (идеально подходит для клиник).",
+    ],
+  },
+};
+
 export const lampProducts: LampProduct[] = [
   {
     slug: "rdpro3000-fs7",
@@ -833,6 +1048,55 @@ export const lampProducts: LampProduct[] = [
     price: "€100",
     priceValue: 100,
     topGalleryCount: 6,
+    cleanProductPage: true,
+    strategicBand: {
+      ro: {
+        headline: "Tehnologii pentru Victorie",
+        cards: [
+          {
+            title: "Accelerați recuperarea sportivilor",
+            body: "Reduceți semnificativ timpul de recuperare și optimizați performanța fizică. Puterea masivă a RDPro6000-FS7 și acoperirea completă a corpului oferă protocolul ideal de recuperare.",
+          },
+          {
+            title: "Descoperiți noi orizonturi de cercetare",
+            body: "Cu 7 lungimi de undă diferite și control complet al pulsului și intensității prin intermediul aplicației, acest sistem este un instrument puternic și fiabil pentru noi cercetări clinice.",
+          },
+          {
+            title: "Atragerea talentelor de talie mondială",
+            body: "Sportivii și cercetătorii remarcabili aspiră să lucreze în unități cu cea mai bună tehnologie. RDPro6000-FS7 este dovada acestui angajament față de excelență.",
+          },
+        ],
+      },
+      ru: {
+        headline: "Технологии Для Победы",
+        cards: [
+          {
+            title: "Ускорьте Восстановление Спортсменов",
+            body: "Значительно сократите время простоя и оптимизируйте физическую подготовку. Огромная мощность и охват всего тела аппарата RDPro6000-FS7 обеспечивают идеальный протокол восстановления.",
+          },
+          {
+            title: "Откройте Для Себя Новые Горизонты Исследований",
+            body: "Благодаря 7 различным длинам волн и полному управлению импульсом и интенсивностью через приложение, эта система представляет собой мощный и надежный инструмент для новых клинических исследований.",
+          },
+          {
+            title: "Привлечение Талантов Мирового Класса",
+            body: "Выдающиеся спортсмены и исследователи стремятся работать в учреждениях, обладающих лучшими технологиями. RDPro6000-FS7 — это подтверждение стремления к совершенству.",
+          },
+        ],
+      },
+    },
+    engineeringMediaPath: "lampi/RDPro6000-FS7/fs7-jos-3.jpg",
+    engineeringMediaOnRight: true,
+    benefitsMediaPath: "lampi/RDPro6000-FS7/fs7-jos-1.jpg",
+    benefitsMediaOnRight: true,
+    testimonialsMediaPath: "lampi/RDPro6000-FS7/fs7-jos-2.jpg",
+    testimonialsMediaOnRight: false,
+    usageMediaPath: "lampi/RDPro6000-FS7/fs7-jos-3.jpg",
+    usageMediaOnRight: true,
+    afterSpecsSpectrumMediaPath: "lampi/RDPro6000-FS7/fs7-jos-4.jpg",
+    afterSpecsSpectrumMediaOnRight: false,
+    afterSpecsControlMediaPath: "lampi/RDPro6000-FS7/fs7-jos-5.png",
+    afterSpecsControlMediaOnRight: true,
     media: [
       { type: "image", path: "lampi/RDPro6000-FS7/fs7-1.png", alt: "RD Pro 6000 FS7" },
       { type: "image", path: "lampi/RDPro6000-FS7/fs7-2.png", alt: "RD Pro 6000 FS7" },
@@ -846,12 +1110,7 @@ export const lampProducts: LampProduct[] = [
       { type: "image", path: "lampi/RDPro6000-FS7/fs7-jos-4.jpg", alt: "RD Pro 6000 FS7" },
       { type: "image", path: "lampi/RDPro6000-FS7/fs7-jos-5.png", alt: "RD Pro 6000 FS7" },
     ],
-    translations: tCommon(
-      "RD Pro 6000 FS7",
-      "RD 6000",
-      "RD Pro 6000 FS7",
-      "RD 6000",
-    ),
+    translations: rdpro6000Fs7Copy,
   },
 ];
 

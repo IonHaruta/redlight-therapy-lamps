@@ -118,6 +118,8 @@ type ContentSection = {
   listHeading?: string;
   /** Listă „Etichetă: text” cu bullet disc, fără subtitlu (ex. inginerie). */
   colonBullets?: boolean;
+  /** Pe ecrane mari: text stânga, imagine dreapta (override față de alternanța după index). */
+  mediaOnRight?: boolean;
 };
 
 /** Formatare „Etichetă: descriere” ca pe site-ul sursă (control / liste tehnice). */
@@ -221,28 +223,91 @@ const LampProductPage = () => {
     media,
     ...(t.benefitsIntro ? { intro: t.benefitsIntro } : {}),
     ...(t.benefitsListHeading ? { listHeading: t.benefitsListHeading } : {}),
+    ...(t.benefitsQuote ? { quoteBlock: true } : {}),
+    ...(product.benefitsMediaOnRight !== undefined ? { mediaOnRight: product.benefitsMediaOnRight } : {}),
   });
 
   const nextDefault = createMediaPicker();
-  const defaultBeforeSpecs: ContentSection[] = [benefitsSection(nextDefault())];
+  const resolveBenefitsMedia = (pickNext: () => MaskMedia) => {
+    if (product.benefitsMediaPath) {
+      const found = product.media.find((m) => m.path === product.benefitsMediaPath);
+      if (found) {
+        pickNext();
+        return found;
+      }
+    }
+    return pickNext();
+  };
+  const resolveEngineeringMedia = (pickNext: () => MaskMedia) => {
+    if (product.engineeringMediaPath) {
+      const found = product.media.find((m) => m.path === product.engineeringMediaPath);
+      if (found) {
+        pickNext();
+        return found;
+      }
+    }
+    return pickNext();
+  };
+  const resolveTestimonialsMedia = (pickNext: () => MaskMedia) => {
+    if (product.testimonialsMediaPath) {
+      const found = product.media.find((m) => m.path === product.testimonialsMediaPath);
+      if (found) {
+        pickNext();
+        return found;
+      }
+    }
+    return pickNext();
+  };
+  const testimonialSectionFields = {
+    ...(t.testimonialsQuote ? { quoteBlock: true } : {}),
+    ...(t.testimonialsColonBullets ? { colonBullets: true } : {}),
+    ...(product.testimonialsMediaOnRight !== undefined ? { mediaOnRight: product.testimonialsMediaOnRight } : {}),
+  };
+  const resolveUsageMedia = (pickNext: () => MaskMedia) => {
+    if (product.usageMediaPath) {
+      const found = product.media.find((m) => m.path === product.usageMediaPath);
+      if (found) {
+        pickNext();
+        return found;
+      }
+    }
+    return pickNext();
+  };
+  const usageSectionFields = {
+    ...(t.usageQuote ? { quoteBlock: true } : {}),
+    ...(product.usageMediaOnRight !== undefined ? { mediaOnRight: product.usageMediaOnRight } : {}),
+  };
+  const defaultBeforeSpecs: ContentSection[] = [benefitsSection(resolveBenefitsMedia(nextDefault))];
   if (t.engineering?.length && t.engineeringTitle) {
-    defaultBeforeSpecs.push({ title: t.usageTitle, bullets: t.usage, media: nextDefault() });
+    defaultBeforeSpecs.push({
+      title: t.usageTitle,
+      bullets: t.usage,
+      media: resolveUsageMedia(nextDefault),
+      ...usageSectionFields,
+    });
     defaultBeforeSpecs.push({
       title: t.engineeringTitle,
       bullets: t.engineering,
-      media: nextDefault(),
-      colonBullets: true,
+      media: resolveEngineeringMedia(nextDefault),
+      colonBullets: !t.engineeringQuote,
+      quoteBlock: t.engineeringQuote,
+      mediaOnRight: product.engineeringMediaOnRight,
     });
   } else {
     if (t.testimonials?.length && t.testimonialsTitle && !t.testimonialsAfterMetrics) {
       defaultBeforeSpecs.push({
         title: t.testimonialsTitle,
         bullets: t.testimonials,
-        media: nextDefault(),
-        ...(t.testimonialsQuote ? { quoteBlock: true } : {}),
+        media: resolveTestimonialsMedia(nextDefault),
+        ...testimonialSectionFields,
       });
     }
-    defaultBeforeSpecs.push({ title: t.usageTitle, bullets: t.usage, media: nextDefault() });
+    defaultBeforeSpecs.push({
+      title: t.usageTitle,
+      bullets: t.usage,
+      media: resolveUsageMedia(nextDefault),
+      ...usageSectionFields,
+    });
   }
 
   if (t.metrics?.length && t.metricsTitle) {
@@ -263,8 +328,8 @@ const LampProductPage = () => {
     defaultBeforeSpecs.push({
       title: t.testimonialsTitle,
       bullets: t.testimonials,
-      media: nextDefault(),
-      ...(t.testimonialsQuote ? { quoteBlock: true } : {}),
+      media: resolveTestimonialsMedia(nextDefault),
+      ...testimonialSectionFields,
     });
   } else if (
     t.testimonialsAfterMetrics &&
@@ -274,8 +339,8 @@ const LampProductPage = () => {
     defaultBeforeSpecs.push({
       title: t.testimonialsTitle,
       bullets: t.testimonials,
-      media: nextDefault(),
-      ...(t.testimonialsQuote ? { quoteBlock: true } : {}),
+      media: resolveTestimonialsMedia(nextDefault),
+      ...testimonialSectionFields,
     });
   }
 
@@ -320,28 +385,36 @@ const LampProductPage = () => {
   }
 
   const nextClean = createMediaPicker();
-  const cleanNarrativeBeforeSpecs: ContentSection[] = [benefitsSection(nextClean())];
+  const cleanNarrativeBeforeSpecs: ContentSection[] = [benefitsSection(resolveBenefitsMedia(nextClean))];
   if (t.engineering?.length && t.engineeringTitle) {
-    cleanNarrativeBeforeSpecs.push({ title: t.usageTitle, bullets: t.usage, media: nextClean() });
+    cleanNarrativeBeforeSpecs.push({
+      title: t.usageTitle,
+      bullets: t.usage,
+      media: resolveUsageMedia(nextClean),
+      ...usageSectionFields,
+    });
     cleanNarrativeBeforeSpecs.push({
       title: t.engineeringTitle,
       bullets: t.engineering,
-      media: nextClean(),
-      colonBullets: true,
+      media: resolveEngineeringMedia(nextClean),
+      colonBullets: !t.engineeringQuote,
+      quoteBlock: t.engineeringQuote,
+      mediaOnRight: product.engineeringMediaOnRight,
     });
   } else {
     if (t.testimonials?.length && t.testimonialsTitle && !t.testimonialsAfterMetrics) {
       cleanNarrativeBeforeSpecs.push({
         title: t.testimonialsTitle,
         bullets: t.testimonials,
-        media: nextClean(),
-        ...(t.testimonialsQuote ? { quoteBlock: true } : {}),
+        media: resolveTestimonialsMedia(nextClean),
+        ...testimonialSectionFields,
       });
     }
     cleanNarrativeBeforeSpecs.push({
       title: t.usageTitle,
       bullets: t.usage,
-      media: nextClean(),
+      media: resolveUsageMedia(nextClean),
+      ...usageSectionFields,
     });
   }
 
@@ -363,8 +436,8 @@ const LampProductPage = () => {
     cleanNarrativeBeforeSpecs.push({
       title: t.testimonialsTitle,
       bullets: t.testimonials,
-      media: nextClean(),
-      ...(t.testimonialsQuote ? { quoteBlock: true } : {}),
+      media: resolveTestimonialsMedia(nextClean),
+      ...testimonialSectionFields,
     });
   } else if (
     t.testimonialsAfterMetrics &&
@@ -374,8 +447,8 @@ const LampProductPage = () => {
     cleanNarrativeBeforeSpecs.push({
       title: t.testimonialsTitle,
       bullets: t.testimonials,
-      media: nextClean(),
-      ...(t.testimonialsQuote ? { quoteBlock: true } : {}),
+      media: resolveTestimonialsMedia(nextClean),
+      ...testimonialSectionFields,
     });
   }
   if (t.included?.length && t.includedTitle) {
@@ -403,6 +476,44 @@ const LampProductPage = () => {
     t.safety?.length && t.safetyTitle
       ? { title: t.safetyTitle, bullets: t.safety, media: nextClean() }
       : null;
+
+  const afterSpecsDetailSections: ContentSection[] =
+    clean &&
+    product.afterSpecsSpectrumMediaPath &&
+    t.afterSpecsSpectrumTitle &&
+    product.afterSpecsControlMediaPath &&
+    t.afterSpecsControlTitle
+      ? (() => {
+          const mSpec = product.media.find((m) => m.path === product.afterSpecsSpectrumMediaPath);
+          const mCtrl = product.media.find((m) => m.path === product.afterSpecsControlMediaPath);
+          if (!mSpec || !mCtrl) return [];
+          return [
+            {
+              title: t.afterSpecsSpectrumTitle,
+              bullets: t.afterSpecsSpectrumBullets ?? [],
+              media: mSpec,
+              ...(t.afterSpecsSpectrumLead ? { sectionLead: t.afterSpecsSpectrumLead } : {}),
+              ...(t.afterSpecsSpectrumIntro ? { intro: t.afterSpecsSpectrumIntro } : {}),
+              ...(t.afterSpecsSpectrumListHeading ? { listHeading: t.afterSpecsSpectrumListHeading } : {}),
+              colonBullets: true,
+              ...(product.afterSpecsSpectrumMediaOnRight !== undefined
+                ? { mediaOnRight: product.afterSpecsSpectrumMediaOnRight }
+                : {}),
+            },
+            {
+              title: t.afterSpecsControlTitle,
+              bullets: t.afterSpecsControlBullets ?? [],
+              media: mCtrl,
+              ...(t.afterSpecsControlLead ? { sectionLead: t.afterSpecsControlLead } : {}),
+              ...(t.afterSpecsControlIntro ? { intro: t.afterSpecsControlIntro } : {}),
+              colonBullets: true,
+              ...(product.afterSpecsControlMediaOnRight !== undefined
+                ? { mediaOnRight: product.afterSpecsControlMediaOnRight }
+                : {}),
+            },
+          ];
+        })()
+      : [];
 
   const contentSections = [...defaultBeforeSpecs, ...defaultAfterSpecs];
 
@@ -476,12 +587,14 @@ const LampProductPage = () => {
     <section className={`${topPadding} pb-12 md:pb-16 ${clean ? "bg-white" : ""}`}>
       <div className="container mx-auto max-w-6xl px-4">
         <div className={clean ? "space-y-20 md:space-y-24" : "space-y-20 md:space-y-28"}>
-          {sections.map((section, index) => (
+          {sections.map((section, index) => {
+            const mediaOnRight = section.mediaOnRight ?? index % 2 === 1;
+            return (
             <div
               key={`${product.slug}-section-${section.title}-${index}`}
               className="grid items-center gap-8 lg:grid-cols-2 lg:gap-14"
             >
-              <div className={index % 2 === 1 ? "lg:order-2" : ""}>
+              <div className={mediaOnRight ? "lg:order-2" : ""}>
                 <div
                   className={
                     clean
@@ -492,7 +605,7 @@ const LampProductPage = () => {
                   <MediaPreview media={section.media} name={t.title} variant={mpVariant} />
                 </div>
               </div>
-              <div className={index % 2 === 1 ? "lg:order-1" : ""}>
+              <div className={mediaOnRight ? "lg:order-1" : ""}>
                 <h3 className="font-display text-xl font-bold text-primary md:text-2xl">
                   {section.title}
                 </h3>
@@ -578,7 +691,8 @@ const LampProductPage = () => {
                 )}
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
@@ -1010,7 +1124,16 @@ const LampProductPage = () => {
               <h2 className="mx-auto max-w-5xl text-center font-display text-3xl font-bold leading-tight tracking-tight text-neutral-900 md:text-4xl">
                 {product.strategicBand[locale].headline}
               </h2>
-              <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4 lg:gap-5">
+              <div
+                className={[
+                  "mt-12 grid gap-4 sm:grid-cols-2 lg:mt-16 lg:gap-5",
+                  product.strategicBand[locale].cards.length >= 4
+                    ? "lg:grid-cols-4"
+                    : product.strategicBand[locale].cards.length === 3
+                      ? "lg:grid-cols-3"
+                      : "lg:grid-cols-2",
+                ].join(" ")}
+              >
                 {product.strategicBand[locale].cards.map((card) => (
                   <div
                     key={card.title}
@@ -1063,6 +1186,9 @@ const LampProductPage = () => {
               <>
                 {renderContentSections(cleanNarrativeBeforeSpecs, "pt-4 md:pt-10")}
                 {renderSpecsTable()}
+                {afterSpecsDetailSections.length
+                  ? renderContentSections(afterSpecsDetailSections, "pt-8 md:pt-12")
+                  : null}
                 {cleanApplicationsMedia ? renderApplicationsBandClean(cleanApplicationsMedia) : null}
                 {cleanSafetySection ? renderSafetyBandClean(cleanSafetySection) : null}
               </>

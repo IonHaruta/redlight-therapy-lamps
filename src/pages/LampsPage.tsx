@@ -77,6 +77,7 @@ const LampsPage = () => {
                   ? lampBanners.find((l) => l.slug === tile.slug)!
                   : accessoryBanners.find((a) => a.slug === tile.slug)!;
                 const tr = item.translations[locale];
+                const cardTitle = isLamp ? item.name : tr.title;
                 const to = isLamp ? `/lampi/${tile.slug}` : `/accesorii/${tile.slug}`;
                 const cta = isLamp ? t.lampsPage.seeLamp : t.accessoriesPage.seeProduct;
 
@@ -100,7 +101,7 @@ const LampsPage = () => {
                         ) : (
                           <img
                             src={assetUrl(item.media[0].path)}
-                            alt={tr.title}
+                            alt={cardTitle}
                             className={[
                               "h-full w-full transition-transform duration-500 ease-out md:group-hover:scale-[1.04]",
                               isLamp
@@ -150,7 +151,7 @@ const LampsPage = () => {
                               : "font-display text-xl font-bold leading-tight tracking-tight text-balance text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] md:text-2xl lg:text-[1.75rem] xl:text-3xl"
                           }
                         >
-                          {tr.title}
+                          {cardTitle}
                         </p>
                         <p
                           className={

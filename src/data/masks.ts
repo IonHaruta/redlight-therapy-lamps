@@ -20,12 +20,18 @@ export interface MaskTranslation {
   featuresTitle?: string;
   benefitsTitle: string;
   benefits: string[];
+  /** Dacă e true, beneficiile sunt afișate ca paragraf(e) tip citat, fără bifă (ex. RDPro6000). */
+  benefitsQuote?: boolean;
   /** Paragraf sub titlul beneficiilor (înainte de listă), ex. pagină spectru. */
   benefitsIntro?: string;
   /** Subtitlu înainte de lista de beneficii, ex. „Разбор длин волн”. */
   benefitsListHeading?: string;
   usageTitle: string;
   usage: string[];
+  /** Paragraf(e) pentru utilizare fără listă cu bifă (ex. montaj RDPro6000). */
+  usageQuote?: boolean;
+  /** Dacă e true, secțiunea „engineering” afișează textul ca paragraf(e) fără listă cu bifă sau disc. */
+  engineeringQuote?: boolean;
   /** Bloc tehnic „10 ani / LED / sursă / ventilatoare / certificări” (opțional). */
   engineeringTitle?: string;
   engineering?: string[];
@@ -47,6 +53,8 @@ export interface MaskTranslation {
   testimonialsAfterMetrics?: boolean;
   /** Listă tip citat: fără iconițe bifă. */
   testimonialsQuote?: boolean;
+  /** Listă „Etichetă: valoare” cu disc (ex. specificații pentru comitet de planificare). */
+  testimonialsColonBullets?: boolean;
   /** Utilizare sigură, întreținere, service (opțional). */
   safetyTitle?: string;
   safety?: string[];
@@ -59,6 +67,17 @@ export interface MaskTranslation {
   /** Antete coloane tabel specificații (înlocuiesc site.maskProduct când sunt setate). */
   specsColumnFeature?: string;
   specsColumnValue?: string;
+  /** După tabel (pagină lampă clean): bloc spectru / lungimi de undă. */
+  afterSpecsSpectrumTitle?: string;
+  afterSpecsSpectrumLead?: string;
+  afterSpecsSpectrumIntro?: string;
+  afterSpecsSpectrumListHeading?: string;
+  afterSpecsSpectrumBullets?: string[];
+  /** După tabel: bloc comenzi / aplicație / telecomandă. */
+  afterSpecsControlTitle?: string;
+  afterSpecsControlLead?: string;
+  afterSpecsControlIntro?: string;
+  afterSpecsControlBullets?: string[];
 }
 
 export interface MaskProduct {
