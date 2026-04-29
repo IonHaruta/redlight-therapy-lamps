@@ -1226,18 +1226,217 @@ export const accessoryProducts: AccessoryProduct[] = [
     ],
     translations: {
       ro: {
-        title: "FS",
+        title:
+          "Suport de podea - O bază stabilă și portabilă pentru panouri de terapie pentru jumătate de corp",
         modelShort: "FS",
-        subtitle: "Detalii în curând",
+        subtitle: "",
         description:
-          "Descrierea completă în română va fi adăugată. Poți selecta alte accesorii din gamă sau ne poți scrie pentru detalii.",
+          "Conceput cu versatilitate în minte, suportul nostru de podea dispune de un tip de montare compatibil care se potrivește unei game largi de dispozitive de terapie cu lumină roșie de înaltă performanță, inclusiv modelele RD500, RD1000, RD1500, RDS500, RDS1000 și RDS1500.\n\nÎmbunătățiți-vă experiența de terapie cu lumină roșie cu suportul nostru inovator de podea, oferind flexibilitate și confort de neegalat. Cântărind doar 1,5 kg și măsurând doar 29 x 25 x 10 cm, acest suport ușor și portabil se integrează cu ușurință în orice mediu, fie acasă, într-o clinică profesională sau în deplasare. Conceput cu versatilitate în minte, suportul nostru de podea dispune de un tip de montare compatibil care se potrivește unei game largi de dispozitive de terapie cu lumină roșie de înaltă performanță, inclusiv RD500, RD1000, RD1500, RDS500, RDS1000 și RDS1500. Această compatibilitate asigură o integrare perfectă cu soluția dumneavoastră preferată de terapie cu lumină, permițându-vă să utilizați întregul potențial al fotobiomodulării țintite.",
+        specsTableTitle: "Specificații și parametri",
+        specsColumnFeature: "Specificație",
+        specsColumnValue: "Detalii specificații",
+        specsRows: [
+          { label: "Nume model", value: "Suport de podea" },
+          { label: "Interval de înălțime", value: "29x25x10 (cm)" },
+          { label: "Greutate netă", value: "1,5 kg" },
+          { label: "Material", value: "Fier" },
+          {
+            label: "Panouri compatibile",
+            value: "RD500/RD1000/RD1500/RDPRO1500/RDPRO1500-FS",
+          },
+          { label: "Certificare", value: "FDA, FCC, CE, ROHS" },
+          { label: "Capacitate de încărcare", value: "15 kg" },
+          { label: "Mediu de funcționare", value: "0°~40°C" },
+          {
+            label: "Accesorii incluse",
+            value: "1) Suport, 2) Instrucțiuni, 3) Accesorii de montare",
+          },
+        ],
+        detailBands: [
+          {
+            imagePath: "accesorii/FS/fs-jos-1.jpg",
+            mediaOnRight: false,
+            afterSpecs: true,
+            title: "De ce să alegeți un suport orizontal?",
+            bullets: [
+              {
+                title: "Stabilitate și siguranță",
+                body: "Acesta oferă o bază solidă, prevenind răsturnarea panoului. Acest lucru este important în special pentru dispozitivele mai mari, asigurând fixarea lor în siguranță și reducând riscul de deteriorare accidentală sau vătămare corporală.",
+              },
+              {
+                title: "Reglabilitate și flexibilitate",
+                body: "Suportul permite reglarea ușoară a înălțimii, înclinării și rotației. Acest lucru permite poziționarea precisă a panoului pentru tratarea diferitelor zone ale corpului, indiferent dacă stați așezat, în picioare sau culcat.",
+              },
+              {
+                title: "Distanță optimă de tratament",
+                body: "Acest lucru ajută la menținerea distanței ideale dintre panou și piele, ceea ce este crucial pentru eficacitatea terapiei. Acest lucru vă asigură că beneficiați de beneficiile terapeutice maxime de la fiecare sesiune.",
+              },
+            ],
+          },
+          {
+            imagePath: "accesorii/FS/fs-jos-2.jpg",
+            mediaOnRight: true,
+            afterSpecs: true,
+            title: "Ce este inclus",
+            bullets: [
+              {
+                title: "Suport orizontal",
+                body: "Un accesoriu convenabil și portabil, potrivit doar pentru panourile RD500/RD1000/RD1500/RDPRO1500/RDPRO1500-FS.",
+              },
+              {
+                title: "Accesorii de montare",
+                body: "Toate uneltele și componentele necesare pentru o asamblare ușoară.",
+              },
+              {
+                title: "Manual de utilizare",
+                body: "Un ghid detaliat pentru configurare și utilizare.",
+              },
+            ],
+          },
+          {
+            imagePath: "accesorii/FS/fs-jos-3.jpg",
+            mediaOnRight: false,
+            afterSpecs: true,
+            title: "Aplicații",
+            bullets: [
+              {
+                title: "Utilizare acasă",
+                body: "Ideal pentru tratamente wellness, oferind o poziție orizontală stabilă și reglabilă.",
+              },
+              {
+                title: "Clinici și săli de sport",
+                body: "Ideal pentru medii profesionale care necesită flexibilitate și stabilitate în timpul tratamentelor.",
+              },
+              {
+                title: "Terapie completă a corpului, specifică și completă",
+                body: "Suportă panouri de diferite dimensiuni pentru ajustarea individuală a parametrilor de tratament.",
+              },
+            ],
+          },
+          {
+            imagePath: "accesorii/FS/fs-jos-4.jpg",
+            mediaOnRight: true,
+            afterSpecs: true,
+            title: "Asistență și garanție",
+            bullets: [
+              {
+                title: "Garanție",
+                body: "3 ani de asigurare completă pentru liniștea dumneavoastră.",
+              },
+              {
+                title: "Asistență",
+                body: "Echipa noastră dedicată de asistență clienți este gata să vă asiste cu asamblarea și depanarea.",
+              },
+            ],
+          },
+        ],
       },
       ru: {
-        title: "FS",
+        title:
+          "Напольная подставка — устойчивое и портативное основание для панелей терапии половины тела",
         modelShort: "FS",
-        subtitle: "Описание скоро",
+        subtitle: "",
         description:
-          "Полное описание на русском будет добавлено позже. Выберите другую модель из линейки или напишите нам.",
+          "Наша напольная подставка, созданная с учетом универсальности, имеет совместимый тип крепления, который подходит для широкого спектра наших высокопроизводительных устройств для терапии красным светом, включая модели RD500, RD1000, RD1500, RDS500, RDS1000 и RDS1500.\n\nПовысьте качество терапии красным светом с помощью нашей инновационной напольной подставки, обеспечивающей непревзойденную гибкость и удобство. Эта легкая и портативная подставка весом всего 1,5 кг и компактными размерами 29x25x10 см легко интегрируется в любую среду, будь то дома, в профессиональной клинике или в дороге.\n\nНаша напольная подставка, созданная с учетом универсальности, имеет совместимый тип крепления, который подходит для широкого спектра наших высокопроизводительных устройств для терапии красным светом, включая модели RD500, RD1000, RD1500, RDS500, RDS1000 и RDS1500. Эта совместимость обеспечивает плавную интеграцию предпочитаемого вами решения светотерапии, позволяя вам использовать весь потенциал целевой фотобиомодуляции.",
+        specsTableTitle: "Технические характеристики и параметры",
+        specsColumnFeature: "Спецификация",
+        specsColumnValue: "Подробности",
+        specsRows: [
+          { label: "Название модели", value: "Напольная подставка" },
+          { label: "Диапазон высоты", value: "29х25х10 (см)" },
+          { label: "Вес (нетто)", value: "1,5 кг" },
+          { label: "Материал", value: "Железо" },
+          {
+            label: "Совместимые панели",
+            value: "RD500/RD1000/RD1500/RDPRO1500/RDPRO1500-FS",
+          },
+          { label: "Сертификация", value: "FDA, FCC, CE, ROHS" },
+          { label: "Грузоподъемность", value: "15 кг" },
+          { label: "Рабочая среда", value: "0°~40°C" },
+          {
+            label: "В комплект входят аксессуары",
+            value:
+              "1) Подставка, 2) Инструкция, 3) Монтажные принадлежности",
+          },
+        ],
+        detailBands: [
+          {
+            imagePath: "accesorii/FS/fs-jos-1.jpg",
+            mediaOnRight: false,
+            afterSpecs: true,
+            title: "Почему стоит выбрать горизонтальную подставку?",
+            bullets: [
+              {
+                title: "Устойчивость и безопасность",
+                body: "Она обеспечивает прочное основание, предотвращая опрокидывание панели. Это особенно важно для больших устройств, обеспечивая их надежную фиксацию и снижая риск случайных повреждений или травм.",
+              },
+              {
+                title: "Регулируемость и гибкость",
+                body: "Подставка позволяет легко регулировать высоту, угол наклона и вращение. Это позволяет точно расположить панель для обработки различных участков тела, независимо от того, сидите вы, стоите или лежите.",
+              },
+              {
+                title: "Оптимальное расстояние для проведения процедуры",
+                body: "Оно помогает поддерживать идеальное расстояние между панелью и кожей, что имеет решающее значение для эффективности терапии. Это гарантирует, что вы будете получать максимальный терапевтический эффект от каждого сеанса.",
+              },
+            ],
+          },
+          {
+            imagePath: "accesorii/FS/fs-jos-2.jpg",
+            mediaOnRight: true,
+            afterSpecs: true,
+            title: "Что входит в комплект",
+            bullets: [
+              {
+                title: "Горизонтальная подставка",
+                body: "Удобное и портативное вспомогательное устройство, подходящее только для панелей RD500/RD1000/RD1500/RDPRO1500/RDPRO1500-FS.",
+              },
+              {
+                title: "Монтажные принадлежности",
+                body: "Все необходимые инструменты и компоненты для легкой сборки.",
+              },
+              {
+                title: "Руководство пользователя",
+                body: "Подробное руководство по настройке и использованию.",
+              },
+            ],
+          },
+          {
+            imagePath: "accesorii/FS/fs-jos-3.jpg",
+            mediaOnRight: false,
+            afterSpecs: true,
+            title: "Приложения",
+            bullets: [
+              {
+                title: "Домашнее использование",
+                body: "Идеально подходит для проведения оздоровительных процедур, обеспечивая стабильную и регулируемую горизонтальную установку.",
+              },
+              {
+                title: "Клиники и тренажерные залы",
+                body: "Идеально подходит для профессиональных условий, требующих гибкости и стабильности во время процедур.",
+              },
+              {
+                title: "Целенаправленная и комплексная терапия всего тела",
+                body: "Поддерживает панели различных размеров для индивидуальной настройки параметров обработки.",
+              },
+            ],
+          },
+          {
+            imagePath: "accesorii/FS/fs-jos-4.jpg",
+            mediaOnRight: true,
+            afterSpecs: true,
+            title: "Поддержка и гарантия",
+            bullets: [
+              {
+                title: "Гарантия",
+                body: "3 года комплексного страхового покрытия для вашего спокойствия.",
+              },
+              {
+                title: "Поддерживать",
+                body: "Специализированная служба поддержки клиентов готова оказать помощь в сборке и устранении неполадок.",
+              },
+            ],
+          },
+        ],
       },
     },
   },
