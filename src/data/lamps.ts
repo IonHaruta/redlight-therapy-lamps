@@ -17,7 +17,14 @@ export interface LampProduct {
   /** Bandă 4 coloane sub hero (fără consum de imagini „jos”) */
   strategicBand?: Record<Locale, { headline: string; cards: StrategicCard[] }>;
   /** Bandă 3 carduri după prima secțiune cu imagine „jos” (ex. beneficii + jos-1). */
-  therapyRulesBand?: Record<Locale, { headline: string; cards: StrategicCard[] }>;
+  therapyRulesBand?: Record<
+    Locale,
+    { headline: string; subheadline?: string; cards: StrategicCard[] }
+  >;
+  /** Tabel specificații după blocurile narative din coadă (`defaultAfterSpecs`), ex. după imaginea jos-4. */
+  specsAfterDetailSections?: boolean;
+  /** Secțiunea „aplicații” după tabelul de specificații (ex. control / jos-5), păstrând restul în `defaultAfterSpecs` înainte de tabel. */
+  applicationsAfterSpecsTable?: boolean;
 }
 
 const tCommon = (
@@ -437,6 +444,192 @@ const rdpro3000Fs7Copy: Record<Locale, MaskTranslation> = {
   },
 };
 
+const rdpro1500Fs7T = tCommon(
+  "RD Pro 1500 FS7",
+  "RD 1500",
+  "RD Pro 1500 FS7",
+  "RD 1500",
+);
+
+const rdpro1500Fs7Copy: Record<Locale, MaskTranslation> = {
+  ro: {
+    ...rdpro1500Fs7T.ro,
+    testimonials: [],
+    subtitle: "RDPro1500-FS7: control independent pentru 7 lungimi de undă.",
+    description:
+      "Duceți-vă afacerea la nivelul următor cu RDPro1500-FS7. Cel mai mare panou al nostru, cu 7 lungimi de undă, oferă o acoperire maximă și o putere de nivel clinic, este complet controlabil prin intermediul unei aplicații (necesită actualizare) și este optimizat pentru medii profesionale.",
+    featuresTitle: "Caracteristici/beneficii cheie",
+    highlights: [
+      "Acoperire completă: panou de 91 cm cu 300 de LED-uri cu cip dual.",
+      "Putere de ieșire maximă: 131 mW/cm² pentru eficiență maximă.",
+      "Opțiuni de montare profesională: alegeți dintre patru tipuri de brațe de fototerapie.",
+    ],
+    benefitsTitle:
+      "Beneficii spectru complet – 7 lungimi de undă controlabile individual.",
+    benefitsIntro:
+      "RDPRO1500-FS oferă practicienilor și utilizatorilor un control fără precedent. Luminozitatea fiecăreia dintre cele 7 lungimi de undă terapeutice poate fi ajustată individual de la 0 la 100%, permițând crearea unor protocoale de tratament extrem de precise și personalizabile.",
+    benefitsListHeading: "Defalcarea lungimii de undă:",
+    benefits: [
+      "480 nm (albastru): Beneficii superficiale, claritate a pielii.",
+      "630–660 nm (roșu): Colagen, rejuvenare a pielii, durere superficială.",
+      "810–850 nm (infraroșu apropiat): Repararea țesuturilor profunde, recuperarea musculară, sănătatea articulațiilor, circulație.",
+      "1060 nm (infraroșu apropiat): Penetrare maximă, potențiale efecte pozitive asupra funcției cognitive și a țesuturilor mai profunde.",
+    ],
+    usageTitle: "Integrare perfectă în spațiul dumneavoastră",
+    usage: [
+      "Suport mobil de podea: Versatilitate și stabilitate pentru utilizare în mai multe camere.",
+      "Suport pneumatic: Reglare lină a înălțimii cu amortizor pe gaz.",
+      "Suport inferior: Suport mai sigur și mai stabil pentru panourile de terapie cu lumină.",
+      "Braț rotativ pe o singură parte: Acest braț permite rotirea flexibilă a panoului de terapie cu lumină cu 90° și 180°.",
+    ],
+    metricsTitle: "Performanța vorbește de la sine.",
+    metrics: [
+      "Intensitate luminoasă: 131 mW/cm² la 6 inci.",
+      "LED-uri: 300 x 5W, cu cip dual",
+      "Lungimi de undă: 480 nm | 630 nm | 660 nm | 810 nm | 830 nm | 850 nm | 1060 nm",
+      "Control: Aplicație | Telecomandă | Ecran tactil",
+      "Caracteristici: Mod puls (0-9999 Hz) și reglabil (0-100%).",
+    ],
+    applicationsTitle: "Sisteme de control inteligente și versatile",
+    applicationsLead: "Control nestânjenit la îndemână",
+    applicationsIntro: "Gestionați cu ușurință toate aspectele terapiei dvs.:",
+    applications: [
+      "Ecran tactil încorporat: Interfață intuitivă pentru setări simple.",
+      "Telecomandă wireless: Telecomandă convenabilă.",
+      "Aplicație mobilă dedicată: Oferă acces la opțiuni avansate de programare, vă permite să salvați protocoale personalizate și să gestionați mai multe dispozitive (ideal pentru clinici).",
+    ],
+    safetyTitle: "Fiabilitate pe care poți construi o afacere.",
+    safety: [
+      "Cu o construcție durabilă din fier și aluminiu, patru ventilatoare interne de răcire și o durată de viață a LED-urilor de 50.000 de ore, RDPro1500-FS7 este conceput pentru utilizare comercială continuă. Pentru liniștea dumneavoastră, oferim o garanție completă de 3 ani.",
+    ],
+    specsIntroTitle:
+      "Conceput pentru profesioniști, construit pentru performanță ridicată și parteneriate eficiente.",
+    specsTitle: "Specificații tehnice",
+    specsColumnFeature: "Caracteristică",
+    specsColumnValue: "Specificație",
+    specs: {
+      "Număr model": "RDPRO1500-FS7",
+      "LED-uri": "300 LED-uri de înaltă intensitate la 5W fiecare",
+      "Lungimi de undă": "480:630:660:810:830:850:1060 nm (Control individual)",
+      LED: "Chip unic / Chip dual",
+      "Reglare luminozitate": "0-100% pentru fiecare lungime de undă",
+      "Mod pulsat (IR)": "0-9999 Hz, controlabil individual",
+      "Intensitate luminoasă": "131 mW/cm² la 6 inci",
+      "Consum de energie": "467W±5%",
+      Amperaj: "AC 100-240V",
+      Dimensiuni: "91 x 30 x 6,5 cm",
+      Greutate: "10,99 kg",
+      "Zonă maximă de tratament":
+        "119 x 61 cm (ideal pentru tratamentul pe jumătate de corp)",
+      "Unghi de fascicul": "30 de grade",
+      Temporizator: "1-30 minute, timp reglabil",
+      "Metode de control": "Panou tactil, telecomandă, aplicație mobilă.",
+      "Răcire": "4 ventilatoare de înaltă performanță",
+      "Emisie EMF": "Scăzută",
+      "Material carcasă": "SPCC",
+      "Durata de viață a LED-ului": "Peste 50.000 de ore",
+      "Garanție": "3 ani",
+      Certificări: "CE, ROHS, FDA, FCC",
+      "Mediu de funcționare": "-10°C ~ 45°C",
+      "Opțiuni de instalare":
+        "Cârlig pentru ușă, accesorii de montare (incluse). Opțional: Suport de podea, suport pneumatic, suport electric.",
+      "Dimensiuni pachet": "114*42,5*18",
+      "Greutate brută (ambalare)": "15,5 kg",
+      Accesorii:
+        "Lampă de terapie LED (1 buc.), cârlig pentru ușă (1 buc.), elemente de fixare (1 buc.), cablu de conectare (1 buc.), protecție pentru ochi (1 buc.), telecomandă (1 buc.), cablu de alimentare (1 buc.), cablaj și fitinguri cu deconectare rapidă (1 buc.).",
+    },
+  },
+  ru: {
+    ...rdpro1500Fs7T.ru,
+    testimonials: [],
+    subtitle: "RDPro1500-FS7: независимый контроль для 7 волн.",
+    description:
+      "Поднимите свой бизнес на новый уровень с помощью RDPro1500-FS7. Наша самая большая панель с 7 длинами волн обеспечивает максимальное покрытие и мощность клинического уровня, полностью управляется через приложение (требуется обновление) и оптимизирована для профессиональной среды.",
+    featuresTitle: "Основные характеристики/преимущества",
+    highlights: [
+      "Полное покрытие всего тела: панель размером 91 см с 300 двухчиповыми светодиодами.",
+      "Пиковая выходная мощность: 131 мВт/см² для максимальной эффективности.",
+      "Профессиональные варианты крепления: на выбор доступны четыре типа держателей для фототерапии.",
+    ],
+    benefitsTitle:
+      "Преимущества полного спектра — 7 индивидуально управляемых длин волн.",
+    benefitsIntro:
+      "Аппарат RDPRO1500-FS предоставляет практикующим врачам и пользователям беспрецедентный контроль. Яркость каждой из 7 терапевтических длин волн может регулироваться индивидуально в диапазоне от 0 до 100%, что позволяет создавать высокоточные и настраиваемые протоколы лечения.",
+    benefitsListHeading: "Разбор длин волн:",
+    benefits: [
+      "480 нм (синий): Поверхностные преимущества, чистота кожи.",
+      "630–660 нм (красный): коллаген, омоложение кожи, поверхностная боль.",
+      "810–850 нм (ближний инфракрасный диапазон): глубокое восстановление тканей, восстановление мышц, здоровье суставов, кровообращение.",
+      "1060 нм (ближний инфракрасный диапазон): максимальное проникновение, потенциальное положительное влияние на когнитивные функции и более глубокие ткани.",
+    ],
+    usageTitle: "Бесшовная интеграция в ваше пространство",
+    usage: [
+      "Мобильная напольная подставка: Универсальность и стабильность для использования в нескольких помещениях.",
+      "Пневматическая подставка: Плавная регулировка высоты с газовым амортизатором.",
+      "Нижний кронштейн: Более безопасная и стабильная опора для панелей светотерапии.",
+      "Вращающийся односторонний кронштейн: Этот кронштейн позволяет гибко поворачивать панель фототерапии на 90° и 180°.",
+    ],
+    metricsTitle: "Выступление, говорящее само за себя.",
+    metrics: [
+      "Интенсивность излучения: 131 мВт/см² на расстоянии 6 дюймов.",
+      "Светодиоды: 300 x 5 Вт, двухчиповые",
+      "Длины волн: 480 нм | 630 нм | 660 нм | 810 нм | 830 нм | 850 нм | 1060 нм",
+      "Управление: приложение | пульт дистанционного управления | сенсорный экран",
+      "Характеристики: Импульсный режим (0-9999 Гц) и диммер (0-100%).",
+    ],
+    applicationsTitle: "Интеллектуальные И Универсальные Системы Управления",
+    applicationsLead: "Беспрепятственный контроль у вас под рукой",
+    applicationsIntro: "Управляйте всеми аспектами терапии с легкостью:",
+    applications: [
+      "Встроенный сенсорный экран: интуитивно понятный интерфейс для непосредственной настройки.",
+      "Беспроводной пульт дистанционного управления: удобное управление на расстоянии.",
+      "Специальное мобильное приложение: открывает доступ к расширенным возможностям программирования, позволяет сохранять пользовательские протоколы и управлять несколькими устройствами (идеально подходит для клиник).",
+    ],
+    safetyTitle: "Надежность, на которой можно построить бизнес.",
+    safety: [
+      "Прочная конструкция из железа и алюминия, 4 внутренних вентилятора охлаждения и срок службы светодиодов в 50 000 часов делают RDPro1500-FS7 разработанным для непрерывной коммерческой эксплуатации. Для вашего спокойствия мы предоставляем на него комплексную 3-летнюю гарантию.",
+    ],
+    specsIntroTitle:
+      "Разработано Для Профессионалов, Создано Для Высокой Производительности И Эффективного Партнерства.",
+    specsTitle: "Технические Характеристики",
+    specsColumnFeature: "Особенность",
+    specsColumnValue: "Спецификация",
+    specs: {
+      "Номер модели": "RDPRO1500-FS7",
+      "Светодиоды": "300 светодиодов высокой интенсивности по 5 Вт",
+      "Длины волн":
+        "480:630:660:810:830:850:1060 нм (Индивидуальный контроль)",
+      LED: "Однокристальный / Двухкристальный",
+      "Регулировка яркости": "0-100% для каждой длины волны",
+      "Импульсный (ИК) режим": "0-9999 Гц, индивидуальное управление",
+      "Интенсивность излучения": "131 мВт/см² при 6 дюймах",
+      "Потребление электроэнергии": "467W±5%",
+      Ампераж: "AC 100-240V",
+      Размеры: "91 x 30 x 6,5 см",
+      Масса: "10.99 KG",
+      "Максимальная площадь обработки":
+        "119 x 61 см (идеально подходит для съемки половины тела)",
+      "Угол луча": "30 градусов",
+      Таймер: "1-30 минут, регулируемое время",
+      "Методы контроля":
+        "Сенсорная панель, пульт дистанционного управления, мобильное приложение.",
+      "Охлаждение": "4 высокопроизводительных вентилятора",
+      "Излучение ЭМП": "Незначительный",
+      "Материал оболочки": "SPCC",
+      "Срок службы светодиодов": "Более 50 000 часов",
+      "Гарантия": "3 года",
+      "Сертификаты": "CE, ROHS, FDA, FCC",
+      "Рабочая среда": "-10°C ~ 45°C",
+      "Параметры установки":
+        "Крючок для двери, крепежные элементы (в комплекте). Дополнительно: напольная подставка, пневматическая подставка, электрическая подставка.",
+      "Размер упаковки": "114*42.5*18",
+      "Вес брутто (упаковка)": "15.5 KG",
+      Аксессуары:
+        "Светодиодный терапевтический светильник (1 шт.), дверной крючок (1 шт.), крепежные элементы (1 шт.), соединительный кабель (1 шт.), средства защиты глаз (1 шт.), пульт дистанционного управления (1 шт.), кабель питания (1 шт.), кабельный жгут и быстроразъемные соединения (1 шт.).",
+    },
+  },
+};
+
 export const lampProducts: LampProduct[] = [
   {
     slug: "rdpro3000-fs7",
@@ -574,9 +767,50 @@ export const lampProducts: LampProduct[] = [
   {
     slug: "rdpro1500-fs7",
     name: "RD Pro 1500 FS7",
-    price: "€—",
-    priceValue: 0,
+    price: "€100",
+    priceValue: 100,
     topGalleryCount: 7,
+    therapyRulesBand: {
+      ro: {
+        headline: "Nivel mai ridicat de bunăstare. Randamente mai rapide.",
+        subheadline: "Investiție",
+        cards: [
+          {
+            title: "Serviți mai mulți clienți",
+            body: "Dispozitivul puternic, de dimensiuni normale, reduce durata sesiunilor, crescând fluxul de clienți și potențialul de venit.",
+          },
+          {
+            title: "Oferiți mai multe servicii",
+            body: "Cu 7 lungimi de undă (480–1060 nm), un singur dispozitiv permite o varietate de tratamente, de la revitalizarea pielii până la restaurarea profundă.",
+          },
+          {
+            title: "Control de neegalat",
+            body: "Utilizați aplicația pentru a crea și salva protocoale personalizate pentru diferiți clienți, asigurând rezultate repetabile și profesionale de fiecare dată.",
+          },
+        ],
+      },
+      ru: {
+        headline: "Более Высокий Уровень Оздоровления. Более Быстрая Отдача.",
+        subheadline: "Инвестиции",
+        cards: [
+          {
+            title: "Обслуживать Больше Клиентов",
+            body: "Полноразмерный и мощный прибор сокращает время сеансов, увеличивая поток клиентов и потенциальный доход.",
+          },
+          {
+            title: "Предлагайте Больше Услуг",
+            body: "Благодаря 7 длинам волн (480–1060 нм) один аппарат позволяет проводить разнообразные процедуры, от оздоровления кожи до глубокого восстановления.",
+          },
+          {
+            title: "Непревзойденный Контроль",
+            body: "Используйте приложение для создания и сохранения пользовательских протоколов для разных клиентов, обеспечивая повторяемые и профессиональные результаты каждый раз.",
+          },
+        ],
+      },
+    },
+    specsAfterDetailSections: true,
+    applicationsAfterSpecsTable: true,
+    applicationsMediaPath: "lampi/RDPRO1500-FS7/RDPRO1500-FS7-jos-5.png",
     media: [
       { type: "image", path: "lampi/RDPRO1500-FS7/RDPRO1500-FS7-1.png", alt: "RD Pro 1500 FS7" },
       { type: "image", path: "lampi/RDPRO1500-FS7/RDPRO1500-FS7-2.png", alt: "RD Pro 1500 FS7" },
@@ -591,18 +825,13 @@ export const lampProducts: LampProduct[] = [
       { type: "image", path: "lampi/RDPRO1500-FS7/RDPRO1500-FS7-jos-4.jpg", alt: "RD Pro 1500 FS7" },
       { type: "image", path: "lampi/RDPRO1500-FS7/RDPRO1500-FS7-jos-5.png", alt: "RD Pro 1500 FS7" },
     ],
-    translations: tCommon(
-      "RD Pro 1500 FS7",
-      "RD 1500",
-      "RD Pro 1500 FS7",
-      "RD 1500",
-    ),
+    translations: rdpro1500Fs7Copy,
   },
   {
     slug: "rdpro6000-fs7",
     name: "RD Pro 6000 FS7",
-    price: "€—",
-    priceValue: 0,
+    price: "€100",
+    priceValue: 100,
     topGalleryCount: 6,
     media: [
       { type: "image", path: "lampi/RDPro6000-FS7/fs7-1.png", alt: "RD Pro 6000 FS7" },

@@ -280,10 +280,21 @@ const LampProductPage = () => {
   }
 
   const defaultAfterSpecs: ContentSection[] = [];
+  const defaultAfterSpecsPostTable: ContentSection[] = [];
+  const applicationsSectionsContainer = product.applicationsAfterSpecsTable
+    ? defaultAfterSpecsPostTable
+    : defaultAfterSpecs;
   if (t.included?.length && t.includedTitle) {
     defaultAfterSpecs.push({
       title: t.includedTitle,
       bullets: t.included,
+      media: nextDefault(),
+    });
+  }
+  if (t.safety?.length && t.safetyTitle) {
+    defaultAfterSpecs.push({
+      title: t.safetyTitle,
+      bullets: t.safety,
       media: nextDefault(),
     });
   }
@@ -298,20 +309,13 @@ const LampProductPage = () => {
       }
       return nextDefault();
     })();
-    defaultAfterSpecs.push({
+    applicationsSectionsContainer.push({
       title: t.applicationsTitle,
       bullets: t.applications,
       media: applicationsMedia,
       ...(t.applicationsLead ? { sectionLead: t.applicationsLead } : {}),
       ...(t.applicationsIntro ? { intro: t.applicationsIntro } : {}),
       colonBullets: true,
-    });
-  }
-  if (t.safety?.length && t.safetyTitle) {
-    defaultAfterSpecs.push({
-      title: t.safetyTitle,
-      bullets: t.safety,
-      media: nextDefault(),
     });
   }
 
@@ -599,6 +603,15 @@ const LampProductPage = () => {
           >
             {band.headline}
           </h2>
+          {band.subheadline ? (
+            <p
+              className={`mt-4 text-center font-display text-lg font-bold leading-snug md:mt-5 md:text-xl ${
+                clean ? "text-neutral-900" : "text-foreground"
+              }`}
+            >
+              {band.subheadline}
+            </p>
+          ) : null}
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:mt-12 lg:grid-cols-3 lg:gap-5">
             {band.cards.map((card) => (
               <div
@@ -1060,8 +1073,27 @@ const LampProductPage = () => {
                 {defaultBeforeTail.length
                   ? renderContentSections(defaultBeforeTail, "pt-8 md:pt-12")
                   : null}
-                {renderSpecsTable()}
-                {defaultAfterSpecs.length ? renderContentSections(defaultAfterSpecs, "pt-8") : null}
+                {product.specsAfterDetailSections ? (
+                  <>
+                    {defaultAfterSpecs.length
+                      ? renderContentSections(defaultAfterSpecs, "pt-8")
+                      : null}
+                    {renderSpecsTable()}
+                    {defaultAfterSpecsPostTable.length
+                      ? renderContentSections(defaultAfterSpecsPostTable, "pt-8")
+                      : null}
+                  </>
+                ) : (
+                  <>
+                    {renderSpecsTable()}
+                    {defaultAfterSpecs.length
+                      ? renderContentSections(defaultAfterSpecs, "pt-8")
+                      : null}
+                    {defaultAfterSpecsPostTable.length
+                      ? renderContentSections(defaultAfterSpecsPostTable, "pt-8")
+                      : null}
+                  </>
+                )}
               </>
             )}
           </>

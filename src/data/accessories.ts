@@ -20,8 +20,8 @@ export const accessoryProducts: AccessoryProduct[] = [
   {
     slug: "ms",
     name: "MS",
-    price: "€—",
-    priceValue: 0,
+    price: "€100",
+    priceValue: 100,
     media: [
       { type: "image", path: "accesorii/MS/ms-1.png", alt: "MS" },
       { type: "image", path: "accesorii/MS/ms-2.png", alt: "MS" },
@@ -51,8 +51,8 @@ export const accessoryProducts: AccessoryProduct[] = [
   {
     slug: "rd30",
     name: "RD30",
-    price: "€—",
-    priceValue: 0,
+    price: "€100",
+    priceValue: 100,
     media: [
       { type: "image", path: "accesorii/RD/rd30-1.png", alt: "RD30" },
       { type: "image", path: "accesorii/RD/rd30-2.png", alt: "RD30" },
@@ -81,8 +81,8 @@ export const accessoryProducts: AccessoryProduct[] = [
   {
     slug: "xl",
     name: "XL",
-    price: "€—",
-    priceValue: 0,
+    price: "€100",
+    priceValue: 100,
     media: [
       { type: "image", path: "accesorii/XL/XL-1.jpeg", alt: "XL" },
       { type: "image", path: "accesorii/XL/XL-2.jpg", alt: "XL" },
@@ -111,8 +111,8 @@ export const accessoryProducts: AccessoryProduct[] = [
   {
     slug: "gp",
     name: "GP",
-    price: "€—",
-    priceValue: 0,
+    price: "€100",
+    priceValue: 100,
     media: [
       { type: "image", path: "accesorii/GP/gp-1.png", alt: "GP" },
       { type: "image", path: "accesorii/GP/gp-2.png", alt: "GP" },
@@ -142,8 +142,8 @@ export const accessoryProducts: AccessoryProduct[] = [
   {
     slug: "fs",
     name: "FS",
-    price: "€—",
-    priceValue: 0,
+    price: "€100",
+    priceValue: 100,
     media: [
       { type: "image", path: "accesorii/FS/fs-1.png", alt: "FS" },
       { type: "image", path: "accesorii/FS/fs-2.png", alt: "FS" },
