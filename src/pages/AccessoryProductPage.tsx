@@ -8,7 +8,12 @@ import { Button } from "@/components/ui/button";
 import { useCart } from "@/context/CartContext";
 import { useLocale } from "@/context/LocaleContext";
 import { getSiteCopy } from "@/i18n/site";
-import { accessoryProducts, getAccessoryBySlug, type AccessoryDetailBand } from "@/data/accessories";
+import {
+  accessoryProducts,
+  getAccessoryBySlug,
+  type AccessoryDetailBand,
+  type AccessoryTranslation,
+} from "@/data/accessories";
 import type { MaskMedia } from "@/data/masks";
 
 const base = import.meta.env.BASE_URL;
@@ -43,7 +48,7 @@ const MediaPreview = ({ media, name }: { media: MaskMedia; name: string }) => (
   />
 );
 
-function renderAccessoryDetailBand(
+export function renderAccessoryDetailBand(
   band: AccessoryDetailBand,
   bandIndex: number,
   productTitle: string,
@@ -206,7 +211,88 @@ function renderAccessoryDetailBand(
               </p>
             ) : null}
 
-            {bulletList}
+            {(band.bullets?.length ?? 0) > 0 ? bulletList : null}
+            {band.paragraphs?.length ? (
+              <div
+                className={`${
+                  (band.bullets?.length ?? 0) > 0 ? "mt-6" : "mt-5"
+                } space-y-4 text-sm leading-relaxed text-muted-foreground md:text-base`}
+              >
+                {band.paragraphs.map((p, i) => (
+                  <p key={i} className="text-pretty">
+                    {p}
+                  </p>
+                ))}
+              </div>
+            ) : null}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function renderAccessoryDetailCardGrid(
+  grid: NonNullable<AccessoryTranslation["detailCardGrid"]>,
+  sectionIndex: number,
+) {
+  if (!grid.cards.length) return null;
+  const stripe = sectionIndex % 2 === 1 ? "bg-secondary/15" : "bg-background";
+  return (
+    <section className={`py-12 md:py-16 ${stripe}`}>
+      <div className="container mx-auto max-w-6xl px-4">
+        <h2 className="mx-auto max-w-4xl text-balance text-center font-display text-xl font-bold leading-tight tracking-tight text-foreground md:text-2xl">
+          {grid.headline}
+        </h2>
+        <div className="mt-10 grid gap-6 md:grid-cols-3 md:gap-8">
+          {grid.cards.map((card, i) => (
+            <div
+              key={`${card.title}-${i}`}
+              className="flex flex-col rounded-lg border border-border bg-card px-6 py-8 text-center md:min-h-[280px] md:justify-center md:py-10"
+            >
+              <h3 className="font-display text-base font-bold text-foreground md:text-lg">
+                {card.title}
+              </h3>
+              <p className="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base">
+                {card.body}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function renderAccessoryModelCompareTable(
+  table: NonNullable<AccessoryTranslation["modelCompareTable"]>,
+) {
+  if (!table.rows.length) return null;
+  return (
+    <section className="bg-secondary/20 py-12 md:py-16">
+      <div className="container mx-auto max-w-5xl px-4">
+        <h2 className="mb-6 text-center font-display text-xl font-bold text-foreground md:text-2xl">
+          {table.title}
+        </h2>
+        <div className="overflow-x-auto rounded-lg border border-border bg-background shadow-sm">
+          <div className="min-w-[min(100%,46rem)] md:min-w-0">
+            <div className="grid grid-cols-[minmax(7rem,1.15fr)_minmax(5.5rem,1fr)_minmax(5.5rem,1fr)] border-b border-border bg-secondary px-3 py-2.5 text-xs font-semibold leading-snug sm:px-4 sm:text-sm">
+              <span>{table.featureLabel}</span>
+              <span className="text-center">{table.modelALabel}</span>
+              <span className="text-center">{table.modelBLabel}</span>
+            </div>
+            {table.rows.map((row, index) => (
+              <div
+                key={`${row.label}-${index}`}
+                className={`grid grid-cols-[minmax(7rem,1.15fr)_minmax(5.5rem,1fr)_minmax(5.5rem,1fr)] gap-x-2 gap-y-1 border-b border-border/80 px-3 py-3 text-xs leading-relaxed last:border-b-0 sm:gap-x-3 sm:px-4 sm:text-sm ${
+                  index % 2 === 0 ? "bg-card" : "bg-secondary/30"
+                }`}
+              >
+                <span className="font-medium text-foreground">{row.label}</span>
+                <span className="text-muted-foreground">{row.modelA}</span>
+                <span className="text-muted-foreground">{row.modelB}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -251,6 +337,18 @@ const AccessoryProductPage = () => {
   const allDetailBands = t.detailBands ?? [];
   const bandsBeforeSpecs = allDetailBands.filter((b) => !b.afterSpecs);
   const bandsAfterSpecs = allDetailBands.filter((b) => b.afterSpecs);
+  const hasCardGrid = Boolean(t.detailCardGrid?.cards?.length);
+  const cardGridInsertAfter = hasCardGrid
+    ? Math.min(
+        Math.max(0, t.detailCardGrid!.insertAfterBandCount ?? 1),
+        bandsBeforeSpecs.length,
+      )
+    : 0;
+  const bandsBeforeCardGrid = bandsBeforeSpecs.slice(0, cardGridInsertAfter);
+  const bandsAfterCardGrid = bandsBeforeSpecs.slice(cardGridInsertAfter);
+  const detailSectionsBeforeSpecs =
+    bandsBeforeCardGrid.length + (hasCardGrid ? 1 : 0) + bandsAfterCardGrid.length;
+  const firstDetailBandIndexAfterSpecs = detailSectionsBeforeSpecs;
 
   return (
     <div className="min-h-screen bg-background">
@@ -400,11 +498,25 @@ const AccessoryProductPage = () => {
           </div>
         </section>
 
-        {bandsBeforeSpecs.length
-          ? bandsBeforeSpecs.map((band, i) => renderAccessoryDetailBand(band, i, t.title))
+        {bandsBeforeCardGrid.map((band, i) =>
+          renderAccessoryDetailBand(band, i, t.title),
+        )}
+
+        {hasCardGrid
+          ? renderAccessoryDetailCardGrid(t.detailCardGrid!, bandsBeforeCardGrid.length)
           : null}
 
-        {t.specsTableTitle && t.specsRows?.length ? (
+        {bandsAfterCardGrid.map((band, i) =>
+          renderAccessoryDetailBand(
+            band,
+            bandsBeforeCardGrid.length + (hasCardGrid ? 1 : 0) + i,
+            t.title,
+          ),
+        )}
+
+        {t.modelCompareTable?.rows.length ? (
+          renderAccessoryModelCompareTable(t.modelCompareTable)
+        ) : t.specsTableTitle && t.specsRows?.length ? (
           <section className="bg-secondary/20 py-12 md:py-16">
             <div className="container mx-auto max-w-4xl px-4">
               {t.specsTableLead?.trim() ? (
@@ -438,7 +550,7 @@ const AccessoryProductPage = () => {
 
         {bandsAfterSpecs.length
           ? bandsAfterSpecs.map((band, i) =>
-              renderAccessoryDetailBand(band, bandsBeforeSpecs.length + i, t.title),
+              renderAccessoryDetailBand(band, firstDetailBandIndexAfterSpecs + i, t.title),
             )
           : null}
       </main>

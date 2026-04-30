@@ -12,7 +12,7 @@ const STORAGE_KEY = "rlt-cart-v1";
 
 export type CartLine = {
   id: string;
-  kind: "mask" | "lamp" | "accessory";
+  kind: "mask" | "lamp" | "accessory" | "bed";
   slug: string;
   name: string;
   price: string;

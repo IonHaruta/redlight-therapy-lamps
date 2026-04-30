@@ -15,6 +15,8 @@ import LampsPage from "./pages/LampsPage";
 import LampProductPage from "./pages/LampProductPage";
 import AccessoriesPage from "./pages/AccessoriesPage";
 import AccessoryProductPage from "./pages/AccessoryProductPage";
+import BedPage from "./pages/BedPage";
+import BedProductPage from "./pages/BedProductPage";
 import ScrollToTop from "@/components/ScrollToTop";
 import { LocaleProvider } from "@/context/LocaleContext";
 import { CartProvider } from "@/context/CartContext";
@@ -41,6 +43,8 @@ const App = () => (
           <Route path="/lampi/:slug" element={<LampProductPage />} />
           <Route path="/accesorii" element={<AccessoriesPage />} />
           <Route path="/accesorii/:slug" element={<AccessoryProductPage />} />
+          <Route path="/pat" element={<BedPage />} />
+          <Route path="/pat/:slug" element={<BedProductPage />} />
           <Route path="/produs/:slug" element={<ProductPage />} />
           <Route path="/cos" element={<CartPage />} />
           <Route path="/termeni-si-conditii" element={<TermsPage />} />

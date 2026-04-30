@@ -11,10 +11,10 @@ import { searchCatalog } from "@/data/search-catalog";
 import { useCart } from "@/context/CartContext";
 import { CartDrawer } from "@/components/CartDrawer";
 
-const navKeyByBannerId: Record<string, "therapyMasks" | "lampsAndAccessories" | "product3"> = {
+const navKeyByBannerId: Record<string, "therapyMasks" | "lampsAndAccessories" | "bed"> = {
   "therapy-masks": "therapyMasks",
   "lamps-accessories": "lampsAndAccessories",
-  "produs-3": "product3",
+  pat: "bed",
 };
 
 const Navbar = () => {

@@ -4,7 +4,7 @@ export type SiteCopy = {
   nav: {
     therapyMasks: string;
     lampsAndAccessories: string;
-    product3: string;
+    bed: string;
     star: string;
   };
   searchPlaceholder: string;
@@ -22,7 +22,7 @@ export type SiteCopy = {
     checkoutHint: string;
     contactInstead: string;
   };
-  homeBanners: Record<"therapy-masks" | "lamps-accessories" | "produs-3", { subtitle: string }>;
+  homeBanners: Record<"therapy-masks" | "lamps-accessories" | "pat", { subtitle: string }>;
   seeProduct: string;
   masksPage: {
     eyebrow: string;
@@ -37,6 +37,13 @@ export type SiteCopy = {
     toAccessories: string;
   };
   accessoriesPage: {
+    eyebrow: string;
+    title: string;
+    lead: string;
+    seeProduct: string;
+    toLamps: string;
+  };
+  bedPage: {
     eyebrow: string;
     title: string;
     lead: string;
@@ -106,7 +113,7 @@ export const siteCopy: Record<Locale, SiteCopy> = {
     nav: {
       therapyMasks: "Măști terapeutice",
       lampsAndAccessories: "Lampi & Accesorii",
-      product3: "Produs 3",
+      bed: "Pat",
       star: "Star",
     },
     searchPlaceholder: "Caută în magazin",
@@ -132,8 +139,8 @@ export const siteCopy: Record<Locale, SiteCopy> = {
       "lamps-accessories": {
         subtitle: "Lampi LED FS7 · panouri profesionale",
       },
-      "produs-3": {
-        subtitle: "Toată gama de produse",
+      pat: {
+        subtitle: "Pat pentru terapie cu lumină roșie",
       },
     },
     seeProduct: "Vezi produsul",
@@ -154,6 +161,13 @@ export const siteCopy: Record<Locale, SiteCopy> = {
       eyebrow: "Accesorii",
       title: "Accesorii pentru lampi",
       lead: "Complemente pentru instalare și utilizare. Descrieri detaliate vor fi adăugate în curând.",
+      seeProduct: "Vezi produsul",
+      toLamps: "Lampi LED",
+    },
+    bedPage: {
+      eyebrow: "Pat terapie",
+      title: "Pat pentru terapie cu lumină roșie",
+      lead: "Produs dedicat sesiunilor de terapie — detalii complete în curând.",
       seeProduct: "Vezi produsul",
       toLamps: "Lampi LED",
     },
@@ -223,7 +237,7 @@ export const siteCopy: Record<Locale, SiteCopy> = {
     nav: {
       therapyMasks: "Терапевтические маски",
       lampsAndAccessories: "Лампы и аксессуары",
-      product3: "Товар 3",
+      bed: "Кровать",
       star: "Star",
     },
     searchPlaceholder: "Поиск по магазину",
@@ -249,8 +263,8 @@ export const siteCopy: Record<Locale, SiteCopy> = {
       "lamps-accessories": {
         subtitle: "LED-панели FS7 · профессиональные лампы",
       },
-      "produs-3": {
-        subtitle: "Вся линейка продуктов",
+      pat: {
+        subtitle: "Кровать для красной светотерапии",
       },
     },
     seeProduct: "Смотреть товар",
@@ -271,6 +285,13 @@ export const siteCopy: Record<Locale, SiteCopy> = {
       eyebrow: "Аксессуары",
       title: "Аксессуары для панелей",
       lead: "Дополнения для монтажа и эксплуатации. Подробные описания будут добавлены позже.",
+      seeProduct: "Смотреть товар",
+      toLamps: "LED-панели",
+    },
+    bedPage: {
+      eyebrow: "Кровать для терапии",
+      title: "Кровать для красной светотерапии",
+      lead: "Изделие для сеансов терапии — подробности скоро.",
       seeProduct: "Смотреть товар",
       toLamps: "LED-панели",
     },

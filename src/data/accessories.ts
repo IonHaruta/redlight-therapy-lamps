@@ -44,6 +44,21 @@ export interface AccessoryTranslation {
   specsRows?: { label: string; value: string }[];
   /** Benzi imagine + text sub tabel (ex. jos-1…3). */
   detailBands?: AccessoryDetailBand[];
+  /** Titlu centrat + carduri (ex. 3 coloane wellness). */
+  detailCardGrid?: {
+    headline: string;
+    cards: { title: string; body: string }[];
+    /** După câte benzi `detailBands` (înainte de specificații) se inserează grila. Implicit 1. `0` = înaintea tuturor benzilor. */
+    insertAfterBandCount?: number;
+  };
+  /** Tabel comparație două modele (ex. M7 vs M7 PLUS). */
+  modelCompareTable?: {
+    title: string;
+    featureLabel: string;
+    modelALabel: string;
+    modelBLabel: string;
+    rows: { label: string; modelA: string; modelB: string }[];
+  };
 }
 
 export interface AccessoryProduct {

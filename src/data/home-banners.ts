@@ -25,10 +25,10 @@ export const homeProductBanners: HomeProductBanner[] = [
     to: "/lampi",
   },
   {
-    id: "produs-3",
-    label: "Produs 3",
-    subtitle: "Toată gama de produse",
-    youtubeId: "U2JulLyhQ6U",
-    to: { pathname: "/", hash: "produse" },
+    id: "pat",
+    label: "Pat",
+    subtitle: "Pat pentru terapie cu lumină roșie",
+    youtubeId: "YG-svcr1u8c",
+    to: "/pat",
   },
 ];

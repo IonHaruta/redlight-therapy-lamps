@@ -2,10 +2,11 @@ import type { Locale } from "@/data/masks";
 import { maskProducts } from "@/data/masks";
 import { products } from "@/data/products";
 import { lampProducts } from "@/data/lamps";
+import { bedProducts } from "@/data/bed";
 import { accessoryProducts } from "@/data/accessories";
 
 export type CatalogSearchItem = {
-  kind: "mask" | "lamp" | "lampPanel" | "accessory";
+  kind: "mask" | "lamp" | "lampPanel" | "accessory" | "bed";
   slug: string;
   /** Rută relativă pentru Link */
   to: string;
@@ -109,6 +110,23 @@ export function getCatalogSearchItems(locale: Locale): CatalogSearchItem[] {
           ].join(" "),
         )
         .join(" ") ?? "";
+    const cardGridText = tr.detailCardGrid
+      ? [
+          tr.detailCardGrid.headline,
+          ...tr.detailCardGrid.cards.map((c) => `${c.title} ${c.body}`),
+        ].join(" ")
+      : "";
+    const compareTableText = tr.modelCompareTable
+      ? [
+          tr.modelCompareTable.title,
+          tr.modelCompareTable.featureLabel,
+          tr.modelCompareTable.modelALabel,
+          tr.modelCompareTable.modelBLabel,
+          ...tr.modelCompareTable.rows.map(
+            (r) => `${r.label} ${r.modelA} ${r.modelB}`,
+          ),
+        ].join(" ")
+      : "";
     const haystack = [
       a.name,
       tr.title,
@@ -121,6 +139,8 @@ export function getCatalogSearchItems(locale: Locale): CatalogSearchItem[] {
       tr.specsTableTitle ?? "",
       specsText,
       detailText,
+      cardGridText,
+      compareTableText,
       a.slug,
       "accesoriu",
       "аксессуар",
@@ -138,7 +158,70 @@ export function getCatalogSearchItems(locale: Locale): CatalogSearchItem[] {
     };
   });
 
-  return [...masks, ...lampPanels, ...lampsFs7, ...accessories];
+  const beds: CatalogSearchItem[] = bedProducts.map((b) => {
+    const tr = b.translations[locale];
+    const featureText = tr.features?.map((f) => `${f.title} ${f.body}`).join(" ") ?? "";
+    const specsText = tr.specsRows?.map((r) => `${r.label} ${r.value}`).join(" ") ?? "";
+    const detailText =
+      tr.detailBands
+        ?.map((band) =>
+          [
+            band.eyebrow ?? "",
+            band.title,
+            band.titleSupplement ?? "",
+            band.bullets?.map((x) => `${x.title} ${x.body}`).join(" ") ?? "",
+            band.paragraphs?.join(" ") ?? "",
+          ].join(" "),
+        )
+        .join(" ") ?? "";
+    const cardGridText = tr.detailCardGrid
+      ? [
+          tr.detailCardGrid.headline,
+          ...tr.detailCardGrid.cards.map((c) => `${c.title} ${c.body}`),
+        ].join(" ")
+      : "";
+    const compareTableText = tr.modelCompareTable
+      ? [
+          tr.modelCompareTable.title,
+          tr.modelCompareTable.featureLabel,
+          tr.modelCompareTable.modelALabel,
+          tr.modelCompareTable.modelBLabel,
+          ...tr.modelCompareTable.rows.map(
+            (r) => `${r.label} ${r.modelA} ${r.modelB}`,
+          ),
+        ].join(" ")
+      : "";
+    const haystack = [
+      b.name,
+      tr.title,
+      tr.modelShort,
+      tr.subtitle,
+      tr.description,
+      featureText,
+      specsText,
+      detailText,
+      cardGridText,
+      compareTableText,
+      b.slug,
+      "pat",
+      "pat terapie",
+      "кровать",
+      "apex",
+    ]
+      .map(norm)
+      .join(" ");
+    return {
+      kind: "bed",
+      slug: b.slug,
+      to: `/pat/${b.slug}`,
+      title: tr.title,
+      subtitle: tr.modelShort,
+      price: b.price,
+      haystack,
+    };
+  });
+
+  return [...masks, ...lampPanels, ...lampsFs7, ...accessories, ...beds];
 }
 
 export function searchCatalog(locale: Locale, query: string, limit = 8): CatalogSearchItem[] {

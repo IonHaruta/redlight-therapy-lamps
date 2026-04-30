@@ -12,7 +12,8 @@ function lineThumbSrc(
   thumb?: string,
 ) {
   if (!thumb) return undefined;
-  if (line.kind === "mask" || line.kind === "accessory") return publicAssetUrl(thumb);
+  if (line.kind === "mask" || line.kind === "accessory" || line.kind === "bed")
+    return publicAssetUrl(thumb);
   if (thumb.startsWith("http") || thumb.includes("/assets/")) return thumb;
   return publicAssetUrl(thumb);
 }

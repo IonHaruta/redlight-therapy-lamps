@@ -5,7 +5,7 @@ import { homeProductBanners } from "@/data/home-banners";
 import { useLocale } from "@/context/LocaleContext";
 import { getSiteCopy } from "@/i18n/site";
 
-type BannerId = "therapy-masks" | "lamps-accessories" | "produs-3";
+type BannerId = "therapy-masks" | "lamps-accessories" | "pat";
 
 const youtubeEmbedSrc = (videoId: string) =>
   `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=0&playsinline=1&modestbranding=1&rel=0`;
