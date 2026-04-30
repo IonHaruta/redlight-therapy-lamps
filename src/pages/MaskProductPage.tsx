@@ -44,6 +44,20 @@ const ui = {
     priceNote: "Демонстрационная цена для страницы.",
     notFound: "Маска не найдена",
   },
+  en: {
+    back: "Back to masks",
+    category: "LED masks",
+    chooseModel: "Choose model",
+    addToCart: "ADD TO CART",
+    features: "Highlights",
+    detailsHeading: "Product details",
+    tableHeading: "Full technical table",
+    certified: "Certified",
+    phototherapy: "Phototherapy",
+    warranty: "Warranty",
+    priceNote: "Indicative price for display.",
+    notFound: "Mask not found",
+  },
 };
 
 const MediaPreview = ({ media, name }: { media: MaskMedia; name: string }) => {

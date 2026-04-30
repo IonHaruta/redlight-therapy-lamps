@@ -1,4 +1,5 @@
 import type { Locale, MaskMedia, MaskTranslation } from "./masks";
+import { triLocale } from "@/i18n/tri-locale";
 
 export type StrategicCard = { title: string; body: string };
 
@@ -126,8 +127,8 @@ const tCommon = (
 
 const rdpro300Fs7T = tCommon("RD Pro 300 FS7", "RD 300", "RD Pro 300 FS7", "RD 300");
 
-const rdpro300Fs7Copy: Record<Locale, MaskTranslation> = {
-  ro: {
+const rdpro300Fs7Copy = triLocale(
+  {
     ...rdpro300Fs7T.ro,
     subtitle:
       "RDPro300-FS7: 7 lungimi de undă, precizie clinică — control de pe telefon.",
@@ -212,7 +213,7 @@ const rdpro300Fs7Copy: Record<Locale, MaskTranslation> = {
         "1. Lampă de terapie LED, 2. Protecție pentru ochi, 3. Mâner, 4. Telecomandă, 5. Cablu de alimentare, 6. Cablu de conectare.",
     },
   },
-  ru: {
+  {
     ...rdpro300Fs7T.ru,
     subtitle:
       "RDPro300-FS7: 7 длин волн, клиническая точность — управление со смартфона.",
@@ -299,11 +300,11 @@ const rdpro300Fs7Copy: Record<Locale, MaskTranslation> = {
         "1. Светодиодный терапевтический светильник, 2. Защита глаз, 3. Ручка, 4. Пульт дистанционного управления, 5. Кабель питания, 6. Соединительный кабель.",
     },
   },
-};
+);
 
 /** Conținut complet pagină produs — RD Pro 3000 FS7 (6 imagini „jos” = 6 secțiuni + tabel specificații). */
-const rdpro3000Fs7Copy: Record<Locale, MaskTranslation> = {
-  ro: {
+const rdpro3000Fs7Copy = triLocale(
+  {
     title: "RD Pro 3000 FS7",
     modelShort: "RD 3000",
     subtitle: "RDPro3000-FS7: un nou standard în bunăstarea profesională.",
@@ -384,7 +385,7 @@ const rdpro3000Fs7Copy: Record<Locale, MaskTranslation> = {
       "Greutate brută ambalaj (kg)": "30,0",
     },
   },
-  ru: {
+  {
     title: "RD Pro 3000 FS7",
     modelShort: "RD 3000",
     subtitle: "RDPro3000-FS7: новый стандарт профессионального благополучия.",
@@ -465,7 +466,7 @@ const rdpro3000Fs7Copy: Record<Locale, MaskTranslation> = {
       "Вес брутто (кг)": "30,0",
     },
   },
-};
+);
 
 const rdpro1500Fs7T = tCommon(
   "RD Pro 1500 FS7",
@@ -474,8 +475,8 @@ const rdpro1500Fs7T = tCommon(
   "RD 1500",
 );
 
-const rdpro1500Fs7Copy: Record<Locale, MaskTranslation> = {
-  ro: {
+const rdpro1500Fs7Copy = triLocale(
+  {
     ...rdpro1500Fs7T.ro,
     testimonials: [],
     subtitle: "RDPro1500-FS7: control independent pentru 7 lungimi de undă.",
@@ -562,7 +563,7 @@ const rdpro1500Fs7Copy: Record<Locale, MaskTranslation> = {
         "Lampă de terapie LED (1 buc.), cârlig pentru ușă (1 buc.), elemente de fixare (1 buc.), cablu de conectare (1 buc.), protecție pentru ochi (1 buc.), telecomandă (1 buc.), cablu de alimentare (1 buc.), cablaj și fitinguri cu deconectare rapidă (1 buc.).",
     },
   },
-  ru: {
+  {
     ...rdpro1500Fs7T.ru,
     testimonials: [],
     subtitle: "RDPro1500-FS7: независимый контроль для 7 волн.",
@@ -651,7 +652,7 @@ const rdpro1500Fs7Copy: Record<Locale, MaskTranslation> = {
         "Светодиодный терапевтический светильник (1 шт.), дверной крючок (1 шт.), крепежные элементы (1 шт.), соединительный кабель (1 шт.), средства защиты глаз (1 шт.), пульт дистанционного управления (1 шт.), кабель питания (1 шт.), кабельный жгут и быстроразъемные соединения (1 шт.).",
     },
   },
-};
+);
 
 const rdpro6000Fs7Seed = tCommon(
   "RD Pro 6000 FS7",
@@ -660,8 +661,8 @@ const rdpro6000Fs7Seed = tCommon(
   "RD 6000",
 );
 
-const rdpro6000Fs7Copy: Record<Locale, MaskTranslation> = {
-  ro: {
+const rdpro6000Fs7Copy = triLocale(
+  {
     ...rdpro6000Fs7Seed.ro,
     title: "Panoul RDPro6000-FS7: Redefinirea potențialului uman.",
     subtitle:
@@ -752,7 +753,7 @@ const rdpro6000Fs7Copy: Record<Locale, MaskTranslation> = {
       "Aplicație mobilă dedicată: Oferă acces la opțiuni avansate de programare, vă permite să salvați protocoale personalizate și să gestionați mai multe dispozitive (ideal pentru clinici).",
     ],
   },
-  ru: {
+  {
     ...rdpro6000Fs7Seed.ru,
     title: "Панель RDPro6000-FS7: где переосмысливается человеческий потенциал.",
     subtitle:
@@ -843,7 +844,7 @@ const rdpro6000Fs7Copy: Record<Locale, MaskTranslation> = {
       "Специальное мобильное приложение: открывает доступ к расширенным возможностям программирования, позволяет сохранять пользовательские протоколы и управлять несколькими устройствами (идеально подходит для клиник).",
     ],
   },
-};
+);
 
 export const lampProducts: LampProduct[] = [
   {
@@ -873,8 +874,8 @@ export const lampProducts: LampProduct[] = [
       { type: "image", path: "lampi/RDPro3000-FS7/RDPro3000-FS7-jos-6.png", alt: "RD Pro 3000 FS7" },
     ],
     cleanProductPage: true,
-    strategicBand: {
-      ro: {
+    strategicBand: triLocale(
+      {
         headline: "Mai mult decât confort. Un activ strategic.",
         cards: [
           {
@@ -895,7 +896,7 @@ export const lampProducts: LampProduct[] = [
           },
         ],
       },
-      ru: {
+      {
         headline: "Это больше, чем удобство. Это стратегический актив.",
         cards: [
           {
@@ -916,7 +917,7 @@ export const lampProducts: LampProduct[] = [
           },
         ],
       },
-    },
+    ),
     translations: rdpro3000Fs7Copy,
   },
   {
@@ -926,8 +927,8 @@ export const lampProducts: LampProduct[] = [
     priceValue: 100,
     topGalleryCount: 8,
     applicationsMediaPath: "lampi/RDPro300-FS7/RDPro300-FS7-jos-5.png",
-    therapyRulesBand: {
-      ro: {
+    therapyRulesBand: triLocale(
+      {
         headline: "Terapia ta, regulile tale",
         cards: [
           {
@@ -944,7 +945,7 @@ export const lampProducts: LampProduct[] = [
           },
         ],
       },
-      ru: {
+      {
         headline: "Ваша Терапия, Ваши Правила",
         cards: [
           {
@@ -961,7 +962,7 @@ export const lampProducts: LampProduct[] = [
           },
         ],
       },
-    },
+    ),
     media: [
       { type: "image", path: "lampi/RDPro300-FS7/RDPro300-FS7-1.png", alt: "RD Pro 300 FS7" },
       { type: "image", path: "lampi/RDPro300-FS7/RDPro300-FS7-2.png", alt: "RD Pro 300 FS7" },
@@ -985,8 +986,8 @@ export const lampProducts: LampProduct[] = [
     price: "€100",
     priceValue: 100,
     topGalleryCount: 7,
-    therapyRulesBand: {
-      ro: {
+    therapyRulesBand: triLocale(
+      {
         headline: "Nivel mai ridicat de bunăstare. Randamente mai rapide.",
         subheadline: "Investiție",
         cards: [
@@ -1004,7 +1005,7 @@ export const lampProducts: LampProduct[] = [
           },
         ],
       },
-      ru: {
+      {
         headline: "Более Высокий Уровень Оздоровления. Более Быстрая Отдача.",
         subheadline: "Инвестиции",
         cards: [
@@ -1022,7 +1023,7 @@ export const lampProducts: LampProduct[] = [
           },
         ],
       },
-    },
+    ),
     specsAfterDetailSections: true,
     applicationsAfterSpecsTable: true,
     applicationsMediaPath: "lampi/RDPRO1500-FS7/RDPRO1500-FS7-jos-5.png",
@@ -1049,8 +1050,8 @@ export const lampProducts: LampProduct[] = [
     priceValue: 100,
     topGalleryCount: 6,
     cleanProductPage: true,
-    strategicBand: {
-      ro: {
+    strategicBand: triLocale(
+      {
         headline: "Tehnologii pentru Victorie",
         cards: [
           {
@@ -1067,7 +1068,7 @@ export const lampProducts: LampProduct[] = [
           },
         ],
       },
-      ru: {
+      {
         headline: "Технологии Для Победы",
         cards: [
           {
@@ -1084,7 +1085,7 @@ export const lampProducts: LampProduct[] = [
           },
         ],
       },
-    },
+    ),
     engineeringMediaPath: "lampi/RDPro6000-FS7/fs7-jos-3.jpg",
     engineeringMediaOnRight: true,
     benefitsMediaPath: "lampi/RDPro6000-FS7/fs7-jos-1.jpg",

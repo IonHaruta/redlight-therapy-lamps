@@ -65,6 +65,23 @@ const ui = {
     galleryPrev: "Предыдущее фото",
     galleryNext: "Следующее фото",
   },
+  en: {
+    back: "Back to panels",
+    category: "LED panels",
+    chooseModel: "Choose model",
+    addToCart: "ADD TO CART",
+    features: "Highlights",
+    detailsHeading: "Product details",
+    certified: "Certified",
+    phototherapy: "Phototherapy",
+    warranty: "Warranty",
+    priceNote: "Indicative price — confirmed when you order.",
+    notFound: "Panel not found",
+    expandPreview: "Open full size",
+    expandPreviewHint: "Product image or video at full size.",
+    galleryPrev: "Previous image",
+    galleryNext: "Next image",
+  },
 };
 
 const MediaPreview = ({

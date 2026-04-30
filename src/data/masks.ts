@@ -1,6 +1,7 @@
 import type { To } from "react-router-dom";
+import { triLocale } from "@/i18n/tri-locale";
 
-export type Locale = "ro" | "ru";
+export type Locale = "ro" | "ru" | "en";
 
 export interface MaskMedia {
   type: "video" | "image";
@@ -185,7 +186,6 @@ export const maskProducts: MaskProduct[] = [
         ],
         detailHeading: "Beneficii și caracteristici detaliate",
         specsIntroTitle: "Specificații tehnice, personalizare și încredere",
-        specsTitle: "Specificații, personalizare și încredere",
         specs: {
           "Nume produs": "Mască de terapie cu lumină Aurora Butterfly",
           "Număr model": "F2",
@@ -250,7 +250,6 @@ export const maskProducts: MaskProduct[] = [
         ],
         detailHeading: "Подробные преимущества и характеристики",
         specsIntroTitle: "Технические характеристики, индивидуальная настройка и доверие",
-        specsTitle: "Технические характеристики, индивидуальная настройка и доверие",
         specs: {
           "Название продукта": "Маска для светотерапии «Бабочка Аврора»",
           "Номер модели": "F2",
@@ -275,6 +274,71 @@ export const maskProducts: MaskProduct[] = [
           "Тип разъёма": "USB Type-C",
           Сертификаты: "CE, FCC, ROHS",
           "Рабочая среда": "-10°~45°C",
+        },
+      },
+      en: {
+        title: "F2 Aurora Butterfly Light Therapy Mask",
+        modelShort: "F2 Aurora",
+        subtitle:
+          "Revolutionize skincare and hairline health: high-precision multi-wavelength treatment in an elegant design.",
+        description:
+          "Introducing the Aurora Butterfly (F2) LED mask from REDDOT. It features 352 LEDs (88 elements) and 4 modes, including a special mode for fine hair. Crafted with high-quality gold plating, the mask is ideal for OEM and wholesale.",
+        highlights: [
+          "88 high-density LEDs: comprehensive coverage of the face and hairline.",
+          "4 targeted treatment modes: brightening, lifting, acne removal, and smoothing.",
+          "Dedicated hairline restoration zone: unique, targeted treatment.",
+          "Luxurious gold finish: high-quality ABS plastic and polycarbonate construction.",
+        ],
+        benefitsTitle: "The Power of Multi-Wavelength Therapy",
+        benefits: [
+          "The Aurora Butterfly Mask harnesses the power of 88 medical-grade LEDs, strategically delivering a synergistic combination of wavelengths to address a wide range of skin and hairline concerns. Each mode is expertly calibrated for optimal results.",
+          "Mode 1. Brightening Mode: Enhance your complexion. Key benefits: Designed to reduce hyperpigmentation, even out skin tone, and enhance overall radiance. Yellow light enhances radiance, while red and near-infrared light promote cellular repair and vitality.",
+          "Mode 2. Skin Tightening Mode: Firming and contouring. Key benefits: Stimulates collagen and elastin production, helping to reduce fine lines, improve skin firmness, and restore youthful elasticity. Deeply penetrating near-infrared light enhances tissue regeneration.",
+          "Mode 3. Acne Mode: Clarifying and soothing. Key benefits: Blue light targets acne-causing bacteria, while red and near-infrared light help reduce inflammation, soothe redness, and accelerate healing for a clearer complexion.",
+          "Mode 4. Smoothing Mode: Refine and soften. Key benefits: Improves skin texture, reduces redness, and soothes sensitive skin. Yellow light promotes lymphatic drainage, while near-infrared light supports overall skin health and elasticity.",
+        ],
+        usageTitle: "Innovative Butterfly Design and Hairline Focus",
+        usage: [
+          "The unique Aurora Butterfly contour provides full facial coverage, including often-neglected areas. It features a dedicated zone with 56 red LEDs at a 650 nm wavelength targeting the hairline directly, promoting hair restoration and a healthier appearance.",
+          "Made of durable ABS+PC with a striking gold finish, the F2 mask is lightweight (332 g) and comfortable. Its 2500 mAh battery provides up to 70 minutes of use after approximately 2.5 hours of charging via USB Type-C. A controller and storage bag are included.",
+        ],
+        includedTitle: "In the box",
+        included: [
+          "Mask, controller, storage bag, USB Type-C data cable, dedicated cable, user manual.",
+        ],
+        applicationsTitle: "Your brand, our experience: partnering with REDDOT",
+        applications: [
+          "Offer your customers the cutting-edge \"Aurora Butterfly\" mask under your own brand (OEM) or collaborate with us to develop unique variations (ODM). We offer competitive wholesale pricing for distributors and retailers. Benefit from our 15 years of manufacturing experience, strict quality control, and comprehensive support.",
+          "Personalization: corporate identity (logo, packaging); color variations possible (subject to MOQ); feature adjustments possible.",
+          "Retail packaging and logistics: individual box 23 × 30 × 15 cm; gross parcel weight 1.31 kg; 8 pcs/carton; carton 330 × 490 × 630 mm; gross carton weight 11 kg.",
+        ],
+        detailHeading: "Detailed Benefits and Features",
+        specsIntroTitle: "Specifications, Customization, and Trust",
+        specs: {
+          "Product name": "Butterfly Aurora Light Therapy Mask",
+          "Model number": "F2",
+          "Product chip":
+            "4 chips (multi-chip and single-chip configurations are customizable)",
+          Color: "Gold",
+          Dimensions: "270.2 × 196.6 × 14.5 mm",
+          Weight: "332 g",
+          "Shell material": "ABS+PC",
+          "Battery capacity": "2500 mAh",
+          "Charging time": "Approximately 2.5 hours",
+          "Standby life": "70 minutes",
+          "Rated power": "11 W",
+          "Power density": "60 mW/cm²",
+          "Charging voltage": "3.7 V",
+          "Total LEDs": "88 pcs",
+          "LEDs – hairline area": "56 pcs × 650 nm (target concentration)",
+          "LEDs – face (zone A)": "28 pcs × 650 nm, 28 × 1064 nm",
+          "LEDs – face (zone B)":
+            "74 × 460 nm, 74 × 590 nm, 46 × 650 nm, 46 × 850 nm",
+          "Operating modes":
+            "4 modes (brightening, skin tightening, acne removal, smoothing) — 10 minutes per mode",
+          "Connector type": "USB Type-C",
+          Certifications: "CE, FCC, ROHS",
+          "Operating environment": "-10°~45°C",
         },
       },
     },
@@ -443,6 +507,76 @@ export const maskProducts: MaskProduct[] = [
             "Одна маска для лица, один пульт, одно зарядное устройство, инструкция.",
         },
       },
+      en: {
+        title: "CS-001 3D Phototherapy Mask",
+        modelShort: "CS-001",
+        subtitle:
+          "Medical-grade precision and wireless freedom: next-generation phototherapy at home and in the clinic.",
+        description:
+          "Discover the next generation of phototherapy with the CS-001 mask. Our revolutionary 3D system and targeted, powerful LED light deliver outstanding results for anti-aging, acne care, and skin rejuvenation—at home and in the clinic.",
+        highlights: [
+          "Medical-grade efficacy: superior light delivery for maximum effectiveness.",
+          "Targeted therapy with three modes: anti-aging, acne care, and skin rejuvenation.",
+          "Revolutionary 3D fit technology: conforms to the face for even light distribution.",
+          "Wireless and rechargeable: convenience and freedom of movement.",
+        ],
+        benefitsTitle: "The science of dual wavelengths",
+        benefits: [
+          "The CS-001 contains 288 medical-grade LEDs:",
+          "144 red sources at 630 nm to improve the appearance of surface skin;",
+          "72 invisible near-infrared sources at 850 nm for deeper tissue treatment;",
+          "72 visible blue LEDs at 480 nm to help inhibit microbial growth; they may also support inflammatory skin conditions such as eczema and dermatitis.",
+          "Peak irradiance reaches 54 mW/cm²—at the upper end of the industry-recommended range for facial treatments (20 mW/cm² to 50 mW/cm²) and significantly higher than many standard home devices. That level supports optimal results in shorter, more effective sessions. The CS-001 is intended not as a typical consumer gadget, but as a powerful therapeutic tool you can use at home.",
+        ],
+        testimonialsTitle: "Do not take our word for it—our users speak for themselves.",
+        testimonials: [
+          "\"My skin has become brighter, but most importantly, the bags under my eyes have diminished. I always had a large bag under my left eye, and it has gradually disappeared.\" — MuscleSpare, regular user — Lisa (yoga instructor).",
+          "\"It is not a dramatic change, but I have noticed my skin is firmer, especially around my jaw and cheeks, and the pigmentation on my cheeks has faded a bit.\" — BananaPlushy — Margaret (elementary school teacher).",
+          "\"My skin looks more radiant, acne clears up faster, and my overall texture is smoother and more even.\" — Glow Core user review — Maria (office worker).",
+        ],
+        usageTitle: "Designed for convenience and portability",
+        usage: [
+          "Experience treatment on your terms. The CS-001 is lightweight and has its own power source—nothing tethers you. Use it at home, at the office, or while traveling. Simple one-button operation. At about 370 g, it is comfortable to wear on the face.",
+          "Premium quality, customizable to match your brand.",
+        ],
+        applicationsTitle: "Your vision, our manufacturing expertise",
+        applications: [
+          "The CS-001 therapeutic mask offers strong customization and branding. Partner with REDDOT LED to:",
+          "Custom logo: place your company logo on packaging and the product.",
+          "Shape customization: discuss changing film or housing size or shape for specific market needs.",
+          "Wavelength adjustment: explore different LED ratios or added wavelengths for unique positioning.",
+        ],
+        safetyTitle: "Ensuring optimal performance and longevity",
+        safety: [
+          "For indoor use only. The device is not waterproof; avoid damp areas or exposing the LEDs directly to essential oils.",
+          "For safety, if the device is not battery-powered, turn off the main power switch before making any adjustments.",
+          "Activation: press and hold the ON/OFF button for 1 second to turn on the device.",
+          "For after-sales service or repairs, please contact REDDOT LED directly.",
+        ],
+        detailHeading: "Targeted relief and enhanced facial contouring",
+        specsIntroTitle: "Premium quality, customizable to match your brand",
+        specsTitle: "Specifications",
+        specs: {
+          "Model number": "CS-001",
+          Wavelengths: "630 nm (red), 850 nm (near infrared), 480 nm (blue)",
+          "LED count": "288 pcs (144 × 630 nm, 72 × 850 nm, 72 × 480 nm)",
+          "Product chip": "4 chips (multi-chip / single-chip configurations available)",
+          "Package size": "32.5 × 26.5 × 18.5 cm",
+          "Product size": "64 × 22 × 0.58 cm",
+          Color: "Yellow",
+          Power: "5 W",
+          "Primary function":
+            "Helps relieve facial skin inflammation, supports acne healing, and slows visible signs of aging.",
+          "Portable charger support": "Yes",
+          "Net weight": "Approx. 370 g",
+          "LED lifespan": "Up to 50,000 hours",
+          Warranty: "1 year",
+          Certifications: "CE, FCC, ROHS",
+          "Best for": "Face",
+          Accessories:
+            "One face mask, one remote control, one charger, one instruction manual.",
+        },
+      },
     },
   },
   {
@@ -463,8 +597,8 @@ export const maskProducts: MaskProduct[] = [
       { type: "image", path: "masti/RD7/rd7-jos-4.png", alt: "RD7 details" },
     ],
     to: "/masti/rd7",
-    translations: {
-      ro: {
+    translations: triLocale(
+      {
         title: "Mască de terapie cu lumină RD7 pentru față și gât",
         modelShort: "RD7",
         subtitle: "Mască de terapie cu lumină RD7 pentru față și gât",
@@ -521,7 +655,7 @@ export const maskProducts: MaskProduct[] = [
           "Mediu de lucru": "-10°~45°C",
         },
       },
-      ru: {
+      {
         title: "Обёрточная светотерапевтическая маска RD7 для лица и шеи",
         modelShort: "RD7",
         subtitle: "RD7 Обёрточная светотерапевтическая маска для лица и шеи",
@@ -578,7 +712,7 @@ export const maskProducts: MaskProduct[] = [
           "Рабочая среда": "-10°~45°C",
         },
       },
-    },
+    ),
   },
 ];
 

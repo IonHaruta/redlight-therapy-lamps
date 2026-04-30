@@ -38,6 +38,14 @@ const ui = {
     priceNote: "Цена ориентировочная — уточняем при заказе.",
     notFound: "Товар не найден",
   },
+  en: {
+    back: "Back to beds",
+    category: "Therapy bed",
+    chooseModel: "Model",
+    addToCart: "ADD TO CART",
+    priceNote: "Indicative price — confirmed when you order.",
+    notFound: "Product not found",
+  },
 };
 
 const MediaPreview = ({ media, name }: { media: MaskMedia; name: string }) => {

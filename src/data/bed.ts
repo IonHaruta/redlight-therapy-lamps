@@ -1,4 +1,5 @@
 import type { Locale } from "./masks";
+import { triLocale } from "@/i18n/tri-locale";
 import type { AccessoryProduct } from "./accessories";
 
 export type BedProduct = AccessoryProduct;
@@ -21,8 +22,8 @@ export const bedProducts: BedProduct[] = [
       { type: "image", path: "pat/apex-jos-3.jpg", alt: "Pat terapie Apex" },
       { type: "image", path: "pat/apex-jos-4.jpg", alt: "Pat terapie Apex" },
     ],
-    translations: {
-      ro: {
+    translations: triLocale(
+      {
         title: "Apexul tehnologiei Wellness. Viitorul afacerii tale",
         modelShort: "Apex M7",
         subtitle: "",
@@ -192,7 +193,7 @@ export const bedProducts: BedProduct[] = [
           ],
         },
       },
-      ru: {
+      {
         title: "Apex of Wellness Technology. Будущее вашего бизнеса",
         modelShort: "Apex M7",
         subtitle: "",
@@ -365,7 +366,7 @@ export const bedProducts: BedProduct[] = [
           ],
         },
       },
-    },
+    ),
   },
 ];
 

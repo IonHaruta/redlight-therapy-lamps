@@ -357,6 +357,130 @@ export const siteCopy: Record<Locale, SiteCopy> = {
       certYear: "1 год",
     },
   },
+  en: {
+    nav: {
+      therapyMasks: "Therapy masks",
+      lampsAndAccessories: "Lamps & accessories",
+      bed: "Bed",
+      star: "Star",
+    },
+    searchPlaceholder: "Search the store",
+    searchNoResults: "No results.",
+    searchAriaLabel: "Search products",
+    cart: {
+      title: "Your cart",
+      empty: "Your cart is empty.",
+      subtotal: "Subtotal",
+      remove: "Remove",
+      added: "Added to cart",
+      continueShopping: "Continue shopping",
+      viewCart: "View full cart",
+      checkout: "Checkout",
+      checkoutHint:
+        "Opens your email app with an order summary. You can edit the message before sending.",
+      contactInstead: "Contact us",
+    },
+    homeBanners: {
+      "therapy-masks": {
+        subtitle: "Advanced LED masks for light therapy",
+      },
+      "lamps-accessories": {
+        subtitle: "FS7 LED panels · professional lamps",
+      },
+      pat: {
+        subtitle: "Red light therapy bed",
+      },
+    },
+    seeProduct: "View product",
+    masksPage: {
+      eyebrow: "Therapy masks",
+      title: "Advanced LED masks for light therapy",
+      seeMask: "View mask",
+    },
+    lampsPage: {
+      eyebrow: "Lamps & accessories",
+      title: "FS7 LED panels and accessories",
+      lead:
+        "Four FS7 panel power levels and matching accessories — the same quality standard. Showcase video on the RD Pro 3000 model.",
+      seeLamp: "View panel",
+      toAccessories: "Accessories",
+    },
+    accessoriesPage: {
+      eyebrow: "Accessories",
+      title: "Panel accessories",
+      lead: "Add-ons for setup and use. Detailed descriptions will be added soon.",
+      seeProduct: "View product",
+      toLamps: "LED panels",
+    },
+    bedPage: {
+      eyebrow: "Therapy bed",
+      title: "Red light therapy bed",
+      lead: "A dedicated product for therapy sessions — full details coming soon.",
+      seeProduct: "View product",
+      toLamps: "LED panels",
+    },
+    hero: {
+      title: "Red Light Therapy",
+      subtitle: "Discover the power of red light for health and recovery",
+      prevVideo: "Previous video",
+      nextVideo: "Next video",
+      videoDot: "Video",
+    },
+    footer: {
+      tagline:
+        "Distributor of red light therapy devices in the Republic of Moldova. Products for health and recovery with local support.",
+      navTitle: "Navigation",
+      products: "Products",
+      benefits: "Benefits",
+      about: "About",
+      contact: "Contact",
+      legalTitle: "Legal",
+      terms: "Terms and conditions",
+      privacy: "Privacy policy",
+      cookies: "Cookies",
+      contactTitle: "Contact",
+      location: "Chișinău, Republic of Moldova",
+      copyright: "© 2026. All rights reserved.",
+    },
+    legal: {
+      backHome: "Back to home",
+      termsTitle: "Terms and conditions",
+      termsP1:
+        "This document describes the general terms of using this website and purchasing Red Light Therapy products. Content may be updated according to commercial policy and applicable law in the Republic of Moldova.",
+      termsP2:
+        "For questions about orders, delivery, or warranty, contact us using the address shown in the site footer.",
+      privacyTitle: "Privacy policy",
+      privacyP1:
+        "We respect your privacy. This policy outlines, in general terms, what information may be collected through the site and for what purposes, in line with common e-commerce practice.",
+      cookiesTitle: "Cookies",
+      cookiesP:
+        "The site may use essential cookies for operation and, where applicable, analytics cookies. You can manage preferences in your browser settings.",
+    },
+    notFound: {
+      code: "404",
+      message: "Page not found",
+      home: "Back to home",
+    },
+    productPage: {
+      notFound: "Product not found",
+      backHome: "Back to home",
+      back: "Back",
+      chooseModel: "Choose model",
+      addToCart: "ADD TO CART →",
+      specsHeading: "Specifications",
+      certMedical: "CE Class II",
+      certMedicalSub: "Medical device",
+      certEmf: "Zero EMF",
+      certEmfSub: "At recommended distance",
+      certSafety: "ETL / UL",
+      certSafetySub: "Electrical safety",
+    },
+    maskProduct: {
+      specsColSpec: "Specification",
+      specsColDetails: "Details",
+      certYear: "1 year",
+    },
+  },
 };
 
 export function getSiteCopy(locale: Locale): SiteCopy {

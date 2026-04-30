@@ -36,6 +36,7 @@ export function getCatalogSearchItems(locale: Locale): CatalogSearchItem[] {
       "mask",
       "masca",
       "маска",
+      "therapy",
     ]
       .map(norm)
       .join(" ");
@@ -51,7 +52,7 @@ export function getCatalogSearchItems(locale: Locale): CatalogSearchItem[] {
   });
 
   const lampPanels: CatalogSearchItem[] = products.map((p) => {
-    const haystack = [p.name, p.subtitle, p.description, p.slug, "lampa", "панель", "bio"]
+    const haystack = [p.name, p.subtitle, p.description, p.slug, "lampa", "lamp", "панель", "panel", "bio"]
       .map(norm)
       .join(" ");
     return {
@@ -75,6 +76,7 @@ export function getCatalogSearchItems(locale: Locale): CatalogSearchItem[] {
       l.slug,
       "lampa",
       "lampi",
+      "lamp",
       "fs7",
       "rd pro",
       "панель",
@@ -144,6 +146,7 @@ export function getCatalogSearchItems(locale: Locale): CatalogSearchItem[] {
       a.slug,
       "accesoriu",
       "аксессуар",
+      "accessory",
     ]
       .map(norm)
       .join(" ");
@@ -206,6 +209,7 @@ export function getCatalogSearchItems(locale: Locale): CatalogSearchItem[] {
       "pat",
       "pat terapie",
       "кровать",
+      "bed",
       "apex",
     ]
       .map(norm)

@@ -6,6 +6,7 @@ import { CartLineList } from "@/components/CartLineList";
 import { useCart } from "@/context/CartContext";
 import { useLocale } from "@/context/LocaleContext";
 import { getSiteCopy } from "@/i18n/site";
+import { intlLocaleTag } from "@/i18n/locale-format";
 import { orderMailtoHref } from "@/lib/order-mailto";
 
 const CartPage = () => {
@@ -13,7 +14,7 @@ const CartPage = () => {
   const t = getSiteCopy(locale);
   const { lines, subtotal } = useCart();
 
-  const money = new Intl.NumberFormat(locale === "ro" ? "ro-RO" : "ru-RU", {
+  const money = new Intl.NumberFormat(intlLocaleTag(locale), {
     style: "currency",
     currency: "EUR",
     maximumFractionDigits: 0,

@@ -1,4 +1,5 @@
 import type { Locale, MaskMedia } from "./masks";
+import { triLocale } from "@/i18n/tri-locale";
 
 export interface AccessoryDetailBand {
   imagePath?: string;
@@ -87,8 +88,8 @@ export const accessoryProducts: AccessoryProduct[] = [
       { type: "image", path: "accesorii/MS/ms-6.png", alt: "REDDOT RMS motorizat" },
       { type: "image", path: "accesorii/MS/ms-7.jpg", alt: "REDDOT RMS motorizat" },
     ],
-    translations: {
-      ro: {
+    translations: triLocale(
+      {
         title:
           "Suport motorizat REDDOT cu înălțime reglabilă pentru panouri de terapie",
         modelShort: "RMS",
@@ -200,7 +201,7 @@ export const accessoryProducts: AccessoryProduct[] = [
           },
         ],
       },
-      ru: {
+      {
         title:
           "Подъемная стойка REDDOT с электроприводом — регулируемая высота для терапевтических панелей",
         modelShort: "RMS",
@@ -312,7 +313,7 @@ export const accessoryProducts: AccessoryProduct[] = [
           },
         ],
       },
-    },
+    ),
   },
   {
     slug: "rd30",
@@ -328,8 +329,8 @@ export const accessoryProducts: AccessoryProduct[] = [
       { type: "image", path: "accesorii/RD/rd30-5.png", alt: "RD30" },
       { type: "image", path: "accesorii/RD/rd30-6.png", alt: "RD30" },
     ],
-    translations: {
-      ro: {
+    translations: triLocale(
+      {
         title:
           "RD30 este o lampă facială fotonică LED miniaturală de 36W pentru terapia cu lumină roșie.",
         modelShort: "RD30",
@@ -483,7 +484,7 @@ export const accessoryProducts: AccessoryProduct[] = [
           },
         ],
       },
-      ru: {
+      {
         title:
           "Миниатюрная светодиодная лампа для лица RD30 мощностью 36 Вт, фотонная, для терапии красным светом.",
         modelShort: "RD30",
@@ -640,7 +641,7 @@ export const accessoryProducts: AccessoryProduct[] = [
           },
         ],
       },
-    },
+    ),
   },
   {
     slug: "xl",
@@ -655,8 +656,8 @@ export const accessoryProducts: AccessoryProduct[] = [
       { type: "image", path: "accesorii/XL/XL-5.jpg", alt: "XL" },
       { type: "image", path: "accesorii/XL/XL-6.jpg", alt: "XL" },
     ],
-    translations: {
-      ro: {
+    translations: triLocale(
+      {
         title:
           "Suport de podea - O bază stabilă, portabilă și reglabilă pentru panoul de tratament pentru jumătate de corp, ușor de mutat",
         modelShort: "XL",
@@ -793,7 +794,7 @@ export const accessoryProducts: AccessoryProduct[] = [
           },
         ],
       },
-      ru: {
+      {
         title:
           "Напольная опора - устойчивая и переносная регулируемая основа для панели для лечения половины тела, удобная для перемещения",
         modelShort: "XL",
@@ -934,7 +935,7 @@ export const accessoryProducts: AccessoryProduct[] = [
           },
         ],
       },
-    },
+    ),
   },
   {
     slug: "gp",
@@ -950,8 +951,8 @@ export const accessoryProducts: AccessoryProduct[] = [
       { type: "image", path: "accesorii/GP/gp-6.png", alt: "GP" },
       { type: "image", path: "accesorii/GP/gp-7.png", alt: "GP" },
     ],
-    translations: {
-      ro: {
+    translations: triLocale(
+      {
         title:
           "Suport orizontal Red Light Therapy – Poziționare flexibilă a panourilor de terapie cu lumină",
         modelShort: "GP",
@@ -1087,7 +1088,7 @@ export const accessoryProducts: AccessoryProduct[] = [
           },
         ],
       },
-      ru: {
+      {
         title:
           "Горизонтальная подставка Red Light Therapy — гибкое позиционирование панелей светотерапии",
         modelShort: "GP",
@@ -1227,7 +1228,7 @@ export const accessoryProducts: AccessoryProduct[] = [
           },
         ],
       },
-    },
+    ),
   },
   {
     slug: "fs",
@@ -1242,8 +1243,8 @@ export const accessoryProducts: AccessoryProduct[] = [
       { type: "image", path: "accesorii/FS/fs-5.png", alt: "FS" },
       { type: "image", path: "accesorii/FS/fs-6.png", alt: "FS" },
     ],
-    translations: {
-      ro: {
+    translations: triLocale(
+      {
         title:
           "Suport de podea - O bază stabilă și portabilă pentru panouri de terapie pentru jumătate de corp",
         modelShort: "FS",
@@ -1349,7 +1350,7 @@ export const accessoryProducts: AccessoryProduct[] = [
           },
         ],
       },
-      ru: {
+      {
         title:
           "Напольная подставка — устойчивое и портативное основание для панелей терапии половины тела",
         modelShort: "FS",
@@ -1456,7 +1457,7 @@ export const accessoryProducts: AccessoryProduct[] = [
           },
         ],
       },
-    },
+    ),
   },
 ];
 

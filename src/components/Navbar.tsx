@@ -71,7 +71,7 @@ const Navbar = () => {
 
   const LangToggle = ({ className = "" }: { className?: string }) => (
     <div className={`flex items-center gap-0.5 ${className}`}>
-      {(["ro", "ru"] as Locale[]).map((lang) => (
+      {(["ro", "ru", "en"] as Locale[]).map((lang) => (
         <button
           key={lang}
           type="button"
@@ -82,7 +82,9 @@ const Navbar = () => {
               : "text-muted-foreground hover:text-foreground"
           }`}
           aria-pressed={locale === lang}
-          aria-label={lang === "ro" ? "Română" : "Русский"}
+          aria-label={
+            lang === "ro" ? "Română" : lang === "ru" ? "Русский" : "English"
+          }
         >
           {lang}
         </button>
