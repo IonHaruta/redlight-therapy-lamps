@@ -5,6 +5,7 @@ export interface HomeProductBanner {
   label: string;
   subtitle: string;
   youtubeId: string;
+  videoPath?: string;
   to: To;
 }
 
@@ -15,6 +16,7 @@ export const homeProductBanners: HomeProductBanner[] = [
     label: "Therapy Masks",
     subtitle: "Advanced LED Light Therapy Masks",
     youtubeId: "U2JulLyhQ6U",
+    videoPath: "masti/F2 Aurora Butterfly Light Therapy Mask /f2-aurora.mp4",
     to: "/masti",
   },
   {
@@ -22,6 +24,7 @@ export const homeProductBanners: HomeProductBanner[] = [
     label: "Lamps & Accessories",
     subtitle: "Lampi LED FS7 · RD Pro 3000",
     youtubeId: "YG-svcr1u8c",
+    videoPath: "lampi/RDPro3000-FS7/RDPro3000-FS7-video.mp4",
     to: "/lampi",
   },
   {
@@ -29,6 +32,7 @@ export const homeProductBanners: HomeProductBanner[] = [
     label: "Pat",
     subtitle: "Pat pentru terapie cu lumină roșie",
     youtubeId: "YG-svcr1u8c",
+    videoPath: "pat/apex-video.mp4",
     to: "/pat",
   },
 ];

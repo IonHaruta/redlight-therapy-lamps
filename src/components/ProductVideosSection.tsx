@@ -7,6 +7,10 @@ import { getSiteCopy } from "@/i18n/site";
 
 type BannerId = "therapy-masks" | "lamps-accessories" | "pat";
 
+const base = import.meta.env.BASE_URL;
+const assetUrl = (path: string) =>
+  `${base}${path.split("/").map(encodeURIComponent).join("/")}`;
+
 const youtubeEmbedSrc = (videoId: string) =>
   `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=0&playsinline=1&modestbranding=1&rel=0`;
 
@@ -39,17 +43,34 @@ const ProductVideosSection = () => {
                 ].join(" ")}
               >
                 <div className="absolute inset-0 overflow-hidden">
-                  <iframe
-                    title={t.homeBanners[item.id as BannerId].subtitle}
-                    src={youtubeEmbedSrc(item.youtubeId)}
-                    className={[
-                      "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border-0 pointer-events-none",
-                      "transition-transform duration-500 ease-out md:group-hover:scale-[1.03]",
-                      "max-md:h-[165%] max-md:w-[165%]",
-                      "md:h-[158%] md:w-[158%] lg:h-[162%] lg:w-[162%] xl:h-[168%] xl:w-[168%]",
-                    ].join(" ")}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  />
+                  {item.videoPath ? (
+                    <video
+                      title={t.homeBanners[item.id as BannerId].subtitle}
+                      src={assetUrl(item.videoPath)}
+                      className={[
+                        "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none object-cover",
+                        "transition-transform duration-500 ease-out md:group-hover:scale-[1.03]",
+                        "h-full w-full",
+                      ].join(" ")}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      preload="metadata"
+                    />
+                  ) : (
+                    <iframe
+                      title={t.homeBanners[item.id as BannerId].subtitle}
+                      src={youtubeEmbedSrc(item.youtubeId)}
+                      className={[
+                        "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border-0 pointer-events-none",
+                        "transition-transform duration-500 ease-out md:group-hover:scale-[1.03]",
+                        "max-md:h-[165%] max-md:w-[165%]",
+                        "md:h-[158%] md:w-[158%] lg:h-[162%] lg:w-[162%] xl:h-[168%] xl:w-[168%]",
+                      ].join(" ")}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    />
+                  )}
                 </div>
 
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-black/55 to-black/25 md:via-black/45 md:to-black/15" />
