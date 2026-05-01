@@ -23,7 +23,6 @@ const assetUrl = (path: string) =>
 
 const ui = {
   ro: {
-    back: "Înapoi la accesorii",
     category: "Accesorii",
     chooseModel: "Alege modelul",
     addToCart: "ADAUGĂ ÎN COȘ",
@@ -31,7 +30,6 @@ const ui = {
     notFound: "Produsul nu a fost găsit",
   },
   ru: {
-    back: "Назад к аксессуарам",
     category: "Аксессуары",
     chooseModel: "Выберите модель",
     addToCart: "ДОБАВИТЬ В КОРЗИНУ",
@@ -39,7 +37,6 @@ const ui = {
     notFound: "Товар не найден",
   },
   en: {
-    back: "Back to accessories",
     category: "Accessories",
     chooseModel: "Choose model",
     addToCart: "ADD TO CART",
@@ -312,6 +309,12 @@ const AccessoryProductPage = () => {
   const { slug } = useParams();
   const { locale } = useLocale();
   const site = getSiteCopy(locale);
+  const backToListingLabel =
+    locale === "ro"
+      ? `Înapoi la ${site.lampsPage.eyebrow}`
+      : locale === "ru"
+        ? `Назад: ${site.lampsPage.eyebrow}`
+        : `Back to ${site.lampsPage.eyebrow}`;
   const { addItem } = useCart();
   const product = getAccessoryBySlug(slug || "");
   const [qty, setQty] = useState(1);
@@ -330,8 +333,8 @@ const AccessoryProductPage = () => {
             <h1 className="font-display text-4xl font-bold text-foreground mb-4">
               {ui[locale].notFound}
             </h1>
-            <Link to="/accesorii" className="text-primary hover:underline">
-              {ui[locale].back}
+            <Link to="/lampi" className="text-primary hover:underline">
+              {backToListingLabel}
             </Link>
           </div>
         </div>
@@ -366,11 +369,11 @@ const AccessoryProductPage = () => {
         <section className="pb-10 md:pb-14">
           <div className="container mx-auto max-w-6xl px-4 pt-6 md:pt-10">
             <Link
-              to="/accesorii"
+              to="/lampi"
               className="mb-8 inline-flex items-center gap-2 font-display text-xs uppercase tracking-wider text-muted-foreground transition-colors hover:text-primary"
             >
               <ArrowLeft className="h-4 w-4" />
-              {ui[locale].back}
+              {backToListingLabel}
             </Link>
             <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
               <div>

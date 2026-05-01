@@ -49,7 +49,7 @@ const ui = {
     category: "LED masks",
     chooseModel: "Choose model",
     addToCart: "ADD TO CART",
-    features: "Highlights",
+    features: "Key strengths",
     detailsHeading: "Product details",
     tableHeading: "Full technical table",
     certified: "Certified",

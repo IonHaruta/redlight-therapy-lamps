@@ -1,5 +1,3 @@
-import type { Locale } from "./masks";
-import { triLocale } from "@/i18n/tri-locale";
 import type { AccessoryProduct } from "./accessories";
 
 export type BedProduct = AccessoryProduct;
@@ -22,8 +20,8 @@ export const bedProducts: BedProduct[] = [
       { type: "image", path: "pat/apex-jos-3.jpg", alt: "Pat terapie Apex" },
       { type: "image", path: "pat/apex-jos-4.jpg", alt: "Pat terapie Apex" },
     ],
-    translations: triLocale(
-      {
+    translations: {
+      ro: {
         title: "Apexul tehnologiei Wellness. Viitorul afacerii tale",
         modelShort: "Apex M7",
         subtitle: "",
@@ -193,7 +191,7 @@ export const bedProducts: BedProduct[] = [
           ],
         },
       },
-      {
+      ru: {
         title: "Apex of Wellness Technology. Будущее вашего бизнеса",
         modelShort: "Apex M7",
         subtitle: "",
@@ -359,14 +357,187 @@ export const bedProducts: BedProduct[] = [
               modelB: "Клиники и оздоровительные центры с большим потоком пациентов",
             },
             {
-              label: "Рабочая среда",
-              modelA: "-10°~45°C",
-              modelB: "-10°~45°C",
+              label: "Operating environment",
+              modelA: "−10° ~ 45°C",
+              modelB: "−10° ~ 45°C",
             },
           ],
         },
       },
-    ),
+      en: {
+        title: "Apex of Wellness Technology. The Future of Your Business",
+        modelShort: "Apex M7",
+        subtitle: "",
+        description:
+          "Harness the power of up to 26,040 high-density LEDs with the M7. Deliver revolutionary, non-invasive rejuvenation and restorative treatments that will define you as a market leader.",
+        featuresTitle: "Key features",
+        features: [
+          {
+            title: "Wireless intelligent control",
+            body:
+              "Achieve fully customized treatments with a wireless, intelligent system offering independent control over wavelength, pulse, and intensity.",
+          },
+          {
+            title: "Patented thermal pad",
+            body:
+              "Achieve comprehensive results with our patented thermal pad, which utilizes five different therapeutic wavelengths.",
+          },
+          {
+            title: "Epistar® & Lucite® optics",
+            body:
+              "Experience superior efficiency thanks to premium Epistar® LEDs and 99% transmissive Lucite® acrylic sheet, which maximizes light delivery.",
+          },
+          {
+            title: "RGB canopy & ambiance",
+            body:
+              "Enhance the client experience with a luxurious RGB canopy design and ambient lighting that creates a premium ambiance.",
+          },
+          {
+            title: "Presets & full manual control",
+            body:
+              "Work with ultimate versatility, choosing effective preset programs for ease of use or full manual control for custom protocols.",
+          },
+        ],
+        detailBands: [
+          {
+            imagePath: "pat/apex-jos-1.jpg",
+            mediaOnRight: true,
+            title: "They demand experiences",
+            paragraphs: [
+              "Today's healthy-living client seeks effective, non-invasive treatments with visible results. Elevate your offerings and deliver a scientifically proven, luxurious experience that will build loyalty and allow you to command a premium price.",
+            ],
+          },
+          {
+            imagePath: "pat/apex-jos-2.jpg",
+            mediaOnRight: true,
+            title: "Unrivaled power and precision",
+            paragraphs: [
+              "The M7 Series is equipped with up to 26,040 EPISTAR® high-intensity LED chips, delivering an optimal therapeutic intensity of 129 mW/cm². A Lucite® acrylic sheet with 99% light transmittance ensures maximum energy transfer to the client for superior results.",
+            ],
+          },
+          {
+            imagePath: "pat/apex-jos-3.jpg",
+            mediaOnRight: false,
+            title: "Intelligent, customizable control",
+            paragraphs: [
+              "Designed for maximum efficiency, the RDPRO1500-FS delivers a powerful output of over 200 mW/cm² at a distance of 15 cm. Its impressive dimensions (91 × 30 cm) provide extensive half-body coverage (maximum area up to 119 × 61 cm), ensuring effective treatment of large areas.",
+              "Beam angle: A focused 30-degree beam directs light energy precisely where it's needed, minimizing scattering and maximizing absorption.",
+            ],
+          },
+          {
+            imagePath: "pat/apex-jos-4.jpg",
+            mediaOnRight: true,
+            title: "Built for luxury and durability",
+            paragraphs: [
+              "The elegant moon design creates a fully immersive experience for the client, while the extruded aluminum and steel frame provides a stable base that can support over 180 kg. Built-in Bluetooth speakers complete this premium sensory experience.",
+            ],
+          },
+        ],
+        detailCardGrid: {
+          headline:
+            "Provide comprehensive wellness with one revolutionary device.",
+          cards: [
+            {
+              title: "Advanced skin rejuvenation methods",
+              body:
+                "Stimulate collagen production to reduce fine lines, improve skin elasticity, and give your clients a radiant, youthful appearance.",
+            },
+            {
+              title: "Accelerated recovery",
+              body:
+                "Improves circulation and cellular metabolism, reduces inflammation, relieves muscle pain, and accelerates the body's natural healing processes.",
+            },
+            {
+              title: "Holistic whole-body wellness",
+              body:
+                "We offer a holistic approach to treatment that promotes detoxification, improves mood, and helps eliminate pre-existing conditions, delivering true whole-body wellness.",
+            },
+          ],
+        },
+        modelCompareTable: {
+          title: "Model comparison",
+          featureLabel: "Features",
+          modelALabel: "M7",
+          modelBLabel: "M7 PLUS",
+          rows: [
+            {
+              label: "Total LEDs",
+              modelA: "13,020 pcs",
+              modelB: "26,040 pcs",
+            },
+            {
+              label: "Total power",
+              modelA: "2500 W",
+              modelB: "4500 W",
+            },
+            {
+              label: "Product chip",
+              modelA: "Single-chip (with adjustable multi-chip architecture)",
+              modelB: "Single-chip (with adjustable multi-chip architecture)",
+            },
+            {
+              label: "LED exposure angle",
+              modelA: "120°",
+              modelB: "120°",
+            },
+            {
+              label: "Wavelength",
+              modelA: "633:660:850:940 nm",
+              modelB: "633:660:850:940 nm",
+            },
+            {
+              label: "Audio system",
+              modelA: "Equipped",
+              modelB: "Equipped",
+            },
+            {
+              label: "Voltage",
+              modelA: "220V | 380V",
+              modelB: "220V | 380V",
+            },
+            {
+              label: "Power supply",
+              modelA: "Unique constant-current power supply",
+              modelB: "Unique constant-current power supply",
+            },
+            {
+              label: "Dimensions",
+              modelA:
+                "215 × 106 × 91 cm / tunnel height: 37 cm",
+              modelB:
+                "215 × 106 × 91 cm / tunnel height: 37 cm",
+            },
+            {
+              label: "Control system",
+              modelA:
+                "Intelligent controller 2.0 or wireless joystick controller 2.0 (optional)",
+              modelB:
+                "Intelligent controller 2.0 or wireless joystick controller 2.0 (optional)",
+            },
+            {
+              label: "Maximum weight",
+              modelA: "150 kg",
+              modelB: "150 kg",
+            },
+            {
+              label: "Net weight",
+              modelA: "260 kg",
+              modelB: "260 kg",
+            },
+            {
+              label: "Perfect for",
+              modelA: "Boutique studios and spas",
+              modelB: "Clinics and wellness centers with high patient volumes",
+            },
+            {
+              label: "Operating environment",
+              modelA: "−10° ~ 45°C",
+              modelB: "−10° ~ 45°C",
+            },
+          ],
+        },
+      },
+    },
   },
 ];
 

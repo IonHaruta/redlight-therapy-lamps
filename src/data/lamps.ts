@@ -36,7 +36,7 @@ export interface LampProduct {
   /** Pe desktop: text stânga, imagine dreapta în secțiunea engineering. */
   engineeringMediaOnRight?: boolean;
   translations: Record<Locale, MaskTranslation>;
-  /** Layout produs apropiat de stil clinic / REDDOT: alb, gri deschis, secțiuni aerisite */
+  /** Layout produs apropiat de stil clinic / Red Light Therapy: alb, gri deschis, secțiuni aerisite */
   cleanProductPage?: boolean;
   /** Bandă 4 coloane sub hero (fără consum de imagini „jos”) */
   strategicBand?: Record<Locale, { headline: string; cards: StrategicCard[] }>;
@@ -123,12 +123,45 @@ const tCommon = (
       Информация: "Полные данные скоро",
     },
   },
+  en: {
+    title: roTitle,
+    modelShort: roShort,
+    subtitle: "LED red light therapy — full details coming soon.",
+    description:
+      "Full English copy will be added later. You can choose a model from the range or contact us for a quote.",
+    highlights: [
+      "Professional FS7 series construction.",
+      "Suited to commercial spaces and personal use.",
+      "Consulting and support from Red Light Therapy.",
+    ],
+    benefitsTitle: "Why this model",
+    benefits: [
+      "A coherent panel range with the same quality philosophy.",
+      "Aligned with safety standards for LED devices.",
+      "Ideal for wellness and recovery routines.",
+    ],
+    usageTitle: "Use",
+    usage: [
+      "Follow the product manual (to be published with the full description).",
+      "Keep the recommended distance from the device for comfort and effectiveness.",
+    ],
+    testimonialsTitle: "Trust and quality",
+    testimonials: [
+      "Red Light Therapy offers tested devices and local support for customers in Moldova.",
+    ],
+    detailHeading: "Details and imagery",
+    specsIntroTitle: "Specifications",
+    specsTitle: "Technical specifications",
+    specs: {
+      Information: "Full details coming soon",
+    },
+  },
 });
 
 const rdpro300Fs7T = tCommon("RD Pro 300 FS7", "RD 300", "RD Pro 300 FS7", "RD 300");
 
-const rdpro300Fs7Copy = triLocale(
-  {
+const rdpro300Fs7Copy = {
+  ro: {
     ...rdpro300Fs7T.ro,
     subtitle:
       "RDPro300-FS7: 7 lungimi de undă, precizie clinică — control de pe telefon.",
@@ -213,7 +246,7 @@ const rdpro300Fs7Copy = triLocale(
         "1. Lampă de terapie LED, 2. Protecție pentru ochi, 3. Mâner, 4. Telecomandă, 5. Cablu de alimentare, 6. Cablu de conectare.",
     },
   },
-  {
+  ru: {
     ...rdpro300Fs7T.ru,
     subtitle:
       "RDPro300-FS7: 7 длин волн, клиническая точность — управление со смартфона.",
@@ -300,11 +333,95 @@ const rdpro300Fs7Copy = triLocale(
         "1. Светодиодный терапевтический светильник, 2. Защита глаз, 3. Ручка, 4. Пульт дистанционного управления, 5. Кабель питания, 6. Соединительный кабель.",
     },
   },
-);
+  en: {
+    ...rdpro300Fs7T.en,
+    subtitle: "RDPro300-FS7 panel: 7-wavelength light therapy panel.",
+    description:
+      "Experience unprecedented precision with the RDPro300-FS7. Use seven therapeutic wavelengths, a dual-chip power supply, and fully adjustable pulse and intensity—all from your smartphone.",
+    highlights: [
+      "7 spectral wavelengths: from 480 nm blue to 1060 nm infrared.",
+      "Full-featured app and remote: adjust pulse mode, dimming, and timers (app is currently being updated).",
+      "FDA, CE, and RoHS certifications: confirm medical-grade safety and quality.",
+    ],
+    featuresTitle: "Key features / benefits",
+    benefitsTitle:
+      "Master all facets of the spectrum: a personalized treatment approach",
+    benefitsIntro:
+      "From the skin's surface to its deepest layers: the right wavelength for every need. The RDPro300-FS7 gives practitioners and users unprecedented control. Each of the 7 therapeutic wavelengths can be individually adjusted from 0 to 100% brightness, enabling highly precise, customized treatment protocols.",
+    benefitsListHeading: "Wavelength breakdown:",
+    benefits: [
+      "480 nm (blue): Cleanses and soothes skin with targeted blue light.",
+      "630–660 nm (red): Red light stimulates collagen production and restores youthfulness and vitality.",
+      "810–850 nm (near infrared): Soothes muscles and joints with near-infrared light.",
+      "1060 nm (near infrared): Reaches deep tissue for maximum therapeutic effect with our most advanced infrared delivery.",
+    ],
+    usageTitle: "Why are dual-chip LEDs important?",
+    usage: [
+      "Each individual LED contains multiple wavelengths.",
+      "That ensures a perfectly uniform distribution of therapeutic light for superior results.",
+    ],
+    metricsTitle: "Designed for professionals",
+    metrics: [
+      "Maximum radiant intensity: >118 mW/cm² at 6 inches",
+      "Certifications: FDA, FCC, CE, RoHS",
+      "Warranty: 3 years",
+      "LED lifespan: 50,000 hours",
+      "EMF emissions: negligible",
+    ],
+    testimonialsAfterMetrics: true,
+    testimonialsQuote: true,
+    testimonialsTitle: "Trusted by practitioners",
+    testimonials: [
+      "\"The ability to control pulse frequency and switch between wavelengths for different patients has transformed my practice. The RDPro300-FS7 is a true clinical workhorse.\"",
+      "— Dr. Allen Cheng, FG Clinic",
+    ],
+    applicationsTitle: "Intelligent and versatile control systems",
+    applicationsLead: "Unhindered control at your fingertips",
+    applicationsIntro: "Manage all aspects of therapy with ease:",
+    applications: [
+      "Built-in touchscreen: Intuitive interface for straightforward settings.",
+      "Wireless remote control: Convenient operation from a distance.",
+      "Dedicated mobile app: Advanced programming, saved custom protocols, and multi-device management (ideal for clinics).",
+    ],
+    specsIntroTitle:
+      "Designed for professionals, built for high performance and effective partnerships.",
+    specsTitle: "Technical specifications",
+    specsColumnFeature: "Feature",
+    specsColumnValue: "Specification",
+    specs: {
+      "Model number": "RDPro300-FS7",
+      "LEDs (pcs.)": "60",
+      Wavelengths: "480:630:660:810:830:850:1060 nm (custom settings supported)",
+      LED: "Single-chip / dual-chip",
+      "Smart mode": "Yes",
+      "Voltage / input power": "AC 100–240 V",
+      "Power consumption": "99 W ± 5%",
+      "Beam angle": "30°",
+      Dimensions: "270 × 230 × 65 mm",
+      "Net weight (kg)": "3.24",
+      "Radiant intensity (mW/cm²)": ">118 at 6 inches",
+      "Cooling fans": "1",
+      "LED lifespan (hours)": "50,000",
+      "EMF radiation": "Negligible",
+      "Warranty (years)": "3",
+      Timer: "1–30 min",
+      "Pulse (near infrared only)": "0–9999 Hz",
+      Dimmer: "0%–100%",
+      Controls: "Touchscreen + remote control + app",
+      "Operating environment": "−10° ~ 45°",
+      PowerShell: "SPCC",
+      Certification: "FDA / FCC / CE / RoHS",
+      "Packaging size (cm)": "—",
+      "Gross weight (kg)": "6.00",
+      Accessories:
+        "1. LED therapy light, 2. Eye protection, 3. Handle, 4. Remote control, 5. Power cable, 6. Connecting cable.",
+    },
+  },
+};
 
 /** Conținut complet pagină produs — RD Pro 3000 FS7 (6 imagini „jos” = 6 secțiuni + tabel specificații). */
-const rdpro3000Fs7Copy = triLocale(
-  {
+const rdpro3000Fs7Copy = {
+  ro: {
     title: "RD Pro 3000 FS7",
     modelShort: "RD 3000",
     subtitle: "RDPro3000-FS7: un nou standard în bunăstarea profesională.",
@@ -385,7 +502,7 @@ const rdpro3000Fs7Copy = triLocale(
       "Greutate brută ambalaj (kg)": "30,0",
     },
   },
-  {
+  ru: {
     title: "RD Pro 3000 FS7",
     modelShort: "RD 3000",
     subtitle: "RDPro3000-FS7: новый стандарт профессионального благополучия.",
@@ -466,7 +583,90 @@ const rdpro3000Fs7Copy = triLocale(
       "Вес брутто (кг)": "30,0",
     },
   },
-);
+  en: {
+    title: "RD Pro 3000 FS7",
+    modelShort: "RD 3000",
+    subtitle: "The RDPro3000-FS7 panel: a new standard in professional wellness.",
+    description:
+      "Introducing the RDPro3000-FS7: an uncompromising whole-body light therapy system designed to become the centerpiece of your facility. Deliver standout outcomes, attract premium clients, and establish your brand as a wellness leader.",
+    highlights: [
+      "Full-body immersion up to 150 cm deep: powered by 600 dual-chip LEDs.",
+      "7-wavelength therapeutic spectrum: from 480 nm to a deeply penetrating 1060 nm.",
+      "Built for commercial use: rugged housing, 8 cooling fans, and high-quality motorized stands.",
+    ],
+    benefitsTitle: "It's more than convenience. It's a strategic asset.",
+    benefitsIntro:
+      "The RDPro3000-FS7 gives practitioners and users unprecedented control. The brightness of each of the 7 therapeutic wavelengths can be individually adjusted from 0 to 100%, enabling highly precise, customized treatment protocols.",
+    benefitsListHeading: "Wavelength breakdown:",
+    benefits: [
+      "480 nm (blue): Cleanses and soothes skin with targeted blue light.",
+      "630–660 nm (red): Stimulates collagen production and restores youthfulness and vitality with red light.",
+      "810–850 nm (near infrared): Soothes muscles and joints with near-infrared light.",
+      "1060 nm (near infrared): Reaches deep tissue for maximum therapeutic effect with our most advanced infrared delivery.",
+    ],
+    testimonialsTitle: "We power the world's best.",
+    testimonials: [
+      "In sports, recovery is everything. We chose the RDPro3000-FS7 for our team's recovery center because it is the most powerful, comprehensive system on the market. It is central to our athletes' daily routine. — Hannes",
+    ],
+    usageTitle: "Simple integration. Flawless operation.",
+    usage: [
+      "The RDPro3000-FS7 stand is designed for demanding professional environments. Choose the mounting system that best suits your workflow. Both pneumatic and premium electric stands provide smooth, reliable vertical and horizontal positioning, ensuring ease for staff and clients.",
+    ],
+    engineeringTitle: "Built for ten years of flawless operation.",
+    engineering: [
+      "600 LEDs with dual 5 W chips: Provides a perfectly uniform blend of 7 wavelengths for maximum therapeutic effectiveness.",
+      "939 W power system: A robust internal power design delivers maximum performance.",
+      "8 ultra-quiet cooling fans: Maintains optimal temperature control for continuous all-day operation.",
+      "FDA, CE, and RoHS certified: Independently tested for safety, quality, and performance.",
+    ],
+    metricsTitle: "Parameters that matter",
+    metrics: [
+      "Maximum irradiance: 115 mW/cm² at 15 cm.",
+      "Total optical power (watts): Best in class.",
+      "LED lifespan: 50,000 hours.",
+      "Warranty: 3-year commercial warranty.",
+    ],
+    applicationsTitle: "Intelligent and versatile control systems",
+    applicationsLead: "Unhindered control at your fingertips",
+    applicationsIntro: "Manage all aspects of therapy with ease:",
+    applications: [
+      "Built-in touch screen: Intuitive interface for straightforward settings.",
+      "Wireless remote control: Convenient control from a distance.",
+      "Dedicated mobile app: Advanced programming, saved custom protocols, and multi-device management (ideal for clinics).",
+    ],
+    detailHeading: "Designed for professionals. Built for high performance and effective partnerships.",
+    specsIntroTitle: "Technical specifications",
+    specsTitle: "Specifications",
+    specs: {
+      "Model number": "RDPro3000-FS7",
+      "LEDs (pcs.)": "600",
+      LED: "Single-chip / dual-chip",
+      Wavelengths: "480:630:660:810:830:850:1060 nm (custom settings supported)",
+      "Shell material": "SPCC",
+      "Smart mode": "Yes",
+      "Voltage / input power": "AC 100–240 V",
+      "Power consumption": "939 W",
+      "Beam angle": "30°",
+      "Dimensions (cm)": "150 × 42 × 6.6",
+      "Net weight (kg)": "21.5",
+      "Radiant intensity (mW/cm²)": "115 at 15 cm",
+      "Cooling fans": "8",
+      "LED lifespan (hours)": "50,000",
+      "EMF emissions": "Negligible",
+      "Warranty (years)": "3",
+      Timer: "1–30 min",
+      "Pulse (near infrared only)": "0–9999 Hz",
+      Dimmer: "0%–100%",
+      Controls: "Touch screen + remote control + app",
+      "Operating environment": "−10° ~ 45°",
+      PowerShell: "SPCC",
+      Certification: "FDA / FCC / CE / RoHS",
+      "Packaging gross weight (kg)": "30.0",
+      Accessories:
+        "1. LED therapy light, 2. Remote control, 3. Wall stand, 4. Power cord, 5. Eye protection.",
+    },
+  },
+};
 
 const rdpro1500Fs7T = tCommon(
   "RD Pro 1500 FS7",
@@ -475,8 +675,8 @@ const rdpro1500Fs7T = tCommon(
   "RD 1500",
 );
 
-const rdpro1500Fs7Copy = triLocale(
-  {
+const rdpro1500Fs7Copy = {
+  ro: {
     ...rdpro1500Fs7T.ro,
     testimonials: [],
     subtitle: "RDPro1500-FS7: control independent pentru 7 lungimi de undă.",
@@ -563,7 +763,7 @@ const rdpro1500Fs7Copy = triLocale(
         "Lampă de terapie LED (1 buc.), cârlig pentru ușă (1 buc.), elemente de fixare (1 buc.), cablu de conectare (1 buc.), protecție pentru ochi (1 buc.), telecomandă (1 buc.), cablu de alimentare (1 buc.), cablaj și fitinguri cu deconectare rapidă (1 buc.).",
     },
   },
-  {
+  ru: {
     ...rdpro1500Fs7T.ru,
     testimonials: [],
     subtitle: "RDPro1500-FS7: независимый контроль для 7 волн.",
@@ -652,7 +852,94 @@ const rdpro1500Fs7Copy = triLocale(
         "Светодиодный терапевтический светильник (1 шт.), дверной крючок (1 шт.), крепежные элементы (1 шт.), соединительный кабель (1 шт.), средства защиты глаз (1 шт.), пульт дистанционного управления (1 шт.), кабель питания (1 шт.), кабельный жгут и быстроразъемные соединения (1 шт.).",
     },
   },
-);
+  en: {
+    ...rdpro1500Fs7T.en,
+    testimonials: [],
+    subtitle: "RDPro1500-FS7: independent control for 7 wavelengths.",
+    description:
+      "Take your business further with RDPro1500-FS7. Our largest full-spectrum panel delivers maximum coverage and clinical-level power, full app control (app update in progress), and a design optimized for professional environments.",
+    featuresTitle: "Key features / benefits",
+    highlights: [
+      "Full coverage: 91 cm panel with 300 dual-chip LEDs.",
+      "Peak output: 131 mW/cm² for maximum effectiveness.",
+      "Professional mounting options: choose from four phototherapy arm configurations.",
+    ],
+    benefitsTitle:
+      "Full-spectrum benefits – 7 individually controllable wavelengths.",
+    benefitsIntro:
+      "The RDPro1500-FS7 gives practitioners and users unprecedented control. The brightness of each of the 7 therapeutic wavelengths can be individually adjusted from 0 to 100%, enabling highly precise, customizable treatment protocols.",
+    benefitsListHeading: "Wavelength breakdown:",
+    benefits: [
+      "480 nm (blue): Superficial benefits, skin clarity.",
+      "630–660 nm (red): Collagen, skin rejuvenation, superficial pain.",
+      "810–850 nm (near infrared): Deep tissue repair, muscle recovery, joint health, circulation.",
+      "1060 nm (near infrared): Maximum penetration; potential benefits for cognitive function and deeper tissues.",
+    ],
+    usageTitle: "Seamless integration into your space",
+    usage: [
+      "Mobile floor stand: Versatility and stability for use across multiple rooms.",
+      "Pneumatic stand: Smooth height adjustment with gas springs.",
+      "Bottom bracket: Safer, more stable support for light therapy panels.",
+      "Rotating single-sided bracket: Rotate the phototherapy panel flexibly at 90° and 180°.",
+    ],
+    metricsTitle: "The performance speaks for itself.",
+    metrics: [
+      "Luminous intensity: 131 mW/cm² at 6 inches.",
+      "LEDs: 300 × 5 W, dual-chip",
+      "Wavelengths: 480 nm | 630 nm | 660 nm | 810 nm | 830 nm | 850 nm | 1060 nm",
+      "Control: App | remote control | touchscreen",
+      "Features: Pulse mode (0–9999 Hz) and dimmer (0–100%).",
+    ],
+    applicationsTitle: "Intelligent and versatile control systems",
+    applicationsLead: "Unhindered control at your fingertips",
+    applicationsIntro: "Manage all aspects of therapy with ease:",
+    applications: [
+      "Built-in touchscreen: Intuitive interface for straightforward setup.",
+      "Wireless remote control: Convenient operation from a distance.",
+      "Dedicated mobile app: Advanced programming, saved custom protocols, and multi-device management (ideal for clinics).",
+    ],
+    safetyTitle: "Reliability you can build a business on.",
+    safety: [
+      "With durable iron and aluminum construction, four internal cooling fans, and a 50,000-hour LED lifespan, the RDPro1500-FS7 is built for continuous commercial use. For your peace of mind, we include a comprehensive three-year warranty.",
+    ],
+    specsIntroTitle:
+      "Designed for professionals, built for high performance and effective partnerships.",
+    specsTitle: "Technical specifications",
+    specsColumnFeature: "Feature",
+    specsColumnValue: "Specification",
+    specs: {
+      "Model number": "RDPro1500-FS7",
+      "LEDs": "300 high-intensity LEDs at 5 W each",
+      Wavelengths: "480:630:660:810:830:850:1060 nm (individual control)",
+      "LED configuration": "Single-chip / dual-chip",
+      "Brightness adjustment": "0–100% for each wavelength",
+      "Pulsed (IR) mode": "0–9999 Hz, individually controllable",
+      "Luminous intensity": "131 mW/cm² at 6 inches",
+      "Power consumption": "467 W ± 5%",
+      "Input voltage": "AC 100–240 V",
+      Dimensions: "91 × 30 × 6.5 cm",
+      Weight: "10.99 kg",
+      "Maximum treatment area":
+        "119 × 61 cm (ideal for half-body treatment)",
+      "Beam angle": "30 degrees",
+      Timer: "1–30 minutes, adjustable",
+      "Control methods": "Touch panel, remote control, mobile app",
+      Cooling: "4 high-performance fans",
+      "EMF emission": "Low",
+      "Shell material": "SPCC",
+      "LED lifespan": "Over 50,000 hours",
+      Warranty: "3 years",
+      Certifications: "CE, RoHS, FDA, FCC",
+      "Operating environment": "−10°C ~ 45°C",
+      "Installation options":
+        "Door hook, mounting hardware (included). Optional: floor stand, pneumatic stand, electric stand.",
+      "Package dimensions": "114 × 42.5 × 18 cm",
+      "Gross weight (packaging)": "15.5 kg",
+      Accessories:
+        "LED therapy light (1), door hook (1), mounting hardware (1), connection cable (1), eye protection (1), remote control (1), power cable (1), cable harness and quick-disconnect fittings (1).",
+    },
+  },
+};
 
 const rdpro6000Fs7Seed = tCommon(
   "RD Pro 6000 FS7",
@@ -661,8 +948,8 @@ const rdpro6000Fs7Seed = tCommon(
   "RD 6000",
 );
 
-const rdpro6000Fs7Copy = triLocale(
-  {
+const rdpro6000Fs7Copy = {
+  ro: {
     ...rdpro6000Fs7Seed.ro,
     title: "Panoul RDPro6000-FS7: Redefinirea potențialului uman.",
     subtitle:
@@ -753,7 +1040,7 @@ const rdpro6000Fs7Copy = triLocale(
       "Aplicație mobilă dedicată: Oferă acces la opțiuni avansate de programare, vă permite să salvați protocoale personalizate și să gestionați mai multe dispozitive (ideal pentru clinici).",
     ],
   },
-  {
+  ru: {
     ...rdpro6000Fs7Seed.ru,
     title: "Панель RDPro6000-FS7: где переосмысливается человеческий потенциал.",
     subtitle:
@@ -844,7 +1131,97 @@ const rdpro6000Fs7Copy = triLocale(
       "Специальное мобильное приложение: открывает доступ к расширенным возможностям программирования, позволяет сохранять пользовательские протоколы и управлять несколькими устройствами (идеально подходит для клиник).",
     ],
   },
-);
+  en: {
+    ...rdpro6000Fs7Seed.en,
+    title: "The RDPro6000-FS7 Panel: Where Human Potential Is Redefined.",
+    subtitle:
+      "RDPro6000-FS7: professional full-body panel, seven wavelengths, 1864 W.",
+    description:
+      "The RDPro6000-FS7 is more than just a device; it's a platform for achieving unparalleled results. Designed for the world's most demanding operating and research environments, it represents the absolute pinnacle of therapeutic light technology.",
+    featuresTitle: "Key features / benefits",
+    highlights: [
+      "Fully immersive system: 180 cm × 60 cm panel with 1,200 dual-chip LEDs.",
+      "Unrivaled power: best-in-class 1864 W system for maximum dosage.",
+      "Institutional-grade engineering: designed for 24/7 operation.",
+    ],
+    benefitsTitle: "Engineered for uncompromising power and reliability.",
+    benefitsQuote: true,
+    benefits: [
+      "At the heart of the RDPro6000-FS7 is an 1864 W power system that drives 1200 dual-chip LEDs. Temperature control is provided by a system of 14 ultra-quiet fans, ensuring stable operation and a long service life during continuous operation all day long. Every component is selected for durability and maximum output.",
+    ],
+    testimonialsTitle: "For your planning committee",
+    testimonialsColonBullets: true,
+    testimonials: [
+      "Model: RDPro6000-FS7",
+      "Dimensions: 180 cm × 60 cm × 6.5 cm",
+      "Weight: 40.6 kg (panel only)",
+      "Power consumption: 1864 W",
+      "Input: AC 100–240 V",
+      "Radiant intensity: 124 mW/cm² at 15 cm",
+      "Certifications: FDA, FCC, CE, RoHS",
+    ],
+    usageTitle: "Precise mounting for a powerful system",
+    usageQuote: true,
+    usage: [
+      "Due to its significant size and weight, the RDPro6000-FS7 is used exclusively with our professional pneumatic or electric stand systems. Both are designed for easy, secure positioning in vertical and horizontal orientations, ensuring complete safety and operational efficiency.",
+    ],
+    specsIntroTitle:
+      "Designed for professionals, built for high performance and effective partnerships.",
+    specsTitle: "Technical specifications",
+    specsColumnFeature: "Feature",
+    specsColumnValue: "Specification",
+    specs: {
+      "Model number": "RDPro6000-FS7",
+      "LEDs (pcs.)": "1200",
+      Wavelengths: "480:630:660:810:830:850:1060 nm (custom settings supported)",
+      LED: "Single-chip / dual-chip",
+      "Smart mode": "Yes",
+      "Voltage / input power": "AC 100–240 V",
+      "Power consumption": "1864 W",
+      "Beam angle": "30°",
+      "Dimensions (cm)": "180 × 60 × 6.5",
+      "Net weight (kg)": "40.6",
+      "Radiant intensity (mW/cm²)": "124, at 15 cm",
+      "Cooling fans": "14",
+      "LED lifespan (hours)": "50,000",
+      "EMF emissions": "Negligible",
+      "Warranty (years)": "3",
+      Timer: "1–30 min",
+      "Pulsed (near infrared only)": "0–9999 Hz",
+      Dimmer: "0%–100%",
+      Controls:
+        "Touchscreen + remote control + app (app is currently being updated)",
+      "Operating environment": "−10° ~ 45°",
+      "Shell material": "SPCC",
+      Certification: "FDA / FCC / CE / RoHS",
+      "Packaging size (cm)": "—",
+      "Gross weight (kg)": "59.00",
+      Accessories:
+        "1. LED therapy panel, 2. Remote control, 3. Wall stand, 4. Power cord, 5. Eye protection.",
+    },
+    afterSpecsSpectrumTitle:
+      "Master the full spectrum: a personalized treatment approach",
+    afterSpecsSpectrumLead:
+      "From skin surface to deep tissue—the right wavelength for every protocol.",
+    afterSpecsSpectrumIntro:
+      "The RDPro6000-FS7 gives practitioners and users unprecedented control. Each of the seven therapeutic wavelengths can be individually adjusted from 0 to 100% brightness, enabling highly precise, customized treatment protocols.",
+    afterSpecsSpectrumListHeading: "Wavelength breakdown:",
+    afterSpecsSpectrumBullets: [
+      "480 nm (blue): Purifies and soothes skin with targeted blue light.",
+      "630–660 nm (red): Stimulates collagen production and restores youthfulness and vitality with red light.",
+      "810–850 nm (near infrared): Soothes muscles and joints with near-infrared light.",
+      "1060 nm (near infrared): Reaches deep tissue for maximum therapeutic effect with our most advanced infrared delivery.",
+    ],
+    afterSpecsControlTitle: "Intelligent and versatile control systems",
+    afterSpecsControlLead: "Unhindered control at your fingertips",
+    afterSpecsControlIntro: "Manage all aspects of your therapy with ease:",
+    afterSpecsControlBullets: [
+      "Built-in touchscreen: Intuitive interface for immediate adjustments.",
+      "Wireless remote control: Convenient remote operation.",
+      "Dedicated mobile app: Advanced programming, saved custom protocols, and multi-device management (ideal for clinics).",
+    ],
+  },
+};
 
 export const lampProducts: LampProduct[] = [
   {
@@ -874,8 +1251,8 @@ export const lampProducts: LampProduct[] = [
       { type: "image", path: "lampi/RDPro3000-FS7/RDPro3000-FS7-jos-6.png", alt: "RD Pro 3000 FS7" },
     ],
     cleanProductPage: true,
-    strategicBand: triLocale(
-      {
+    strategicBand: {
+      ro: {
         headline: "Mai mult decât confort. Un activ strategic.",
         cards: [
           {
@@ -896,7 +1273,7 @@ export const lampProducts: LampProduct[] = [
           },
         ],
       },
-      {
+      ru: {
         headline: "Это больше, чем удобство. Это стратегический актив.",
         cards: [
           {
@@ -917,7 +1294,28 @@ export const lampProducts: LampProduct[] = [
           },
         ],
       },
-    ),
+      en: {
+        headline: "It's more than convenience. It's a strategic asset.",
+        cards: [
+          {
+            title: "Strengthen your wellness offering",
+            body: "Transform your facility into a premier destination with visually compelling, in-demand services at premium prices.",
+          },
+          {
+            title: "Maximize client throughput",
+            body: "Immense power and wide coverage let you run effective sessions in less time—so you can serve more clients every day.",
+          },
+          {
+            title: "Attract an elite clientele",
+            body: "From professional athletes to top executives, discerning clients seek facilities with the best equipment. The RDPro3000-FS7 is a powerful marketing tool.",
+          },
+          {
+            title: "Future-proof your investment",
+            body: "Full app control and the widest wavelength range mean you are investing in a platform built for the future of wellness.",
+          },
+        ],
+      },
+    },
     translations: rdpro3000Fs7Copy,
   },
   {
@@ -927,8 +1325,8 @@ export const lampProducts: LampProduct[] = [
     priceValue: 100,
     topGalleryCount: 8,
     applicationsMediaPath: "lampi/RDPro300-FS7/RDPro300-FS7-jos-5.png",
-    therapyRulesBand: triLocale(
-      {
+    therapyRulesBand: {
+      ro: {
         headline: "Terapia ta, regulile tale",
         cards: [
           {
@@ -945,7 +1343,7 @@ export const lampProducts: LampProduct[] = [
           },
         ],
       },
-      {
+      ru: {
         headline: "Ваша Терапия, Ваши Правила",
         cards: [
           {
@@ -962,7 +1360,24 @@ export const lampProducts: LampProduct[] = [
           },
         ],
       },
-    ),
+      en: {
+        headline: "Your therapy, your rules",
+        cards: [
+          {
+            title: "Smart app control",
+            body: "The intuitive app gives you complete control. Choose wavelengths, set timers, and save custom protocols.",
+          },
+          {
+            title: "Advanced pulsed mode (0–9999 Hz)",
+            body: "Pulsed near-infrared light enhances cellular stimulation and therapeutic results—a capability typically found only in research laboratories.",
+          },
+          {
+            title: "Full-range dimming (0–100%)",
+            body: "Adjust light intensity to match your comfort or specific treatment needs, from gentle to intense.",
+          },
+        ],
+      },
+    },
     media: [
       { type: "image", path: "lampi/RDPro300-FS7/RDPro300-FS7-1.png", alt: "RD Pro 300 FS7" },
       { type: "image", path: "lampi/RDPro300-FS7/RDPro300-FS7-2.png", alt: "RD Pro 300 FS7" },
@@ -986,8 +1401,8 @@ export const lampProducts: LampProduct[] = [
     price: "€100",
     priceValue: 100,
     topGalleryCount: 7,
-    therapyRulesBand: triLocale(
-      {
+    therapyRulesBand: {
+      ro: {
         headline: "Nivel mai ridicat de bunăstare. Randamente mai rapide.",
         subheadline: "Investiție",
         cards: [
@@ -1005,7 +1420,7 @@ export const lampProducts: LampProduct[] = [
           },
         ],
       },
-      {
+      ru: {
         headline: "Более Высокий Уровень Оздоровления. Более Быстрая Отдача.",
         subheadline: "Инвестиции",
         cards: [
@@ -1023,7 +1438,25 @@ export const lampProducts: LampProduct[] = [
           },
         ],
       },
-    ),
+      en: {
+        headline: "Higher level of wellness. Faster results.",
+        subheadline: "Investment",
+        cards: [
+          {
+            title: "Serve more clients",
+            body: "A full-size, powerful unit shortens session times, increasing client throughput and revenue potential.",
+          },
+          {
+            title: "Offer more services",
+            body: "With 7 wavelengths (480–1060 nm), one device supports varied treatments—from skin revitalization to deep restoration.",
+          },
+          {
+            title: "Unrivaled control",
+            body: "Use the app to create and save custom protocols for different clients, ensuring repeatable, professional results every time.",
+          },
+        ],
+      },
+    },
     specsAfterDetailSections: true,
     applicationsAfterSpecsTable: true,
     applicationsMediaPath: "lampi/RDPRO1500-FS7/RDPRO1500-FS7-jos-5.png",
@@ -1050,8 +1483,8 @@ export const lampProducts: LampProduct[] = [
     priceValue: 100,
     topGalleryCount: 6,
     cleanProductPage: true,
-    strategicBand: triLocale(
-      {
+    strategicBand: {
+      ro: {
         headline: "Tehnologii pentru Victorie",
         cards: [
           {
@@ -1068,7 +1501,7 @@ export const lampProducts: LampProduct[] = [
           },
         ],
       },
-      {
+      ru: {
         headline: "Технологии Для Победы",
         cards: [
           {
@@ -1085,7 +1518,24 @@ export const lampProducts: LampProduct[] = [
           },
         ],
       },
-    ),
+      en: {
+        headline: "Technology for Victory",
+        cards: [
+          {
+            title: "Accelerate athlete recovery",
+            body: "Significantly reduce downtime and optimize physical performance. The RDPro6000-FS7's massive power and full-body coverage provide the ideal recovery protocol.",
+          },
+          {
+            title: "Discover new research horizons",
+            body: "With seven wavelengths and full pulse and intensity control via the app, this system is a powerful, reliable tool for new clinical research.",
+          },
+          {
+            title: "Attract world-class talent",
+            body: "Elite athletes and researchers want to work where the best technology lives. The RDPro6000-FS7 signals that commitment to excellence.",
+          },
+        ],
+      },
+    },
     engineeringMediaPath: "lampi/RDPro6000-FS7/fs7-jos-3.jpg",
     engineeringMediaOnRight: true,
     benefitsMediaPath: "lampi/RDPro6000-FS7/fs7-jos-1.jpg",

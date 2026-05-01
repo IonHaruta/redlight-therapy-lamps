@@ -186,6 +186,7 @@ export const maskProducts: MaskProduct[] = [
         ],
         detailHeading: "Beneficii și caracteristici detaliate",
         specsIntroTitle: "Specificații tehnice, personalizare și încredere",
+        specsTitle: "Specificații tehnice",
         specs: {
           "Nume produs": "Mască de terapie cu lumină Aurora Butterfly",
           "Număr model": "F2",
@@ -250,6 +251,7 @@ export const maskProducts: MaskProduct[] = [
         ],
         detailHeading: "Подробные преимущества и характеристики",
         specsIntroTitle: "Технические характеристики, индивидуальная настройка и доверие",
+        specsTitle: "Технические характеристики",
         specs: {
           "Название продукта": "Маска для светотерапии «Бабочка Аврора»",
           "Номер модели": "F2",
@@ -282,7 +284,7 @@ export const maskProducts: MaskProduct[] = [
         subtitle:
           "Revolutionize skincare and hairline health: high-precision multi-wavelength treatment in an elegant design.",
         description:
-          "Introducing the Aurora Butterfly (F2) LED mask from REDDOT. It features 352 LEDs (88 elements) and 4 modes, including a special mode for fine hair. Crafted with high-quality gold plating, the mask is ideal for OEM and wholesale.",
+          "Introducing the Aurora Butterfly (F2) LED mask from Red Light Therapy. It features 352 LEDs (88 elements) and 4 modes, including a special mode for fine hair. Crafted with high-quality gold plating, the mask is ideal for OEM and wholesale.",
         highlights: [
           "88 high-density LEDs: comprehensive coverage of the face and hairline.",
           "4 targeted treatment modes: brightening, lifting, acne removal, and smoothing.",
@@ -306,7 +308,7 @@ export const maskProducts: MaskProduct[] = [
         included: [
           "Mask, controller, storage bag, USB Type-C data cable, dedicated cable, user manual.",
         ],
-        applicationsTitle: "Your brand, our experience: partnering with REDDOT",
+        applicationsTitle: "Your brand, our experience: partnering with Red Light Therapy",
         applications: [
           "Offer your customers the cutting-edge \"Aurora Butterfly\" mask under your own brand (OEM) or collaborate with us to develop unique variations (ODM). We offer competitive wholesale pricing for distributors and retailers. Benefit from our 15 years of manufacturing experience, strict quality control, and comprehensive support.",
           "Personalization: corporate identity (logo, packaging); color variations possible (subject to MOQ); feature adjustments possible.",
@@ -314,6 +316,7 @@ export const maskProducts: MaskProduct[] = [
         ],
         detailHeading: "Detailed Benefits and Features",
         specsIntroTitle: "Specifications, Customization, and Trust",
+        specsTitle: "Specifications",
         specs: {
           "Product name": "Butterfly Aurora Light Therapy Mask",
           "Model number": "F2",
@@ -541,7 +544,7 @@ export const maskProducts: MaskProduct[] = [
         ],
         applicationsTitle: "Your vision, our manufacturing expertise",
         applications: [
-          "The CS-001 therapeutic mask offers strong customization and branding. Partner with REDDOT LED to:",
+          "The CS-001 therapeutic mask offers strong customization and branding. Partner with Red Light Therapy to:",
           "Custom logo: place your company logo on packaging and the product.",
           "Shape customization: discuss changing film or housing size or shape for specific market needs.",
           "Wavelength adjustment: explore different LED ratios or added wavelengths for unique positioning.",
@@ -551,7 +554,7 @@ export const maskProducts: MaskProduct[] = [
           "For indoor use only. The device is not waterproof; avoid damp areas or exposing the LEDs directly to essential oils.",
           "For safety, if the device is not battery-powered, turn off the main power switch before making any adjustments.",
           "Activation: press and hold the ON/OFF button for 1 second to turn on the device.",
-          "For after-sales service or repairs, please contact REDDOT LED directly.",
+          "For after-sales service or repairs, please contact Red Light Therapy directly.",
         ],
         detailHeading: "Targeted relief and enhanced facial contouring",
         specsIntroTitle: "Premium quality, customizable to match your brand",
@@ -597,8 +600,8 @@ export const maskProducts: MaskProduct[] = [
       { type: "image", path: "masti/RD7/rd7-jos-4.png", alt: "RD7 details" },
     ],
     to: "/masti/rd7",
-    translations: triLocale(
-      {
+    translations: {
+      ro: {
         title: "Mască de terapie cu lumină RD7 pentru față și gât",
         modelShort: "RD7",
         subtitle: "Mască de terapie cu lumină RD7 pentru față și gât",
@@ -655,7 +658,7 @@ export const maskProducts: MaskProduct[] = [
           "Mediu de lucru": "-10°~45°C",
         },
       },
-      {
+      ru: {
         title: "Обёрточная светотерапевтическая маска RD7 для лица и шеи",
         modelShort: "RD7",
         subtitle: "RD7 Обёрточная светотерапевтическая маска для лица и шеи",
@@ -712,7 +715,65 @@ export const maskProducts: MaskProduct[] = [
           "Рабочая среда": "-10°~45°C",
         },
       },
-    ),
+      en: {
+        title: "RD7 Light Therapy Wrap Mask for Face and Neck",
+        modelShort: "RD7",
+        subtitle: "RD7 light therapy mask for face and neck",
+        description:
+          "Red / green / blue / yellow / violet / cyan • 193 LEDs • Medical-grade • Easy operation. Designed for skin rejuvenation, reducing fine lines, and improving elasticity for home use.",
+        highlights: [
+          "Multi-wavelength technology: uses red (640–670 nm), green (490–540 nm), blue (440–470 nm), yellow (565–570 nm), violet (380–440 nm), and cyan (460–495 nm) to address redness, pigmentation, dullness, and other skin concerns.",
+          "193 medical-grade LEDs: cover the neck and face for full-area skin care.",
+          "Non-invasive and painless treatment: comfortable and safe, with no downtime or side effects.",
+          "Ergonomic design: easy to use and adjustable to fit different face sizes.",
+        ],
+        benefitsTitle: "Key benefits",
+        benefits: [
+          "Reduces fine lines: stimulates collagen production for firmer, more youthful-looking skin.",
+          "Improves skin tone and texture: restores an even, radiant complexion.",
+          "Addresses a variety of skin concerns: helps reduce redness, pigmentation, and dullness with advanced multi-wavelength technology.",
+          "Suitable for all skin types: non-invasive and gentle.",
+        ],
+        usageTitle: "How to use",
+        usage: [
+          "Prepare your skin: cleanse your face so it is free of oil and makeup.",
+          "Apply the mask: place it on your face and secure it with the included straps.",
+          "Start treatment: turn on the RD7 light therapy mask and select the desired mode.",
+          "Relax: keep the mask on for the selected treatment time (10–15 minutes).",
+          "After treatment: remove the mask, apply your serum or moisturizer, and gently wipe the mask with a soft cloth.",
+        ],
+        includedTitle: "Included in the package",
+        included: [
+          "Horizontal stand: a sturdy, adjustable accessory for horizontal panel placement.",
+          "Mounting accessories: all tools and components needed for straightforward assembly.",
+          "User manual: detailed setup and use instructions.",
+        ],
+        applicationsTitle: "Applications",
+        applications: [
+          "Home use: ideal for wellness treatments with a stable, adjustable horizontal installation.",
+          "Clinics and gyms: suited to professional settings that need flexibility and stability during treatments.",
+          "Targeted and comprehensive therapy setups: supports various panel sizes for personalized treatment settings.",
+        ],
+        specsTitle: "Specifications and parameters",
+        specs: {
+          "Number of LEDs": "193 LEDs",
+          Wavelengths:
+            "Red (640–670 nm), green (490–540 nm), blue (440–470 nm), yellow (565–570 nm), violet (380–440 nm), cyan (460–495 nm)",
+          "Product chip":
+            "4 chips (multi-chip / single-chip configurations are configurable)",
+          "Power consumption": "15 W",
+          Timer: "10–15 minutes",
+          "Voltage / input power": "110 V–220 V",
+          Dimensions: "23 × 21 × 11 cm",
+          Weight: "0.6 kg",
+          "LED lifespan": "50,000 hours",
+          "Best for": "Neck and facial treatments",
+          Certifications: "FDA, CE, FCC, ROHS",
+          Warranty: "1 year",
+          "Working environment": "-10°~45°C",
+        },
+      },
+    },
   },
 ];
 
