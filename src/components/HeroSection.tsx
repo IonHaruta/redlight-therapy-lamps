@@ -1,7 +1,7 @@
 import { useLocale } from "@/context/LocaleContext";
 import { getSiteCopy } from "@/i18n/site";
 
-const HERO_VIDEO_PATH = "main-video/redlight-video.mov";
+const HERO_VIDEO_PATH = "main-video/redlight-video1.mov";
 
 const base = import.meta.env.BASE_URL;
 const assetUrl = (path: string) =>
