@@ -2,8 +2,10 @@ import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
+import { LegalBodyParagraphs } from "@/components/LegalBodyParagraphs";
 import { useLocale } from "@/context/LocaleContext";
 import { getSiteCopy } from "@/i18n/site";
+import { termsLegalBody } from "@/legal/termsLegalBody";
 
 const TermsPage = () => {
   const { locale } = useLocale();
@@ -24,9 +26,8 @@ const TermsPage = () => {
           <h1 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">
             {t.legal.termsTitle}
           </h1>
-          <div className="max-w-none text-muted-foreground space-y-4 text-sm leading-relaxed">
-            <p>{t.legal.termsP1}</p>
-            <p>{t.legal.termsP2}</p>
+          <div className="max-w-none">
+            <LegalBodyParagraphs paragraphs={termsLegalBody[locale]} />
           </div>
         </div>
       </main>

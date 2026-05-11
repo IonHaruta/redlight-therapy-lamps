@@ -78,7 +78,6 @@ export type SiteCopy = {
     legalTitle: string;
     terms: string;
     privacy: string;
-    cookies: string;
     contactTitle: string;
     location: string;
     copyright: string;
@@ -86,12 +85,7 @@ export type SiteCopy = {
   legal: {
     backHome: string;
     termsTitle: string;
-    termsP1: string;
-    termsP2: string;
     privacyTitle: string;
-    privacyP1: string;
-    cookiesTitle: string;
-    cookiesP: string;
   };
   notFound: {
     code: string;
@@ -211,7 +205,6 @@ export const siteCopy: Record<Locale, SiteCopy> = {
       legalTitle: "Legal",
       terms: "Termeni și condiții",
       privacy: "Politică de confidențialitate",
-      cookies: "Cookie-uri",
       contactTitle: "Contact",
       location: "Chișinău, Republica Moldova",
       copyright: "© 2026. Toate drepturile rezervate.",
@@ -219,16 +212,7 @@ export const siteCopy: Record<Locale, SiteCopy> = {
     legal: {
       backHome: "Înapoi la pagina principală",
       termsTitle: "Termeni și condiții",
-      termsP1:
-        "Acest document descrie condițiile generale de utilizare a site-ului și de achiziție a produselor Red Light Therapy. Conținutul complet poate fi actualizat în funcție de politica comercială și cerințele legale aplicabile în Republica Moldova.",
-      termsP2:
-        "Pentru întrebări legate de comenzi, livrare sau garanție, ne puteți contacta la adresa indicată în subsolul site-ului.",
       privacyTitle: "Politică de confidențialitate",
-      privacyP1:
-        "Respectăm confidențialitatea datelor dumneavoastră personale. Această politică descrie în linii mari ce tipuri de informații pot fi colectate prin site și în ce scopuri pot fi folosite, în conformitate cu practicile uzuale pentru magazine online.",
-      cookiesTitle: "Module cookie",
-      cookiesP:
-        "Site-ul poate folosi cookie-uri esențiale pentru funcționare și, după caz, cookie-uri analitice. Puteți gestiona preferințele din setările browserului dumneavoastră.",
     },
     notFound: {
       code: "404",
@@ -346,7 +330,6 @@ export const siteCopy: Record<Locale, SiteCopy> = {
       legalTitle: "Правовая информация",
       terms: "Условия использования",
       privacy: "Политика конфиденциальности",
-      cookies: "Файлы cookie",
       contactTitle: "Контакты",
       location: "Кишинэу, Республика Молдова",
       copyright: "© 2026. Все права защищены.",
@@ -354,16 +337,7 @@ export const siteCopy: Record<Locale, SiteCopy> = {
     legal: {
       backHome: "На главную",
       termsTitle: "Условия использования",
-      termsP1:
-        "Этот документ описывает общие условия использования сайта и приобретения продукции Red Light Therapy. Содержание может обновляться в соответствии с коммерческой политикой и законодательством Республики Молдова.",
-      termsP2:
-        "По вопросам заказов, доставки или гарантии вы можете связаться с нами по адресу, указанному в подвале сайта.",
       privacyTitle: "Политика конфиденциальности",
-      privacyP1:
-        "Мы уважаем конфиденциальность ваших персональных данных. Эта политика в общих чертах описывает, какие сведения могут собираться через сайт и с какой целью, в соответствии с обычной практикой интернет-магазинов.",
-      cookiesTitle: "Файлы cookie",
-      cookiesP:
-        "Сайт может использовать необходимые cookie для работы и, при необходимости, аналитические cookie. Настройки можно изменить в браузере.",
     },
     notFound: {
       code: "404",
@@ -481,7 +455,6 @@ export const siteCopy: Record<Locale, SiteCopy> = {
       legalTitle: "Legal",
       terms: "Terms and conditions",
       privacy: "Privacy policy",
-      cookies: "Cookies",
       contactTitle: "Contact",
       location: "Chișinău, Republic of Moldova",
       copyright: "© 2026. All rights reserved.",
@@ -489,16 +462,7 @@ export const siteCopy: Record<Locale, SiteCopy> = {
     legal: {
       backHome: "Back to home",
       termsTitle: "Terms and conditions",
-      termsP1:
-        "This document describes the general terms of using this website and purchasing Red Light Therapy products. Content may be updated according to commercial policy and applicable law in the Republic of Moldova.",
-      termsP2:
-        "For questions about orders, delivery, or warranty, contact us using the address shown in the site footer.",
       privacyTitle: "Privacy policy",
-      privacyP1:
-        "We respect your privacy. This policy outlines, in general terms, what information may be collected through the site and for what purposes, in line with common e-commerce practice.",
-      cookiesTitle: "Cookies",
-      cookiesP:
-        "The site may use essential cookies for operation and, where applicable, analytics cookies. You can manage preferences in your browser settings.",
     },
     notFound: {
       code: "404",

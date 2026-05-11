@@ -85,7 +85,7 @@ const LogoTicker = () => {
           "md:rounded-[2rem] md:px-7 md:py-3 lg:py-3.5",
         )}
       >
-        {/* Mobil: bandă infinită lentă și liniară (CSS marquee) */}
+        {/* Mobil */}
         <div className="md:hidden">
           <div className="motion-reduce:hidden overflow-hidden py-0.5 [mask-image:linear-gradient(to_right,transparent,black_8px,black_calc(100%_-_8px),transparent)]">
             <div className="flex w-max animate-marquee-trust will-change-transform">
@@ -96,21 +96,11 @@ const LogoTicker = () => {
             </div>
           </div>
 
-          {/* Fără animație: preferința „reduce motion” */}
-          <div className="hidden flex-col items-center gap-2 py-1 motion-reduce:flex">
-            {segments.map((segment, index) => (
-              <div key={`static-${segment.id}`} className="flex flex-col items-center justify-center gap-1">
-                <img
-                  src={segment.src}
-                  alt=""
-                  aria-hidden
-                  className={imgClass}
-                  loading="lazy"
-                  decoding="async"
-                />
-                <p className={textClass}>{captionFor(index)}</p>
-              </div>
-            ))}
+          {/* Reduce motion pe iOS: fără animație, același rând ca banda → swipe orizontal */}
+          <div className="hidden touch-pan-x motion-reduce:flex md:hidden [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] overflow-x-auto overflow-y-hidden py-0.5 [-webkit-overflow-scrolling:touch]">
+            <div className="flex w-max shrink-0 flex-row flex-nowrap items-center px-2">
+              {segments.map((_, index) => renderMarqueeSegment(index, "still"))}
+            </div>
           </div>
         </div>
 

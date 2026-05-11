@@ -2,12 +2,15 @@ import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
+import { LegalBodyParagraphs } from "@/components/LegalBodyParagraphs";
 import { useLocale } from "@/context/LocaleContext";
 import { getSiteCopy } from "@/i18n/site";
+import { privacyLegalBody } from "@/legal/privacyLegalBody";
 
 const PrivacyPage = () => {
   const { locale } = useLocale();
   const t = getSiteCopy(locale);
+  const body = privacyLegalBody[locale];
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -24,15 +27,8 @@ const PrivacyPage = () => {
           <h1 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">
             {t.legal.privacyTitle}
           </h1>
-          <div className="max-w-none text-muted-foreground space-y-4 text-sm leading-relaxed">
-            <p>{t.legal.privacyP1}</p>
-            <h2
-              id="module-cookies"
-              className="text-foreground text-base font-semibold scroll-mt-28 pt-2"
-            >
-              {t.legal.cookiesTitle}
-            </h2>
-            <p>{t.legal.cookiesP}</p>
+          <div className="max-w-none">
+            <LegalBodyParagraphs paragraphs={body} />
           </div>
         </div>
       </main>

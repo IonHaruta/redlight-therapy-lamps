@@ -129,14 +129,6 @@ const FooterSection = () => {
                   {t.footer.privacy}
                 </Link>
               </li>
-              <li>
-                <Link
-                  to="/politica-de-confidentialitate#module-cookies"
-                  className="hover:text-primary transition-colors"
-                >
-                  {t.footer.cookies}
-                </Link>
-              </li>
             </ul>
           </div>
 
