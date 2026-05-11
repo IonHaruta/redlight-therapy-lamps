@@ -21,7 +21,7 @@ const ProductVideosSection = () => {
   return (
     <section
       id="produse"
-      className="scroll-mt-20 w-full overflow-x-hidden bg-gradient-to-b from-secondary/30 via-background to-background py-6 md:py-24"
+      className="scroll-mt-20 w-full overflow-x-hidden bg-gradient-to-b from-background via-background to-background pt-0 pb-6 md:from-secondary/30 md:via-background md:to-background md:py-24"
     >
       <div className="mx-auto w-full min-w-0 px-0 md:px-5 lg:px-6 xl:px-8">
         <div className="flex flex-col md:grid md:grid-cols-3 md:gap-4 lg:gap-5 xl:gap-6">

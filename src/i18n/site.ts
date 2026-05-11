@@ -57,6 +57,17 @@ export type SiteCopy = {
     nextVideo: string;
     videoDot: string;
   };
+  trustBar: {
+    ariaTitle: string;
+    segment1Alt: string;
+    segment2Alt: string;
+    segment3Alt: string;
+    segment1Lead: string;
+    segment1Emphasis: string;
+    segment1Tail: string;
+    segment2Text: string;
+    segment3Text: string;
+  };
   footer: {
     tagline: string;
     navTitle: string;
@@ -177,6 +188,17 @@ export const siteCopy: Record<Locale, SiteCopy> = {
       prevVideo: "Videoclipul anterior",
       nextVideo: "Videoclipul următor",
       videoDot: "Videoclip",
+    },
+    trustBar: {
+      ariaTitle: "Certificări și conformitate",
+      segment1Alt: "Grad medical certificat – ETL IEC 60601",
+      segment2Alt: "Dispozitiv medical clasă II",
+      segment3Alt: "Certificat CE și ROHS",
+      segment1Lead: "Grad medical certificat – ",
+      segment1Emphasis: "ETL",
+      segment1Tail: " IEC 60601",
+      segment2Text: "Dispozitiv medical clasă II",
+      segment3Text: "Certificat CE și ROHS",
     },
     footer: {
       tagline:
@@ -302,6 +324,17 @@ export const siteCopy: Record<Locale, SiteCopy> = {
       nextVideo: "Следующее видео",
       videoDot: "Видео",
     },
+    trustBar: {
+      ariaTitle: "Сертификаты и соответствие",
+      segment1Alt: "Сертифицированное медицинское качество – ETL IEC 60601",
+      segment2Alt: "Медицинское изделие класса II",
+      segment3Alt: "Сертификация CE и ROHS",
+      segment1Lead: "Сертифицированное медицинское качество – ",
+      segment1Emphasis: "ETL",
+      segment1Tail: " IEC 60601",
+      segment2Text: "Медицинское изделие класса II",
+      segment3Text: "Сертификат CE и ROHS",
+    },
     footer: {
       tagline:
         "Поставщик оборудования для красной светотерапии в Республике Молдова. Продукция для здоровья и восстановления с локальной поддержкой.",
@@ -425,6 +458,17 @@ export const siteCopy: Record<Locale, SiteCopy> = {
       prevVideo: "Previous video",
       nextVideo: "Next video",
       videoDot: "Video",
+    },
+    trustBar: {
+      ariaTitle: "Certifications and compliance",
+      segment1Alt: "Certified Medical Grade – ETL IEC 60601",
+      segment2Alt: "Class II Medical Device",
+      segment3Alt: "CE & ROHS certified",
+      segment1Lead: "Certified Medical Grade – ",
+      segment1Emphasis: "ETL",
+      segment1Tail: " IEC 60601",
+      segment2Text: "Class II Medical Device",
+      segment3Text: "CE & ROHS Certified",
     },
     footer: {
       tagline:

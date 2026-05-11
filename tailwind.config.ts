@@ -90,11 +90,19 @@ export default {
           "0%": { transform: "translateX(0)" },
           "100%": { transform: "translateX(-50%)" },
         },
+        /** Pan fără duplicate: --banda-pan-x = scrollWidth - clientWidth pe viewport */
+        "banda-pan": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(calc(-1 * var(--banda-pan-x, 0px)))" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         marquee: "marquee 45s linear infinite",
+        /** Marquee lent, line (LogoTicker mobil) */
+        "marquee-trust": "marquee 56s linear infinite",
+        "banda-pan": "banda-pan 32s ease-in-out infinite alternate",
       },
     },
   },
