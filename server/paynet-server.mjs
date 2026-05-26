@@ -70,7 +70,7 @@ function loadRuntimeConfig() {
   return {
     ...base,
     serviceName: process.env.PAYNET_SERVICE_NAME || "Order",
-    currency: Number(process.env.PAYNET_CURRENCY || "978"),
+    currency: Number(process.env.PAYNET_CURRENCY || "498"),
     returnSuccess: process.env.PAYNET_RETURN_SUCCESS || "",
     returnCancel: process.env.PAYNET_RETURN_CANCEL || "",
   };
@@ -474,6 +474,7 @@ app.get("/api/paynet/status", (_req, res) => {
   const cfg = loadRuntimeConfig();
   res.json({
     enabled: paynetAvailable(cfg),
+    currency: cfg.currency,
     checkoutPostUrl: paynetAvailable(cfg) ? cfg.checkoutPostUrl : null,
   });
 });
@@ -567,4 +568,12 @@ app.post("/api/paynet/register", async (req, res) => {
 
 app.listen(PORT, () => {
   console.info(`Paynet API listening on http://127.0.0.1:${PORT}`);
+}).on("error", (err) => {
+  if (err && "code" in err && err.code === "EADDRINUSE") {
+    console.error(
+      `Port ${PORT} is already in use. Stop the other process: lsof -ti :${PORT} | xargs kill`,
+    );
+    process.exit(1);
+  }
+  throw err;
 });

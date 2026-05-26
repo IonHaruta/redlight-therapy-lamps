@@ -12,7 +12,6 @@ import { useCart } from "@/context/CartContext";
 import { useLocale } from "@/context/LocaleContext";
 import { getSiteCopy } from "@/i18n/site";
 import { formatCartTotal } from "@/i18n/locale-format";
-import { orderMailtoHref } from "@/lib/order-mailto";
 import { redirectPostToPaynet } from "@/lib/paynet-submit";
 
 const CartPage = () => {
@@ -27,8 +26,6 @@ const CartPage = () => {
   const [customerPhone, setCustomerPhone] = useState("");
 
   const money = formatCartTotal(subtotal, locale);
-
-  const mailHref = lines.length ? orderMailtoHref(lines, subtotal, locale) : "#";
 
   const checkoutFieldsValid = () => {
     const fn = customerFirstName.trim();
@@ -224,12 +221,6 @@ const CartPage = () => {
                   <Link to={{ pathname: "/", hash: "contact" }}>{t.cart.contactInstead}</Link>
                 </Button>
               </div>
-
-              <p className="mt-4 text-center text-xs text-muted-foreground">
-                <a href={mailHref} className="underline underline-offset-2 hover:text-foreground">
-                  {t.cart.checkoutEmailAlt}
-                </a>
-              </p>
 
               <Button asChild variant="ghost" className="mt-6 h-12 w-full rounded-full text-muted-foreground">
                 <Link to="/">{t.cart.continueShopping}</Link>
