@@ -43,7 +43,16 @@ const ProductVideosSection = () => {
                 ].join(" ")}
               >
                 <div className="absolute inset-0 overflow-hidden">
-                  {item.videoPath ? (
+                  {item.imagePath ? (
+                    <img
+                      src={assetUrl(item.imagePath)}
+                      alt={t.homeBanners[item.id as BannerId].subtitle}
+                      className={[
+                        "absolute left-1/2 top-1/2 h-full w-full -translate-x-1/2 -translate-y-1/2 object-cover",
+                        "transition-transform duration-500 ease-out md:group-hover:scale-[1.03]",
+                      ].join(" ")}
+                    />
+                  ) : item.videoPath ? (
                     <video
                       title={t.homeBanners[item.id as BannerId].subtitle}
                       src={assetUrl(item.videoPath)}
@@ -76,11 +85,13 @@ const ProductVideosSection = () => {
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-black/55 to-black/25 md:via-black/45 md:to-black/15" />
                 <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/[0.07] md:rounded-2xl" />
 
-                <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 max-md:opacity-0 md:group-hover:opacity-100">
-                  <span className="flex h-14 w-14 scale-90 items-center justify-center rounded-full bg-white/20 text-white shadow-lg ring-2 ring-white/35 backdrop-blur-md transition-transform duration-300 md:group-hover:scale-100">
-                    <Play className="ml-0.5 h-6 w-6 text-white" strokeWidth={2} />
-                  </span>
-                </div>
+                {item.videoPath ? (
+                  <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 max-md:opacity-0 md:group-hover:opacity-100">
+                    <span className="flex h-14 w-14 scale-90 items-center justify-center rounded-full bg-white/20 text-white shadow-lg ring-2 ring-white/35 backdrop-blur-md transition-transform duration-300 md:group-hover:scale-100">
+                      <Play className="ml-0.5 h-6 w-6 text-white" strokeWidth={2} />
+                    </span>
+                  </div>
+                ) : null}
 
                 <div className="pointer-events-none absolute right-4 top-4 opacity-0 transition-all duration-300 translate-y-1 md:group-hover:translate-y-0 md:group-hover:opacity-100">
                   <span className="flex h-9 w-9 items-center justify-center rounded-full bg-black/40 text-white/95 ring-1 ring-white/25 backdrop-blur-sm">

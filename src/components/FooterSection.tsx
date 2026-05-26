@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Facebook, Instagram } from "lucide-react";
 import { useLocale } from "@/context/LocaleContext";
 import { getSiteCopy } from "@/i18n/site";
+import { STORE_EMAIL, STORE_PHONE_DISPLAY, STORE_PHONE_TEL } from "@/lib/contact";
 
 const base = import.meta.env.BASE_URL;
 
@@ -140,16 +141,16 @@ const FooterSection = () => {
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-primary shrink-0" />
                 <a
-                  href="mailto:info@redlighttherapy.md"
+                  href={`mailto:${STORE_EMAIL}`}
                   className="hover:text-primary transition-colors break-all"
                 >
-                  info@redlighttherapy.md
+                  {STORE_EMAIL}
                 </a>
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-primary shrink-0" />
-                <a href="tel:+373XXXXXXXX" className="hover:text-primary transition-colors">
-                  +373 XX XXX XXX
+                <a href={`tel:${STORE_PHONE_TEL}`} className="hover:text-primary transition-colors">
+                  {STORE_PHONE_DISPLAY}
                 </a>
               </div>
               <div className="flex items-start gap-3">

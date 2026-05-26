@@ -77,8 +77,8 @@ export const accessoryProducts: AccessoryProduct[] = [
   {
     slug: "ms",
     name: "RMS",
-    price: "€100",
-    priceValue: 100,
+    price: "14 900 lei",
+    priceValue: 14900,
     media: [
       { type: "image", path: "accesorii/MS/ms-1.png", alt: "Red Light Therapy RMS motorizat" },
       { type: "image", path: "accesorii/MS/ms-2.png", alt: "Red Light Therapy RMS motorizat" },
@@ -432,8 +432,8 @@ export const accessoryProducts: AccessoryProduct[] = [
   {
     slug: "rd30",
     name: "RD30",
-    price: "€100",
-    priceValue: 100,
+    price: "1 950 lei",
+    priceValue: 1950,
     listingCardImageFit: "cover",
     media: [
       { type: "image", path: "accesorii/RD/rd30-1.png", alt: "RD30" },
@@ -912,8 +912,8 @@ export const accessoryProducts: AccessoryProduct[] = [
   {
     slug: "xl",
     name: "XL",
-    price: "€100",
-    priceValue: 100,
+    price: "3 300 lei",
+    priceValue: 3300,
     media: [
       { type: "image", path: "accesorii/XL/XL-1.jpeg", alt: "XL" },
       { type: "image", path: "accesorii/XL/XL-2.jpg", alt: "XL" },
@@ -1343,8 +1343,8 @@ export const accessoryProducts: AccessoryProduct[] = [
   {
     slug: "gp",
     name: "GP",
-    price: "€100",
-    priceValue: 100,
+    price: "5 450 lei",
+    priceValue: 5450,
     media: [
       { type: "image", path: "accesorii/GP/gp-1.png", alt: "GP" },
       { type: "image", path: "accesorii/GP/gp-2.png", alt: "GP" },
@@ -1772,8 +1772,8 @@ export const accessoryProducts: AccessoryProduct[] = [
   {
     slug: "fs",
     name: "FS",
-    price: "€100",
-    priceValue: 100,
+    price: "1 400 lei",
+    priceValue: 1400,
     media: [
       { type: "image", path: "accesorii/FS/fs-1.png", alt: "FS" },
       { type: "image", path: "accesorii/FS/fs-2.png", alt: "FS" },

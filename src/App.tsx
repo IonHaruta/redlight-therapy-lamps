@@ -11,6 +11,8 @@ import TermsPage from "./pages/TermsPage";
 import PrivacyPage from "./pages/PrivacyPage";
 import NotFound from "./pages/NotFound";
 import CartPage from "./pages/CartPage";
+import PaynetSuccessPage from "./pages/PaynetSuccessPage";
+import PaynetCancelPage from "./pages/PaynetCancelPage";
 import LampsPage from "./pages/LampsPage";
 import LampProductPage from "./pages/LampProductPage";
 import AccessoriesPage from "./pages/AccessoriesPage";
@@ -47,6 +49,8 @@ const App = () => (
           <Route path="/pat/:slug" element={<BedProductPage />} />
           <Route path="/produs/:slug" element={<ProductPage />} />
           <Route path="/cos" element={<CartPage />} />
+          <Route path="/paynet/success" element={<PaynetSuccessPage />} />
+          <Route path="/paynet/cancel" element={<PaynetCancelPage />} />
           <Route path="/termeni-si-conditii" element={<TermsPage />} />
           <Route path="/politica-de-confidentialitate" element={<PrivacyPage />} />
           <Route path="*" element={<NotFound />} />

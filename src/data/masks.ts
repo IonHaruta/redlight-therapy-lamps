@@ -97,53 +97,54 @@ export const maskProducts: MaskProduct[] = [
   {
     slug: "f2-aurora",
     name: "F2 Aurora Butterfly Light Therapy Mask",
-    price: "€149",
-    priceValue: 149,
+    price: "6 900 lei",
+    priceValue: 6900,
+    topGalleryCount: 9,
     media: [
       {
-        type: "video",
-        path: "masti/F2 Aurora Butterfly Light Therapy Mask /f2-aurora.mp4",
-        alt: "F2 Aurora video",
+        type: "image",
+        path: "masti/F2 Aurora Butterfly Light Therapy Mask /f2-new-1.jpg",
+        alt: "F2 Aurora",
       },
       {
         type: "image",
-        path: "masti/F2 Aurora Butterfly Light Therapy Mask /f2-aurora-1.jpg",
-        alt: "F2 Aurora mask",
+        path: "masti/F2 Aurora Butterfly Light Therapy Mask /f2-new-2.jpg",
+        alt: "F2 Aurora",
       },
       {
         type: "image",
-        path: "masti/F2 Aurora Butterfly Light Therapy Mask /f2-aurora-2.jpg",
-        alt: "F2 Aurora detail",
+        path: "masti/F2 Aurora Butterfly Light Therapy Mask /f2-new-3.jpg",
+        alt: "F2 Aurora",
       },
       {
         type: "image",
-        path: "masti/F2 Aurora Butterfly Light Therapy Mask /f2-aurora-jos-1.jpg",
-        alt: "F2 Aurora wavelengths",
+        path: "masti/F2 Aurora Butterfly Light Therapy Mask /f2-new-4.jpg",
+        alt: "F2 Aurora",
       },
       {
         type: "image",
-        path: "masti/F2 Aurora Butterfly Light Therapy Mask /f2-aurora-jos-2.jpg",
-        alt: "F2 Aurora usage",
+        path: "masti/F2 Aurora Butterfly Light Therapy Mask /f2-new-5.jpg",
+        alt: "F2 Aurora",
       },
       {
         type: "image",
-        path: "masti/F2 Aurora Butterfly Light Therapy Mask /f2-aurora-jos-3.jpg",
-        alt: "F2 Aurora coverage",
+        path: "masti/F2 Aurora Butterfly Light Therapy Mask /f2-new-6.jpg",
+        alt: "F2 Aurora",
       },
       {
         type: "image",
-        path: "masti/F2 Aurora Butterfly Light Therapy Mask /f2-aurora-jos-4.jpg",
-        alt: "F2 Aurora controller",
+        path: "masti/F2 Aurora Butterfly Light Therapy Mask /f2-new-7.jpg",
+        alt: "F2 Aurora",
       },
       {
         type: "image",
-        path: "masti/F2 Aurora Butterfly Light Therapy Mask /f2-aurora-jos-5.jpg",
-        alt: "F2 Aurora lifestyle",
+        path: "masti/F2 Aurora Butterfly Light Therapy Mask /f2-new-8.jpg",
+        alt: "F2 Aurora",
       },
       {
         type: "image",
-        path: "masti/F2 Aurora Butterfly Light Therapy Mask /f2-aurora-jos-6.jpg",
-        alt: "F2 Aurora packaging",
+        path: "masti/F2 Aurora Butterfly Light Therapy Mask /f2-new-9.jpg",
+        alt: "F2 Aurora",
       },
     ],
     to: "/masti/f2-aurora",
@@ -349,8 +350,8 @@ export const maskProducts: MaskProduct[] = [
   {
     slug: "cs-001",
     name: "CS-001 Phototherapy 3D Mask",
-    price: "€129",
-    priceValue: 129,
+    price: "6 400 lei",
+    priceValue: 6400,
     /** Video + cs001-1…7 sus; cs001-jos-1…5 doar în secțiunile de jos, în ordine. */
     topGalleryCount: 8,
     media: [
@@ -585,8 +586,8 @@ export const maskProducts: MaskProduct[] = [
   {
     slug: "rd7",
     name: "RD7 Wrap-around light therapy mask for face and neck",
-    price: "€119",
-    priceValue: 119,
+    price: "2 950 lei",
+    priceValue: 2950,
     media: [
       { type: "image", path: "masti/RD7/rd7-1.jpeg", alt: "RD7 mask" },
       { type: "image", path: "masti/RD7/rd7-2.png", alt: "RD7 front" },

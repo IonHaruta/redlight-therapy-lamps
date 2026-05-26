@@ -27,7 +27,6 @@ const ui = {
     category: "Pat terapie",
     chooseModel: "Model",
     addToCart: "ADAUGĂ ÎN COȘ",
-    priceNote: "Preț indicativ — confirmăm la comandă.",
     notFound: "Produsul nu a fost găsit",
   },
   ru: {
@@ -35,7 +34,6 @@ const ui = {
     category: "Кровать для терапии",
     chooseModel: "Модель",
     addToCart: "ДОБАВИТЬ В КОРЗИНУ",
-    priceNote: "Цена ориентировочная — уточняем при заказе.",
     notFound: "Товар не найден",
   },
   en: {
@@ -43,7 +41,6 @@ const ui = {
     category: "Therapy bed",
     chooseModel: "Model",
     addToCart: "ADD TO CART",
-    priceNote: "Indicative price — confirmed when you order.",
     notFound: "Product not found",
   },
 };
@@ -272,7 +269,6 @@ const BedProductPage = () => {
                     {product.price} {ui[locale].addToCart} →
                   </Button>
                 </div>
-                <p className="mt-2 text-xs text-muted-foreground">{ui[locale].priceNote}</p>
               </div>
             </div>
           </div>

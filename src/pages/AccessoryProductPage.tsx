@@ -26,21 +26,18 @@ const ui = {
     category: "Accesorii",
     chooseModel: "Alege modelul",
     addToCart: "ADAUGĂ ÎN COȘ",
-    priceNote: "Preț indicativ — confirmăm la comandă.",
     notFound: "Produsul nu a fost găsit",
   },
   ru: {
     category: "Аксессуары",
     chooseModel: "Выберите модель",
     addToCart: "ДОБАВИТЬ В КОРЗИНУ",
-    priceNote: "Цена ориентировочная — уточняем при заказе.",
     notFound: "Товар не найден",
   },
   en: {
     category: "Accessories",
     chooseModel: "Choose model",
     addToCart: "ADD TO CART",
-    priceNote: "Indicative price — confirmed when you order.",
     notFound: "Product not found",
   },
 };
@@ -503,7 +500,6 @@ const AccessoryProductPage = () => {
                     {product.price} {ui[locale].addToCart} →
                   </Button>
                 </div>
-                <p className="mt-2 text-xs text-muted-foreground">{ui[locale].priceNote}</p>
               </div>
             </div>
           </div>

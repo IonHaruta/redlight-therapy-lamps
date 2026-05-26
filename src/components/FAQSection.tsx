@@ -28,7 +28,7 @@ const faqs = [
   },
   {
     q: "Cât costă livrarea în Moldova?",
-    a: "Oferim livrare gratuită pe teritoriul Republicii Moldova pentru toate comenzile. Pentru detalii suplimentare, contactați-ne la info@redlighttherapy.md.",
+    a: "Oferim livrare gratuită pe teritoriul Republicii Moldova pentru toate comenzile. Pentru detalii suplimentare, contactați-ne la info@redlighttherapy.md sau la +373 68 922 229.",
   },
 ];
 

@@ -1,10 +1,25 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { toast } from "sonner";
-import { ArrowLeft, Award, Check, ShieldCheck, Zap } from "lucide-react";
+import {
+  ArrowLeft,
+  Award,
+  Check,
+  ChevronLeft,
+  ChevronRight,
+  Maximize2,
+  ShieldCheck,
+  Zap,
+} from "lucide-react";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { useCart } from "@/context/CartContext";
 import { useLocale } from "@/context/LocaleContext";
 import { getSiteCopy } from "@/i18n/site";
@@ -27,8 +42,11 @@ const ui = {
     certified: "Certificat",
     phototherapy: "Fototerapie",
     warranty: "Garanție",
-    priceNote: "Preț demonstrativ pentru pagină.",
     notFound: "Masca nu a fost găsită",
+    expandPreview: "Deschide în mărime mare",
+    expandPreviewHint: "Imagine sau video produs afișată la dimensiune completă.",
+    galleryPrev: "Imaginea anterioară",
+    galleryNext: "Imaginea următoare",
   },
   ru: {
     back: "Назад к маскам",
@@ -41,8 +59,11 @@ const ui = {
     certified: "Сертификация",
     phototherapy: "Фототерапия",
     warranty: "Гарантия",
-    priceNote: "Демонстрационная цена для страницы.",
     notFound: "Маска не найдена",
+    expandPreview: "Открыть в полном размере",
+    expandPreviewHint: "Изображение или видео товара в увеличенном виде.",
+    galleryPrev: "Предыдущее фото",
+    galleryNext: "Следующее фото",
   },
   en: {
     back: "Back to masks",
@@ -55,8 +76,11 @@ const ui = {
     certified: "Certified",
     phototherapy: "Phototherapy",
     warranty: "Warranty",
-    priceNote: "Indicative price for display.",
     notFound: "Mask not found",
+    expandPreview: "Open full size",
+    expandPreviewHint: "Product image or video at full size.",
+    galleryPrev: "Previous image",
+    galleryNext: "Next image",
   },
 };
 
@@ -96,12 +120,34 @@ const MaskProductPage = () => {
   const site = getSiteCopy(locale);
   const { addItem } = useCart();
   const product = getMaskBySlug(slug || "");
+  const topMediaLength = product
+    ? Math.min(product.topGalleryCount ?? 3, product.media.length)
+    : 0;
   const [qty, setQty] = useState(1);
   const [selectedMediaIndex, setSelectedMediaIndex] = useState(0);
+  const [topGalleryLightboxOpen, setTopGalleryLightboxOpen] = useState(false);
+  const lightboxVideoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     setSelectedMediaIndex(0);
   }, [slug]);
+
+  useEffect(() => {
+    if (!topGalleryLightboxOpen || topMediaLength <= 1) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        lightboxVideoRef.current?.pause();
+        setSelectedMediaIndex((i) => (i - 1 + topMediaLength) % topMediaLength);
+      } else if (e.key === "ArrowRight") {
+        e.preventDefault();
+        lightboxVideoRef.current?.pause();
+        setSelectedMediaIndex((i) => (i + 1) % topMediaLength);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [topGalleryLightboxOpen, topMediaLength]);
 
   if (!product) {
     return (
@@ -259,9 +305,84 @@ const MaskProductPage = () => {
             </Link>
             <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
               <div>
-                <div className="relative aspect-[4/3] overflow-hidden rounded-sm bg-white shadow-sm ring-1 ring-border">
-                  <MediaPreview media={currentMedia} name={t.title} />
-                </div>
+                <Dialog
+                  open={topGalleryLightboxOpen}
+                  onOpenChange={(open) => {
+                    if (!open) lightboxVideoRef.current?.pause();
+                    setTopGalleryLightboxOpen(open);
+                  }}
+                >
+                  <button
+                    type="button"
+                    onClick={() => setTopGalleryLightboxOpen(true)}
+                    className="group relative aspect-[4/3] w-full cursor-zoom-in overflow-hidden rounded-sm bg-white text-left shadow-sm ring-1 ring-border transition-[box-shadow] hover:ring-primary/35 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                    aria-label={ui[locale].expandPreview}
+                  >
+                    <MediaPreview media={currentMedia} name={t.title} />
+                    <span
+                      className="pointer-events-none absolute bottom-3 right-3 flex h-9 w-9 items-center justify-center rounded-sm bg-white/95 text-foreground shadow-sm ring-1 ring-border opacity-90 transition group-hover:opacity-100"
+                      aria-hidden
+                    >
+                      <Maximize2 className="h-4 w-4" />
+                    </span>
+                  </button>
+                  <DialogContent className="max-h-[92vh] max-w-[95vw] border-0 bg-white p-3 shadow-2xl sm:max-w-6xl">
+                    <DialogTitle className="sr-only">
+                      {currentMedia.alt || t.title} ({selectedMediaIndex + 1} / {topMedia.length})
+                    </DialogTitle>
+                    <DialogDescription className="sr-only">
+                      {ui[locale].expandPreviewHint}
+                    </DialogDescription>
+                    <div className="relative flex max-h-[88vh] items-center justify-center">
+                      {topMedia.length > 1 ? (
+                        <>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              lightboxVideoRef.current?.pause();
+                              setSelectedMediaIndex(
+                                (i) => (i - 1 + topMedia.length) % topMedia.length,
+                              );
+                            }}
+                            className="absolute left-1 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-neutral-200 bg-white/95 text-neutral-800 shadow-md ring-1 ring-black/5 transition hover:bg-white hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary md:left-2 md:h-11 md:w-11"
+                            aria-label={ui[locale].galleryPrev}
+                          >
+                            <ChevronLeft className="h-6 w-6 md:h-7 md:w-7" />
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              lightboxVideoRef.current?.pause();
+                              setSelectedMediaIndex((i) => (i + 1) % topMedia.length);
+                            }}
+                            className="absolute right-1 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-neutral-200 bg-white/95 text-neutral-800 shadow-md ring-1 ring-black/5 transition hover:bg-white hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary md:right-2 md:h-11 md:w-11"
+                            aria-label={ui[locale].galleryNext}
+                          >
+                            <ChevronRight className="h-6 w-6 md:h-7 md:w-7" />
+                          </button>
+                        </>
+                      ) : null}
+                      {currentMedia.type === "video" ? (
+                        <video
+                          ref={lightboxVideoRef}
+                          key={currentMedia.path}
+                          src={assetUrl(currentMedia.path)}
+                          className="max-h-[88vh] w-full max-w-full rounded-md object-contain"
+                          controls
+                          playsInline
+                          preload="metadata"
+                        />
+                      ) : (
+                        <img
+                          key={currentMedia.path}
+                          src={assetUrl(currentMedia.path)}
+                          alt={currentMedia.alt || t.title}
+                          className="max-h-[88vh] w-auto max-w-full object-contain"
+                        />
+                      )}
+                    </div>
+                  </DialogContent>
+                </Dialog>
 
                 <div
                   className={
@@ -377,9 +498,6 @@ const MaskProductPage = () => {
                     {product.price} {ui[locale].addToCart} →
                   </Button>
                 </div>
-                <p className="mt-2 text-xs text-muted-foreground">
-                  {ui[locale].priceNote}
-                </p>
 
                 <div className="mt-8 grid grid-cols-3 gap-3">
                   {[

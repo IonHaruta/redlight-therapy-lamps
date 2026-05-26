@@ -41,7 +41,6 @@ const ui = {
     certified: "Certificat",
     phototherapy: "Fototerapie",
     warranty: "Garanție",
-    priceNote: "Preț indicativ — confirmăm la comandă.",
     notFound: "Lampa nu a fost găsită",
     expandPreview: "Deschide în mărime mare",
     expandPreviewHint: "Imagine sau video produs afișată la dimensiune completă.",
@@ -58,7 +57,6 @@ const ui = {
     certified: "Сертификация",
     phototherapy: "Фототерапия",
     warranty: "Гарантия",
-    priceNote: "Цена ориентировочная — уточняем при заказе.",
     notFound: "Панель не найдена",
     expandPreview: "Открыть в полном размере",
     expandPreviewHint: "Изображение или видео товара в увеличенном виде.",
@@ -75,7 +73,6 @@ const ui = {
     certified: "Certified",
     phototherapy: "Phototherapy",
     warranty: "Warranty",
-    priceNote: "Indicative price — confirmed when you order.",
     notFound: "Panel not found",
     expandPreview: "Open full size",
     expandPreviewHint: "Product image or video at full size.",
@@ -1106,7 +1103,6 @@ const LampProductPage = () => {
                     {product.price} {ui[locale].addToCart} →
                   </Button>
                 </div>
-                <p className="mt-2 text-xs text-muted-foreground">{ui[locale].priceNote}</p>
 
                 <div className="mt-8 grid grid-cols-3 gap-3">
                   {[

@@ -20,7 +20,32 @@ export type SiteCopy = {
     viewCart: string;
     checkout: string;
     checkoutHint: string;
+    checkoutEmailAlt: string;
     contactInstead: string;
+    payWithCard: string;
+    payWithCardHint: string;
+    paynetTermsBefore: string;
+    paynetTermsBetween: string;
+    paynetTermsAfter: string;
+    paynetFirstNameLabel: string;
+    paynetLastNameLabel: string;
+    paynetEmailLabel: string;
+    paynetPhoneLabel: string;
+    paynetFirstNamePlaceholder: string;
+    paynetLastNamePlaceholder: string;
+    paynetEmailPlaceholder: string;
+    paynetPhonePlaceholder: string;
+    paynetFieldsRequired: string;
+    paynetBusy: string;
+    paynetErrorGeneric: string;
+    paynetNotConfigured: string;
+    paynetTermsRequired: string;
+  };
+  paynetReturn: {
+    successTitle: string;
+    successBody: string;
+    cancelTitle: string;
+    cancelBody: string;
   };
   homeBanners: Record<"therapy-masks" | "lamps-accessories" | "pat", { subtitle: string }>;
   seeProduct: string;
@@ -135,7 +160,37 @@ export const siteCopy: Record<Locale, SiteCopy> = {
       checkout: "Finalizează comanda",
       checkoutHint:
         "Se deschide aplicația de e-mail cu rezumatul comenzii. Poți edita mesajul înainte de trimitere.",
+      checkoutEmailAlt: "Comandă pe e-mail",
       contactInstead: "Contact direct",
+      payWithCard: "Plătește cu cardul (Paynet)",
+      payWithCardHint:
+        "Ești redirecționat către pagina securizată Paynet. Confirmă comanda numai după ce ai citit documentele legale.",
+      paynetTermsBefore: "Pentru plată online confirm că am citit ",
+      paynetTermsBetween: " și ",
+      paynetTermsAfter: ".",
+      paynetFirstNameLabel: "Prenume",
+      paynetLastNameLabel: "Nume",
+      paynetEmailLabel: "E-mail",
+      paynetPhoneLabel: "Telefon",
+      paynetFirstNamePlaceholder: "Ion",
+      paynetLastNamePlaceholder: "Popescu",
+      paynetEmailPlaceholder: "exemplu@email.com",
+      paynetPhonePlaceholder: "068922229 sau +373 68 922 229",
+      paynetFieldsRequired: "Completează prenumele, numele, e-mailul și telefonul (min. 8 cifre).",
+      paynetBusy: "Se pregătește plata…",
+      paynetErrorGeneric:
+        "Plata nu a putut fi inițiată. Încearcă din nou sau folosește comanda prin e-mail.",
+      paynetNotConfigured:
+        "Plata cu cardul nu e activă pe server: verifică .env (CARD_PAYMENT_ENABLED, credențiale Paynet, parolă), apoi repornește npm run dev.",
+      paynetTermsRequired: "Bifează acceptarea Termenilor și Politicii înainte de plată.",
+    },
+    paynetReturn: {
+      successTitle: "Mulțumim!",
+      successBody:
+        "Plata a fost inițiată sau finalizată prin Paynet. Dacă ai întrebări despre comandă, te rugăm să ne contactezi.",
+      cancelTitle: "Plată anulată",
+      cancelBody:
+        "Ai ieșit din fluxul de plată. Poți reveni în coș sau ne poți scrie pentru comandă manuală.",
     },
     homeBanners: {
       "therapy-masks": {
@@ -260,7 +315,36 @@ export const siteCopy: Record<Locale, SiteCopy> = {
       checkout: "Оформить заказ",
       checkoutHint:
         "Откроется почта с текстом заказа. Вы можете изменить сообщение перед отправкой.",
+      checkoutEmailAlt: "Заказ по e-mail",
       contactInstead: "Связаться с нами",
+      payWithCard: "Оплатить картой (Paynet)",
+      payWithCardHint:
+        "Вы будете перенаправлены на защищённую страницу Paynet. Подтверждайте оплату только после ознакомления с документами.",
+      paynetTermsBefore: "Для онлайн-оплаты подтверждаю, что ознакомился с ",
+      paynetTermsBetween: " и ",
+      paynetTermsAfter: ".",
+      paynetFirstNameLabel: "Имя",
+      paynetLastNameLabel: "Фамилия",
+      paynetEmailLabel: "E-mail",
+      paynetPhoneLabel: "Телефон",
+      paynetFirstNamePlaceholder: "Иван",
+      paynetLastNamePlaceholder: "Иванов",
+      paynetEmailPlaceholder: "primer@email.com",
+      paynetPhonePlaceholder: "Минимум 8 цифр",
+      paynetFieldsRequired: "Заполните имя, фамилию, e-mail и телефон.",
+      paynetBusy: "Подготовка оплаты…",
+      paynetErrorGeneric: "Не удалось начать оплату. Попробуйте снова или оформите заказ по e-mail.",
+      paynetNotConfigured:
+        "Оплата картой не включена на сервере: проверьте .env и перезапустите npm run dev.",
+      paynetTermsRequired: "Отметьте согласие с условиями и политикой конфиденциальности.",
+    },
+    paynetReturn: {
+      successTitle: "Спасибо!",
+      successBody:
+        "Платёж был начат или завершён через Paynet. По вопросам заказа свяжитесь с нами.",
+      cancelTitle: "Оплата отменена",
+      cancelBody:
+        "Вы вышли из процесса оплаты. Можете вернуться в корзину или написать нам для оформления заказа вручную.",
     },
     homeBanners: {
       "therapy-masks": {
@@ -385,7 +469,36 @@ export const siteCopy: Record<Locale, SiteCopy> = {
       checkout: "Checkout",
       checkoutHint:
         "Opens your email app with an order summary. You can edit the message before sending.",
+      checkoutEmailAlt: "Order by email",
       contactInstead: "Contact us",
+      payWithCard: "Pay by card (Paynet)",
+      payWithCardHint:
+        "You will be redirected to Paynet’s secure checkout. Only continue after reading the legal documents.",
+      paynetTermsBefore: "For online payment I confirm that I have read ",
+      paynetTermsBetween: " and ",
+      paynetTermsAfter: ".",
+      paynetFirstNameLabel: "First name",
+      paynetLastNameLabel: "Last name",
+      paynetEmailLabel: "Email",
+      paynetPhoneLabel: "Phone",
+      paynetFirstNamePlaceholder: "Jane",
+      paynetLastNamePlaceholder: "Doe",
+      paynetEmailPlaceholder: "you@example.com",
+      paynetPhonePlaceholder: "At least 8 digits",
+      paynetFieldsRequired: "Fill in first name, last name, email and phone.",
+      paynetBusy: "Preparing payment…",
+      paynetErrorGeneric: "Payment could not be started. Try again or complete your order by email.",
+      paynetNotConfigured:
+        "Card checkout is not enabled on the server: check .env and restart npm run dev.",
+      paynetTermsRequired: "Please accept the terms and privacy policy before paying.",
+    },
+    paynetReturn: {
+      successTitle: "Thank you!",
+      successBody:
+        "Your payment was started or completed via Paynet. If you have questions about your order, please contact us.",
+      cancelTitle: "Payment cancelled",
+      cancelBody:
+        "You left the payment flow. You can return to your cart or email us to place an order manually.",
     },
     homeBanners: {
       "therapy-masks": {

@@ -1,19 +1,14 @@
 import type { Locale } from "@/data/masks";
 import type { CartLine } from "@/context/CartContext";
-import { intlLocaleTag } from "@/i18n/locale-format";
-
-const ORDER_EMAIL = "info@redlighttherapy.md";
+import { formatCartTotal } from "@/i18n/locale-format";
+import { STORE_EMAIL } from "@/lib/contact";
 
 export function orderMailtoHref(
   lines: CartLine[],
   subtotal: number,
   locale: Locale,
 ): string {
-  const money = new Intl.NumberFormat(intlLocaleTag(locale), {
-    style: "currency",
-    currency: "EUR",
-    maximumFractionDigits: 0,
-  }).format(subtotal);
+  const money = formatCartTotal(subtotal, locale);
 
   const subtotalLabel =
     locale === "ro" ? "Subtotal" : locale === "ru" ? "Итого" : "Subtotal";
@@ -30,5 +25,5 @@ export function orderMailtoHref(
 
   const body = `${linesText}\n\n${subtotalLabel}: ${money}`;
 
-  return `mailto:${ORDER_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  return `mailto:${STORE_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }

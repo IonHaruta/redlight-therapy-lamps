@@ -1227,8 +1227,8 @@ export const lampProducts: LampProduct[] = [
   {
     slug: "rdpro3000-fs7",
     name: "RD Pro 3000 FS7",
-    price: "€100",
-    priceValue: 100,
+    price: "49 950 lei",
+    priceValue: 49950,
     topGalleryCount: 7,
     applicationsMediaPath: "lampi/RDPro3000-FS7/RDPro3000-FS7-jos-6.png",
     media: [
@@ -1321,8 +1321,8 @@ export const lampProducts: LampProduct[] = [
   {
     slug: "rdpro300-fs7",
     name: "RD Pro 300 FS7",
-    price: "€100",
-    priceValue: 100,
+    price: "13 650 lei",
+    priceValue: 13650,
     topGalleryCount: 8,
     applicationsMediaPath: "lampi/RDPro300-FS7/RDPro300-FS7-jos-5.png",
     therapyRulesBand: {
@@ -1398,8 +1398,8 @@ export const lampProducts: LampProduct[] = [
   {
     slug: "rdpro1500-fs7",
     name: "RD Pro 1500 FS7",
-    price: "€100",
-    priceValue: 100,
+    price: "32 550 lei",
+    priceValue: 32550,
     topGalleryCount: 7,
     therapyRulesBand: {
       ro: {
@@ -1479,8 +1479,8 @@ export const lampProducts: LampProduct[] = [
   {
     slug: "rdpro6000-fs7",
     name: "RD Pro 6000 FS7",
-    price: "€100",
-    priceValue: 100,
+    price: "99 500 lei",
+    priceValue: 99500,
     topGalleryCount: 6,
     cleanProductPage: true,
     strategicBand: {
