@@ -64,11 +64,6 @@ const FooterSection = () => {
                 alt="Visa"
                 className="h-7 w-auto max-w-[64px] object-contain shrink-0 opacity-90"
               />
-              <img
-                src={`${base}paynet.png`}
-                alt="Paynet"
-                className="h-7 w-auto max-w-[90px] object-contain shrink-0 opacity-90"
-              />
             </div>
           </div>
 

@@ -162,10 +162,10 @@ export const siteCopy: Record<Locale, SiteCopy> = {
         "Se deschide aplicația de e-mail cu rezumatul comenzii. Poți edita mesajul înainte de trimitere.",
       checkoutEmailAlt: "Comandă pe e-mail",
       contactInstead: "Contact direct",
-      payWithCard: "Plătește cu cardul (Paynet)",
+      payWithCard: "Plată online",
       payWithCardHint:
-        "Ești redirecționat către pagina securizată Paynet. Confirmă comanda numai după ce ai citit documentele legale.",
-      paynetTermsBefore: "Pentru plată online confirm că am citit ",
+        "Completează datele de contact și finalizează comanda. Confirmă numai după ce ai citit documentele legale.",
+      paynetTermsBefore: "Confirm că am citit ",
       paynetTermsBetween: " și ",
       paynetTermsAfter: ".",
       paynetFirstNameLabel: "Prenume",
@@ -177,17 +177,15 @@ export const siteCopy: Record<Locale, SiteCopy> = {
       paynetEmailPlaceholder: "exemplu@email.com",
       paynetPhonePlaceholder: "068922229 sau +373 68 922 229",
       paynetFieldsRequired: "Completează prenumele, numele, e-mailul și telefonul (min. 8 cifre).",
-      paynetBusy: "Se pregătește plata…",
-      paynetErrorGeneric:
-        "Plata nu a putut fi inițiată. Încearcă din nou sau folosește comanda prin e-mail.",
-      paynetNotConfigured:
-        "Plata cu cardul nu e activă pe server: verifică .env (CARD_PAYMENT_ENABLED, credențiale Paynet, parolă), apoi repornește npm run dev.",
-      paynetTermsRequired: "Bifează acceptarea Termenilor și Politicii înainte de plată.",
+      paynetBusy: "Se procesează comanda…",
+      paynetErrorGeneric: "Comanda nu a putut fi finalizată. Încearcă din nou.",
+      paynetNotConfigured: "Checkout indisponibil momentan. Încearcă din nou mai târziu.",
+      paynetTermsRequired: "Bifează acceptarea Termenilor și Politicii înainte de a continua.",
     },
     paynetReturn: {
-      successTitle: "Mulțumim!",
+      successTitle: "Plata a fost finalizată!",
       successBody:
-        "Plata a fost inițiată sau finalizată prin Paynet. Dacă ai întrebări despre comandă, te rugăm să ne contactezi.",
+        "Comanda ta a fost înregistrată cu succes. Vei primi confirmarea pe e-mail. Dacă ai întrebări, ne poți contacta oricând.",
       cancelTitle: "Plată anulată",
       cancelBody:
         "Ai ieșit din fluxul de plată. Poți reveni în coș sau ne poți scrie pentru comandă manuală.",
@@ -317,10 +315,10 @@ export const siteCopy: Record<Locale, SiteCopy> = {
         "Откроется почта с текстом заказа. Вы можете изменить сообщение перед отправкой.",
       checkoutEmailAlt: "Заказ по e-mail",
       contactInstead: "Связаться с нами",
-      payWithCard: "Оплатить картой (Paynet)",
+      payWithCard: "Онлайн-оплата",
       payWithCardHint:
-        "Вы будете перенаправлены на защищённую страницу Paynet. Подтверждайте оплату только после ознакомления с документами.",
-      paynetTermsBefore: "Для онлайн-оплаты подтверждаю, что ознакомился с ",
+        "Заполните контактные данные и оформите заказ. Продолжайте только после ознакомления с документами.",
+      paynetTermsBefore: "Подтверждаю, что ознакомился с ",
       paynetTermsBetween: " и ",
       paynetTermsAfter: ".",
       paynetFirstNameLabel: "Имя",
@@ -332,16 +330,15 @@ export const siteCopy: Record<Locale, SiteCopy> = {
       paynetEmailPlaceholder: "primer@email.com",
       paynetPhonePlaceholder: "Минимум 8 цифр",
       paynetFieldsRequired: "Заполните имя, фамилию, e-mail и телефон.",
-      paynetBusy: "Подготовка оплаты…",
-      paynetErrorGeneric: "Не удалось начать оплату. Попробуйте снова или оформите заказ по e-mail.",
-      paynetNotConfigured:
-        "Оплата картой не включена на сервере: проверьте .env и перезапустите npm run dev.",
+      paynetBusy: "Обработка заказа…",
+      paynetErrorGeneric: "Не удалось оформить заказ. Попробуйте снова.",
+      paynetNotConfigured: "Оформление заказа временно недоступно.",
       paynetTermsRequired: "Отметьте согласие с условиями и политикой конфиденциальности.",
     },
     paynetReturn: {
-      successTitle: "Спасибо!",
+      successTitle: "Оплата завершена!",
       successBody:
-        "Платёж был начат или завершён через Paynet. По вопросам заказа свяжитесь с нами.",
+        "Ваш заказ успешно оформлен. Подтверждение будет отправлено на e-mail. По вопросам свяжитесь с нами.",
       cancelTitle: "Оплата отменена",
       cancelBody:
         "Вы вышли из процесса оплаты. Можете вернуться в корзину или написать нам для оформления заказа вручную.",
@@ -471,10 +468,10 @@ export const siteCopy: Record<Locale, SiteCopy> = {
         "Opens your email app with an order summary. You can edit the message before sending.",
       checkoutEmailAlt: "Order by email",
       contactInstead: "Contact us",
-      payWithCard: "Pay by card (Paynet)",
+      payWithCard: "Online payment",
       payWithCardHint:
-        "You will be redirected to Paynet’s secure checkout. Only continue after reading the legal documents.",
-      paynetTermsBefore: "For online payment I confirm that I have read ",
+        "Fill in your contact details and complete your order. Only continue after reading the legal documents.",
+      paynetTermsBefore: "I confirm that I have read ",
       paynetTermsBetween: " and ",
       paynetTermsAfter: ".",
       paynetFirstNameLabel: "First name",
@@ -486,16 +483,15 @@ export const siteCopy: Record<Locale, SiteCopy> = {
       paynetEmailPlaceholder: "you@example.com",
       paynetPhonePlaceholder: "At least 8 digits",
       paynetFieldsRequired: "Fill in first name, last name, email and phone.",
-      paynetBusy: "Preparing payment…",
-      paynetErrorGeneric: "Payment could not be started. Try again or complete your order by email.",
-      paynetNotConfigured:
-        "Card checkout is not enabled on the server: check .env and restart npm run dev.",
-      paynetTermsRequired: "Please accept the terms and privacy policy before paying.",
+      paynetBusy: "Processing order…",
+      paynetErrorGeneric: "Your order could not be completed. Please try again.",
+      paynetNotConfigured: "Checkout is temporarily unavailable.",
+      paynetTermsRequired: "Please accept the terms and privacy policy before continuing.",
     },
     paynetReturn: {
-      successTitle: "Thank you!",
+      successTitle: "Payment completed!",
       successBody:
-        "Your payment was started or completed via Paynet. If you have questions about your order, please contact us.",
+        "Your order was placed successfully. You will receive confirmation by email. Contact us if you have any questions.",
       cancelTitle: "Payment cancelled",
       cancelBody:
         "You left the payment flow. You can return to your cart or email us to place an order manually.",

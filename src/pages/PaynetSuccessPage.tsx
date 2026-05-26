@@ -1,5 +1,5 @@
-import { useEffect, useRef } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
 import { Button } from "@/components/ui/button";
@@ -11,48 +11,10 @@ const PaynetSuccessPage = () => {
   const { locale } = useLocale();
   const { clearCart } = useCart();
   const t = getSiteCopy(locale);
-  const [searchParams] = useSearchParams();
-  const runRef = useRef(false);
 
   useEffect(() => {
-    const invoice = searchParams.get("invoice");
-    if (!invoice || runRef.current) return;
-    runRef.current = true;
-
-    let cancelled = false;
-
-    void (async () => {
-      for (let attempt = 0; attempt < 6 && !cancelled; attempt++) {
-        try {
-          const res = await fetch("/api/paynet/verify-paid", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ invoice }),
-          });
-          const j = (await res.json()) as {
-            ok?: boolean;
-            reason?: string;
-            duplicate?: boolean;
-          };
-          if (j.ok === true || j.duplicate === true) {
-            clearCart();
-            break;
-          }
-          if (j.reason === "not_paid" && attempt < 5) {
-            await new Promise((r) => setTimeout(r, 2500));
-            continue;
-          }
-          break;
-        } catch {
-          break;
-        }
-      }
-    })();
-
-    return () => {
-      cancelled = true;
-    };
-  }, [searchParams, clearCart]);
+    clearCart();
+  }, [clearCart]);
 
   return (
     <div className="min-h-screen bg-background">

@@ -99,7 +99,8 @@ export const maskProducts: MaskProduct[] = [
     name: "F2 Aurora Butterfly Light Therapy Mask",
     price: "6 900 lei",
     priceValue: 6900,
-    topGalleryCount: 9,
+    /** f2-new-1…5 sus; f2-new-6…9 în secțiunile de jos, în ordine. */
+    topGalleryCount: 5,
     media: [
       {
         type: "image",

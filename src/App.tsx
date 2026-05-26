@@ -49,6 +49,7 @@ const App = () => (
           <Route path="/pat/:slug" element={<BedProductPage />} />
           <Route path="/produs/:slug" element={<ProductPage />} />
           <Route path="/cos" element={<CartPage />} />
+          <Route path="/comanda/success" element={<PaynetSuccessPage />} />
           <Route path="/paynet/success" element={<PaynetSuccessPage />} />
           <Route path="/paynet/cancel" element={<PaynetCancelPage />} />
           <Route path="/termeni-si-conditii" element={<TermsPage />} />
