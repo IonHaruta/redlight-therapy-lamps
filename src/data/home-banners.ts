@@ -17,7 +17,7 @@ export const homeProductBanners: HomeProductBanner[] = [
     label: "Therapy Masks",
     subtitle: "Advanced LED Light Therapy Masks",
     youtubeId: "U2JulLyhQ6U",
-    imagePath: "masti/F2 Aurora Butterfly Light Therapy Mask /f2-main-page.jpg",
+    imagePath: "masti/F2 Aurora Butterfly Light Therapy Mask /f2-main-page2.jpg",
     to: "/masti",
   },
   {
