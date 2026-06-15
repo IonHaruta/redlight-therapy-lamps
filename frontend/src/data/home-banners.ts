@@ -7,6 +7,14 @@ export interface HomeProductBanner {
   youtubeId: string;
   videoPath?: string;
   imagePath?: string;
+  /** Implicit: cover. Folosește contain pentru produse pe fundal transparent/negru. */
+  imageFit?: "cover" | "contain";
+  /** Clase Tailwind pentru fundalul cardului (ex. gradient deschis). */
+  cardBackgroundClass?: string;
+  /** Clase Tailwind pentru overlay-ul peste media. */
+  overlayClass?: string;
+  /** Strat decorativ în spatele imaginii (ex. glow). */
+  imageBackdropClass?: string;
   to: To;
 }
 
@@ -33,7 +41,13 @@ export const homeProductBanners: HomeProductBanner[] = [
     label: "Pat",
     subtitle: "Pat pentru terapie cu lumină roșie",
     youtubeId: "YG-svcr1u8c",
-    videoPath: "pat/apex-video.mp4",
+    imagePath: "pat/M7.png",
+    imageFit: "contain",
+    cardBackgroundClass:
+      "bg-gradient-to-br from-neutral-900 via-[#1a1412] to-neutral-950",
+    imageBackdropClass:
+      "bg-[radial-gradient(ellipse_100%_85%_at_50%_40%,rgba(220,38,38,0.35)_0%,rgba(69,10,10,0.2)_45%,transparent_75%)]",
+    overlayClass: "bg-gradient-to-t from-black/85 via-black/45 to-transparent",
     to: "/pat",
   },
 ];

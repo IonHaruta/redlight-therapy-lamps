@@ -30,7 +30,8 @@ const ProductVideosSection = () => {
               <Link
                 to={item.to}
                 className={[
-                  "group relative block w-full max-w-none overflow-hidden bg-neutral-950",
+                  "group relative block w-full max-w-none overflow-hidden",
+                  item.cardBackgroundClass ?? "bg-neutral-950",
                   /* Mobil: feed vertical. Desktop: bandă aproape full-bleed; la xl pătrat = maxim înălțime pe coloană */
                   "aspect-[4/5] md:aspect-[4/3] lg:aspect-[5/4] xl:aspect-square",
                   "rounded-none md:rounded-2xl lg:rounded-3xl",
@@ -44,14 +45,27 @@ const ProductVideosSection = () => {
               >
                 <div className="absolute inset-0 overflow-hidden">
                   {item.imagePath ? (
-                    <img
-                      src={assetUrl(item.imagePath)}
-                      alt={t.homeBanners[item.id as BannerId].subtitle}
-                      className={[
-                        "absolute left-1/2 top-1/2 h-full w-full -translate-x-1/2 -translate-y-1/2 object-cover",
-                        "transition-transform duration-500 ease-out md:group-hover:scale-[1.03]",
-                      ].join(" ")}
-                    />
+                    <>
+                      {item.imageBackdropClass ? (
+                        <div
+                          className={[
+                            "pointer-events-none absolute inset-0",
+                            item.imageBackdropClass,
+                          ].join(" ")}
+                          aria-hidden
+                        />
+                      ) : null}
+                      <img
+                        src={assetUrl(item.imagePath)}
+                        alt={t.homeBanners[item.id as BannerId].subtitle}
+                        className={[
+                          "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform duration-500 ease-out md:group-hover:scale-[1.03]",
+                          item.imageFit === "contain"
+                            ? "h-[94%] w-[94%] object-contain object-center"
+                            : "h-full w-full object-cover",
+                        ].join(" ")}
+                      />
+                    </>
                   ) : item.videoPath ? (
                     <video
                       title={t.homeBanners[item.id as BannerId].subtitle}
@@ -82,7 +96,13 @@ const ProductVideosSection = () => {
                   )}
                 </div>
 
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-black/55 to-black/25 md:via-black/45 md:to-black/15" />
+                <div
+                  className={[
+                    "pointer-events-none absolute inset-0",
+                    item.overlayClass ??
+                      "bg-gradient-to-t from-black via-black/55 to-black/25 md:via-black/45 md:to-black/15",
+                  ].join(" ")}
+                />
                 <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/[0.07] md:rounded-2xl" />
 
                 {item.videoPath ? (
