@@ -1,0 +1,15 @@
+{
+  "name": "redlight-therapy-backend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node paynet-server.mjs",
+    "start": "node paynet-server.mjs"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  }
+}

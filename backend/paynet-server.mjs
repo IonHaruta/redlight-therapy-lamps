@@ -6,6 +6,7 @@ import crypto from "node:crypto";
 import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
+import { createMaibRouter, createMaibCallbackHandler } from "./maib-checkout.mjs";
 
 dotenv.config();
 
@@ -138,17 +139,18 @@ async function sendTelegram(text) {
   }
 }
 
-function formatTelegramOrder(pending) {
+function formatTelegramOrder(pending, provider = "Paynet") {
   const lines =
     pending.linesSummary.length > 1500
       ? `${pending.linesSummary.slice(0, 1490)}…`
       : pending.linesSummary;
+  const currency = provider === "MAIB" ? "MDL" : "EUR";
   return [
-    "✅ Plată Paynet confirmată",
+    `✅ Plată ${provider} confirmată`,
     `Nume: ${pending.lastName} ${pending.firstName}`,
     `E-mail: ${pending.email}`,
     `Telefon: ${pending.phone}`,
-    `Subtotal: ${pending.subtotal} EUR`,
+    `Subtotal: ${pending.subtotal} ${currency}`,
     "— Produse —",
     lines,
   ].join("\n");
@@ -466,9 +468,18 @@ async function notifyHandler(req, res) {
 const app = express();
 app.use(cors({ origin: true }));
 
+const maibDeps = { sendTelegram, formatTelegramOrder };
+
 app.post("/api/paynet/notify", express.raw({ type: "*/*", limit: "512kb" }), notifyHandler);
+app.post(
+  "/api/maib/callback",
+  express.raw({ type: "*/*", limit: "512kb" }),
+  createMaibCallbackHandler(maibDeps),
+);
 
 app.use(express.json({ limit: "256kb" }));
+
+app.use("/api/maib", createMaibRouter(maibDeps));
 
 app.get("/api/paynet/status", (_req, res) => {
   const cfg = loadRuntimeConfig();
@@ -567,7 +578,7 @@ app.post("/api/paynet/register", async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.info(`Paynet API listening on http://127.0.0.1:${PORT}`);
+  console.info(`Backend API listening on http://127.0.0.1:${PORT}`);
 }).on("error", (err) => {
   if (err && "code" in err && err.code === "EADDRINUSE") {
     console.error(

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
 import { Button } from "@/components/ui/button";
@@ -11,10 +11,23 @@ const PaynetSuccessPage = () => {
   const { locale } = useLocale();
   const { clearCart } = useCart();
   const t = getSiteCopy(locale);
+  const [searchParams] = useSearchParams();
 
   useEffect(() => {
     clearCart();
-  }, [clearCart]);
+    const checkoutId =
+      searchParams.get("checkoutId") ||
+      searchParams.get("id") ||
+      sessionStorage.getItem("maib-checkout-id");
+    if (checkoutId) {
+      sessionStorage.removeItem("maib-checkout-id");
+      fetch("/api/maib/verify-paid", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ checkoutId }),
+      }).catch(() => {});
+    }
+  }, [clearCart, searchParams]);
 
   return (
     <div className="min-h-screen bg-background">

@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { toast } from "sonner";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
@@ -12,12 +12,12 @@ import { useCart } from "@/context/CartContext";
 import { useLocale } from "@/context/LocaleContext";
 import { getSiteCopy } from "@/i18n/site";
 import { formatCartTotal } from "@/i18n/locale-format";
+import { redirectToMaibCheckout } from "@/lib/maib-submit";
 
 const CartPage = () => {
-  const navigate = useNavigate();
   const { locale } = useLocale();
   const t = getSiteCopy(locale);
-  const { lines, subtotal, clearCart } = useCart();
+  const { lines, subtotal } = useCart();
   const [checkoutBusy, setCheckoutBusy] = useState(false);
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [customerFirstName, setCustomerFirstName] = useState("");
@@ -39,15 +39,43 @@ const CartPage = () => {
     return true;
   };
 
-  const handleCheckout = () => {
+  const handleCheckout = async () => {
     if (!checkoutFieldsValid()) return;
     if (!termsAccepted) {
       toast.error(t.cart.paynetTermsRequired);
       return;
     }
     setCheckoutBusy(true);
-    clearCart();
-    navigate("/comanda/success");
+    try {
+      const res = await fetch("/api/maib/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          locale,
+          customerFirstName: customerFirstName.trim(),
+          customerLastName: customerLastName.trim(),
+          customerEmail: customerEmail.trim(),
+          customerPhone: customerPhone.trim(),
+          subtotal,
+          lines: lines.map((l) => ({
+            id: l.id,
+            name: l.name,
+            priceValue: l.priceValue,
+            qty: l.qty,
+          })),
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        toast.error(data.error || t.cart.paynetErrorGeneric);
+        return;
+      }
+      redirectToMaibCheckout(data);
+    } catch {
+      toast.error(t.cart.paynetErrorGeneric);
+    } finally {
+      setCheckoutBusy(false);
+    }
   };
 
   return (
