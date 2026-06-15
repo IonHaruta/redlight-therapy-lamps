@@ -1,6 +1,9 @@
 import type { AccessoryProduct } from "./accessories";
 
-export type BedProduct = AccessoryProduct;
+export type BedProduct = AccessoryProduct & {
+  /** Imagine card listare (homepage /pat); galeria produsului poate diferi. */
+  listingImagePath?: string;
+};
 
 export const bedProducts: BedProduct[] = [
   {
@@ -8,8 +11,10 @@ export const bedProducts: BedProduct[] = [
     name: "Pat terapie Apex M7",
     price: "€100",
     priceValue: 100,
+    listingImagePath: "pat/M7.png",
     media: [
       { type: "video", path: "pat/apex-video.mp4", alt: "Pat terapie Apex" },
+      { type: "image", path: "pat/M7.png", alt: "Pat terapie Apex M7" },
       { type: "image", path: "pat/apex-2.jpg", alt: "Pat terapie Apex" },
       { type: "image", path: "pat/apex-3.jpg", alt: "Pat terapie Apex" },
       { type: "image", path: "pat/apex-4.jpg", alt: "Pat terapie Apex" },

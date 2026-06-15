@@ -12,6 +12,14 @@ const base = import.meta.env.BASE_URL;
 const assetUrl = (path: string) =>
   `${base}${path.split("/").map(encodeURIComponent).join("/")}`;
 
+const patCardDisplay = {
+  cardBackgroundClass:
+    "bg-gradient-to-br from-neutral-900 via-[#1a1412] to-neutral-950",
+  imageBackdropClass:
+    "bg-[radial-gradient(ellipse_100%_85%_at_50%_40%,rgba(220,38,38,0.35)_0%,rgba(69,10,10,0.2)_45%,transparent_75%)]",
+  overlayClass: "bg-gradient-to-t from-black/85 via-black/45 to-transparent",
+} as const;
+
 const BedPage = () => {
   const { locale } = useLocale();
   const t = getSiteCopy(locale);
@@ -41,13 +49,23 @@ const BedPage = () => {
         <section className="w-full overflow-x-hidden bg-gradient-to-b from-secondary/30 via-background to-background pb-6 md:pb-24">
           <div className="mx-auto w-full min-w-0 px-0 md:px-5 lg:px-6 xl:px-8">
             <div className="mx-auto flex max-w-md flex-col md:max-w-none md:grid md:grid-cols-3 md:gap-4 lg:gap-5 xl:gap-6">
-              {bedBanners.map((item, idx) => (
+              {bedBanners.map((item, idx) => {
+                const heroPath = item.listingImagePath ?? item.media[0]?.path;
+                const heroType = item.listingImagePath
+                  ? "image"
+                  : item.media[0]?.type ?? "image";
+                const isPatHero = heroPath === "pat/M7.png";
+
+                return (
                 <Fragment key={item.slug}>
                   <Link
                     id={item.slug}
                     to={`/pat/${item.slug}`}
                     className={[
-                      "group relative block w-full max-w-none overflow-hidden bg-neutral-950",
+                      "group relative block w-full max-w-none overflow-hidden",
+                      isPatHero
+                        ? patCardDisplay.cardBackgroundClass
+                        : "bg-neutral-950",
                       "aspect-[4/5] md:aspect-[4/3] lg:aspect-[5/4] xl:aspect-square",
                       "rounded-none md:rounded-2xl lg:rounded-3xl",
                       "max-md:shadow-none md:shadow-lg md:shadow-black/5 md:ring-1 md:ring-black/[0.06]",
@@ -59,7 +77,7 @@ const BedPage = () => {
                     ].join(" ")}
                   >
                     <div className="absolute inset-0 overflow-hidden">
-                      {item.media[0].type === "video" ? (
+                      {heroType === "video" && !item.listingImagePath ? (
                         <video
                           src={assetUrl(item.media[0].path)}
                           className={[
@@ -73,15 +91,38 @@ const BedPage = () => {
                           preload="metadata"
                         />
                       ) : (
-                        <img
-                          src={assetUrl(item.media[0].path)}
-                          alt={item.translations[locale].title}
-                          className="h-full w-full object-cover transition-transform duration-500 ease-out md:group-hover:scale-[1.04]"
-                        />
+                        <>
+                          {isPatHero ? (
+                            <div
+                              className={[
+                                "pointer-events-none absolute inset-0",
+                                patCardDisplay.imageBackdropClass,
+                              ].join(" ")}
+                              aria-hidden
+                            />
+                          ) : null}
+                          <img
+                            src={assetUrl(heroPath)}
+                            alt={item.translations[locale].title}
+                            className={[
+                              "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform duration-500 ease-out md:group-hover:scale-[1.03]",
+                              isPatHero
+                                ? "h-[94%] w-[94%] object-contain object-center"
+                                : "h-full w-full object-cover md:group-hover:scale-[1.04]",
+                            ].join(" ")}
+                          />
+                        </>
                       )}
                     </div>
 
-                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-black/55 to-black/20 md:via-black/45 md:to-black/10" />
+                    <div
+                      className={[
+                        "pointer-events-none absolute inset-0",
+                        isPatHero
+                          ? patCardDisplay.overlayClass
+                          : "bg-gradient-to-t from-black via-black/55 to-black/20 md:via-black/45 md:to-black/10",
+                      ].join(" ")}
+                    />
                     <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/[0.07] md:rounded-2xl lg:rounded-3xl" />
 
                     <div className="pointer-events-none absolute right-4 top-4 opacity-0 transition-all duration-300 translate-y-1 md:group-hover:translate-y-0 md:group-hover:opacity-100">
@@ -114,7 +155,8 @@ const BedPage = () => {
                     </div>
                   ) : null}
                 </Fragment>
-              ))}
+              );
+              })}
             </div>
           </div>
         </section>
