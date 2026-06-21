@@ -5,7 +5,10 @@ export type Locale = "ro" | "ru" | "en";
 
 export interface MaskMedia {
   type: "video" | "image";
+  /** Default path (English / fallback when `paths` is omitted). */
   path: string;
+  /** Locale-specific asset paths; use when images contain translated text. */
+  paths?: Record<Locale, string>;
   alt: string;
 }
 
@@ -101,53 +104,102 @@ export const maskProducts: MaskProduct[] = [
     priceValue: 6900,
     /** f2-new-1…5 sus; f2-new-6…9 în secțiunile de jos, în ordine. */
     topGalleryCount: 5,
-    media: [
-      {
-        type: "image",
-        path: "masti/F2 Aurora Butterfly Light Therapy Mask /f2-new-1.jpg",
-        alt: "F2 Aurora",
-      },
-      {
-        type: "image",
-        path: "masti/F2 Aurora Butterfly Light Therapy Mask /f2-new-2.jpg",
-        alt: "F2 Aurora",
-      },
-      {
-        type: "image",
-        path: "masti/F2 Aurora Butterfly Light Therapy Mask /f2-new-3.jpg",
-        alt: "F2 Aurora",
-      },
-      {
-        type: "image",
-        path: "masti/F2 Aurora Butterfly Light Therapy Mask /f2-new-4.jpg",
-        alt: "F2 Aurora",
-      },
-      {
-        type: "image",
-        path: "masti/F2 Aurora Butterfly Light Therapy Mask /f2-new-5.jpg",
-        alt: "F2 Aurora",
-      },
-      {
-        type: "image",
-        path: "masti/F2 Aurora Butterfly Light Therapy Mask /f2-new-6.jpg",
-        alt: "F2 Aurora",
-      },
-      {
-        type: "image",
-        path: "masti/F2 Aurora Butterfly Light Therapy Mask /f2-new-7.jpg",
-        alt: "F2 Aurora",
-      },
-      {
-        type: "image",
-        path: "masti/F2 Aurora Butterfly Light Therapy Mask /f2-new-8.jpg",
-        alt: "F2 Aurora",
-      },
-      {
-        type: "image",
-        path: "masti/F2 Aurora Butterfly Light Therapy Mask /f2-new-9.jpg",
-        alt: "F2 Aurora",
-      },
-    ],
+    media: (() => {
+      const dir = "masti/F2 Aurora Butterfly Light Therapy Mask /";
+      const same = (file: string) => ({
+        en: `${dir}${file}`,
+        ro: `${dir}${file}`,
+        ru: `${dir}${file}`,
+      });
+      return [
+        {
+          type: "image" as const,
+          path: `${dir}f2-new-1.jpg`,
+          paths: same("f2-new-1.jpg"),
+          alt: "F2 Aurora",
+        },
+        {
+          type: "image" as const,
+          path: `${dir}f2-new-2.jpg`,
+          paths: {
+            en: `${dir}f2-new-2.jpg`,
+            ro: `${dir}f2-new-2-ro.png`,
+            ru: `${dir}f2-new-2-ru.png`,
+          },
+          alt: "F2 Aurora",
+        },
+        {
+          type: "image" as const,
+          path: `${dir}f2-new-3.jpg`,
+          paths: {
+            en: `${dir}f2-new-3.jpg`,
+            ro: `${dir}f2-new-3-ro.png`,
+            ru: `${dir}f2-new-3-ru.png`,
+          },
+          alt: "F2 Aurora",
+        },
+        {
+          type: "image" as const,
+          path: `${dir}f2-new-4-2x2.png`,
+          paths: {
+            en: `${dir}f2-new-4-2x2.png`,
+            ro: `${dir}f2-new-4-2x2-ro.png`,
+            ru: `${dir}f2-new-4-2x2-ru.png`,
+          },
+          alt: "F2 Aurora",
+        },
+        {
+          type: "image" as const,
+          path: `${dir}f2-new-5.jpg`,
+          paths: {
+            en: `${dir}f2-new-5.jpg`,
+            ro: `${dir}f2-new-5-ro.png`,
+            ru: `${dir}f2-new-5-ru.png`,
+          },
+          alt: "F2 Aurora",
+        },
+        {
+          type: "image" as const,
+          path: `${dir}f2-new-6.jpg`,
+          paths: {
+            en: `${dir}f2-new-6.jpg`,
+            ro: `${dir}f2-new-6-ro.png`,
+            ru: `${dir}f2-new-6-ru.png`,
+          },
+          alt: "F2 Aurora",
+        },
+        {
+          type: "image" as const,
+          path: `${dir}f2-new-7.jpg`,
+          paths: {
+            en: `${dir}f2-new-7.jpg`,
+            ro: `${dir}f2-new-7-ro.png`,
+            ru: `${dir}f2-new-7-ru.png`,
+          },
+          alt: "F2 Aurora",
+        },
+        {
+          type: "image" as const,
+          path: `${dir}f2-new-8.jpg`,
+          paths: {
+            en: `${dir}f2-new-8.jpg`,
+            ro: `${dir}f2-new-8-ro.png`,
+            ru: `${dir}f2-new-8-ru.jpg`,
+          },
+          alt: "F2 Aurora",
+        },
+        {
+          type: "image" as const,
+          path: `${dir}f2-new-9.jpg`,
+          paths: {
+            en: `${dir}f2-new-9.jpg`,
+            ro: `${dir}f2-new-9-ro.jpg`,
+            ru: `${dir}f2-new-9-ru.jpg`,
+          },
+          alt: "F2 Aurora",
+        },
+      ];
+    })(),
     to: "/masti/f2-aurora",
     translations: {
       ro: {

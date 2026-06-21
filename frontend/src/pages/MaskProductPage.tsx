@@ -23,7 +23,8 @@ import {
 import { useCart } from "@/context/CartContext";
 import { useLocale } from "@/context/LocaleContext";
 import { getSiteCopy } from "@/i18n/site";
-import { getMaskBySlug, maskProducts, type MaskMedia } from "@/data/masks";
+import { resolveMediaPath } from "@/i18n/media-path";
+import { getMaskBySlug, maskProducts, type Locale, type MaskMedia } from "@/data/masks";
 
 const base = import.meta.env.BASE_URL;
 
@@ -84,11 +85,21 @@ const ui = {
   },
 };
 
-const MediaPreview = ({ media, name }: { media: MaskMedia; name: string }) => {
+const MediaPreview = ({
+  media,
+  name,
+  locale,
+}: {
+  media: MaskMedia;
+  name: string;
+  locale: Locale;
+}) => {
+  const src = resolveMediaPath(media, locale);
+
   if (media.type === "video") {
     return (
       <video
-        src={assetUrl(media.path)}
+        src={assetUrl(src)}
         className="h-full w-full object-cover"
         autoPlay
         muted
@@ -101,7 +112,7 @@ const MediaPreview = ({ media, name }: { media: MaskMedia; name: string }) => {
 
   return (
     <img
-      src={assetUrl(media.path)}
+      src={assetUrl(src)}
       alt={media.alt || name}
       className="h-full w-full object-contain"
     />
@@ -174,6 +185,7 @@ const MaskProductPage = () => {
   const topMedia = product.media.slice(0, topCount);
   const detailMedia = product.media.slice(topCount);
   const currentMedia = topMedia[selectedMediaIndex] || topMedia[0] || product.media[0];
+  const currentMediaPath = resolveMediaPath(currentMedia, locale);
   const catalogLayout = product.slug === "cs-001" || product.slug === "f2-aurora";
 
   let detailPick = 0;
@@ -266,7 +278,7 @@ const MaskProductPage = () => {
             >
               <div className={index % 2 === 1 ? "lg:order-2" : ""}>
                 <div className="aspect-[4/3] overflow-hidden rounded-sm bg-white">
-                  <MediaPreview media={section.media} name={t.title} />
+                  <MediaPreview media={section.media} name={t.title} locale={locale} />
                 </div>
               </div>
               <div className={index % 2 === 1 ? "lg:order-1" : ""}>
@@ -318,7 +330,7 @@ const MaskProductPage = () => {
                     className="group relative aspect-[4/3] w-full cursor-zoom-in overflow-hidden rounded-sm bg-white text-left shadow-sm ring-1 ring-border transition-[box-shadow] hover:ring-primary/35 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                     aria-label={ui[locale].expandPreview}
                   >
-                    <MediaPreview media={currentMedia} name={t.title} />
+                    <MediaPreview media={currentMedia} name={t.title} locale={locale} />
                     <span
                       className="pointer-events-none absolute bottom-3 right-3 flex h-9 w-9 items-center justify-center rounded-sm bg-white/95 text-foreground shadow-sm ring-1 ring-border opacity-90 transition group-hover:opacity-100"
                       aria-hidden
@@ -365,8 +377,8 @@ const MaskProductPage = () => {
                       {currentMedia.type === "video" ? (
                         <video
                           ref={lightboxVideoRef}
-                          key={currentMedia.path}
-                          src={assetUrl(currentMedia.path)}
+                          key={currentMediaPath}
+                          src={assetUrl(currentMediaPath)}
                           className="max-h-[88vh] w-full max-w-full rounded-md object-contain"
                           controls
                           playsInline
@@ -374,8 +386,8 @@ const MaskProductPage = () => {
                         />
                       ) : (
                         <img
-                          key={currentMedia.path}
-                          src={assetUrl(currentMedia.path)}
+                          key={currentMediaPath}
+                          src={assetUrl(currentMediaPath)}
                           alt={currentMedia.alt || t.title}
                           className="max-h-[88vh] w-auto max-w-full object-contain"
                         />
@@ -393,7 +405,7 @@ const MaskProductPage = () => {
                 >
                   {topMedia.map((media, index) => (
                     <button
-                      key={`${media.path}-${index}`}
+                      key={`${resolveMediaPath(media, locale)}-${index}`}
                       type="button"
                       onClick={() => setSelectedMediaIndex(index)}
                       className={`relative aspect-square overflow-hidden rounded-sm border bg-white transition-colors ${
@@ -403,7 +415,7 @@ const MaskProductPage = () => {
                       }`}
                       aria-label={media.alt}
                     >
-                      <MediaPreview media={media} name={t.title} />
+                      <MediaPreview media={media} name={t.title} locale={locale} />
                     </button>
                   ))}
                 </div>
