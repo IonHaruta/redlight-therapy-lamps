@@ -1227,8 +1227,8 @@ export const lampProducts: LampProduct[] = [
   {
     slug: "rdpro3000-fs7",
     name: "RD Pro 3000 FS7",
-    price: "49 950 lei",
-    priceValue: 49950,
+    price: "56 750 lei",
+    priceValue: 56750,
     topGalleryCount: 7,
     applicationsMediaPath: "lampi/RDPro3000-FS7/RDPro3000-FS7-jos-6.png",
     media: [

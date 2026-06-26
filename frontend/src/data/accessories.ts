@@ -77,8 +77,8 @@ export const accessoryProducts: AccessoryProduct[] = [
   {
     slug: "ms",
     name: "RMS",
-    price: "14 900 lei",
-    priceValue: 14900,
+    price: "18 500 lei",
+    priceValue: 18500,
     media: [
       { type: "image", path: "accesorii/MS/ms-1.png", alt: "Red Light Therapy RMS motorizat" },
       { type: "image", path: "accesorii/MS/ms-2.png", alt: "Red Light Therapy RMS motorizat" },
@@ -912,8 +912,8 @@ export const accessoryProducts: AccessoryProduct[] = [
   {
     slug: "xl",
     name: "XL",
-    price: "3 300 lei",
-    priceValue: 3300,
+    price: "4 250 lei",
+    priceValue: 4250,
     media: [
       { type: "image", path: "accesorii/XL/XL-1.jpeg", alt: "XL" },
       { type: "image", path: "accesorii/XL/XL-2.jpg", alt: "XL" },
@@ -1343,8 +1343,8 @@ export const accessoryProducts: AccessoryProduct[] = [
   {
     slug: "gp",
     name: "GP",
-    price: "5 450 lei",
-    priceValue: 5450,
+    price: "8 400 lei",
+    priceValue: 8400,
     media: [
       { type: "image", path: "accesorii/GP/gp-1.png", alt: "GP" },
       { type: "image", path: "accesorii/GP/gp-2.png", alt: "GP" },
@@ -1772,8 +1772,8 @@ export const accessoryProducts: AccessoryProduct[] = [
   {
     slug: "fs",
     name: "FS",
-    price: "1 400 lei",
-    priceValue: 1400,
+    price: "1 765 lei",
+    priceValue: 1765,
     media: [
       { type: "image", path: "accesorii/FS/fs-1.png", alt: "FS" },
       { type: "image", path: "accesorii/FS/fs-2.png", alt: "FS" },

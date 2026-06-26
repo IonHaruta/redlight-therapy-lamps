@@ -100,8 +100,8 @@ export const maskProducts: MaskProduct[] = [
   {
     slug: "f2-aurora",
     name: "F2 Aurora Butterfly Light Therapy Mask",
-    price: "6 900 lei",
-    priceValue: 6900,
+    price: "7 200 lei",
+    priceValue: 7200,
     /** f2-new-1…5 sus; f2-new-6…9 în secțiunile de jos, în ordine. */
     topGalleryCount: 5,
     media: (() => {
@@ -403,8 +403,8 @@ export const maskProducts: MaskProduct[] = [
   {
     slug: "cs-001",
     name: "CS-001 Phototherapy 3D Mask",
-    price: "6 400 lei",
-    priceValue: 6400,
+    price: "7 900 lei",
+    priceValue: 7900,
     /** Video + cs001-1…7 sus; cs001-jos-1…5 doar în secțiunile de jos, în ordine. */
     topGalleryCount: 8,
     media: [
