@@ -12,6 +12,10 @@ export interface LampProduct {
   topGalleryCount: number;
   /** Imagine din `media` pentru banda „aplicații” (pagină clean / default); ex. fișierul jos-6. */
   applicationsMediaPath?: string;
+  /** Imagine din `media` pentru secțiunea „included” după tabelul de specificații. */
+  includedMediaPath?: string;
+  /** Imagine din `media` pentru secțiunea „safety” după tabelul de specificații. */
+  safetyMediaPath?: string;
   /** Imagine din `media` pentru secțiunea beneficii (primul bloc narativ). */
   benefitsMediaPath?: string;
   /** Pe desktop: text stânga, imagine dreapta în secțiunea beneficii. */
@@ -1223,6 +1227,206 @@ const rdpro6000Fs7Copy = {
   },
 };
 
+const t2Alt = "Compact T2 Desktop Red Light Therapy Panel";
+
+const t2Copy: Record<Locale, MaskTranslation> = {
+  ro: {
+    title:
+      "Panou compact T2 Desktop pentru terapie cu lumină roșie — îngrijire țintită a pielii și calmarea durerii",
+    modelShort: "T2",
+    subtitle: "Terapie țintită cu lumină roșie și infraroșu apropiat, pentru acasă sau birou.",
+    description:
+      "Panoul T2 Desktop este un dispozitiv portabil pentru terapie cu lumină roșie, conceput pentru tratamente țintite. Cu tehnologia pe două lungimi de undă, iradianță ridicată și design elegant, T2 oferă terapie de nivel profesional pentru rejuvenarea pielii, calmarea durerii și starea de bine — totul în confortul casei sau al biroului.",
+    featuresTitle: "Prezentare produs",
+    highlights: [
+      "Compact și ușor: Cu dimensiuni de 30×20×2,5 cm și o greutate de 3 kg, T2 este perfect pentru orice birou sau noptieră.",
+      "Portabil: Mută și instalează panoul ușor oriunde ai nevoie.",
+      "Design eficient energetic: Consumă doar 81 W, o opțiune prietenoasă cu mediul.",
+      "Putere impresionantă: Asigură o iradianță de 50 mW/cm² la 15 cm (6 inch), pentru sesiuni rapide și eficiente.",
+    ],
+    benefitsTitle: "",
+    benefits: [],
+    usageTitle: "",
+    usage: [],
+    testimonialsTitle: "",
+    testimonials: [],
+    includedTitle: "Design și control",
+    included: [
+      "Construcție fiabilă: Conceput pentru utilizare zilnică cu materiale durabile.",
+      "Durata de viață de 50.000 de ore: Echipat cu 120 de LED-uri de 1 W, T2 este construit să reziste ani de zile de utilizare constantă.",
+      "Emisie EMF redusă: Asigură o funcționare sigură în timpul fiecărei sesiuni.",
+      "Ușor de utilizat: Interfață intuitivă pentru panoul de control cu butoane și personalizare ușoară a setărilor.",
+    ],
+    applicationsTitle: "Scenarii de utilizare",
+    applications: [
+      "Sănătatea pielii și întinerire: Stimulează producția de colagen pentru a restabili elasticitatea și fermitatea pielii.",
+      "Ameliorarea durerii și reducerea inflamației: Ideal pentru tratamente localizate pe zone mici, cum ar fi gâtul, mâinile sau articulațiile.",
+      "Recuperare musculară și bunăstare: Ameliorează durerea și rigiditatea în zonele care necesită îngrijire suplimentară.",
+      "Wellness portabil oricând, oriunde: Dimensiunile compacte și designul ușor fac ca T2 să fie perfect pentru utilizare acasă, la birou sau chiar în timpul călătoriilor.",
+    ],
+    safetyTitle: "Avantajele mărcii",
+    safety: [
+      "Tehnologie inovatoare: Peste 200 de brevete și certificări globale asigură performanță de ultimă generație.",
+      "Calitate de neegalat: Fabricat conform standardelor ISO13485, garantând precizie și fiabilitate.",
+      "Încredere globală: Înregistrare FDA, certificate CE, FCC și ROHS, cu produse vândute în peste 100 de țări.",
+      "Servicii flexibile: Producție OEM/ODM personalizabilă pentru mărci și companii.",
+      "Lider de piață: Parteneriat cu primele 10 mărci globale de terapie cu lumină.",
+    ],
+    specsTitle: "Specificații și parametri",
+    specsColumnFeature: "Specificație",
+    specsColumnValue: "Detalii",
+    specs: {
+      Model: "T2",
+      "Număr LED-uri": "120",
+      "Cip produs": "Single-chip (personalizabil multi-chip)",
+      "Lungimi de undă": "660 nm : 850 nm sau personalizat",
+      "Testat cu Solar Meter (mW/cm²)": "50 mW/cm², la 6 inch",
+      "Testat cu Spectrometer (mW/cm²)": "28 mW/cm², la 6 inch",
+      Tensiune: "AC 100–240 V",
+      Consum: "81 W",
+      Dimensiuni: "30×20×2.5 cm",
+      "Greutate (netă)": "3 kg",
+      "Clasificare IP": "IP3X",
+      "Emisie EMF": "Neglijabilă",
+      "Durată de viață LED": "50.000 ore",
+      "Opțiuni control": "Panou cu butoane",
+      Certificări: "Înregistrare FDA, FCC, CE, RoHS",
+      Garanție: "1 an",
+      "Mediu de funcționare": "-10°~45°C",
+    },
+  },
+  ru: {
+    title:
+      "Компактная настольная панель T2 для терапии красным светом для целенаправленного ухода за кожей и снятия боли",
+    modelShort: "T2",
+    subtitle: "Целенаправленная терапия красным и ближним инфракрасным светом для дома или офиса.",
+    description:
+      "Настольная панель T2 — это портативное устройство для терапии красным светом, предназначенное для целенаправленного лечения. Благодаря технологии с двумя длинами волн, более высокой интенсивности излучения и элегантному дизайну, T2 обеспечивает терапию профессионального уровня для омоложения кожи, снятия боли и улучшения самочувствия — и все это в комфорте вашего дома или офиса.",
+    featuresTitle: "Обзор продукта",
+    highlights: [
+      "Компактный и легкий: Благодаря размерам 30×20×2,5 см и весу 3 кг, T2 идеально подходит для любого стола или прикроватной тумбочки.",
+      "Портативный: Панель легко перемещать и устанавливать там, где это необходимо.",
+      "Энергоэффективная конструкция: Потребляет всего 81 Вт, что делает его экологичным вариантом.",
+      "Мощный выходной сигнал: Обеспечивает впечатляющую интенсивность излучения 50 мВт/см² на расстоянии 6 дюймов, гарантируя быстрые и эффективные сеансы терапии.",
+    ],
+    benefitsTitle: "",
+    benefits: [],
+    usageTitle: "",
+    usage: [],
+    testimonialsTitle: "",
+    testimonials: [],
+    includedTitle: "Дизайн и управление",
+    included: [
+      "Надежная конструкция: разработан для ежедневного использования с применением прочных материалов.",
+      "Срок службы 50 000 часов: оснащен 120 светодиодами мощностью 1 Вт, T2 рассчитан на долгие годы непрерывной работы.",
+      "Низкий уровень электромагнитного излучения: обеспечивает безопасную работу во время каждого сеанса.",
+      "Простота использования: интуитивно понятный интерфейс панели управления с кнопками и простая настройка параметров.",
+    ],
+    applicationsTitle: "Сценарии применения",
+    applications: [
+      "Здоровье и омоложение кожи: Стимулирует выработку коллагена для восстановления эластичности и упругости кожи.",
+      "Облегчение боли и уменьшение воспаления: Идеально подходит для локального лечения небольших участков, таких как шея, руки или суставы.",
+      "Восстановление и оздоровление мышц: Снимает болезненность и скованность в областях, требующих особого ухода.",
+      "Портативное оздоровление в любое время и в любом месте: Компактный размер и легкий вес делают T2 идеальным для использования дома, в офисе или даже в путешествиях.",
+    ],
+    safetyTitle: "Преимущества бренда",
+    safety: [
+      "Инновационные технологии: Более 200 глобальных патентов и сертификатов гарантируют высочайшую производительность.",
+      "Непревзойденное качество: Производство осуществляется в соответствии со стандартами ISO13485, гарантирующими точность и надежность.",
+      "Глобальное доверие: Регистрация FDA, сертификаты CE, FCC и ROHS, продукция продается более чем в 100 странах.",
+      "Гибкие услуги: Возможность индивидуального OEM/ODM производства для брендов и предприятий.",
+      "Лидер рынка: Партнерство с 10 ведущими мировыми брендами светотерапии.",
+    ],
+    specsTitle: "Технические характеристики и параметры",
+    specsColumnFeature: "Спецификация",
+    specsColumnValue: "Подробные характеристики",
+    specs: {
+      Модель: "T2",
+      "Количество LED": "120",
+      "Чип продукта": "Одночиповый (возможно настраиваемое многочиповое решение)",
+      "Длины волн": "660 нм : 850 нм или пользовательские",
+      "Проверено солнечным измерителем (мВт/см²)": "50 мВт/см², на расстоянии 6 дюймов",
+      "Проверено спектрометром (мВт/см²)": "28 мВт/см², на расстоянии 6 дюймов",
+      "Напряжение переменного тока": "100–240 В",
+      "Потребляемая мощность": "81 Вт",
+      Размеры: "30×20×2,5 см",
+      "Вес (нетто)": "3 кг",
+      "Степень защиты": "IP3X",
+      "Излучение ЭМП": "Незначительное",
+      "Срок службы светодиодов": "50 000 часов",
+      "Варианты управления": "Кнопочная панель",
+      Сертификаты: "Регистрация FDA, FCC, CE, ROHS",
+      Гарантия: "1 год",
+      "Рабочая среда": "-10°~45°C",
+    },
+  },
+  en: {
+    title:
+      "Compact T2 Desktop Red Light Therapy Panel for Targeted Skin Care and Pain Relief",
+    modelShort: "T2",
+    subtitle: "Targeted red and near-infrared therapy for home or office use.",
+    description:
+      "T2 Desktop Panel is a portable red light therapy device designed for targeted treatments. With its dual-wavelength technology, higher irradiance, and sleek design, the T2 provides professional-grade therapy for skin rejuvenation, pain relief, and wellness—all in the comfort of your home or office.",
+    featuresTitle: "Product Overview",
+    highlights: [
+      "Space-Saving and Lightweight: With dimensions of 30×20×2.5 cm and a weight of 3 kg, the T2 is perfect for any desk or bedside table.",
+      "Portable: Easily move and set up the panel wherever you need it.",
+      "Energy-Efficient Design: Consumes only 81 W, making it an eco-friendly option.",
+      "Powerful Output: Provides an impressive irradiance of 50 mW/cm² at 6 inches, ensuring quick and effective therapy sessions.",
+    ],
+    benefitsTitle: "",
+    benefits: [],
+    usageTitle: "",
+    usage: [],
+    testimonialsTitle: "",
+    testimonials: [],
+    includedTitle: "Design & Control",
+    included: [
+      "Reliable Build: Designed for daily use with durable materials.",
+      "50,000-Hour Lifespan: Equipped with 120×1 W LEDs, the T2 is built to last for years of consistent use.",
+      "Low EMF Emission: Ensures safe operation during every session.",
+      "Simple to use: Intuitive interface for button control panel and easy customization of settings.",
+    ],
+    applicationsTitle: "Usage Scenarios",
+    applications: [
+      "Skin Health and Rejuvenation: Stimulate collagen production to restore skin elasticity and firmness.",
+      "Pain Relief and Inflammation Reduction: Ideal for localized treatments on small areas, such as the neck, hands, or joints.",
+      "Muscle Recovery and Wellness: Alleviate soreness and stiffness in areas that need extra care.",
+      "Portable Wellness Anytime, Anywhere: The compact size and lightweight design make the T2 perfect for use at home, in the office, or even while traveling.",
+    ],
+    safetyTitle: "Brand Advantages",
+    safety: [
+      "Innovative Technology: Over 200 global patents and certifications ensure cutting-edge performance.",
+      "Unmatched Quality: Manufactured under ISO13485 standards, guaranteeing precision and reliability.",
+      "Global Trust: FDA registration, CE, FCC, and ROHS certified, with products sold in 100+ countries.",
+      "Flexible Services: Customizable OEM/ODM production for brands and businesses.",
+      "Market Leader: Partnered with top 10 global light therapy brands.",
+    ],
+    specsTitle: "Specifications and Parameters",
+    specsColumnFeature: "Specification",
+    specsColumnValue: "Details",
+    specs: {
+      Model: "T2",
+      LEDs: "120",
+      "Product chip": "Single-chip (customizable multi-chip)",
+      Wavelengths: "660 nm : 850 nm or Custom",
+      "Tested by Solar Meter (mW/cm²)": "50 mW/cm², at 6 inch",
+      "Tested by Spectrometer (mW/cm²)": "28 mW/cm², at 6 inch",
+      Voltage: "AC 100–240 V",
+      "Power Consumption": "81 W",
+      Dimensions: "30×20×2.5 cm",
+      "Weight (Net)": "3 kg",
+      "IP Rating": "IP3X",
+      "EMF Emission": "Negligible",
+      "LED Lifespan": "50,000 hours",
+      "Control Options": "Button Panel",
+      Certifications: "FDA registration, FCC, CE, ROHS",
+      Warranty: "1 Year",
+      "Working Environment": "-10°~45°C",
+    },
+  },
+};
+
 export const lampProducts: LampProduct[] = [
   {
     slug: "rdpro3000-fs7",
@@ -1562,6 +1766,30 @@ export const lampProducts: LampProduct[] = [
       { type: "image", path: "lampi/RDPro6000-FS7/fs7-jos-5.png", alt: "RD Pro 6000 FS7" },
     ],
     translations: rdpro6000Fs7Copy,
+  },
+  {
+    slug: "t2",
+    name: "Compact T2",
+    price: "7 500 lei",
+    priceValue: 7500,
+    topGalleryCount: 8,
+    includedMediaPath: "lampi/T2/t2-jos-1.jpg",
+    applicationsMediaPath: "lampi/T2/t2-jos-2.jpg",
+    safetyMediaPath: "lampi/T2/t2-jos-3.png",
+    media: [
+      { type: "image", path: "lampi/T2/t2-sus-1.webp", alt: t2Alt },
+      { type: "image", path: "lampi/T2/t2-sus-2.webp", alt: t2Alt },
+      { type: "image", path: "lampi/T2/t2-sus-3.webp", alt: t2Alt },
+      { type: "image", path: "lampi/T2/t2-sus-4.webp", alt: t2Alt },
+      { type: "image", path: "lampi/T2/t2-sus-5.webp", alt: t2Alt },
+      { type: "image", path: "lampi/T2/t2-sus-6.webp", alt: t2Alt },
+      { type: "image", path: "lampi/T2/t2-sus-7.webp", alt: t2Alt },
+      { type: "image", path: "lampi/T2/t2-sus-8.webp", alt: t2Alt },
+      { type: "image", path: "lampi/T2/t2-jos-1.jpg", alt: t2Alt },
+      { type: "image", path: "lampi/T2/t2-jos-2.jpg", alt: t2Alt },
+      { type: "image", path: "lampi/T2/t2-jos-3.png", alt: t2Alt },
+    ],
+    translations: t2Copy,
   },
 ];
 

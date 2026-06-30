@@ -291,14 +291,19 @@ const LampProductPage = () => {
     ...(t.usageQuote ? { quoteBlock: true } : {}),
     ...(product.usageMediaOnRight !== undefined ? { mediaOnRight: product.usageMediaOnRight } : {}),
   };
-  const defaultBeforeSpecs: ContentSection[] = [benefitsSection(resolveBenefitsMedia(nextDefault))];
+  const defaultBeforeSpecs: ContentSection[] = [];
+  if (t.benefits.length) {
+    defaultBeforeSpecs.push(benefitsSection(resolveBenefitsMedia(nextDefault)));
+  }
   if (t.engineering?.length && t.engineeringTitle) {
-    defaultBeforeSpecs.push({
-      title: t.usageTitle,
-      bullets: t.usage,
-      media: resolveUsageMedia(nextDefault),
-      ...usageSectionFields,
-    });
+    if (t.usage.length) {
+      defaultBeforeSpecs.push({
+        title: t.usageTitle,
+        bullets: t.usage,
+        media: resolveUsageMedia(nextDefault),
+        ...usageSectionFields,
+      });
+    }
     defaultBeforeSpecs.push({
       title: t.engineeringTitle,
       bullets: t.engineering,
@@ -316,12 +321,14 @@ const LampProductPage = () => {
         ...testimonialSectionFields,
       });
     }
-    defaultBeforeSpecs.push({
-      title: t.usageTitle,
-      bullets: t.usage,
-      media: resolveUsageMedia(nextDefault),
-      ...usageSectionFields,
-    });
+    if (t.usage.length) {
+      defaultBeforeSpecs.push({
+        title: t.usageTitle,
+        bullets: t.usage,
+        media: resolveUsageMedia(nextDefault),
+        ...usageSectionFields,
+      });
+    }
   }
 
   if (t.metrics?.length && t.metricsTitle) {
@@ -364,17 +371,21 @@ const LampProductPage = () => {
     ? defaultAfterSpecsPostTable
     : defaultAfterSpecs;
   if (t.included?.length && t.includedTitle) {
+    const includedMedia = (() => {
+      if (product.includedMediaPath) {
+        const found = product.media.find((m) => m.path === product.includedMediaPath);
+        if (found) {
+          nextDefault();
+          return found;
+        }
+      }
+      return nextDefault();
+    })();
     defaultAfterSpecs.push({
       title: t.includedTitle,
       bullets: t.included,
-      media: nextDefault(),
-    });
-  }
-  if (t.safety?.length && t.safetyTitle) {
-    defaultAfterSpecs.push({
-      title: t.safetyTitle,
-      bullets: t.safety,
-      media: nextDefault(),
+      media: includedMedia,
+      colonBullets: true,
     });
   }
   if (t.applications?.length && t.applicationsTitle) {
@@ -394,6 +405,24 @@ const LampProductPage = () => {
       media: applicationsMedia,
       ...(t.applicationsLead ? { sectionLead: t.applicationsLead } : {}),
       ...(t.applicationsIntro ? { intro: t.applicationsIntro } : {}),
+      colonBullets: true,
+    });
+  }
+  if (t.safety?.length && t.safetyTitle) {
+    const safetyMedia = (() => {
+      if (product.safetyMediaPath) {
+        const found = product.media.find((m) => m.path === product.safetyMediaPath);
+        if (found) {
+          nextDefault();
+          return found;
+        }
+      }
+      return nextDefault();
+    })();
+    defaultAfterSpecs.push({
+      title: t.safetyTitle,
+      bullets: t.safety,
+      media: safetyMedia,
       colonBullets: true,
     });
   }
@@ -1171,7 +1200,10 @@ const LampProductPage = () => {
 
         {catalogLayout ? (
           <>
-            {!(clean && product.strategicBand) ? (
+            {!(clean && product.strategicBand) &&
+            (clean
+              ? cleanNarrativeBeforeSpecs.length > 0
+              : defaultBeforeLead.length + defaultBeforeTail.length > 0) ? (
               <section
                 className={
                   clean ? "bg-white pb-12 pt-8 md:pb-16 md:pt-12" : "pb-10 pt-6 md:pb-14 md:pt-10"
