@@ -405,6 +405,10 @@ const LampProductPage = () => {
       media: applicationsMedia,
       ...(t.applicationsLead ? { sectionLead: t.applicationsLead } : {}),
       ...(t.applicationsIntro ? { intro: t.applicationsIntro } : {}),
+      ...(t.applicationsListHeading ? { listHeading: t.applicationsListHeading } : {}),
+      ...(product.applicationsMediaOnRight !== undefined
+        ? { mediaOnRight: product.applicationsMediaOnRight }
+        : {}),
       colonBullets: true,
     });
   }
@@ -519,6 +523,27 @@ const LampProductPage = () => {
     t.safety?.length && t.safetyTitle
       ? { title: t.safetyTitle, bullets: t.safety, media: nextClean() }
       : null;
+
+  const afterApplicationsDetailSections: ContentSection[] =
+    !clean && t.afterApplicationsDetailSection
+      ? (() => {
+          const section = t.afterApplicationsDetailSection;
+          if (!section) return [];
+          const media = product.media.find((m) => m.path === section.mediaPath);
+          if (!media) return [];
+          return [
+            {
+              title: section.title,
+              bullets: section.bullets,
+              media,
+              intro: section.intro,
+              ...(section.listHeading ? { listHeading: section.listHeading } : {}),
+              colonBullets: true,
+              ...(section.mediaOnRight !== undefined ? { mediaOnRight: section.mediaOnRight } : {}),
+            },
+          ];
+        })()
+      : [];
 
   const afterSpecsDetailSections: ContentSection[] =
     clean &&
@@ -838,6 +863,47 @@ const LampProductPage = () => {
       </div>
     </section>
   );
+
+  const renderLifestyleBand = () => {
+    const band = product.lifestyleBand?.[locale];
+    if (!band?.items?.length) return null;
+
+    const items = band.items
+      .map((item) => ({
+        ...item,
+        media: product.media.find((media) => media.path === item.mediaPath),
+      }))
+      .filter((item): item is typeof item & { media: MaskMedia } => Boolean(item.media));
+
+    if (!items.length) return null;
+
+    return (
+      <section className="border-t border-border/80 bg-[#f4f4f4] py-14 md:py-20">
+        <div className="container mx-auto max-w-7xl px-4">
+          <h2 className="mx-auto max-w-5xl text-center font-display text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl">
+            {band.headline}
+          </h2>
+          <div className="mt-10 grid gap-6 md:mt-12 md:grid-cols-2 md:gap-8">
+            {items.map((item) => (
+              <div
+                key={`${item.mediaPath}-${item.caption}`}
+                className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/[0.06]"
+              >
+                <div className="aspect-[4/3] w-full overflow-hidden bg-white">
+                  <MediaPreview media={item.media} name={t.title} variant={mpVariant} />
+                </div>
+                <div className="px-6 py-6 md:px-7">
+                  <p className="font-display text-lg font-bold leading-snug text-foreground md:text-[1.75rem]">
+                    {item.caption}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  };
 
   const renderSafetyBandClean = (section: ContentSection) => (
     <section className="border-t border-neutral-100 bg-white py-14 md:py-20">
@@ -1239,8 +1305,10 @@ const LampProductPage = () => {
               </>
             ) : (
               <>
+                {product.lifestyleBand ? renderLifestyleBand() : null}
+                {product.therapyRulesBeforeLead && therapyBandLocale ? renderTherapyRulesBand() : null}
                 {renderContentSections(defaultBeforeLead, "pt-0")}
-                {therapyBandLocale ? renderTherapyRulesBand() : null}
+                {!product.therapyRulesBeforeLead && therapyBandLocale ? renderTherapyRulesBand() : null}
                 {defaultBeforeTail.length
                   ? renderContentSections(defaultBeforeTail, "pt-8 md:pt-12")
                   : null}
@@ -1253,6 +1321,9 @@ const LampProductPage = () => {
                     {defaultAfterSpecsPostTable.length
                       ? renderContentSections(defaultAfterSpecsPostTable, "pt-8")
                       : null}
+                    {afterApplicationsDetailSections.length
+                      ? renderContentSections(afterApplicationsDetailSections, "pt-8 md:pt-12")
+                      : null}
                   </>
                 ) : (
                   <>
@@ -1262,6 +1333,9 @@ const LampProductPage = () => {
                       : null}
                     {defaultAfterSpecsPostTable.length
                       ? renderContentSections(defaultAfterSpecsPostTable, "pt-8")
+                      : null}
+                    {afterApplicationsDetailSections.length
+                      ? renderContentSections(afterApplicationsDetailSections, "pt-8 md:pt-12")
                       : null}
                   </>
                 )}

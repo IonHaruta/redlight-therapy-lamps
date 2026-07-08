@@ -59,6 +59,17 @@ export interface MaskTranslation {
   testimonialsQuote?: boolean;
   /** Listă „Etichetă: valoare” cu disc (ex. specificații pentru comitet de planificare). */
   testimonialsColonBullets?: boolean;
+  /** Subtitlu/bandă accent pentru secțiunea aplicații de după tabel. */
+  applicationsListHeading?: string;
+  /** Secțiune suplimentară după cea de aplicații, utilă pentru un al doilea bloc cu imagine și text. */
+  afterApplicationsDetailSection?: {
+    title: string;
+    intro: string;
+    listHeading?: string;
+    bullets: string[];
+    mediaPath: string;
+    mediaOnRight?: boolean;
+  };
   /** Utilizare sigură, întreținere, service (opțional). */
   safetyTitle?: string;
   safety?: string[];

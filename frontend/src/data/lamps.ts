@@ -2,6 +2,7 @@ import type { Locale, MaskMedia, MaskTranslation } from "./masks";
 import { triLocale } from "@/i18n/tri-locale";
 
 export type StrategicCard = { title: string; body: string };
+export type ImageShowcaseItem = { mediaPath: string; caption: string };
 
 export interface LampProduct {
   slug: string;
@@ -49,10 +50,17 @@ export interface LampProduct {
     Locale,
     { headline: string; subheadline?: string; cards: StrategicCard[] }
   >;
+  /** Bandă cu imagini și caption sub hero, pentru scenarii de utilizare / lifestyle. */
+  lifestyleBand?: Record<Locale, { headline: string; items: ImageShowcaseItem[] }>;
+  /** Dacă e true, banda cu 3 carduri apare înainte de prima secțiune narativă. */
+  therapyRulesBeforeLead?: boolean;
   /** Tabel specificații după blocurile narative din coadă (`defaultAfterSpecs`), ex. după imaginea jos-4. */
   specsAfterDetailSections?: boolean;
   /** Secțiunea „aplicații” după tabelul de specificații (ex. control / jos-5), păstrând restul în `defaultAfterSpecs` înainte de tabel. */
   applicationsAfterSpecsTable?: boolean;
+  /** Pe desktop: text stânga, imagine dreapta pentru secțiunea „aplicații” după tabel. */
+  applicationsMediaOnRight?: boolean;
+  /** Secțiune suplimentară după cea de aplicații, utilă pentru un al doilea bloc cu imagine și text. */
 }
 
 const tCommon = (
@@ -163,6 +171,270 @@ const tCommon = (
 });
 
 const rdpro300Fs7T = tCommon("RD Pro 300 FS7", "RD 300", "RD Pro 300 FS7", "RD 300");
+
+const rdpro750Fs7Copy: Record<Locale, MaskTranslation> = {
+  ro: {
+    title: "Panou RDPRO750-FS7: Putere clinică într-un nou format",
+    modelShort: "RD 750",
+    subtitle: "RDPRO750-FS7: panou Pro-Series mediu, 7 lungimi de undă și control complet prin aplicație.",
+    description:
+      "Vă prezentăm RDPRO750-FS7. Toate caracteristicile avansate ale unui panou clinic profesional - 7 lungimi de undă, o sursă de alimentare cu două cipuri și control complet prin aplicație - sunt incluse într-o dimensiune versatilă, perfectă pentru acasă sau în cabinet.",
+    highlights: [
+      "Tehnologie completă Pro-Series: un spectru complet de 7 lungimi de undă (480–1060 nm).",
+      "Design versatil de dimensiuni medii: oferă un tratament puternic și țintit pentru întregul corp.",
+      "Înregistrat FDA, certificat CE și RoHS: siguranță fără compromisuri și certificare profesională.",
+    ],
+    featuresTitle: "Caracteristici/Beneficii cheie",
+    benefitsTitle: "Nu vă mulțumiți cu produse de calitate superioară.",
+    benefits: [
+      "Intensitatea maximă a fasciculului: 114 mW/cm² la 6 inci.",
+      "Certificări: FDA, FCC, înregistrare CE, conform RoHS.",
+      "Garanție: Garanție completă de 3 ani.",
+      "Pro-Stand Ready: Complet compatibil cu suporturile noastre opționale de podea.",
+    ],
+    usageTitle: "Potrivit pentru acasă sau cabinet",
+    usage: [],
+    applicationsTitle: "Stăpânește spectrul: O abordare personalizată a tratamentului",
+    applicationsLead:
+      "De la suprafața pielii până la straturile cele mai profunde: lungimea de undă potrivită pentru fiecare nevoie.",
+    applicationsIntro:
+      "RDPRO 750-FS oferă practicienilor și utilizatorilor un control fără precedent. Fiecare dintre cele 7 lungimi de undă terapeutice poate fi ajustată individual de la 0 la 100% luminozitate, permițând crearea unor protocoale de tratament extrem de precise și personalizate.",
+    applicationsListHeading: "Defalcarea lungimii de undă:",
+    applicationsMediaPath: "lampi/RDPro750/pro750-jos-5.jpg",
+    applicationsMediaOnRight: true,
+    applicationsAfterSpecsTable: true,
+    applications: [
+      "480 nm (Albastru): Curăță și calmează pielea cu lumină albastră țintită.",
+      "630–660 nm (Roșu): Stimulează producția de colagen și restabilește tinerețea și vitalitatea cu lumină roșie.",
+      "810–850 nm (Infraroșu apropiat): Calmează mușchii și articulațiile cu lumină infraroșie apropiată.",
+      "1060 nm (Infraroșu apropiat): Atinge țesuturile adânci pentru un efect terapeutic maxim cu cea mai avansată lumină infraroșie a noastră.",
+    ],
+    afterApplicationsDetailSection: {
+      title: "Sisteme de control inteligente și versatile",
+      intro: "Control nestingherit la îndemână",
+      listHeading: "Gestionați cu ușurință toate aspectele terapiei dvs.:",
+      bullets: [
+        "Ecran tactil încorporat: Interfață intuitivă pentru o configurare simplă.",
+        "Telecomandă wireless: Telecomandă convenabilă.",
+        "Aplicație mobilă dedicată: Oferă acces la opțiuni avansate de programare, vă permite să salvați protocoale personalizate și să gestionați mai multe dispozitive (ideal pentru clinici).",
+      ],
+      mediaPath: "lampi/RDPro750/pro750-jos-6.png",
+      mediaOnRight: true,
+    },
+    testimonialsQuote: true,
+    testimonialsTitle: "Încredere acordată consumatorilor profesioniști și sportivilor.",
+    testimonials: [
+      "„Aveam nevoie de echipament pe care l-am văzut în cabinetul kinetoterapeutului meu. RDPRO750-FS7 este exact ceea ce aveam nevoie. Puterea este incredibilă și folosesc aplicația pentru a urma protocoale specifice de recuperare după antrenamente. Acum este o parte integrantă a rutinei mele.”",
+    ],
+    detailHeading: "Detalii și imagini",
+    specsIntroTitle: "Specificații",
+    specsTitle: "Specificații caracteristice",
+    specsColumnFeature: "Caracteristică",
+    specsColumnValue: "Specificație",
+    specs: {
+      "Număr model": "RDPRO750-FS7",
+      "LED-uri (buc.)": "150",
+      "Lungimi de undă": "480:630:660:810:830:850:1060 nm (setări personalizate acceptate)",
+      LED: "LED cu un singur cip / cu două cipuri",
+      "Mod inteligent": "Da",
+      "Tensiune/Alimentare de intrare": "AC 100-240V",
+      "Consum de energie": "215W±5%",
+      "Unghi fascicul": "30°",
+      Dimensiuni: "473*230*65 mm",
+      "Greutate netă (kg)": "5,9",
+      "Intensitate radiantă (mW/cm²)": "114, la 6 inci",
+      "Ventilatoare de răcire": "2",
+      "Durata de viață a LED-ului (ore)": "50.000",
+      "Radiații EMF": "- Neglijabile",
+      "Garanție (ani)": "3",
+      Temporizator: "1-30 min",
+      "Impuls (doar infraroșu apropiat)": "0-9999Hz",
+      "Regulator de intensitate luminoasă": "0%-100%",
+      Comenzi: "Ecran tactil + Telecomandă + Aplicație",
+      "Mediu de operare": "9,4°~45°",
+      PowerShell: "SPCC",
+      Certificare: "Înregistrat FDA/FCC/CE/ROHS",
+      "Dimensiuni ambalaj (cm)": "72*42*16",
+      "Greutate brută (kg)": "11,00",
+      Accesorii:
+        "1. Lampă de terapie LED, 2. Protecție pentru ochi, 3. Cârlig pentru ușă, 4. Telecomandă, 5. Elemente de agățare, 6. Cablu de alimentare, 7. Cablu de conectare, 8. Ansamblu cablu și cleme",
+    },
+  },
+  ru: {
+    title: "Панель RDPRO750-FS7: клиническая мощность в новом форм-факторе",
+    modelShort: "RD 750",
+    subtitle: "RDPRO750-FS7: средняя панель Pro-Series, 7 длин волн и полное управление через приложение.",
+    description:
+      "Представляем RDPRO750-FS7. Все передовые функции профессиональной клинической панели — 7 длин волн, двухчиповый источник питания и полное управление через приложение — воплощены в универсальном размере, идеально подходящем для дома или практики.",
+    highlights: [
+      "Полная технология Pro-Series: полный спектр из 7 длин волн (480–1060 нм).",
+      "Универсальная конструкция среднего размера: обеспечивает мощное, целенаправленное воздействие на весь организм.",
+      "Регистрация FDA, сертификаты CE и RoHS: бескомпромиссная безопасность и профессиональная сертификация.",
+    ],
+    featuresTitle: "Основные характеристики/преимущества",
+    benefitsTitle: "Не соглашайтесь на товары потребительского класса.",
+    benefits: [
+      "Максимальная интенсивность излучения: 114 мВт/см² на расстоянии 6 дюймов.",
+      "Сертификаты: регистрация в FDA, FCC, CE, соответствие требованиям RoHS.",
+      "Гарантия: 3-летняя комплексная гарантия.",
+      "Pro-Stand Ready: Полностью совместим с нашими дополнительными напольными подставками.",
+    ],
+    usageTitle: "Для дома или практики",
+    usage: [],
+    applicationsTitle: "Освойте Все Грани Спектра: Индивидуальный Подход К Лечению",
+    applicationsLead:
+      "От поверхности кожи до глубоких слоев: правильная длина волны для любых потребностей.",
+    applicationsIntro:
+      "Аппарат RDPRO 750-FS предоставляет практикующим врачам и пользователям беспрецедентный контроль. Каждая из 7 терапевтических длин волн может быть индивидуально отрегулирована от 0 до 100% яркости, что позволяет создавать высокоточные и настраиваемые протоколы лечения.",
+    applicationsListHeading: "Разбор длин волн:",
+    applicationsMediaPath: "lampi/RDPro750/pro750-jos-5.jpg",
+    applicationsMediaOnRight: true,
+    applicationsAfterSpecsTable: true,
+    applications: [
+      "480 нм (синий): Очищает и успокаивает кожу с помощью направленного синего света.",
+      "630–660 нм (красный): Стимулирует выработку коллагена и восстанавливает молодость и жизненную силу с помощью красного света.",
+      "810–850 нм (ближний инфракрасный диапазон): успокаивает мышцы и суставы с помощью ближнего инфракрасного света.",
+      "1060 нм (ближний инфракрасный диапазон): Достигайте глубоких тканей для максимального терапевтического эффекта с помощью нашего самого современного инфракрасного излучения.",
+    ],
+    afterApplicationsDetailSection: {
+      title: "Интеллектуальные И Универсальные Системы Управления",
+      intro: "Беспрепятственный контроль у вас под рукой",
+      listHeading: "Управляйте всеми аспектами терапии с легкостью:",
+      bullets: [
+        "Встроенный сенсорный экран: интуитивно понятный интерфейс для непосредственной настройки.",
+        "Беспроводной пульт дистанционного управления: удобное управление на расстоянии.",
+        "Специальное мобильное приложение: открывает доступ к расширенным возможностям программирования, позволяет сохранять пользовательские протоколы и управлять несколькими устройствами (идеально подходит для клиник).",
+      ],
+      mediaPath: "lampi/RDPro750/pro750-jos-6.png",
+      mediaOnRight: true,
+    },
+    testimonialsQuote: true,
+    testimonialsTitle: "Пользуется доверием профессиональных потребителей и спортсменов.",
+    testimonials: [
+      "«Мне нужна была техника, которую я видела в кабинете своего физиотерапевта. RDPRO750-FS7 — это именно то, что мне нужно. Мощность невероятная, и я использую приложение для выполнения специальных протоколов восстановления после тренировок. Теперь это неотъемлемая часть моей рутины».",
+    ],
+    detailHeading: "Детали и изображения",
+    specsIntroTitle: "Технические Характеристики",
+    specsTitle: "Особенность",
+    specsColumnFeature: "Особенность",
+    specsColumnValue: "Спецификация",
+    specs: {
+      "Номер модели.": "RDPRO750-FS7",
+      "Светодиоды (шт.)": "150",
+      "Длины волн": "480:630:660:810:830:850:1060 нм (поддержка пользовательских настроек)",
+      LED: "Однокристальный / Двухкристальный",
+      "Интеллектуальный режим": "Да",
+      "Напряжение/Входная мощность": "AC 100-240V",
+      "Потребление электроэнергии": "215W±5%",
+      BeamAngle: "30°",
+      "Размеры": "473*230*65 мм",
+      "N.W(KG)": "5.9",
+      "Интенсивность излучения (мВт/см²)": "114, на 6 дюймах",
+      "Вентиляторы охлаждения": "2",
+      "Срок службы светодиодов (часы)": "50,000",
+      "Излучение ЭМП": "-Незначительный",
+      "Гарантия (лет)": "3",
+      "Таймер": "1-30 мин",
+      "Импульсный (только ближний инфракрасный)": "0-9999 Гц",
+      "Диммер": "0%-100%",
+      "Элементы управления": "Сенсорный экран + Пульт дистанционного управления + Приложение",
+      "Рабочая среда": "9.4°~45°",
+      PowerShell: "SPCC",
+      "Сертификация": "Регистрация в FDA/FCC/CE/ROHS",
+      "Размер упаковки (см)": "72*42*16",
+      "G.W(KG)": "11.00",
+      "Аксессуары":
+        "1. Светодиодный терапевтический светильник, 2. Защита глаз, 3. Дверной крючок, 4. Пульт дистанционного управления, 5. Крепежные элементы для подвешивания, 6. Кабель питания, 7. Соединительный кабель, 8. Кабельная сборка и защелки",
+    },
+  },
+  en: {
+    title: "RDPRO750-FS7 Panel: Clinical Power in a New Form Factor",
+    modelShort: "RD 750",
+    subtitle: "RDPRO750-FS7: mid-size Pro-Series panel with 7 wavelengths and full app control.",
+    description:
+      "Introducing the RDPRO750-FS7. All the advanced features of a professional clinical panel—7 wavelengths, a dual-chip power supply, and full app control—are packaged in a versatile size, perfect for home or practice.",
+    highlights: [
+      "Full Pro-Series technology: a full spectrum of 7 wavelengths (480–1060 nm).",
+      "Versatile mid-size design: delivers powerful, targeted treatment to the entire body.",
+      "FDA registered, CE, and RoHS certified: uncompromising safety and professional certification.",
+    ],
+    featuresTitle: "Key Features/Benefits",
+    benefitsTitle: "Don't settle for consumer-grade products.",
+    benefits: [
+      "Maximum beam intensity: 114 mW/cm² at 6 inches.",
+      "Certifications: FDA, FCC, CE registered, RoHS compliant.",
+      "Warranty: 3-year comprehensive warranty.",
+      "Pro-Stand Ready: Fully compatible with our optional floor stands.",
+    ],
+    usageTitle: "Built for home or practice",
+    usage: [],
+    applicationsTitle: "Master the Spectrum: A Personalized Treatment Approach",
+    applicationsLead:
+      "From the skin's surface to its deepest layers: the right wavelength for every need.",
+    applicationsIntro:
+      "The RDPRO 750-FS gives practitioners and users unprecedented control. Each of the 7 therapeutic wavelengths can be individually adjusted from 0 to 100% brightness, allowing for the creation of highly precise and customized treatment protocols.",
+    applicationsListHeading: "Wavelength Breakdown:",
+    applicationsMediaPath: "lampi/RDPro750/pro750-jos-5.jpg",
+    applicationsMediaOnRight: true,
+    applicationsAfterSpecsTable: true,
+    applications: [
+      "480 nm (Blue): Cleanses and soothes skin with targeted blue light.",
+      "630–660 nm (Red): Stimulates collagen production and restores youthfulness and vitality with red light.",
+      "810–850 nm (Near Infrared): Soothes muscles and joints with near infrared light.",
+      "1060nm (Near Infrared): Reach deep tissue for maximum therapeutic effect with our most advanced infrared light.",
+    ],
+    afterApplicationsDetailSection: {
+      title: "Intelligent and Versatile Control Systems",
+      intro: "Unhindered control at your fingertips",
+      listHeading: "Manage all aspects of your therapy with ease:",
+      bullets: [
+        "Built-in touchscreen: Intuitive interface for straightforward setup.",
+        "Wireless remote control: Convenient remote control.",
+        "Dedicated mobile app: Provides access to advanced programming options, allows you to save custom protocols, and manage multiple devices (ideal for clinics).",
+      ],
+      mediaPath: "lampi/RDPro750/pro750-jos-6.png",
+      mediaOnRight: true,
+    },
+    testimonialsQuote: true,
+    testimonialsTitle: "Trusted by professional consumers and athletes.",
+    testimonials: [
+      "\"I needed equipment that I saw in my physical therapist's office. The RDPRO750-FS7 is exactly what I needed. The power is incredible, and I use the app to follow specific recovery protocols after workouts. It's now an integral part of my routine.\"",
+    ],
+    detailHeading: "Details and imagery",
+    specsIntroTitle: "Specifications",
+    specsTitle: "Feature Specification",
+    specsColumnFeature: "Feature",
+    specsColumnValue: "Specification",
+    specs: {
+      "Model number": "RDPRO750-FS7",
+      "LEDs (pcs.)": "150",
+      Wavelengths: "480:630:660:810:830:850:1060 nm (custom settings supported)",
+      LED: "Single-chip / Dual-chip",
+      "Smart Mode": "Yes",
+      "Voltage/Input Power": "AC 100-240V",
+      "Power Consumption": "215W±5%",
+      BeamAngle: "30°",
+      Dimensions: "473*230*65 mm",
+      "N.W(KG)": "5.9",
+      "Radiant Intensity (mW/cm²)": "114, at 6 inches",
+      "Cooling Fans": "2",
+      "LED Lifespan (hours)": "50,000",
+      "EMF Radiation": "- Negligible",
+      Warranty: "3",
+      Timer: "1-30 min",
+      "Pulse (only Near Infrared)": "0-9999Hz",
+      Dimmer: "0%-100%",
+      Controls: "Touch screen + Remote control + App",
+      "Operating Environment": "9.4°~45°",
+      PowerShell: "SPCC",
+      Certification: "FDA/FCC/CE/ROHS registered",
+      "Packaging size (cm)": "72*42*16",
+      "G.W(KG)": "11.00",
+      Accessories:
+        "1. LED therapy light, 2. Eye protection, 3. Door hook, 4. Remote control, 5. Hanging hardware, 6. Power cable, 7. Connection cable, 8. Cable assembly and clips",
+    },
+  },
+};
 
 const rdpro300Fs7Copy = {
   ro: {
@@ -1598,6 +1870,131 @@ export const lampProducts: LampProduct[] = [
       { type: "image", path: "lampi/RDPro300-FS7/RDPro300-FS7-jos-5.png", alt: "RD Pro 300 FS7" },
     ],
     translations: rdpro300Fs7Copy,
+  },
+  {
+    slug: "rdpro750-fs7",
+    name: "RD Pro 750 FS7",
+    price: "23 950 lei",
+    priceValue: 23950,
+    topGalleryCount: 8,
+    therapyRulesBeforeLead: true,
+    benefitsMediaPath: "lampi/RDPro750/pro750-jos-3.jpg",
+    benefitsMediaOnRight: false,
+    testimonialsMediaPath: "lampi/RDPro750/pro750-jos-4.jpg",
+    testimonialsMediaOnRight: true,
+    usageMediaPath: "lampi/RDPro750/pro750-jos-5.jpg",
+    applicationsMediaPath: "lampi/RDPro750/pro750-jos-5.jpg",
+    lifestyleBand: {
+      ro: {
+        headline: "Alegerea profesionistului, perfectă pentru tine.",
+        items: [
+          {
+            mediaPath: "lampi/RDPro750/pro750-jos-1.jpg",
+            caption: "O femeie care meditează în fața unui aparat de fototerapie.",
+          },
+          {
+            mediaPath: "lampi/RDPro750/pro750-jos-2.jpg",
+            caption: "Un bărbat care meditează în fața unui aparat de fototerapie.",
+          },
+        ],
+      },
+      ru: {
+        headline: "Выбор Профессионалов, Идеально Подходящий Именно Вам.",
+        items: [
+          {
+            mediaPath: "lampi/RDPro750/pro750-jos-1.jpg",
+            caption: "Женщина Медитирует Перед Аппаратом Для Фототерапии.",
+          },
+          {
+            mediaPath: "lampi/RDPro750/pro750-jos-2.jpg",
+            caption: "Мужчина Медитирует Перед Аппаратом Для Фототерапии.",
+          },
+        ],
+      },
+      en: {
+        headline: "The Professional's Choice, Perfect for You.",
+        items: [
+          {
+            mediaPath: "lampi/RDPro750/pro750-jos-1.jpg",
+            caption: "A Woman Meditating in Front of a Phototherapy Machine.",
+          },
+          {
+            mediaPath: "lampi/RDPro750/pro750-jos-2.jpg",
+            caption: "A Man Meditating in Front of a Phototherapy Machine.",
+          },
+        ],
+      },
+    },
+    therapyRulesBand: {
+      ro: {
+        headline: "Control complet – Nu un „extra opțional”.",
+        cards: [
+          {
+            title: "7 lungimi de undă",
+            body: "De la lumină albastră cu o lungime de undă de 480 nm pentru piele până la infraroșu cu o lungime de undă de 1060 nm pentru țesutul profund – alegeți exact spectrul de care aveți nevoie.",
+          },
+          {
+            title: "Control inteligent prin aplicație (actualizare)",
+            body: "Folosind smartphone-ul, puteți controla cu precizie timpul, intensitatea și ritmul cardiac în timpul antrenamentului.",
+          },
+          {
+            title: "Sursă de alimentare cu cip dual",
+            body: "Simțiți diferența cu lumina perfect echilibrată de la 150 de LED-uri cu cip dual de înaltă densitate.",
+          },
+        ],
+      },
+      ru: {
+        headline: "Полный Контроль — Это Не «Дополнительная Опция».",
+        cards: [
+          {
+            title: "7 Длин Волн",
+            body: "От синего света с длиной волны 480 нм для кожи до инфракрасного излучения с длиной волны 1060 нм для глубоких тканей — выберите именно тот спектр, который вам нужен.",
+          },
+          {
+            title: "Управление Через Приложение Smart App (Обновление)",
+            body: "С помощью смартфона вы можете точно контролировать время, интенсивность и частоту пульса во время тренировки.",
+          },
+          {
+            title: "Двухчиповое Питание",
+            body: "Почувствуйте разницу благодаря идеально сбалансированному свету от 150 высокоплотных двухчиповых светодиодов.",
+          },
+        ],
+      },
+      en: {
+        headline: "Complete Control – Not an “Optional Extra.”",
+        cards: [
+          {
+            title: "7 Wavelengths",
+            body: "From blue light with a wavelength of 480 nm for skin to infrared with a wavelength of 1060 nm for deep tissue – choose the exact spectrum you need.",
+          },
+          {
+            title: "Smart App Control (Update)",
+            body: "Using your smartphone, you can precisely control the time, intensity, and heart rate during your workout.",
+          },
+          {
+            title: "Dual-Chip Power Supply",
+            body: "Feel the difference with perfectly balanced light from 150 high-density dual-chip LEDs.",
+          },
+        ],
+      },
+    },
+    media: [
+      { type: "image", path: "lampi/RDPro750/pro750-sus-1.png", alt: "RD Pro 750 FS7" },
+      { type: "image", path: "lampi/RDPro750/pro750-sus-2.png", alt: "RD Pro 750 FS7" },
+      { type: "image", path: "lampi/RDPro750/pro750-sus-3.png", alt: "RD Pro 750 FS7" },
+      { type: "image", path: "lampi/RDPro750/pro750-sus-4.png", alt: "RD Pro 750 FS7" },
+      { type: "image", path: "lampi/RDPro750/pro750-sus-5.png", alt: "RD Pro 750 FS7" },
+      { type: "image", path: "lampi/RDPro750/pro750-sus-6.png", alt: "RD Pro 750 FS7" },
+      { type: "image", path: "lampi/RDPro750/pro750-sus-7.png", alt: "RD Pro 750 FS7" },
+      { type: "image", path: "lampi/RDPro750/pro750-sus-8.png", alt: "RD Pro 750 FS7" },
+      { type: "image", path: "lampi/RDPro750/pro750-jos-1.jpg", alt: "RD Pro 750 FS7" },
+      { type: "image", path: "lampi/RDPro750/pro750-jos-2.jpg", alt: "RD Pro 750 FS7" },
+      { type: "image", path: "lampi/RDPro750/pro750-jos-3.jpg", alt: "RD Pro 750 FS7" },
+      { type: "image", path: "lampi/RDPro750/pro750-jos-4.jpg", alt: "RD Pro 750 FS7" },
+      { type: "image", path: "lampi/RDPro750/pro750-jos-5.jpg", alt: "RD Pro 750 FS7" },
+      { type: "image", path: "lampi/RDPro750/pro750-jos-6.png", alt: "RD Pro 750 FS7" },
+    ],
+    translations: rdpro750Fs7Copy,
   },
   {
     slug: "rdpro1500-fs7",
