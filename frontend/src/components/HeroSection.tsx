@@ -1,7 +1,7 @@
 import { useLocale } from "@/context/LocaleContext";
 import { getSiteCopy } from "@/i18n/site";
 
-const HERO_VIDEO_PATH = "main-video/redlight-video1.mov";
+const HERO_IMAGE_PATH = "main-video/main-photo.jpg";
 
 const base = import.meta.env.BASE_URL;
 const assetUrl = (path: string) =>
@@ -13,16 +13,12 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-[85vh] flex items-center overflow-hidden pt-16">
-      {/* Video Background */}
+      {/* Hero background */}
       <div className="absolute inset-0 overflow-hidden">
-        <video
-          src={assetUrl(HERO_VIDEO_PATH)}
-          className="absolute inset-0 h-full w-full object-cover scale-[1.06] pointer-events-none bg-black"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
+        <img
+          src={assetUrl(HERO_IMAGE_PATH)}
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover scale-[1.02] pointer-events-none bg-black"
         />
         <div className="absolute inset-0 bg-black/50" />
       </div>
