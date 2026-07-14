@@ -100,6 +100,7 @@ export interface MaskProduct {
   name: string;
   price: string;
   priceValue: number;
+  certificationsBadge: string;
   media: MaskMedia[];
   /** Câte fișiere din `media` fac parte din galeria mare de sus (inclusiv video). Restul sunt pentru secțiunile de jos. */
   topGalleryCount?: number;
@@ -111,8 +112,9 @@ export const maskProducts: MaskProduct[] = [
   {
     slug: "f2-aurora",
     name: "F2 Aurora Butterfly Light Therapy Mask",
-    price: "7 200 lei",
-    priceValue: 7200,
+    price: "7 900 lei",
+    priceValue: 7900,
+    certificationsBadge: "CE, FCC, ROHS",
     /** f2-new-1…5 sus; f2-new-6…9 în secțiunile de jos, în ordine. */
     topGalleryCount: 5,
     media: (() => {
@@ -414,8 +416,9 @@ export const maskProducts: MaskProduct[] = [
   {
     slug: "cs-001",
     name: "CS-001 Phototherapy 3D Mask",
-    price: "7 900 lei",
-    priceValue: 7900,
+    price: "7 200 lei",
+    priceValue: 7200,
+    certificationsBadge: "CE, FCC, ROHS",
     /** Video + cs001-1…7 sus; cs001-jos-1…5 doar în secțiunile de jos, în ordine. */
     topGalleryCount: 8,
     media: [
@@ -652,6 +655,7 @@ export const maskProducts: MaskProduct[] = [
     name: "RD7 Wrap-around light therapy mask for face and neck",
     price: "2 950 lei",
     priceValue: 2950,
+    certificationsBadge: "FDA registration, CE, FCC, ROHS",
     media: [
       { type: "image", path: "masti/RD7/rd7-1.jpeg", alt: "RD7 mask" },
       { type: "image", path: "masti/RD7/rd7-2.png", alt: "RD7 front" },
@@ -718,7 +722,7 @@ export const maskProducts: MaskProduct[] = [
           Greutate: "0.6 kg",
           "Durată de viață": "50.000 de ore",
           "Cel mai potrivit pentru": "Tratamente pentru gât și față",
-          Certificări: "FDA, CE, FCC, ROHS",
+          Certificări: "FDA registration, CE, FCC, ROHS",
           Garanție: "1 an",
           "Mediu de lucru": "-10°~45°C",
         },
@@ -775,7 +779,7 @@ export const maskProducts: MaskProduct[] = [
           Масса: "0,6 кг",
           "Срок службы светодиодов": "50 000 часов",
           "Лучше всего подходит для": "Процедуры для шеи и лица",
-          Сертификаты: "FDA, CE, FCC, ROHS",
+          Сертификаты: "FDA registration, CE, FCC, ROHS",
           Гарантия: "1 год",
           "Рабочая среда": "-10°~45°C",
         },
@@ -833,7 +837,7 @@ export const maskProducts: MaskProduct[] = [
           Weight: "0.6 kg",
           "LED lifespan": "50,000 hours",
           "Best for": "Neck and facial treatments",
-          Certifications: "FDA, CE, FCC, ROHS",
+          Certifications: "FDA registration, CE, FCC, ROHS",
           Warranty: "1 year",
           "Working environment": "-10°~45°C",
         },

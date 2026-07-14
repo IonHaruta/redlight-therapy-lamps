@@ -1099,6 +1099,10 @@ const LampProductPage = () => {
                   </p>
                 ) : null}
 
+                <p className="mt-4 inline-flex whitespace-nowrap rounded-full bg-primary px-5 py-2.5 font-display text-sm font-bold text-primary-foreground shadow-sm md:text-base">
+                  {product.price}
+                </p>
+
                 <p
                   className={
                     clean
@@ -1195,7 +1199,7 @@ const LampProductPage = () => {
                       toast.success(site.cart.added);
                     }}
                   >
-                    {product.price} {ui[locale].addToCart} →
+                    {ui[locale].addToCart} →
                   </Button>
                 </div>
 

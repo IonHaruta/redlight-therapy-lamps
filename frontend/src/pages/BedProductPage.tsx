@@ -181,6 +181,10 @@ const BedProductPage = () => {
                   <p className="mt-3 font-display text-xl text-primary">{t.subtitle}</p>
                 ) : null}
 
+                <p className="mt-4 inline-flex whitespace-nowrap rounded-full bg-primary px-5 py-2.5 font-display text-sm font-bold text-primary-foreground shadow-sm md:text-base">
+                  {product.price}
+                </p>
+
                 <p className="mt-6 whitespace-pre-line leading-relaxed text-muted-foreground">
                   {t.description}
                 </p>
@@ -266,7 +270,7 @@ const BedProductPage = () => {
                       toast.success(site.cart.added);
                     }}
                   >
-                    {product.price} {ui[locale].addToCart} →
+                    {ui[locale].addToCart} →
                   </Button>
                 </div>
               </div>

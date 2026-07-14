@@ -432,6 +432,10 @@ const MaskProductPage = () => {
                   {t.subtitle}
                 </p>
 
+                <p className="mt-4 inline-flex whitespace-nowrap rounded-full bg-primary px-5 py-2.5 font-display text-sm font-bold text-primary-foreground shadow-sm md:text-base">
+                  {product.price}
+                </p>
+
                 <p className="mt-6 leading-relaxed text-muted-foreground">
                   {t.description}
                 </p>
@@ -507,13 +511,13 @@ const MaskProductPage = () => {
                       toast.success(site.cart.added);
                     }}
                   >
-                    {product.price} {ui[locale].addToCart} →
+                    {ui[locale].addToCart} →
                   </Button>
                 </div>
 
                 <div className="mt-8 grid grid-cols-3 gap-3">
                   {[
-                    { icon: Award, label: "CE / FCC", sub: ui[locale].certified },
+                    { icon: Award, label: product.certificationsBadge, sub: ui[locale].certified },
                     { icon: Zap, label: "LED", sub: ui[locale].phototherapy },
                     { icon: ShieldCheck, label: site.maskProduct.certYear, sub: ui[locale].warranty },
                   ].map((cert) => (
